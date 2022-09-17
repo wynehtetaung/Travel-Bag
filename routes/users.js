@@ -8,12 +8,12 @@ router.get("/", function (req, res, next) {
 
 //normal users sign up
 router.get("/nsignup", function (req, res) {
-  res.render("users/normalUsers/nuserLogin");
+  res.render("users/normalUsers/nuserSignUp");
 });
 
 // normal users login
 router.get("/nlogin", function (req, res) {
-  res.render("users/normalUsers/nuserlogin");
+  res.render("users/normalUsers/nuserLogin");
 });
 
 // agent sign up
