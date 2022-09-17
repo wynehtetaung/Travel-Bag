@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <style>
+      .second {
+        quotes: "“" "”";
+        position: relative;
+        padding-left: 40px;
+      }
+
+      .second:before {
+        content: open-quote;
+        font-size: 4rem;
+        color: green;
+        position: absolute;
+        top: -20px;
+        left: 60px;
+        font-family: Georgia, serif;
+      }
+      .second::after {
+        content: close-quote;
+        font-size: 4rem;
+        color: green;
+        position: absolute;
+        bottom: -38px;
+        right: 915px;
+        font-family: Georgia, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <pre class="second">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+      velit voluptatem, error deleniti perferendis consectetur provident
+      mollitia nam reprehenderit optio quis, sapiente quo rem iste itaque
+      laborum perspiciatis sit eos.
+    </pre>
+
+    <a href="/users/nlogin">Login</a>
+    <a href="/users/nsignup">Sign Up</a>
+  </body>
+</html>
