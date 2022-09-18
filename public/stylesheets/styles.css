@@ -808,7 +808,7 @@ input[type="checkbox"] {
 /*********************/
 .header {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
-    url("/img/bkg.jpg") center center no-repeat;
+    url("/images/background.jpg") center center no-repeat;
   background-size: cover;
 }
 
