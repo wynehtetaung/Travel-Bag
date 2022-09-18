@@ -26,4 +26,9 @@ router.get("/about", function (req, res) {
   res.render("about");
 });
 
+// 404 not found
+router.get("/page_not_found", function (req, res) {
+  res.render("fof");
+});
+
 module.exports = router;
