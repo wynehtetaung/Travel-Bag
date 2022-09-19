@@ -15,9 +15,9 @@ router.get("/nsignup", function (req, res) {
 //normal users sign up data
 router.post("/nsignup", function (req, res) {
   var user = new User();
-  user.names = req.body.namea;
-  user.emails = req.body.emaila;
-  user.passwords = req.body.passworda;
+  user.normalName = req.body.normalName;
+  user.normalEmail = req.body.normalEmail;
+  user.normalPassword = req.body.normalPassword;
   user.save(function (err, rtn) {
     if (err) throw err;
     console.log(rtn);
