@@ -26,6 +26,11 @@ router.get("/about", function (req, res) {
   res.render("about");
 });
 
+// DeshBoard
+router.get("/dashboard", function (req, res) {
+  res.render("dashboard");
+});
+
 // 404 not found
 router.get("/page_not_found", function (req, res) {
   res.render("fof");
