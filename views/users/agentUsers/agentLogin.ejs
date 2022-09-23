@@ -8,27 +8,34 @@
     <link href="../stylesheets/bootstrap.css" rel="stylesheet" />
 
     <style>
-      .gradient-custom-2 {
-        /* fallback for old browsers */
-        background: #fccb90;
-
-        /* Chrome 10-25, Safari 5.1-6 */
+      .bta333 {
+        background-color: #fff;
+      }
+      .bta2233 {
+        background: #02aab0; /* fallback for old browsers */
         background: -webkit-linear-gradient(
-          to right,
-          #ee7724,
-          #d8363a,
-          #dd3675,
-          #b44593
-        );
-
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          to bottom,
+          #00cdac,
+          #02aab0
+        ); /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(
-          to right,
-          #ee7724,
-          #d8363a,
-          #dd3675,
-          #b44593
-        );
+          to bottom,
+          #00cdac,
+          #02aab0
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+      .bta1122 {
+        background: #00cdac; /* fallback for old browsers */
+        border: #00cdac;
+      }
+
+      .bta3344 {
+        margin-left: 4px;
+        color: #00cdac;
+      }
+
+      .bta3344 {
+        margin-right: 4px;
       }
 
       @media (min-width: 768px) {
@@ -46,8 +53,8 @@
     <title>Agent Login</title>
   </head>
   <body>
-    <section class="h-100 gradient-form" style="background-color: #eee">
-      <div class="container py-5 h-100">
+    <section class="h-100 gradient-form" style="background-color: #fff">
+      <div class="container py-5 h-100 bta333">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-xl-10">
             <div class="card rounded-3 text-black">
@@ -74,7 +81,7 @@
                           type="text"
                           id="form2Example11"
                           class="form-control"
-                          placeholder="email address"
+                          placeholder="name"
                         />
                       </div>
 
@@ -98,12 +105,13 @@
                           type="password"
                           id="form2Example22"
                           class="form-control"
+                          placeholder="password"
                         />
                       </div>
 
                       <div class="text-center pt-1 mb-5 pb-1">
                         <button
-                          class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                          class="btn btn-dark bta1122 btn-block fa-lg gradient-custom-2 mb-3"
                           type="button"
                         >
                           Log in
@@ -114,9 +122,12 @@
                       <div
                         class="d-flex align-items-center justify-content-center pb-4"
                       >
-                        <p class="mb-0 me-2">Don't have an account?</p>
+                        <p class="mb-0 me-2 bta3434">Don't have an account?</p>
                         <a href="/users/agentSignup">
-                          <button type="button" class="btn btn-outline-danger">
+                          <button
+                            type="button"
+                            class="btn btn-outline-success bta3344"
+                          >
                             Create new
                           </button>
                         </a>
@@ -124,9 +135,7 @@
                     </form>
                   </div>
                 </div>
-                <div
-                  class="col-lg-6 d-flex align-items-center gradient-custom-2"
-                >
+                <div class="col-lg-6 d-flex align-items-center bta2233">
                   <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                     <h4 class="mb-4">We are more than just a company</h4>
                     <p class="small mb-0">

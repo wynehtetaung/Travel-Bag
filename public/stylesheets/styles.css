@@ -1786,7 +1786,7 @@ a.back-to-top {
   width: 2.625rem;
   height: 2.625rem;
   border-radius: 1.875rem;
-  background: #14bf98 url("../images/up-arrow.png") no-repeat center 47%;
+  background: #14bf98 url("/images/up-arrow.png") no-repeat center 47%;
   background-size: 1.125rem 1.125rem;
   text-indent: -9999px;
 }
@@ -2419,6 +2419,11 @@ a:hover.back-to-top {
     padding-right: 12rem;
     padding-left: 12rem;
   }
-  /* end of navigation */
+
+  /* normaluserLogin
+  .bta1212 {
+    background-color: #14bf98; */
 }
+/* end of navigation */
+
 /* end of min-width width 1200px */
