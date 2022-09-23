@@ -63,48 +63,50 @@
                       <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
                     </div>
 
-                    <form>
+                    <form action="/users/agentLogin" method="post">
                       <p>Please login to your account</p>
 
-                      <div class="form-outline mb-4">
+                      <!-- <div class="form-outline mb-4">
                         <label class="form-label" for="form2Example11"
                           >Name</label
                         >
                         <input
                           type="text"
-                          id="form2Example11"
+                          id="agentName"
+                          name="agentName"
                           class="form-control"
                           placeholder="email address"
                         />
-                      </div>
+                      </div> -->
 
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="form2Example11"
-                          >Email</label
-                        >
+                        <label class="form-label" for="agentEmail">Email</label>
                         <input
                           type="email"
-                          id="form2Example11"
+                          id="agentEmail"
+                          name="agentEmail"
                           class="form-control"
-                          placeholder="email address"
+                          placeholder="Email address"
                         />
                       </div>
 
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="form2Example22"
+                        <label class="form-label" for="agentPassword"
                           >Password</label
                         >
                         <input
                           type="password"
-                          id="form2Example22"
+                          id="agentPassword"
+                          name="agentPassword"
                           class="form-control"
+                          placeholder="Password"
                         />
                       </div>
 
                       <div class="text-center pt-1 mb-5 pb-1">
                         <button
                           class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                          type="button"
+                          type="submit"
                         >
                           Log in
                         </button>

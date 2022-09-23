@@ -2,32 +2,6 @@
 <html>
   <head>
     <title>Traver Bag</title>
-    <style>
-      .second {
-        quotes: "“" "”";
-        position: relative;
-        padding-left: 40px;
-      }
-
-      .second:before {
-        content: open-quote;
-        font-size: 4rem;
-        color: green;
-        position: absolute;
-        top: -20px;
-        left: 60px;
-        font-family: Georgia, serif;
-      }
-      .second::after {
-        content: close-quote;
-        font-size: 4rem;
-        color: green;
-        position: absolute;
-        bottom: -38px;
-        right: 915px;
-        font-family: Georgia, serif;
-      }
-    </style>
 
     <!-- style  -->
 
@@ -55,63 +29,8 @@
         <div class="bounce3"></div>
       </div>
     </div>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-      <!-- Text Logo - Use this if you don't have a graphic logo -->
-      <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Aria</a> -->
-
-      <!-- Image Logo -->
-      <a class="navbar-brand logo-image" href="index.html"
-        ><img src="images/logo.svg" alt="alternative"
-      /></a>
-
-      <!-- Mobile Menu Toggle Button -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExampleDefault"
-        aria-controls="navbarsExampleDefault"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-awesome fas fa-bars"></span>
-        <span class="navbar-toggler-awesome fas fa-times"></span>
-      </button>
-      <!-- end of mobile menu toggle button -->
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="#header"
-              >ပင်မ <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="/about">အကြောင်းအရာ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="#services">ဆက်သွယ်ရန်</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="#callMe">ခရီးသွားလမ်းညွှန်</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="#projects">ခရီးစဥ်များ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="#projects">ရှာဖွေရန်</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="/users/nlogin"
-              >အကောင့်ဝင်ရန်</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- end of navbar -->
+    <% include ./partials/navbar %>
+    <!-- this is nav  -->
 
     <!-- Header -->
     <header id="header" class="header">

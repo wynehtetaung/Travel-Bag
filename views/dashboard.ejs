@@ -1,12 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DashBoard</title>
+    <title>Dashboard</title>
+
+    <!-- style  -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
+    <link href="/stylesheets/fontawesome-all.css" rel="stylesheet" />
+    <link href="/stylesheets/swiper.css" rel="stylesheet" />
+    <link href="/stylesheets/magnific-popup.css" rel="stylesheet" />
+    <link href="/stylesheets/styles.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>This is DeshBoard</h1>
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+    <!-- this is nav bar -->
+    <% include ./partials/navbar %>
+    <!-- this is nav  -->
+
+    <!-- Header -->
+    <header id="header" class="header">
+      <div class="header-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-container">
+                <h1>
+                  TRAVEL BAG နှင့် အတူ
+                  <span id="js-rotating"
+                    >ဘုရားဖူးခရီးစဥ်များ, အပန်းဖြေခရီးများ, လေ့လာရေးခရီးများ,
+                    မိသားစုခရီးစဥ်များ </span
+                  ><span>ကို</span>
+                </h1>
+                <br />
+                <p class="p-heading p-large font">
+                  လူကြီးမင်းတို့အနေဖြင့် စိတ်ချယုံကြည်စွာ သွားရောက်လည်ပတ်ရင်း
+                  ပျော်ရွှင်စရာ အမှတ်တရလေးတွေကို ဖန်တီးနိုင်ပါပြီ...
+                  <b>TRAVEL BAG</b> မှတစ်ဆင့် သွားရောက်လည်ပတ်နိုင်သော
+                  ခရီးစဥ်များကို အသေးစိတ် ပိုမိုလေ့လာလိုပါက
+                  အောက်တွင်ဖော်ပြထားသော <b>(အကောင့်ပြုလုပ်ရန်)</b> ခလုတ်လေးကို
+                  နှိပ်၍ <b>TRAVEL BAG</b> အကောင့်ပြုလုပ်ပြီး ဝင်ရောက်
+                  လေ့လာနိုင်ပါသည်။
+                </p>
+                <!-- <a class="btn-solid-lg page-scroll" href="/users/nsignup"
+                  >အကောင့်ပြုလုပ်ရန်</a
+                > -->
+                <div>
+                  <h1>welcome <%= user.name %></h1>
+                </div>
+              </div>
+            </div>
+            <!-- end of col -->
+          </div>
+          <!-- end of row -->
+        </div>
+        <!-- end of container -->
+      </div>
+      <!-- end of header-content -->
+    </header>
+    <!-- end of header -->
+
+    <!-- Scripts -->
+    <script src="/javascripts/jquery.min.js"></script>
+    <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="/javascripts/popper.min.js"></script>
+    <!-- Popper tooltip library for Bootstrap -->
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <!-- Bootstrap framework -->
+    <script src="/javascripts/jquery.easing.min.js"></script>
+    <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="/javascripts/swiper.min.js"></script>
+    <!-- Swiper for image and text sliders -->
+    <script src="/javascripts/jquery.magnific-popup.js"></script>
+    <!-- Magnific Popup for lightboxes -->
+    <script src="/javascripts/morphext.min.js"></script>
+    <!-- Morphtext rotating text in the header -->
+    <script src="/javascripts/isotope.pkgd.min.js"></script>
+    <!-- Isotope for filter -->
+    <script src="/javascripts/validator.min.js"></script>
+    <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="/javascripts/scripts.js"></script>
+    <!-- Custom scripts -->
   </body>
 </html>

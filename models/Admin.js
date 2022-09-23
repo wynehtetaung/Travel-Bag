@@ -3,34 +3,34 @@ var Schema = mongoose.Schema;
 var bcrypt = require("bcryptjs");
 
 var UserSchema = new Schema({
-  normalName: {
+  adminName: {
     type: String,
     required: true,
   },
-  normalEmail: {
+  adminEmail: {
     type: String,
     required: true,
     unique: true,
   },
-  normalPassword: {
+  adminPassword: {
     type: String,
     required: true,
   },
-  normalemailToken: {
+  adminemailToken: {
     type: String,
   },
-  normalisVerified: {
+  adminisVerified: {
     type: Boolean,
   },
-  normalDate: {
+  adminDate: {
     type: Date,
     default: Date.now(),
   },
 });
 
 UserSchema.pre("save", function (next) {
-  this.normalPassword = bcrypt.hashSync(
-    this.normalPassword,
+  this.adminPassword = bcrypt.hashSync(
+    this.adminPassword,
     bcrypt.genSaltSync(8),
     null
   );
@@ -41,4 +41,4 @@ UserSchema.statics.compare = function (cleartext, encrypted) {
   return bcrypt.compareSync(cleartext, encrypted);
 };
 
-module.exports = mongoose.model("NUsers", UserSchema);
+module.exports = mongoose.model("admin", UserSchema);
