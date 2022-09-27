@@ -101,6 +101,11 @@ router.get("/dashboard", userAuth, function (req, res) {
   res.render("dashboard");
 });
 
+// choice account
+router.get("/acc", function (req, res) {
+  res.render("choiceAcc");
+});
+
 // 404 not found
 router.get("/page_not_found", function (req, res) {
   res.render("fof");
