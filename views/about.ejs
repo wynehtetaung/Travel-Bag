@@ -1,90 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-      }
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-      html {
-        box-sizing: border-box;
-      }
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Aria is a business focused HTML landing page template built with Bootstrap to help you create lead generation websites for companies and their services."
+    />
+    <meta name="author" content="Inovatik" />
 
-      *,
-      *:before,
-      *:after {
-        box-sizing: inherit;
-      }
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+    <meta property="og:site_name" content="" />
+    <!-- website name -->
+    <meta property="og:site" content="" />
+    <!-- website link -->
+    <meta property="og:title" content="" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="" />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" />
+    <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" />
+    <!-- where do you want your post to link to -->
+    <meta property="og:type" content="article" />
 
-      .column {
-        float: left;
-        width: 33.3%;
-        margin-bottom: 16px;
-        padding: 0 8px;
-      }
+    <!-- Website Title -->
+    <title>Terms Conditions - Aria - Business HTML Landing Page Template</title>
 
-      .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        margin: 8px;
-      }
-
-      .about-section {
-        padding: 50px;
-        text-align: center;
-        background-color: #14bf98;
-        color: white;
-      }
-
-      .container {
-        padding: 0 16px;
-      }
-
-      .container::after,
-      .row::after {
-        content: "";
-        clear: both;
-        display: table;
-      }
-
-      pre {
-        margin-right: 800px;
-        font-size: 20px;
-      }
-
-      .title {
-        color: grey;
-      }
-
-      .button {
-        border: none;
-        outline: 0;
-        display: inline-block;
-        padding: 8px;
-        color: white;
-        background-color: #14bf98;
-        text-align: center;
-        cursor: pointer;
-        width: 100%;
-      }
-
-      .button:hover {
-        background-color: #555;
-      }
-
-      @media screen and (max-width: 650px) {
-        .column {
-          width: 100%;
-          display: block;
-        }
-      }
-    </style>
-
-    <!-- style  -->
-
+    <!-- Styles -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext"
       rel="stylesheet"
@@ -93,16 +41,26 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext"
       rel="stylesheet"
     />
-
     <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
     <link href="/stylesheets/fontawesome-all.css" rel="stylesheet" />
     <link href="/stylesheets/swiper.css" rel="stylesheet" />
     <link href="/stylesheets/magnific-popup.css" rel="stylesheet" />
     <link href="/stylesheets/styles.css" rel="stylesheet" />
 
-    <title>About Us</title>
+    <!-- Favicon  -->
+    <link rel="icon" href="images/favicon.png" />
   </head>
-  <body>
+  <body data-spy="scroll" data-target=".fixed-top">
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+    <!-- end of preloader -->
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
       <!-- Text Logo - Use this if you don't have a graphic logo -->
@@ -131,114 +89,406 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link page-scroll" href="#header"
-              >ပင်မ <span class="sr-only">(current)</span></a
+            <a class="nav-link page-scroll" href="index.html#header"
+              >HOME <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link page-scroll" href="/about">အကြောင်းအရာ</a>
+            <a class="nav-link page-scroll" href="index.html#intro">INTRO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link page-scroll" href="#services">ဆက်သွယ်ရန်</a>
+            <a class="nav-link page-scroll" href="index.html#services"
+              >SERVICES</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link page-scroll" href="#callMe">ခရီးသွားလမ်းညွှန်</a>
+            <a class="nav-link page-scroll" href="index.html#callMe">CALL ME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link page-scroll" href="#projects">ခရီးစဥ်များ</a>
+            <a class="nav-link page-scroll" href="index.html#projects"
+              >PROJECTS</a
+            >
           </li>
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="#projects">ရှာဖွေရန်</a>
+
+          <!-- Dropdown Menu -->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle page-scroll"
+              href="index.html#about"
+              id="navbarDropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >ABOUT</a
+            >
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="terms-conditions.html"
+                ><span class="item-text">TERMS CONDITIONS</span></a
+              >
+              <div class="dropdown-items-divide-hr"></div>
+              <a class="dropdown-item" href="privacy-policy.html"
+                ><span class="item-text">PRIVACY POLICY</span></a
+              >
+            </div>
           </li>
+          <!-- end of dropdown menu -->
+
           <li class="nav-item">
-            <a class="nav-link page-scroll" href="/users/nlogin"
-              >အကောင့်ဝင်ရန်</a
+            <a class="nav-link page-scroll" href="index.html#contact"
+              >CONTACT</a
             >
           </li>
         </ul>
+        <span class="nav-item social-icons">
+          <span class="fa-stack">
+            <a href="#your-link">
+              <span class="hexagon"></span>
+              <i class="fab fa-facebook-f fa-stack-1x"></i>
+            </a>
+          </span>
+          <span class="fa-stack">
+            <a href="#your-link">
+              <span class="hexagon"></span>
+              <i class="fab fa-twitter fa-stack-1x"></i>
+            </a>
+          </span>
+        </span>
       </div>
     </nav>
     <!-- end of navbar -->
+    <!-- end of navbar -->
 
-    <div class="about-section">
-      <!-- this is nav bar -->
-      <% include ./partials/navbar %>
-      <!-- this is nav  -->
+    <!-- Header -->
+    <header id="header" class="ex-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Terms & Conditions</h1>
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </header>
+    <!-- end of ex-header -->
+    <!-- end of header -->
 
-      <h1>TRAVEL BAG အကြောင်း</h1>
-      <!-- <pre>
-        <span>TRAVEL BAG</span> Websiteသည် ခရီးသွား Website Page တစ်ခုဖြစ်ပါသည်။
-      </pre> -->
-      <p>
-        <b>TRAVEL BAG</b> ကို ၂၀၂၂ ခုနှစ် စက်တင်ဘာလ ၁၉ ရက်နေ့မှာ
-        စတင်တည်ထောင်ခဲ့ပြီး ပြည်တွင်းခရီးသွားကုမ္ပဏီကြီးများ၊ Hotel နှင့်
-        ခရီးသွားပို့ဆောင်ရေး လုပ်ငန်းများနှင့်အတူ ချိတ်ဆက်လုပ်ဆောင်လျက်ရှိပါသည်။
-        ယခုအချိန်တွင် TRAVEL BAG ကို Developer ၃ ဦးနှင့် လည်ပတ်နေပြီး
-        လူကြီးမင်းတို့၏ ခရီးသွားလာရေးများ အဆင်ပြေစေရန်
-        အစွမ်းကုန်ကြိုးပေးလျက်ရှိပါသည်။ လူကြီးမင်းတို့အနေဖြင့် Website Page
-        နှင့်ပတ်သတ်၍ အခက်ခဲတစ်စုံတစ်ရာရှိပါက ကျွန်ုပ်တို့၏ Developer Team
-        ကိုဆက်သွယ်မေးမြန်းနိုင်ပါသည်။
-      </p>
+    <!-- Breadcrumbs -->
+    <div class="ex-basic-1">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumbs">
+              <a href="index.html">Home</a
+              ><i class="fa fa-angle-double-right"></i
+              ><span>Terms & Conditions</span>
+            </div>
+            <!-- end of breadcrumbs -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
     </div>
+    <!-- end of ex-basic-1 -->
+    <!-- end of breadcrumbs -->
 
-    <h2 style="text-align: center">Our Team</h2>
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <img
-            src="/w3images/team1.jpg"
-            alt="Wyne Htet Aung"
-            style="width: 100%"
-          />
-          <div class="container">
-            <h2>Wyne Htet Aung</h2>
-            <p class="title">Co-Founder and Backend Developer</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-            <p>jane@example.com</p>
-            <p><button class="button">Contact</button></p>
+    <!-- Terms Content -->
+    <div class="ex-basic-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="text-container">
+              <h3>Limitations Of Liability</h3>
+              <p>
+                Aria also automatically collects and receives certain
+                information from your computer or mobile device, including the
+                activities you perform on our Website, the Platforms, and the
+                Applications, the type of hardware and software you are using
+                (for example, your operating system or browser), and information
+                obtained from cookies. For example, each time you visit the
+                Website or otherwise use the Services, we automatically collect
+                your IP address, browser and device type, access times, the web
+                page from which you came, the regions from which you navigate
+                the web page, and the web page(s) you access (as applicable).
+              </p>
+              <p>
+                When you first register for a Aria account, and when you use the
+                Services, we collect some
+                <a class="green" href="#your-link">Personal Information</a>
+                about you such as:
+              </p>
+              <ul class="list-unstyled li-space-lg indent">
+                <li class="media">
+                  <i class="fas fa-square"></i>
+                  <div class="media-body">
+                    The geographic area where you use your computer and mobile
+                    devices
+                  </div>
+                </li>
+                <li class="media">
+                  <i class="fas fa-square"></i>
+                  <div class="media-body">
+                    Your full name, username, and email address and other
+                    contact details
+                  </div>
+                </li>
+                <li class="media">
+                  <i class="fas fa-square"></i>
+                  <div class="media-body">
+                    A unique Aria user ID (an alphanumeric string) which is
+                    assigned to you upon registration
+                  </div>
+                </li>
+                <li class="media">
+                  <i class="fas fa-square"></i>
+                  <div class="media-body">
+                    Other optional information as part of your account profile
+                  </div>
+                </li>
+                <li class="media">
+                  <i class="fas fa-square"></i>
+                  <div class="media-body">
+                    Your IP Address and, when applicable, timestamp related to
+                    your consent and confirmation of consent
+                  </div>
+                </li>
+                <li class="media">
+                  <i class="fas fa-square"></i>
+                  <div class="media-body">
+                    Other information submitted by you or your organizational
+                    representatives via various methods
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- end of text-container -->
+
+            <div class="text-container">
+              <h3>Terms And Conditions</h3>
+              <p>
+                Under no circumstances shall Aria be liable for any direct,
+                indirect, special, incidental or consequential damages,
+                including, but not limited to, loss of data or profit, arising
+                out of the use, or the inability to use, the materials on this
+                site, even if Aria or an authorized representative has been
+                advised of the possibility of such damages. If your use of
+                materials from this site results in the need for servicing,
+                repair or correction of equipment or data, you assume any costs
+                thereof.
+              </p>
+            </div>
+            <!-- end of text-container -->
+
+            <div class="text-container">
+              <h3>License Types & Template Usage</h3>
+              <p>
+                All our templates inherit the GNU general public license from
+                HTML. All .PSD & CSS files are packaged separately and are not
+                licensed under the GPL 2.0. Instead, these files inherit Aria
+                Personal Use License. These files are given to all Clients on a
+                personal use basis. You may not offer them,
+                <a class="green" href="#your-link">modified or unmodified</a>,
+                for redistribution or resale of any kind. You can’t use one of
+                our themes on a HTML domain. More on HTML Vs CSS, you can read
+                here. You can use our templates do develop sites for your
+                clients.
+              </p>
+              <p>
+                Services help our customers promote their products and services,
+                marketing and advertising; engaging audiences; scheduling and
+                publishing messages; and analyze the results.
+              </p>
+            </div>
+            <!-- end of text-container -->
+
+            <div class="text-container">
+              <h3>Designer Membership And How It Applies</h3>
+              <p>
+                By using any of the Services, or submitting or collecting any
+                Personal Information via the Services, you consent to the
+                collection, transfer, storage disclosure, and use of your
+                Personal Information in the manner set out in this Privacy
+                Policy. If you do not consent to the use of your Personal
+                Information in these ways, please stop using the Services.
+              </p>
+            </div>
+            <!-- end of text-container -->
+
+            <div class="text-container last">
+              <h3>Assets Used In The Live Preview Content</h3>
+              <p>
+                Aria Landing Page uses tracking technology on the landing page,
+                in the Applications, and in the Platforms, including mobile
+                application identifiers and a unique Hootsuite user ID to help
+                us recognize you across different Services, to monitor usage and
+                web traffic routing for the Services, and to customize and
+                improve the Services. By visiting Aria or using the Services you
+                agree to the use of cookies in your browser and HTML-based
+                emails. Cookies are small text files placed on your device when
+                you visit a <a class="green" href="#your-link">web site</a> in
+                order to track use of the site and to improve your user
+                experience.
+              </p>
+              <a class="btn-outline-reg" href="index.html">BACK</a>
+            </div>
+            <!-- end of text-container -->
           </div>
         </div>
+        <!-- end of row -->
       </div>
-
-      <div class="column">
-        <div class="card">
-          <img
-            src="/images/bta123.jpg"
-            alt="Bhone Thit Aung"
-            style="
-              width: 50%;
-              border-radius: 100%;
-              height: 220px;
-              margin-left: 25%;
-              margin-top: 5px;
-            "
-          />
-          <div class="container">
-            <h2>Bhone Thit Aung</h2>
-            <p class="title">CEO-Founder and Frontend Developer</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-            <p>thitphone95@gmail.com</p>
-            <p><button class="button">Contact</button></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <img
-            src="/w3images/team3.jpg"
-            alt="Shin Thant Lwin"
-            style="width: 100%"
-          />
-          <div class="container">
-            <h2>Shin Thant Lwin</h2>
-            <p class="title">Designer</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-            <p>john@example.com</p>
-            <p><button class="button">Contact</button></p>
-          </div>
-        </div>
-      </div>
+      <!-- end of container -->
     </div>
+    <!-- end of ex-basic -->
+    <!-- end of terms content -->
+
+    <!-- Breadcrumbs -->
+    <div class="ex-basic-1">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumbs">
+              <a href="index.html">Home</a
+              ><i class="fa fa-angle-double-right"></i
+              ><span>Terms & Conditions</span>
+            </div>
+            <!-- end of breadcrumbs -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of ex-basic-1 -->
+    <!-- end of breadcrumbs -->
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="text-container about">
+              <h4>Few Words About Aria</h4>
+              <p class="white">
+                We're passionate about creating the best mobile apps for
+                personal develop passionate about creating the best mobile apps
+                for. Personal develop passionate about creating the best mobile
+                apps.
+              </p>
+            </div>
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+          <div class="col-md-2">
+            <div class="text-container">
+              <h4>Links</h4>
+              <ul class="list-unstyled li-space-lg white">
+                <li>
+                  <a class="white" href="#your-link">startupguide.com</a>
+                </li>
+                <li>
+                  <a class="white" href="terms-conditions.html"
+                    >Terms & Conditions</a
+                  >
+                </li>
+                <li>
+                  <a class="white" href="privacy-policy.html">Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+          <div class="col-md-2">
+            <div class="text-container">
+              <h4>Tools</h4>
+              <ul class="list-unstyled li-space-lg">
+                <li>
+                  <a class="white" href="#your-link">startupguide.com</a>
+                </li>
+                <li>
+                  <a class="white" href="terms-conditions.html"
+                    >Terms & Conditions</a
+                  >
+                </li>
+                <li class="media">
+                  <a class="white" href="privacy-policy.html">Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+          <div class="col-md-2">
+            <div class="text-container">
+              <h4>Partners</h4>
+              <ul class="list-unstyled li-space-lg">
+                <li>
+                  <a class="white" href="#your-link">startupguide.com</a>
+                </li>
+                <li>
+                  <a class="white" href="terms-conditions.html"
+                    >Terms & Conditions</a
+                  >
+                </li>
+                <li>
+                  <a class="white" href="privacy-policy.html">Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of footer -->
+    <!-- end of footer -->
+
+    <!-- Copyright -->
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="p-small">
+              Copyright © 2020
+              <a href="https://inovatik.com">Template by Inovatik</a>
+            </p>
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- enf of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of copyright -->
+    <!-- end of copyright -->
+
+    <!-- Scripts -->
+    <script src="/javascripts/jquery.min.js"></script>
+    <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="/javascripts/popper.min.js"></script>
+    <!-- Popper tooltip library for Bootstrap -->
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <!-- Bootstrap framework -->
+    <script src="/javascripts/jquery.easing.min.js"></script>
+    <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="/javascripts/swiper.min.js"></script>
+    <!-- Swiper for image and text sliders -->
+    <script src="/javascripts/jquery.magnific-popup.js"></script>
+    <!-- Magnific Popup for lightboxes -->
+    <script src="/javascripts/morphext.min.js"></script>
+    <!-- Morphtext rotating text in the header -->
+    <script src="/javascripts/isotope.pkgd.min.js"></script>
+    <!-- Isotope for filter -->
+    <script src="/javascripts/validator.min.js"></script>
+    <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="/javascripts/scripts.js"></script>
+    <!-- Custom scripts -->
   </body>
 </html>
