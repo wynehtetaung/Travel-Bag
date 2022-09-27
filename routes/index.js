@@ -102,7 +102,7 @@ router.get("/dashboard", userAuth, function (req, res) {
 });
 
 // choice account
-router.get("/acc", function (req, res) {
+router.get("/account", function (req, res) {
   res.render("choiceAcc");
 });
 
