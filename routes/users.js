@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var User = require("../models/nUsers");
 var Agent = require("../models/aUsers");
+var transporter = require("../models/emailVerification");
 var crypto = require("crypto");
 var cookie = require("cookie-parser");
 var jwt = require("jsonwebtoken");
@@ -47,6 +48,26 @@ router.post("/nsignup", function (req, res) {
     });
 
     const newUser = user.save();
+
+    // send verification mail to user
+    // var mailOptions = {
+    //   from: '"Verification your email" <travelbagproject30@gmail.com>',
+    //   to: user.normalEmail,
+    //   Subject: "code withthis id - verify your email",
+    //   html: `<h2>${user.normalName}! Thanks for register on our website.</h2>
+    //           <h4> Please verify to continue....</h4>
+    //           <a href="localhost:4000/user/verify-email?token=${user.normalemailToken}">verify your email</a>`,
+    // };
+
+    // send mail
+    // transporter.sendMail(mailOptions, function (err, rtn) {
+    //   if (err) {
+    //     console.log(err);
+    //   } else {
+    //     console.log("Sent to verification mail to your mail");
+    //   }
+    // });
+
     console.log("NewUser :", newUser);
 
     res.redirect("/users/nlogin");
