@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Aria is a business focused HTML landing page template built with Bootstrap to help you create lead generation websites for companies and their services."
+    />
     <title>Traver Bag</title>
-
-    <!-- style  -->
-
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext"
       rel="stylesheet"
@@ -19,9 +27,60 @@
     <link href="/stylesheets/swiper.css" rel="stylesheet" />
     <link href="/stylesheets/magnific-popup.css" rel="stylesheet" />
     <link href="/stylesheets/styles.css" rel="stylesheet" />
+    <style>
+      
+      .accbtn {
+        color: #fff;
+        background-color: #14bf98;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        font-size: small;
+        width: 150px;
+        height: 50px;
+      }
+      .accbtn:hover {
+        background-color: #256d85;
+        outline: none;
+      }
+
+      .accbta1 {
+        margin-right: 15px;
+      }
+
+      .accbta2 {
+        margin-left: 15px;
+      }
+
+      .mm12 {
+        width: 15px;
+        margin-right: 5px;
+      }
+
+      .mm13 {
+        width: 20px;
+        margin-right: 5px;
+      }
+
+      .btaei {
+        background-color: lightblue;
+        border: 3px solid #14bf98;
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 30px;
+      }
+      .btabta {
+        width: 30px;
+        padding-right: 10px;
+        
+      }
+      
+    </style>
   </head>
 
-  <body data-spy="scroll" data-target=".fixed-top">
+  <body data-spy="scroll" data-target=".fixed-top" style="background-color: lightgray;">
     <a href="body" class="back-to-top page-scroll" style="display: inline"
       >Back to Top</a
     >
@@ -34,7 +93,6 @@
       </div>
     </div>
     <% include ./partials/navbar %>
-    <!-- this is nav  -->
 
     <!-- Details 2 -->
     <div class="tabs">
@@ -42,224 +100,50 @@
         <div class="tabs-container">
           <!-- Tabs Links -->
           <ul class="nav nav-tabs" id="ariaTabs" role="tablist">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                id="nav-tab-1"
-                data-toggle="tab"
-                href="#tab-1"
-                role="tab"
-                aria-controls="tab-1"
-                aria-selected="true"
-                ><i class="fas fa-th"></i> Business</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="nav-tab-2"
-                data-toggle="tab"
-                href="#tab-2"
-                role="tab"
-                aria-controls="tab-2"
-                aria-selected="false"
-                ><i class="fas fa-th"></i> Expertise</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="nav-tab-3"
-                data-toggle="tab"
-                href="#tab-3"
-                role="tab"
-                aria-controls="tab-3"
-                aria-selected="false"
-                ><i class="fas fa-th"></i> Quality</a
-              >
-            </li>
+            <div class="btaei">
+              <p>
+                <img
+                  src="images/info-sign.png"
+                  alt="info"
+                  class="btabta"
+                />အကောင့် အမျိုးအစားတစ်ခုကို အောက်တွင် ရွေးချယ်ပါ။
+              </p>
+            </div>
+            <div class="accbta1">
+              <button class="accbtn">
+                <img class="mm12" src="/images/uuu.png" alt="Agent" />
+                သာမာန် အကောင့်
+              </button>
+            </div>
+            <div class="bta2">
+              <button class="accbtn">
+                <img
+                  class="mm13"
+                  src="/images/people.png"
+                  alt="Agent"
+                />အေးဂျင့် အကောင့်
+              </button>
+            </div>
           </ul>
           <!-- end of tabs links -->
-
-          <!-- Tabs Content -->
-          <div class="tab-content" id="ariaTabsContent">
-            <!-- Tab -->
-            <div
-              class="tab-pane fade show active"
-              id="tab-1"
-              role="tabpanel"
-              aria-labelledby="tab-1"
-            >
-              <h4>Business Services For Companies</h4>
-              <p>
-                Aria provides the most innovative and customized business
-                services in the industry. Our
-                <a class="green page-scroll" href="#services">Services</a>
-                section shows how flexible we are for all types of budgets.
-              </p>
-
-              <!-- Progress Bars -->
-              <div class="progress-container">
-                <div class="title">Business Development 100%</div>
-                <div class="progress">
-                  <div
-                    class="progress-bar first"
-                    role="progressbar"
-                    aria-valuenow="0"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <div class="title">Opportunity Spotting 76%</div>
-                <div class="progress">
-                  <div
-                    class="progress-bar second"
-                    role="progressbar"
-                    aria-valuenow="75"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <div class="title">Online Marketing 90%</div>
-                <div class="progress">
-                  <div
-                    class="progress-bar third"
-                    role="progressbar"
-                    aria-valuenow="90"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <!-- end of progress-container -->
-              <!-- end of progress bars -->
-            </div>
-            <!-- end of tab-pane -->
-            <!-- end of tab -->
-
-            <!-- Tab -->
-            <div
-              class="tab-pane fade"
-              id="tab-2"
-              role="tabpanel"
-              aria-labelledby="tab-2"
-            >
-              <ul class="list-unstyled li-space-lg first">
-                <li class="media">
-                  <div class="media-bullet">1</div>
-                  <div class="media-body">
-                    <strong>High quality</strong> is on top of our list when it
-                    comes to the way we deliver the services
-                  </div>
-                </li>
-                <li class="media">
-                  <div class="media-bullet">2</div>
-                  <div class="media-body">
-                    <strong>Maximum impact</strong> is what we look for in our
-                    actions
-                  </div>
-                </li>
-                <li class="media">
-                  <div class="media-bullet">3</div>
-                  <div class="media-body">
-                    <strong>Quality standards</strong> are important but meant
-                    to be exceeded
-                  </div>
-                </li>
-              </ul>
-              <ul class="list-unstyled li-space-lg last">
-                <li class="media">
-                  <div class="media-bullet">4</div>
-                  <div class="media-body">
-                    <strong>We're always looking</strong> for industry leaders
-                    to help them win their market position
-                  </div>
-                </li>
-                <li class="media">
-                  <div class="media-bullet">5</div>
-                  <div class="media-body">
-                    <strong>Evaluation</strong> is a key aspect of this business
-                    and important
-                  </div>
-                </li>
-                <li class="media">
-                  <div class="media-bullet">6</div>
-                  <div class="media-body">
-                    <strong>Ethic</strong> procedures ar alwasy at the base of
-                    everything we do
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- end of tab-pane -->
-            <!-- end of tab -->
-
-            <!-- Tab -->
-            <div
-              class="tab-pane fade"
-              id="tab-3"
-              role="tabpanel"
-              aria-labelledby="tab-3"
-            >
-              <p>
-                <strong>We strive to achieve</strong> 100% customer satisfaction
-                for both types of customers: hiring companies and job seekers.
-                Types of customers:
-                <a class="green" href="#your-link">with huge potential</a>
-              </p>
-              <p>
-                <strong>Our goal is to help</strong> your company achieve its
-                full potential and establish long term stability for
-                <a class="green" href="#your-link">the stakeholders</a>
-              </p>
-              <ul class="list-unstyled li-space-lg">
-                <li class="media">
-                  <i class="fas fa-square"></i>
-                  <div class="media-body">
-                    It's easy to get a quotation, just call our office anytime
-                  </div>
-                </li>
-                <li class="media">
-                  <i class="fas fa-square"></i>
-                  <div class="media-body">
-                    We'll get back to you with an initial estimate soon
-                  </div>
-                </li>
-                <li class="media">
-                  <i class="fas fa-square"></i>
-                  <div class="media-body">
-                    Get ready to see results even after only 30 days
-                  </div>
-                </li>
-                <li class="media">
-                  <i class="fas fa-square"></i>
-                  <div class="media-body">
-                    Ask for a quote and start improving your business
-                  </div>
-                </li>
-                <li class="media">
-                  <i class="fas fa-square"></i>
-                  <div class="media-body">
-                    Just fill out the form and we'll call you right away
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- end of tab-pane -->
-            <!-- end of tab -->
+          <div class="container">
+            <p>
+              &#9734;
+              <strong>မှတ်ချက်</strong> အကောင့်အမျိုးအစား နှစ်ခုစလုံးမှာ အခမဲ့ (FREE) ဖြစ်ပါသည်။
+            </p>
+            <p>
+              &#9734;
+              ကြော်ငြာများကို အခမဲ့ တင်ခွင့်ရှိပါသည်။
+            </p>
+            <p>
+              &#9734;
+              သာမာန်အကောင့်တွင် တစ်လကို ကြော်ငြာ ၅ ခု အခမဲ့ တင်နိုင်ပြီး အေးဂျင့်အကောင့်တွင် တစ်လကို ကြော်ငြာ ၁၀ ခု အခမဲ့ တင်နိုင်ပါသည်။ 
+            </p>
+            <p>
+              &#9734;
+              သို့သော် အေးဂျင့်အကောင့်တွင် လုပ်ဆောင်ချက်များ ပိုမိုပါဝင်ပါသည်။
+            </p>
           </div>
-          <!-- end of tab-content -->
-          <!-- end of tabs content -->
-        </div>
-        <!-- end of tabs-container -->
-      </div>
-      <!-- end of area-1 on same line and no space between comments to eliminate margin white space -->
-      <div class="area-2"></div>
-      <!-- end of area-2 -->
-    </div>
-    <!-- end of tabs -->
-    <!-- end of details 2 -->
-
     <!-- Scripts -->
     <script src="/javascripts/jquery.min.js"></script>
     <!-- jQuery for Bootstrap's JavaScript plugins -->
