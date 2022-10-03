@@ -16,6 +16,7 @@ var port = normalizePort(process.env.PORT || "4000");
 app.set("port", port);
 console.log();
 console.log();
+console.log("listening port on", port);
 console.log("Open Browser & run => localhost:", port);
 console.log();
 console.log();
