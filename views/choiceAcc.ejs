@@ -22,13 +22,20 @@
       rel="stylesheet"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
     <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
     <link href="/stylesheets/fontawesome-all.css" rel="stylesheet" />
     <link href="/stylesheets/swiper.css" rel="stylesheet" />
     <link href="/stylesheets/magnific-popup.css" rel="stylesheet" />
     <link href="/stylesheets/styles.css" rel="stylesheet" />
     <style>
-      
       .accbtn {
         color: #fff;
         background-color: #14bf98;
@@ -71,16 +78,23 @@
         padding-right: 10px;
         margin-bottom: 30px;
       }
+
       .btabta {
         width: 30px;
         padding-right: 10px;
-        
       }
-      
+
+      .imgBagan {
+        margin: 0 auto;
+      }
     </style>
   </head>
 
-  <body data-spy="scroll" data-target=".fixed-top" style="background-color: lightgray;">
+  <body
+    data-spy="scroll"
+    data-target=".fixed-top"
+    style="background-color: lightgray"
+  >
     <a href="body" class="back-to-top page-scroll" style="display: inline"
       >Back to Top</a
     >
@@ -94,56 +108,175 @@
     </div>
     <% include ./partials/navbar %>
 
-    <!-- Details 2 -->
-    <div class="tabs">
-      <div class="area-1">
-        <div class="tabs-container">
-          <!-- Tabs Links -->
-          <ul class="nav nav-tabs" id="ariaTabs" role="tablist">
-            <div class="btaei">
-              <p>
-                <img
-                  src="images/info-sign.png"
-                  alt="info"
-                  class="btabta"
-                />အကောင့် အမျိုးအစားတစ်ခုကို အောက်တွင် ရွေးချယ်ပါ။
+    <!-- bootstrap code start -->
+
+    <div class="container-fluid">
+      <div class="container-fluid mt-5 pt-5">
+        <div class="row">
+          <div class="tabs">
+            <div class="area-1 layout-1">
+              <div>
+                <!-- Tabs Links -->
+                <ul class="nav nav-tabs" id="ariaTabs" role="tablist">
+                  <div class="btaei">
+                    <p>
+                      <img
+                        src="images/info-sign.png"
+                        alt="info"
+                        class="btabta"
+                      />အကောင့် အမျိုးအစားတစ်ခုကို အောက်တွင် ရွေးချယ်ပါ။
+                    </p>
+                  </div>
+                  <div class="accbta1">
+                    <button class="accbtn">
+                      <img class="mm12" src="/images/uuu.png" alt="Agent" />
+                      သာမာန် အကောင့်
+                    </button>
+                  </div>
+                  <div class="bta2">
+                    <button class="accbtn">
+                      <img
+                        class="mm13"
+                        src="/images/people.png"
+                        alt="Agent"
+                      />အေးဂျင့် အကောင့်
+                    </button>
+                  </div>
+                </ul>
+                <!-- end of tabs links -->
+                <div>
+                  <p>
+                    &#9734;
+                    <strong>မှတ်ချက်</strong> အကောင့်အမျိုးအစား နှစ်ခုစလုံးမှာ
+                    အခမဲ့ (FREE) ဖြစ်ပါသည်။
+                  </p>
+                  <p>&#9734; ကြော်ငြာများကို အခမဲ့ တင်ခွင့်ရှိပါသည်။</p>
+                  <p>
+                    &#9734; သာမာန်အကောင့်တွင် တစ်လကို ကြော်ငြာ ၅ ခု အခမဲ့
+                    တင်နိုင်ပြီး အေးဂျင့်အကောင့်တွင် တစ်လကို ကြော်ငြာ ၁၀ ခု
+                    အခမဲ့ တင်နိုင်ပါသည်။
+                  </p>
+                  <p>
+                    &#9734; သို့သော် အေးဂျင့်အကောင့်တွင် လုပ်ဆောင်ချက်များ
+                    ပိုမိုပါဝင်ပါသည်။
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="text-container about">
+              <h4>Few Words About TRAVEL BAG</h4>
+              <p class="white">
+                We will always make the best website and make it happy for those
+                who love to travel. For your trip, open an account on Travel Bag
+                now and access it.
               </p>
             </div>
-            <div class="accbta1">
-              <button class="accbtn">
-                <img class="mm12" src="/images/uuu.png" alt="Agent" />
-                သာမာန် အကောင့်
-              </button>
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+          <div class="col-md-2">
+            <div class="text-container">
+              <h4>Links</h4>
+              <ul class="list-unstyled li-space-lg white">
+                <li>
+                  <a class="white" href="/">travelbag.com</a>
+                </li>
+                <li>
+                  <a class="white" href="/users/agentpage"
+                    >Contact with Agents</a
+                  >
+                </li>
+                <li>
+                  <a class="white" href="privacy-policy.html">Privacy Policy</a>
+                </li>
+              </ul>
             </div>
-            <div class="bta2">
-              <button class="accbtn">
-                <img
-                  class="mm13"
-                  src="/images/people.png"
-                  alt="Agent"
-                />အေးဂျင့် အကောင့်
-              </button>
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+          <div class="col-md-2">
+            <div class="text-container">
+              <h4>Tools</h4>
+              <ul class="list-unstyled li-space-lg">
+                <li>
+                  <a class="white" href="about">What is Travel Bag?</a>
+                </li>
+                <li>
+                  <a class="white" href="/users/nsignup">Signup Accoount</a>
+                </li>
+                <li class="media">
+                  <a class="white" href="#your-link">Developers</a>
+                </li>
+              </ul>
             </div>
-          </ul>
-          <!-- end of tabs links -->
-          <div class="container">
-            <p>
-              &#9734;
-              <strong>မှတ်ချက်</strong> အကောင့်အမျိုးအစား နှစ်ခုစလုံးမှာ အခမဲ့ (FREE) ဖြစ်ပါသည်။
-            </p>
-            <p>
-              &#9734;
-              ကြော်ငြာများကို အခမဲ့ တင်ခွင့်ရှိပါသည်။
-            </p>
-            <p>
-              &#9734;
-              သာမာန်အကောင့်တွင် တစ်လကို ကြော်ငြာ ၅ ခု အခမဲ့ တင်နိုင်ပြီး အေးဂျင့်အကောင့်တွင် တစ်လကို ကြော်ငြာ ၁၀ ခု အခမဲ့ တင်နိုင်ပါသည်။ 
-            </p>
-            <p>
-              &#9734;
-              သို့သော် အေးဂျင့်အကောင့်တွင် လုပ်ဆောင်ချက်များ ပိုမိုပါဝင်ပါသည်။
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+          <div class="col-md-2">
+            <div class="text-container">
+              <h4>Partners</h4>
+              <ul class="list-unstyled li-space-lg">
+                <li>
+                  <a class="white" href="https://techhouse.tech">TECH HOUSE</a>
+                </li>
+                <li>
+                  <a
+                    class="white"
+                    href="https://www.agoda.com/search?device=c&network=g&adid=578521311774&rand=8550497045181996344&expid=&adpos=&aud=kwd-377647966256&selectedproperty=433190&city=514493&site_id=1891449&tag=20af1f73-c07d-0ede-a76a-e169b0836e9b"
+                    >HOTEL ACE</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="white"
+                    href="https://www.goldendragonbus.com/news/272814.html"
+                    >GOLDEN DRAGON BUS</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of footer -->
+    <!-- end of footer -->
+
+    <!-- Copyright -->
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="p-small">
+              Copyright © 2022
+              <a href="/">travelbag.com. All Rights Reserved.</a>
             </p>
           </div>
+          <!-- end of col -->
+        </div>
+        <!-- enf of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of copyright -->
+    <!-- end of copyright -->
+
+    <!-- bootstrap code end -->
+
     <!-- Scripts -->
     <script src="/javascripts/jquery.min.js"></script>
     <!-- jQuery for Bootstrap's JavaScript plugins -->
