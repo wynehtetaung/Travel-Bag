@@ -864,6 +864,7 @@ input[type="checkbox"] {
 
 /* Hover Animation */
 .basic-1 .image-container {
+  margin-top: 80px;
   overflow: hidden;
   border-radius: 0.25rem;
 }
@@ -878,6 +879,11 @@ input[type="checkbox"] {
   -moz-transform: scale(1.15);
   -webkit-transform: scale(1.15);
   transform: scale(1.15);
+}
+
+.basic-1 .second {
+  margin-top: 80px;
+  font-size: 20px;
 }
 /* end of hover animation */
 
