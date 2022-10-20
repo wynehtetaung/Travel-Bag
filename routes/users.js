@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var User = require("../models/nUsers");
 var Agent = require("../models/aUsers");
-var transporter = require("../models/emailVerification");
+// var transporter = require("../models/emailVerification");
 var crypto = require("crypto");
 var cookie = require("cookie-parser");
 var jwt = require("jsonwebtoken");
@@ -25,6 +25,15 @@ const userAuth = function (req, res, next) {
   }
 };
 
+//nodemailer
+// var transporter = nodemailer.createTransport({
+//   service: "gmail",
+//   auth: {
+//     user: "travelbagproject30@gmail.com",
+//     pass: "travel#2022bag",
+//   },
+// });
+
 /* GET users listing. */
 router.get("/", userAuth, function (req, res, next) {
   res.redirect("/users/dashboard");
@@ -37,7 +46,43 @@ router.get("/nsignup", function (req, res) {
 
 //normal users sign up data
 router.post("/nsignup", function (req, res) {
+  // let mailTransporter = nodemailer.createTransport({
+  //   service: "gmail",
+  //   auth: {
+  //     user: "travelbagproject30@gmail.com",
+  //     pass: "travel#2022bag",
+  //   },
+  // });
+
   try {
+    // /helpers/email.js
+
+    // var sendEmailWithNodemailer = (req, res, emailData) => {
+    //   let transporter = nodemailer.createTransport({
+    //     host: "smtp.gmail.com",
+    //     port: 587,
+    //     secure: false,
+    //     requireTLS: true,
+    //     auth: {
+    //       user: "travelbagproject30@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
+    //       pass: "travel#2022bag", // MAKE SURE THIS PASSWORD IS YOUR GMAIL APP PASSWORD WHICH YOU GENERATED EARLIER
+    //     },
+    //     tls: {
+    //       ciphers: "SSLv3",
+    //     },
+    //   });
+    // };
+
+    // return transporter
+    // .sendMail(emailData)
+    // .then((info) => {
+    //   console.log(`Message sent: ${info.response}`);
+    //   return res.json({
+    //     success: true,
+    //   });
+    // })
+    // .catch((err) => console.log(`Problem sending email: ${err}`));
+
     const { normalName, normalEmail, normalPassword } = req.body;
     var user = new User({
       normalName,
@@ -60,13 +105,37 @@ router.post("/nsignup", function (req, res) {
     // };
 
     // send mail
-    // transporter.sendMail(mailOptions, function (err, rtn) {
+    // mailTransporter.sendMail(mailOptions, function (err, info) {
     //   if (err) {
     //     console.log(err);
     //   } else {
-    //     console.log("Sent to verification mail to your mail");
+    //     console.log("verfication mail is sent");
     //   }
     // });
+
+    // controllers/form.js
+
+    exports.contactForm = (req, res) => {
+      console.log("show me body", req.body);
+      const { normalName, normalEmail } = req.body;
+
+      //   const emailData = {
+      //     from: "travelbagproject30@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
+      //     to: user.normalEmail, // WHO SHOULD BE RECEIVING THIS EMAIL? IT SHOULD BE YOUR GMAIL
+      //     subject: "Website Contact Form",
+      //     text: `Email received from contact from \n Sender name: ${normalName} \n Sender email: ${normalEmail} \n`,
+      //     html: `
+      //     <h4>Email received from contact form:</h4>
+      //     <p>Sender name: ${normalName}</p>
+      //     <p>Sender email: ${normalEmail}</p>
+      //     <hr />
+      //     <p>This email may contain sensitive information</p>
+      //     <p>https://onemancode.com</p>
+      // `,
+      //   };
+
+      sendEmailWithNodemailer(req, res, emailData);
+    };
 
     console.log("NewUser :", newUser);
 
@@ -132,9 +201,6 @@ router.post("/agentSignup", function (req, res) {
       agentemailToken: crypto.randomBytes(64).toString("hex"),
       agentisVerified: false,
     });
-    // const salt = new bcrypt.genSalt(10);
-    // const hashPassword = bcrypt.hash(user.normalPassword, salt);
-    // user.normalPassword = hashPassword;
     const newUser = user.save();
     console.log("NewUser:", newUser);
 
@@ -190,6 +256,41 @@ router.get("/logout", function (req, res) {
   req.session.destroy(function (err) {
     if (err) throw err;
     res.redirect("/");
+  });
+});
+
+// check users name duplicate check
+router.post("/checkname", function (req, res) {
+  User.findOne({ normalName: req.body.normalName }, function (err, rtn) {
+    if (err) {
+      res.json({
+        message: "Internal server error",
+        status: "error",
+      });
+    } else {
+      res.json({
+        status: rtn != null ? "username is have" : "username no have",
+      });
+      console.log(rtn);
+    }
+  });
+});
+
+// check users emalil duplicate check
+
+router.post("/checknemail", function (req, res) {
+  console.log(req.body.normalEmail);
+  User.findOne({ normalEmail: req.body.normalEmail }, function (err, rtn) {
+    if (err) {
+      res.json({
+        message: "Internal server error",
+        status: "error",
+      });
+    } else {
+      res.json({
+        status: rtn != null ? "have" : "no have",
+      });
+    }
   });
 });
 
