@@ -1,4 +1,11 @@
 <!-- Navbar -->
+<!-- <head>
+  <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
+</head> -->
+<title>
+  <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
+</title>
+
 <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
   <!-- Text Logo - Use this if you don't have a graphic logo -->
   <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Aria</a> -->
@@ -25,40 +32,74 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav ml-auto">
+      <!-- <li class="nav-item">
+        <a class="nav-link page-scroll" href="/dashboard"
+          >ပင်မ <span class="sr-only">(current)</span></a
+        >
+      </li> -->
+
+      <!-- <li class="nav-item">
+        <a class="nav-link page-scroll" href="/about">အကြောင်းအရာ</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link page-scroll" href="/dashboard#contactForm"
+          >ဆက်သွယ်ရန်</a
+        >
+      </li> -->
+      <% if(locals.user){%>
+
       <li class="nav-item">
         <a class="nav-link page-scroll" href="/dashboard"
           >ပင်မ <span class="sr-only">(current)</span></a
         >
       </li>
+
       <li class="nav-item">
-        <a class="nav-link page-scroll" href="/about">အကြောင်းအရာ</a>
+        <a class="nav-link page-scroll" href="/dashboard#contactForm"
+          >ဆက်သွယ်ရန်</a
+        >
       </li>
+
       <li class="nav-item">
         <a
           class="nav-link page-scroll"
           href="https://www.google.com.sg/maps/place/Tech+House/@16.7873706,94.7254858,14.5z/data=!4m5!3m4!1s0x30bfebf9d4ced8e9:0x8c1920512b03daf9!8m2!3d16.784822!4d94.7389057"
           target="_blank"
-          >ဆက်သွယ်ရန်</a
-        >
-      </li>
-      <% if(locals.user){%>
-      <li class="nav-item">
-        <a class="nav-link page-scroll" href="/users/agentpage"
           >ခရီးသွားလမ်းညွှန်</a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link page-scroll" href="/dashboard">ခရီးစဥ်များ</a>
+        <a class="nav-link page-scroll" href="/dashboard#projects"
+          >ခရီးစဥ်များ</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link page-scroll" href="#projects">ရှာဖွေရန်</a>
+        <a class="nav-link page-scroll" href="#">ရှာဖွေရန်</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link page-scroll" href="/about">အကြောင်းအရာ</a>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link page-scroll" href="/users/logout"
           >အကောင့်မှထွက်ရန်</a
         >
       </li>
       <%}else{%>
+
+      <li class="nav-item">
+        <a class="nav-link page-scroll" href="/#header">ပင်မ </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link page-scroll" href="/#contactForm">ဆက်သွယ်ရန်</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link page-scroll" href="/about">အကြောင်းအရာ</a>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link page-scroll" href="/users/nlogin">အကောင့်ဝင်ရန်</a>
       </li>
