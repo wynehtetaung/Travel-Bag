@@ -112,4 +112,25 @@
       </div>
     </section>
   </body>
+  <script src="/javascripts/jquery.min.js"></script>
+  <script>
+    $("#normalName").blur(function () {
+      $.ajax("/users/checkname", {
+        type: "POST",
+        data: { normalName: $("#normalName").val() },
+        success: function (result) {
+          console.log(result);
+        },
+      });
+    });
+    $("#normalEmail").blur(function () {
+      $.ajax("/users/checknemail", {
+        type: "POST",
+        data: { normalEmail: $("#normalEmail").val() },
+        success: function (result) {
+          console.log(result);
+        },
+      });
+    });
+  </script>
 </html>
