@@ -250,6 +250,16 @@ router.get("/agentpage", agentAuth, function (req, res) {
   res.render("users/agentUsers/agentindex");
 });
 
+// agent-post-detail
+router.get("/adetail", agentAuth, function (req, res) {
+  res.render("users/agentUsers/agent-post-details");
+});
+
+// agent-profile-detail
+router.get("/aprofile", agentAuth, function (req, res) {
+  res.render("users/agentUsers/agent-profile-detail");
+});
+
 //logout
 
 router.get("/logout", function (req, res) {
