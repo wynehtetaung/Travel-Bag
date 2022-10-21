@@ -101,9 +101,14 @@ router.get("/dashboard", userAuth, function (req, res) {
   res.render("dashboard");
 });
 
-// choice account
+// signup choice account
 router.get("/account", function (req, res) {
   res.render("choiceAcc");
+});
+
+// login choice account
+router.get("/loginaccount", function (req, res) {
+  res.render("choicelogin");
 });
 
 // 404 not found

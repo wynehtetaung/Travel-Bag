@@ -881,10 +881,11 @@ input[type="checkbox"] {
   transform: scale(1.15);
 }
 
-.basic-1 .second {
+.basic-1 .double-quote {
   margin-top: 80px;
   font-size: 20px;
 }
+
 /* end of hover animation */
 
 /***************************/
