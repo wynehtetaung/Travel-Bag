@@ -91,6 +91,21 @@ router.get("/adminpage", adminAuth, function (req, res) {
   res.render("admin/adminindex");
 });
 
+// agent detail see to from admin
+router.get("/adminAdetail", adminAuth, function (req, res) {
+  res.render("admin/admin-agent-post-detail");
+});
+
+// agent profile see to from admin
+router.get("/adminAprofile", adminAuth, function (req, res) {
+  res.render("admin/admin-agent-profile");
+});
+
+// normal user profile see to from admin
+router.get("/adminNprofile", adminAuth, function (req, res) {
+  res.render("admin/admin-normal-users-profile");
+});
+
 // about us
 router.get("/about", function (req, res) {
   res.render("about");
