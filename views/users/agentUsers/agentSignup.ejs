@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="../stylesheets/bootstrap.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <style>
       .bta4455 {
@@ -131,4 +135,57 @@
       </div>
     </section>
   </body>
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    $("#agentName").blur(function () {
+      $.ajax("/users/checkagentname", {
+        type: "POST",
+        data: { agentName: $("#agentName").val() },
+        success: function (result) {
+          if (result.status == "error") {
+            alert("Somethings Was Wrong!");
+          } else if (result.status == "already name") {
+            // alert("Username is already in use, try another username");
+            Swal.fire({
+              title: "Username is already in used, try another username",
+              showClass: {
+                popup: "animate__animated  animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+            $("#agentName").val("");
+            $("#agentName").focus();
+          }
+        },
+      });
+    });
+
+    $("#agentEmail").blur(function () {
+      $.ajax("/users/checkagentemail", {
+        type: "POST",
+        data: { agentEmail: $("#agentEmail").val() },
+        success: function (result) {
+          if (result.status == "error") {
+            alert("Somethings Was Wrong!");
+          } else if (result.status == "have") {
+            // alert("Email is already in use,try another email")
+            Swal.fire({
+              title: "Email is already in used, try another email",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+            $("#agentEmail").val("");
+            $("#agentEmail").focus();
+          }
+        },
+      });
+    });
+  </script>
 </html>

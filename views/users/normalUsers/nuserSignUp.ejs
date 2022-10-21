@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="../stylesheets/bootstrap.css" rel="stylesheet" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
     <title>Travel Bag</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
@@ -113,24 +117,59 @@
     </section>
   </body>
   <script src="/javascripts/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     $("#normalName").blur(function () {
+      if($("#normalName").val() != ""){
       $.ajax("/users/checkname", {
         type: "POST",
         data: { normalName: $("#normalName").val() },
         success: function (result) {
-          console.log(result);
+          if(result.status == 'error'){
+            alert("Somethings Was Wrong!")
+          }else if(result.status == 'username have'){
+            // alert("Username is already in use, try another username");
+            Swal.fire({
+                title: 'Username is already in used, try another username',
+                showClass: {
+                  popup: 'animate__animated  animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              });
+            $("#normalName").val("");
+            $("#normalName").focus();
+          };
         },
       });
+    };
     });
     $("#normalEmail").blur(function () {
+      if($("#normalEmail").val() != ""){
       $.ajax("/users/checknemail", {
         type: "POST",
         data: { normalEmail: $("#normalEmail").val() },
         success: function (result) {
-          console.log(result);
+          if(result.status == 'error'){
+            alert("Somethings Was Wrong!")
+          }else if(result.status == 'have'){
+            // alert("Email is already in use,try another email")
+            Swal.fire({
+                title: 'Email is already in used, try another email',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              });
+            $("#normalEmail").val("");
+            $("#normalEmail").focus();
+          }
         },
       });
+    };
     });
   </script>
 </html>

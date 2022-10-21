@@ -269,7 +269,7 @@ router.get("/logout", function (req, res) {
   });
 });
 
-// check users name duplicate check
+// check users name duplicate
 router.post("/checkname", function (req, res) {
   User.findOne({ normalName: req.body.normalName }, function (err, rtn) {
     if (err) {
@@ -279,17 +279,15 @@ router.post("/checkname", function (req, res) {
       });
     } else {
       res.json({
-        status: rtn != null ? "username is have" : "username no have",
+        status: rtn != null ? "username have" : "username no have",
       });
-      console.log(rtn);
     }
   });
 });
 
-// check users emalil duplicate check
+// check users emalil duplicate
 
 router.post("/checknemail", function (req, res) {
-  console.log(req.body.normalEmail);
   User.findOne({ normalEmail: req.body.normalEmail }, function (err, rtn) {
     if (err) {
       res.json({
@@ -299,6 +297,38 @@ router.post("/checknemail", function (req, res) {
     } else {
       res.json({
         status: rtn != null ? "have" : "no have",
+      });
+    }
+  });
+});
+
+// check agent email duplicate
+router.post("/checkagentemail", function (req, res) {
+  Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rtn) {
+    if (err) {
+      res.json({
+        message: "Internal server error",
+        status: "error",
+      });
+    } else {
+      res.json({
+        status: rtn != null ? "have" : "no have",
+      });
+    }
+  });
+});
+
+// check agent name duplicate
+router.post("/checkagentname", function (req, res) {
+  Agent.findOne({ agentName: req.body.agentName }, function (err, rtn) {
+    if (err) {
+      res.json({
+        message: "Internal server error",
+        status: "error",
+      });
+    } else {
+      res.json({
+        status: rtn != null ? "already name" : "no have name",
       });
     }
   });
