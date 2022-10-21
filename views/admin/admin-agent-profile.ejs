@@ -8,10 +8,7 @@
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
+    
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -19,24 +16,27 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="/vendor/aos/aos.css" rel="stylesheet" />
     <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      href="/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    
+    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      href="/vendor/glightbox/css/glightbox.min.css"
       rel="stylesheet"
     />
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-    <link
-      href="assets/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="/stylesheets/styleadmin.css" rel="stylesheet" />
+
+    <a href="/stylesheets/for-agent-profile-detail.css"></a>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
 
     
 
@@ -46,10 +46,9 @@
     <!-- ======= Header ======= -->
     <header id="header">
       <div class="d-flex flex-column">
-  
         <div class="profile">
-          <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-          <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+          <img src="" alt="" class="img-fluid rounded-circle" />
+          <h1 class="text-light"><a href="index.html">Admin name here</a></h1>
           <div class="social-links mt-3 text-center">
             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -58,112 +57,167 @@
             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
           </div>
         </div>
-  
+
         <nav id="navbar" class="nav-menu navbar">
           <ul>
-            <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-            <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-            <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-            <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-            <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-            <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+            <li>
+              <a href="#hero" class="nav-link scrollto active"
+                ><i class="fi fi-rr-home"></i> <span>Home</span></a
+              >
+            </li>
+            <li>
+              <a href="#about" class="nav-link scrollto">
+                <i class="fi fi-rr-user"></i><span>Profile</span></a
+              >
+            </li>
+            <li>
+              <a href="#resume" class="nav-link scrollto"
+                ><i class="bx bx-file-blank"></i> <span>Resume</span></a
+              >
+            </li>
+
+            <li>
+              <a href="#services" class="nav-link scrollto"
+                ><i class="fi fi-rr-users-alt"></i>
+                <span>Normal Users List</span></a
+              >
+            </li>
+            <li>
+              <a href="#portfolio" class="nav-link scrollto"
+                ><i class="fi fi-rr-apps"></i> <span>Agent Posts List</span></a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="nav-link scrollto"
+                ><i class="fi fi-rr-users"></i> <span>Agent Users List</span></a
+              >
+            </li>
           </ul>
-        </nav><!-- .nav-menu -->
+        </nav>
+        <!-- .nav-menu -->
       </div>
-    </header><!-- End Header -->
-  
-    <main id="main">
-  
-      <section class="inner-page">
+    </header>
+
+     <section id="portfolio-details" class="portfolio-details">
         <div class="container">
-          <p>
-            Example of agent profile page
-          </p>
+          <div class="row gy-4">
+            <div class="col-lg-8">
+              <section class="h-100 gradient-custom-2">
+                <div class="container py-5 h-100">
+                  <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-lg-9 col-xl-7">
+                      <div class="card">
+                        <div
+                          class="rounded-top text-white d-flex flex-row"
+                          style="background-color: #000; height: 200px"
+                        >
+                          <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
+                            <img
+                              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                              alt="Generic placeholder image"
+                              class="img-fluid mt-0 mb-2 rounded"
+                              style="width: 150px; z-index: 1 border-radius"
+                            />
+                            <button
+                              type="button"
+                              class="btn btn-outline-dark"
+                              data-mdb-ripple-color="dark"
+                              style="z-index: 1"
+                            >
+                              Edit profile
+                            </button>
+                          </div>
+                          <div class="ms-3" style="margin-top: 130px">
+                            <h5>Shin MF</h5>
+                            <p>Pathein</p>
+                          </div>
+                        </div>
+                        <div class="p-4 text-black" style="background-color: #f8f9fa">
+                          <div class="mt-3 d-flex justify-content-end text-center py-1">
+                            <div>
+                              <p class="mb-1 h5">5</p>
+                              <p class="small text-muted mb-0">Photos</p>
+                            </div>
+                            <div class="px-3">
+                              <p class="mb-1 h5">0</p>
+                              <p class="small text-muted mb-0">Followers</p>
+                            </div>
+                            <div>
+                              <p class="mb-1 h5">0</p>
+                              <p class="small text-muted mb-0">Following</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body p-4 text-black">
+                          <div class="mb-5">
+                            <p class="lead fw-normal mb-1">About</p>
+                            <div class="p-4" style="background-color: #f8f9fa">
+                              <p class="font-italic mb-1">
+                                About the detail of the agent user if you need
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-4"
+                          >
+                            <p class="lead fw-normal mb-0">Recent photos</p>
+                            <p class="mb-0">
+                              <a href="#!" class="text-muted">Show all</a>
+                            </p>
+                          </div>
+                          <div class="row g-2">
+                            <div class="col mb-2">
+                              <img
+                                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
+                                alt="image 1"
+                                class="w-100 rounded-3"
+                              />
+                            </div>
+                            <div class="col mb-2">
+                              <img
+                                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
+                                alt="image 1"
+                                class="w-100 rounded-3"
+                              />
+                            </div>
+                          </div>
+                          <div class="row g-2">
+                            <div class="col">
+                              <img
+                                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
+                                alt="image 1"
+                                class="w-100 rounded-3"
+                              />
+                            </div>
+                            <div class="col">
+                              <img
+                                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
+                                alt="image 1"
+                                class="w-100 rounded-3"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
         </div>
       </section>
   
-      <section id="about" class="about">
-        <div class="container">
-          <div class="section-title">
-            <h2>Admin</h2>
-            <p>
-              About the admin detail here ,
-            </p>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4" data-aos="fade-right">
-              <img src="assets/img/profile-img.jpg" class="img-fluid" alt="" />
-            </div>
-            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-              <h3>UI/UX Designer &amp; Web Developer.</h3>
-              <p class="fst-italic">
-                admin contact detail here if you need 
-              </p>
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Birthday:</strong> <span>1 May 1995</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Website:</strong> <span>www.example.com</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Phone:</strong> <span>09650354400</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>City:</strong> <span>Pathein</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul>
-                    <li>
-                      <i class="bi bi-chevron-right"></i> <strong>Age:</strong>
-                      <span>30</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Degree:</strong> <span>Master</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>PhEmailone:</strong>
-                      <span>email@example.com</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Freelance:</strong> <span>Available</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p>
-                More contact detail if you need
-            </div>
-          </div>
-        </div>
-        <button><a href="">Update(meaning to edit the some stuff)</a></button>
-      </section>
-
-    </main>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
 
   <!-- Vendor JS Files -->
-  <script src="/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="/vendor/aos/aos.js"></script>
-  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
   <script src="/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/javascripts/isotope.pkgd.min.js"></script>
   <script src="/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="/vendor/typed.js/typed.min.js"></script>
   <script src="/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="/javascripts/mainadmin.js"></script>
