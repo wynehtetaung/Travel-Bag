@@ -46,8 +46,6 @@
         }
       }
     </style>
-
-    <title>Agent Sign Up</title>
   </head>
   <body>
     <section class="h-100 gradient-form" style="background-color: #fff">
@@ -65,12 +63,12 @@
                         alt="logo"
                       />
                       <h4 class="mt-3 mb-5 pb-1">
-                        Make your Travel Bag Agent Account Here
+                        Travel Bag အေးဂျင့်အကောင့်ပြုလုပ်ရန်
                       </h4>
                     </div>
 
                     <form action="/users/agentSignup" method="post">
-                      <p>Please SignUp account</p>
+                      <p>အေးဂျင့်အကောင့်ပြုလုပ်ပါ</p>
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="agentName">Name</label>
@@ -80,23 +78,23 @@
                           name="agentName"
                           class="form-control"
                           placeholder="Name"
+                          required
                         />
                       </div>
 
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="agentEmail">Email</label>
-                        <input
-                          type="email"
-                          id="agentEmail"
-                          name="agentEmail"
-                          class="form-control"
-                          placeholder="Email address"
-                        />
+                        <label class="form-label" for="agentEmail"
+                          >အီးမေးလ်</label
+                        >
+                        <input type="email" id="agentEmail" name="agentEmail"
+                        class="form-control" <<<<<<< HEAD placeholder="အီးမေးလ်"
+                        ======= placeholder="Email address" required >>>>>>>
+                        09a8a4153396492ecf1bc987cd1d37994b2c0fcf />
                       </div>
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="agentPassword"
-                          >Password</label
+                          >စကားဝှက်</label
                         >
                         <input
                           type="password"
@@ -104,6 +102,7 @@
                           name="agentPassword"
                           class="form-control"
                           placeholder="Password"
+                          required
                         />
                       </div>
 
@@ -111,8 +110,9 @@
                         <button
                           class="btn btn-dark bta3435 btn-block fa-lg gradient-custom-2 mb-3"
                           type="submit"
+                          onclick="singupErrorMessage()"
                         >
-                          Sign Up
+                          အကောင့်ပြုလုပ်မည်
                         </button>
                       </div>
 
@@ -124,11 +124,12 @@
                 </div>
                 <div class="col-lg-6 d-flex align-items-center bta4455">
                   <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                    <h4 class="mb-4">We are more than just a travel page</h4>
+                    <h4 class="mb-4">Travel Bag မှ ကြိုဆိုပါတယ်...</h4>
                     <p class="small mb-0">
-                      Improve your business and performance, We can work
-                      together and create benefits, Connect with Travel Bag now
-                      to grow your business faster.....
+                      လူကြီးမင်း၏ လုပ်ငန်းနှင့်စွမ်းဆောင်ရည်တိုးတက်ရန်၊
+                      အတူတကွလက်တွဲ၍ အကျိုးအမြတ်များ ဖန်တီးရန်အတွက် အခုပဲ Travel
+                      Bage နှင့် ချိတ်ဆက်ပြီးသင့်ရဲ့ လုပ်ငန်းများကို
+                      အမြန်ဆုံးတိုးတက်လာအောင် မြှင့်တင်လိုက်ပါ။
                     </p>
                   </div>
                 </div>
@@ -152,7 +153,7 @@
           } else if (result.status == "already name") {
             // alert("Username is already in use, try another username");
             Swal.fire({
-              title: "Username is already in used, try another username",
+              title: "ရှိပြီးသား အမည် ဖြစ်ပါသည်။တခြား အမည် အသုံးပြုပါ။",
               showClass: {
                 popup: "animate__animated  animate__fadeInDown",
               },
@@ -177,7 +178,7 @@
           } else if (result.status == "have") {
             // alert("Email is already in use,try another email")
             Swal.fire({
-              title: "Email is already in used, try another email",
+              title: "ရှိပြီးသား အီးမေးလ် ဖြစ်ပါသည်။တခြား အီးမေးလ် အသုံးပြုပါ။",
               showClass: {
                 popup: "animate__animated animate__fadeInDown",
               },
@@ -191,5 +192,26 @@
         },
       });
     });
+
+    function singupErrorMessage() {
+      var error = document.getElementById("nameError");
+      if (
+        /[0-9,~!@#$%^&*()-+,၁-၉]/.test(
+          document.getElementById("agentName").value
+        )
+      ) {
+        // Changing content and color of content
+        // error.textContent = "Please enter your name";
+        // error.style.color = "red";
+        error.innerHTML =
+          "<img src='https://cdn4.iconfinder.com/data/icons/set-1/32/__23-512.png' style='width:20px; 'height:10px;'>" +
+          "<span style='color: red;'>" +
+          " စာသားသီးသန့်သာ ထည့်ရန်</span>";
+        $("#agentName").val("");
+        $("#agentName").focus();
+      } else {
+        error.textContent = "";
+      }
+    }
   </script>
 </html>

@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-5 text-black">
-                    <form action="/users/nlogin" method="post">
+                    <form action="/users/nlogin" method="post" id="myform">
                       <div class="d-flex align-items-center mb-3 pb-1">
                         <i
                           class="fas fa-cubes fa-2x me-3"
@@ -47,7 +47,7 @@
                         class="fw-normal mb-3 pb-3"
                         style="letter-spacing: 1px"
                       >
-                        Login your account
+                        အကောင့်ဝင်ပါ
                       </h5>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="email"
@@ -59,12 +59,13 @@
                           name="normalEmail"
                           class="form-control form-control-lg"
                           placeholder="email adress"
+                          required
                         />
                       </div>
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="password"
-                          >Password</label
+                          >စကားဝှက်</label
                         >
                         <input
                           type="password"
@@ -72,6 +73,7 @@
                           name="normalPassword"
                           class="form-control form-control-lg"
                           placeholder="password"
+                          required
                         />
                       </div>
                       <div class="form-check mb-2">
@@ -82,7 +84,7 @@
                           id="rememberMe"
                         />
                         <label class="form-check-label" for="rememberMe">
-                          Remember me
+                          မှတ်ထားရန်
                         </label>
                       </div>
 
@@ -91,15 +93,17 @@
                           class="btn btn-dark bta1212 btn-lg btn-block"
                           type="submit"
                         >
-                          Login
+                          အကောင့်ဝင်မည်
                         </button>
                       </div>
 
-                      <a class="small text-muted" href="#!">Forgot password?</a>
+                      <a class="small text-muted" href="#!"
+                        >သင့်စကားဝှက်မေ့နေပါသလား?</a
+                      >
                       <p class="mb-5 pb-lg-2" style="color: #393f81">
-                        Don't have an account?
+                        အကောင့်မရှိသေးဘူးလား?
                         <a href="/users/nsignup" style="color: #393f81"
-                          >Register here</a
+                          >အကောင့်အသစ်ပြုလုပ်ရန်</a
                         >
                       </p>
                       <a href="#!" class="small text-muted">Terms of use.</a>
@@ -116,6 +120,7 @@
   </body>
   <script src="/javascripts/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script> -->
   <script>
     $("#rememberMe").click(function () {
       if ($("#rememberMe").prop("checked")) {
@@ -131,5 +136,15 @@
       $("#normalPassword").val(Cookies.get("normalPassword"));
       $("#rememberMe").prop("checked", "true");
     }
+    // $("#subBtn").click(() => {
+    //   $("#myform").validate({
+    //     submitHandler: function (form) {
+    //       // some other code
+    //       // maybe disabling submit button
+    //       // then:
+    //       $(form).submit();
+    //     },
+    //   });
+    // });
   </script>
 </html>

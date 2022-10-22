@@ -50,7 +50,7 @@
                         class="fw-normal mb-3 pb-3"
                         style="letter-spacing: 1px"
                       >
-                        SignUp your account
+                        အကောင့်ပြုလုပ်ပါ
                       </h5>
 
                       <div class="form-outline mb-4">
@@ -61,26 +61,23 @@
                           id="normalName"
                           class="form-control form-control-lg"
                           placeholder="name"
+                          required
                         />
                         <span id="error"></span>
                       </div>
 
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="email"
-                          >Email address</label
-                        >
-                        <input
-                          type="email"
-                          name="normalEmail"
-                          id="normalEmail"
-                          class="form-control form-control-lg"
-                          placeholder="email address"
-                        />
+                        <label class="form-label" for="email">အီးမေးလ်</label>
+                        <input type="email" name="normalEmail" id="normalEmail"
+                        class="form-control form-control-lg" <<<<<<< HEAD
+                        placeholder="အီးမေးလ်" ======= placeholder="email
+                        address" required >>>>>>>
+                        09a8a4153396492ecf1bc987cd1d37994b2c0fcf />
                       </div>
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="password"
-                          >Password</label
+                          >စကားဝှက်</label
                         >
                         <input
                           type="password"
@@ -88,6 +85,7 @@
                           id="normalPassword"
                           class="form-control form-control-lg"
                           placeholder="password"
+                          required
                         />
                       </div>
 
@@ -97,7 +95,7 @@
                           type="submit"
                           onclick="singupErrorMessage()"
                         >
-                          SignUp
+                          အကောင့်ပြုလုပ်မည်
                         </button>
                       </div>
 
@@ -132,7 +130,7 @@
             } else if (result.status == "username have") {
               // alert("Username is already in use, try another username");
               Swal.fire({
-                title: "Username is already in used, try another username",
+                title: "ရှိပြီးသား အမည် ဖြစ်ပါသည်။တခြား အမည် အသုံးပြုပါ။",
                 showClass: {
                   popup: "animate__animated  animate__fadeInDown",
                 },
@@ -158,7 +156,8 @@
             } else if (result.status == "have") {
               // alert("Email is already in use,try another email")
               Swal.fire({
-                title: "Email is already in used, try another email",
+                title:
+                  "ရှိပြီးသား အီးမေးလ် ဖြစ်ပါသည်။တခြား အီးမေးလ် အသုံးပြုပါ။",
                 showClass: {
                   popup: "animate__animated animate__fadeInDown",
                 },
@@ -176,12 +175,22 @@
 
     function singupErrorMessage() {
       var error = document.getElementById("error");
-      if (isNaN(document.getElementById("normalName").value)) {
-        error.textContent = "";
-      } else {
+      if (
+        /[0-9,~!@#$%^&*()-+,၁-၉]/.test(
+          document.getElementById("normalName").value
+        )
+      ) {
         // Changing content and color of content
-        error.textContent = "Please enter your name";
-        error.style.color = "red";
+        // error.textContent = "Please enter your name";
+        // error.style.color = "red";
+        error.innerHTML =
+          "<img src='https://cdn4.iconfinder.com/data/icons/set-1/32/__23-512.png' style='width:20px; 'height:10px;'>" +
+          "<span style='color: red;'>" +
+          " စာသားသီးသန့်သာ ထည့်ရန်</span>";
+        $("#normalName").val("");
+        $("#normalName").focus();
+      } else {
+        error.textContent = "";
       }
     }
   </script>
