@@ -80,9 +80,9 @@
                     class="form-check-input me-2"
                     type="checkbox"
                     value=""
-                    id="form2Example3"
+                    id="rememberMe"
                   />
-                  <label class="form-check-label" for="form2Example3">
+                  <label class="form-check-label" for="rememberMe">
                     Remember me
                   </label>
                 </div>
@@ -107,4 +107,22 @@
       </div>
     </section>
   </body>
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script>
+    $("#rememberMe").click(function () {
+      if ($("#rememberMe").prop("checked")) {
+        Cookies.set("adminEmail", $("#adminEmail").val());
+        Cookies.set("adminPassword", $("#adminPassword").val());
+      } else {
+        Cookies.remove("adminEmail");
+        Cookies.remove("adminPassword");
+      }
+    });
+    if (Cookies.get("adminEmail")) {
+      $("#adminEmail").val(Cookies.get("adminEmail"));
+      $("#adminPassword").val(Cookies.get("adminPassword"));
+      $("#rememberMe").prop("checked", "true");
+    }
+  </script>
 </html>

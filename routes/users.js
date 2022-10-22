@@ -8,7 +8,6 @@ var cookie = require("cookie-parser");
 var jwt = require("jsonwebtoken");
 var nodemailer = require("nodemailer");
 // const { findById } = require("../models/nUsers");
-// var bcrypt = require("bcryptjs");
 
 const agentAuth = function (req, res, next) {
   if (req.session.agent) {
@@ -116,7 +115,6 @@ router.post("/nsignup", function (req, res) {
     // controllers/form.js
 
     exports.contactForm = (req, res) => {
-      console.log("show me body", req.body);
       const { normalName, normalEmail } = req.body;
 
       //   const emailData = {
@@ -136,9 +134,6 @@ router.post("/nsignup", function (req, res) {
 
       sendEmailWithNodemailer(req, res, emailData);
     };
-
-    console.log("NewUser :", newUser);
-
     res.redirect("/users/nlogin");
   } catch (err) {
     console.log(err);
