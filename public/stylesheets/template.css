@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #010702;
+  color: #fbfdfb;
 }
 
 a {
@@ -140,7 +140,7 @@ h6 {
 @media (max-width: 991px) {
   #header {
     width: 300px;
-    background: #fff;
+    background: rgb(53, 49, 49);
     border-right: 1px solid #e6e9ec;
     left: -300px;
   }
@@ -220,7 +220,7 @@ h6 {
 .nav-menu .active:focus,
 .nav-menu li:hover > a {
   color: #fff;
-  background: #069725;
+  background: #098a25;
 }
 
 .nav-menu a:hover span,
@@ -301,7 +301,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #45505b;
+  color: #d2dae2;
 }
 
 .section-title h2::before {
@@ -397,7 +397,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: #0563bb;
+  color: #096126;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -529,15 +529,15 @@ section {
 }
 
 .portfolio-details .portfolio-details-slider img {
-  width: 100%;
+  width: 80%;
 }
+/* 
+  .portfolio-details .portfolio-details-slider .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  } */
 
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details
+/* .portfolio-details
   .portfolio-details-slider
   .swiper-pagination
   .swiper-pagination-bullet {
@@ -546,14 +546,14 @@ section {
   background-color: #fff;
   opacity: 1;
   border: 1px solid #0563bb;
-}
+} */
 
-.portfolio-details
+/* .portfolio-details
   .portfolio-details-slider
   .swiper-pagination
   .swiper-pagination-bullet-active {
   background-color: #0563bb;
-}
+} */
 
 .portfolio-details .portfolio-info {
   padding: 30px;
@@ -566,12 +566,14 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #eee;
+  color: black;
 }
 
 .portfolio-details .portfolio-info ul {
   list-style: none;
   padding: 0;
   font-size: 15px;
+  color: black;
 }
 
 .portfolio-details .portfolio-info ul li + li {
@@ -580,16 +582,19 @@ section {
 
 .portfolio-details .portfolio-description {
   padding-top: 30px;
+  color: black;
 }
 
 .portfolio-details .portfolio-description h2 {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: black;
 }
 
 .portfolio-details .portfolio-description p {
   padding: 0;
+  color: black;
 }
 
 /*--------------------------------------------------------------
@@ -680,16 +685,16 @@ section {
 --------------------------------------------------------------*/
 .contact .info {
   width: 100%;
-  background: #fff;
+  /* background: #fff; */
 }
 
 .contact .info i {
   font-size: 20px;
-  color: #0563bb;
+  color: #e5e8eb;
   float: left;
   width: 44px;
   height: 44px;
-  background: #eef7ff;
+  /* background: #eef7ff; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -702,7 +707,7 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #45505b;
+  color: #dbd9e2;
 }
 
 .contact .info p {
@@ -720,13 +725,13 @@ section {
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-  background: #0563bb;
-  color: #fff;
+  background: #065e06;
+  /* color: #fff; */
 }
 
 .contact .php-email-form {
   width: 100%;
-  background: #fff;
+  /* background: #fff; */
 }
 
 .contact .php-email-form .form-group {
@@ -749,7 +754,7 @@ section {
 .contact .php-email-form .sent-message {
   display: none;
   color: #fff;
-  background: #18d26e;
+  background: #0c703b;
   text-align: center;
   padding: 15px;
   font-weight: 600;
@@ -791,7 +796,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: #047e0a;
+  background: #2ed139;
   border: 0;
   padding: 10px 35px;
   color: #fff;
@@ -800,7 +805,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-  background: #0678e3;
+  background: #047425;
 }
 
 @-webkit-keyframes animate-loading {
