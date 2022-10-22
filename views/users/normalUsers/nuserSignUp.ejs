@@ -7,9 +7,9 @@
 
     <link href="../stylesheets/bootstrap.css" rel="stylesheet" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <title>Travel Bag</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
@@ -62,6 +62,7 @@
                           class="form-control form-control-lg"
                           placeholder="name"
                         />
+                        <span id="error"></span>
                       </div>
 
                       <div class="form-outline mb-4">
@@ -94,6 +95,7 @@
                         <button
                           class="btn btn-dark bta1213 btn-lg btn-block"
                           type="submit"
+                          onclick="singupErrorMessage()"
                         >
                           SignUp
                         </button>
@@ -120,56 +122,67 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     $("#normalName").blur(function () {
-      if($("#normalName").val() != ""){
-      $.ajax("/users/checkname", {
-        type: "POST",
-        data: { normalName: $("#normalName").val() },
-        success: function (result) {
-          if(result.status == 'error'){
-            alert("Somethings Was Wrong!")
-          }else if(result.status == 'username have'){
-            // alert("Username is already in use, try another username");
-            Swal.fire({
-                title: 'Username is already in used, try another username',
+      if ($("#normalName").val() != "") {
+        $.ajax("/users/checkname", {
+          type: "POST",
+          data: { normalName: $("#normalName").val() },
+          success: function (result) {
+            if (result.status == "error") {
+              alert("Somethings Was Wrong!");
+            } else if (result.status == "username have") {
+              // alert("Username is already in use, try another username");
+              Swal.fire({
+                title: "Username is already in used, try another username",
                 showClass: {
-                  popup: 'animate__animated  animate__fadeInDown'
+                  popup: "animate__animated  animate__fadeInDown",
                 },
                 hideClass: {
-                  popup: 'animate__animated animate__fadeOutUp'
-                }
+                  popup: "animate__animated animate__fadeOutUp",
+                },
               });
-            $("#normalName").val("");
-            $("#normalName").focus();
-          };
-        },
-      });
-    };
+              $("#normalName").val("");
+              $("#normalName").focus();
+            }
+          },
+        });
+      }
     });
     $("#normalEmail").blur(function () {
-      if($("#normalEmail").val() != ""){
-      $.ajax("/users/checknemail", {
-        type: "POST",
-        data: { normalEmail: $("#normalEmail").val() },
-        success: function (result) {
-          if(result.status == 'error'){
-            alert("Somethings Was Wrong!")
-          }else if(result.status == 'have'){
-            // alert("Email is already in use,try another email")
-            Swal.fire({
-                title: 'Email is already in used, try another email',
+      if ($("#normalEmail").val() != "") {
+        $.ajax("/users/checknemail", {
+          type: "POST",
+          data: { normalEmail: $("#normalEmail").val() },
+          success: function (result) {
+            if (result.status == "error") {
+              alert("Somethings Was Wrong!");
+            } else if (result.status == "have") {
+              // alert("Email is already in use,try another email")
+              Swal.fire({
+                title: "Email is already in used, try another email",
                 showClass: {
-                  popup: 'animate__animated animate__fadeInDown'
+                  popup: "animate__animated animate__fadeInDown",
                 },
                 hideClass: {
-                  popup: 'animate__animated animate__fadeOutUp'
-                }
+                  popup: "animate__animated animate__fadeOutUp",
+                },
               });
-            $("#normalEmail").val("");
-            $("#normalEmail").focus();
-          }
-        },
-      });
-    };
+              $("#normalEmail").val("");
+              $("#normalEmail").focus();
+            }
+          },
+        });
+      }
     });
+
+    function singupErrorMessage() {
+      var error = document.getElementById("error");
+      if (isNaN(document.getElementById("normalName").value)) {
+        error.textContent = "";
+      } else {
+        // Changing content and color of content
+        error.textContent = "Please enter your name";
+        error.style.color = "red";
+      }
+    }
   </script>
 </html>

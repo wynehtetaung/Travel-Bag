@@ -37,6 +37,7 @@
     <link href="/stylesheets/magnific-popup.css" rel="stylesheet" />
     <link href="/stylesheets/styles.css" rel="stylesheet" />
     <style>
+      
       .accbtn {
         color: #fff;
         background-color: #14bf98;
@@ -52,13 +53,13 @@
         outline: none;
       }
 
-      .accbta1 {
-        margin-right: 15px;
-      }
+      /* .accbta1 {
+        display: inline-block;
+      } */
 
-      .accbta2 {
+      /* .accbta2 {
         margin-left: 15px;
-      }
+      } */
 
       .mm12 {
         width: 15px;
@@ -78,6 +79,8 @@
         padding-left: 10px;
         padding-right: 10px;
         margin-bottom: 30px;
+        display: inline-block;
+        
       }
 
       .btabta {
@@ -109,16 +112,18 @@
     </div>
     <% include ./partials/navbar %>
 
+    <!--   class="nav nav-tabs"-->
+
     <!-- bootstrap code start -->
 
     <div class="container-fluid">
       <div class="container-fluid mt-5 pt-5">
         <div class="row">
           <div class="tabs">
-            <div class="area-1 layout-1">
-              <div>
+            <!-- area-1 layout-1 -->
+          
                 <!-- Tabs Links -->
-                <ul class="nav nav-tabs" id="ariaTabs" role="tablist">
+                <ul id="ariaTabs">
                   <div class="btaei">
                     <p>
                       <img
@@ -128,43 +133,61 @@
                       />အကောင့်ဝင်ရန် အောက်တွင် ရွေးချယ်ပါ။
                     </p>
                   </div>
-                  <div class="accbta1">
-                    <a href="/users/nlogin">
-                      <button class="accbtn">
-                        <img class="mm12" src="/images/uuu.png" alt="Agent" />
-                        သာမာန် အကောင့်
-                      </button>
-                    </a>
-                  </div>
-                  <div class="bta2">
-                    <a href="/users/agentLogin">
-                      <button class="accbtn">
-                        <img
-                          class="mm13"
-                          src="/images/people.png"
-                          alt="Agent"
-                        />အေးဂျင့် အကောင့်
-                      </button>
-                    </a>
+                  <div class="row">
+                    <div class="accbta1 m-3">
+                      <a href="/users/nlogin">
+                        <button class="accbtn">
+                          <img class="mm12" src="/images/uuu.png" alt="Agent" />
+                          သာမာန် အကောင့်
+                        </button>
+                      </a>
+                    </div>
+                    <div class="accbta2 m-3">
+                      <a href="/users/agentLogin">
+                        <button class="accbtn">
+                          <img
+                            class="mm13"
+                            src="/images/people.png"
+                            alt="Agent"
+                          />အေးဂျင့် အကောင့်
+                        </button>
+                      </a>
+                    </div>
                   </div>
                 </ul>
                 <!-- end of tabs links -->
-                <div>
-                  <p>
-                    &#9734;
-                    <strong>မှတ်ချက်</strong> အကောင့်အမျိုးအစား နှစ်ခုစလုံးမှာ
-                    အခမဲ့ (FREE) ဖြစ်ပါသည်။
-                  </p>
-                  <p>&#9734; ကြော်ငြာများကို အခမဲ့ တင်ခွင့်ရှိပါသည်။</p>
-                  <p>
-                    &#9734; သာမာန်အကောင့်တွင် တစ်လကို ကြော်ငြာ ၅ ခု အခမဲ့
-                    တင်နိုင်ပြီး အေးဂျင့်အကောင့်တွင် တစ်လကို ကြော်ငြာ ၁၀ ခု
-                    အခမဲ့ တင်နိုင်ပါသည်။
-                  </p>
-                  <p>
-                    &#9734; သို့သော် အေးဂျင့်အကောင့်တွင် လုပ်ဆောင်ချက်များ
-                    ပိုမိုပါဝင်ပါသည်။
-                  </p>
+                <div class="all1">
+                  <div>
+                    <p>
+                      &#9734;
+                      <strong>မှတ်ချက်</strong> အကောင့်အမျိုးအစား နှစ်ခုစလုံးမှာ
+                      အခမဲ့ (FREE) ဖြစ်ပါသည်။
+                    </p>
+                    <p>
+                      &#9734; သာမာန်အကောင့် ပြုလုပ်ထားသူများအနေဖြင့်
+                      သာမာန်အကောင့်တွင် အကောင့်ဝင်နိုင်ပါသည်။
+                    </p>
+                    <p>
+                      &#9734; သာမန်အကောင့်ပြုလုပ်ထားသူများအနေဖြင့်
+                      အေးဂျင့်အကောင့်တွင် အကောင့်ဝင်နိုင်မည်မဟုတ်ပါ။
+                    </p>
+                    <p>
+                      ‌အေးဂျင့်အကောင့်ဖြင့်အကောင့်ဝင်လိုပါက အေးဂျင့်အကောင့်တစ်ခု
+                      ထပ်မံပြုလုပ်ပြီး အကောင့်ဝင်နိုင်ပါသည်။
+                    </p>
+                    <p>
+                      &#9734; အေးဂျင့်အကောင့် ပြုလုပ်ထားသူများအနေဖြင့်
+                      အေးဂျင့်အကောင့်တွင် အကောင့်ဝင်နိုင်ပါသည်။
+                    </p>
+                    <p>
+                      &#9734; အေးဂျင့်အကောင့်ပြုလုပ်ထားသူများအနေဖြင့်
+                      သာမာန်အကောင့်တွင် အကောင့်ဝင်နိုင်မည်မဟုတ်ပါ။
+                    </p>
+                    <p>
+                      ‌သာမာန်အကောင့်ဖြင့်အကောင့်ဝင်လိုပါက သာမာန်အကောင့်တစ်ခု
+                      ထပ်မံပြုလုပ်ပြီး အကောင့်ဝင်နိုင်ပါသည်။
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
