@@ -75,7 +75,9 @@
                           name="agentName"
                           class="form-control"
                           placeholder="Name"
+                          required
                         />
+                        <span id="nameError"></span>
                       </div>
 
                       <div class="form-outline mb-4">
@@ -86,6 +88,7 @@
                           name="agentEmail"
                           class="form-control"
                           placeholder="Email address"
+                          required
                         />
                       </div>
 
@@ -99,6 +102,7 @@
                           name="agentPassword"
                           class="form-control"
                           placeholder="Password"
+                          required
                         />
                       </div>
 
@@ -106,6 +110,7 @@
                         <button
                           class="btn btn-dark bta3435 btn-block fa-lg gradient-custom-2 mb-3"
                           type="submit"
+                          onclick="singupErrorMessage()"
                         >
                           Sign Up
                         </button>
@@ -148,7 +153,7 @@
           } else if (result.status == "already name") {
             // alert("Username is already in use, try another username");
             Swal.fire({
-              title: "Username is already in used, try another username",
+              title: "ရှိပြီးသား အမည် ဖြစ်ပါသည်။တခြား အမည် အသုံးပြုပါ။",
               showClass: {
                 popup: "animate__animated  animate__fadeInDown",
               },
@@ -173,7 +178,7 @@
           } else if (result.status == "have") {
             // alert("Email is already in use,try another email")
             Swal.fire({
-              title: "Email is already in used, try another email",
+              title: "ရှိပြီးသား အီးမေးလ် ဖြစ်ပါသည်။တခြား အီးမေးလ် အသုံးပြုပါ။",
               showClass: {
                 popup: "animate__animated animate__fadeInDown",
               },
@@ -187,5 +192,26 @@
         },
       });
     });
+
+    function singupErrorMessage() {
+      var error = document.getElementById("nameError");
+      if (
+        /[0-9,~!@#$%^&*()-+,၁-၉]/.test(
+          document.getElementById("agentName").value
+        )
+      ) {
+        // Changing content and color of content
+        // error.textContent = "Please enter your name";
+        // error.style.color = "red";
+        error.innerHTML =
+          "<img src='https://cdn4.iconfinder.com/data/icons/set-1/32/__23-512.png' style='width:20px; 'height:10px;'>" +
+          "<span style='color: red;'>" +
+          " စာသားသီးသန့်သာ ထည့်ရန်</span>";
+        $("#agentName").val("");
+        $("#agentName").focus();
+      } else {
+        error.textContent = "";
+      }
+    }
   </script>
 </html>

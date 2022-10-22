@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-5 text-black">
-                    <form action="/users/nlogin" method="post">
+                    <form action="/users/nlogin" method="post" id="myform">
                       <div class="d-flex align-items-center mb-3 pb-1">
                         <i
                           class="fas fa-cubes fa-2x me-3"
@@ -58,6 +58,7 @@
                           name="normalEmail"
                           class="form-control form-control-lg"
                           placeholder="email adress"
+                          required
                         />
                       </div>
 
@@ -71,6 +72,7 @@
                           name="normalPassword"
                           class="form-control form-control-lg"
                           placeholder="password"
+                          required
                         />
                       </div>
                       <div class="form-check mb-2">
@@ -115,6 +117,7 @@
   </body>
   <script src="/javascripts/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script> -->
   <script>
     $("#rememberMe").click(function () {
       if ($("#rememberMe").prop("checked")) {
@@ -130,5 +133,15 @@
       $("#normalPassword").val(Cookies.get("normalPassword"));
       $("#rememberMe").prop("checked", "true");
     }
+    // $("#subBtn").click(() => {
+    //   $("#myform").validate({
+    //     submitHandler: function (form) {
+    //       // some other code
+    //       // maybe disabling submit button
+    //       // then:
+    //       $(form).submit();
+    //     },
+    //   });
+    // });
   </script>
 </html>
