@@ -1672,12 +1672,12 @@ input[type="checkbox"] {
 /***********************/
 .form-2 {
   padding-top: 6.625rem;
-  padding-bottom: 5.625rem;
+  padding-bottom: 6rem;
   background-color: #fbfbfb;
 }
 
 .form-2 .text-container {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .form-2 .section-title {
@@ -1741,6 +1741,14 @@ input[type="checkbox"] {
 .form-2 .fa-stack:hover .fa-stack-1x {
   color: #14bf98;
 }
+
+.form-2 #form-gp {
+  width: 50%;
+  margin: 30px;
+  margin-top: 50px;
+  padding-top: 30px;
+}
+/* for contact box */
 
 /**********************/
 /*     17. Footer     */
@@ -2285,6 +2293,10 @@ a:hover.back-to-top {
   .basic-1 .text-container {
     margin-top: 1.875rem;
     margin-right: 3rem;
+  }
+  .basic-1 .card {
+    margin-top: 100px;
+    margin-left: 100px;
   }
   /* end of intro */
 
