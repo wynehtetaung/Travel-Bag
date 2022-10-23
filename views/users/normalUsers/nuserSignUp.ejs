@@ -18,8 +18,14 @@
         background-color: #14bf98;
         border: #14bf98;
       }
-      .show_hide .input-box {
+      .input-box {
+        position: relative;
+        padding: 0px 30px 0px 20px;
+      }
+      .show_hide {
         position: absolute;
+        right: 12%;
+        top: 63.5%;
       }
     </style>
   </head>
@@ -89,14 +95,17 @@
                           name="normalPassword"
                           id="normalPassword"
                           class="form-control form-control-lg input-box"
+                          style="display: inline-block"
                           placeholder="စကားဝှက်"
                           required
                         />
                         <i class="fas fa-eye-slash show_hide"></i>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <h6>Password is weak</h6>
-                      </div>
 
+                        <h6 class="mt-2">
+                          <i class="fas fa-exclamation-circle mr-2"></i>Password
+                          is weak
+                        </h6>
+                      </div>
                       <div class="pt-1 mb-4">
                         <button
                           class="btn btn-dark bta1213 btn-lg btn-block"
