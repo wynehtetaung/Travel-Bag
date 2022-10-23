@@ -17,10 +17,8 @@
 
     <!-- Vendor CSS Files -->
     <link href="/vendor/aos/aos.css" rel="stylesheet" />
-    <link
-      href="/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+   
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
     
     <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link
@@ -41,13 +39,13 @@
     
 
   <body>
-    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+    <!-- <i class="bi bi-list mobile-nav-toggle d-xl-none"></i> -->
 
     <!-- ======= Header ======= -->
     <header id="header">
       <div class="d-flex flex-column">
         <div class="profile">
-          <img src="" alt="" class="img-fluid rounded-circle" />
+          <img src="images/bagan.jpg" alt="" class="img-fluid rounded-circle" />
           <h1 class="text-light"><a href="index.html">Admin name here</a></h1>
           <div class="social-links mt-3 text-center">
             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -61,7 +59,7 @@
         <nav id="navbar" class="nav-menu navbar">
           <ul>
             <li>
-              <a href="#hero" class="nav-link scrollto active"
+              <a href="#hero" class="nav-link scrollto "
                 ><i class="fi fi-rr-home"></i> <span>Home</span></a
               >
             </li>
@@ -88,128 +86,163 @@
               >
             </li>
             <li>
-              <a href="#contact" class="nav-link scrollto"
+              <a href="#contact" class="nav-link scrollto active"
                 ><i class="fi fi-rr-users"></i> <span>Agent Users List</span></a
               >
             </li>
           </ul>
         </nav>
-        <!-- .nav-menu -->
+        
       </div>
     </header>
 
-     <section id="portfolio-details" class="portfolio-details">
+    <main id="main" >
+      <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
-          <div class="row gy-4">
-            <div class="col-lg-8">
-              <section class="h-100 gradient-custom-2">
-                <div class="container py-5 h-100">
-                  <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col col-lg-9 col-xl-7">
-                      <div class="card">
-                        <div
-                          class="rounded-top text-white d-flex flex-row"
-                          style="background-color: #000; height: 200px"
-                        >
-                          <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
-                            <img
-                              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                              alt="Generic placeholder image"
-                              class="img-fluid mt-0 mb-2 rounded"
-                              style="width: 150px; z-index: 1 border-radius"
-                            />
-                            <button
-                              type="button"
-                              class="btn btn-outline-dark"
-                              data-mdb-ripple-color="dark"
-                              style="z-index: 1"
-                            >
-                              Edit profile
-                            </button>
-                          </div>
-                          <div class="ms-3" style="margin-top: 130px">
-                            <h5>Shin MF</h5>
-                            <p>Pathein</p>
-                          </div>
-                        </div>
-                        <div class="p-4 text-black" style="background-color: #f8f9fa">
-                          <div class="mt-3 d-flex justify-content-end text-center py-1">
-                            <div>
-                              <p class="mb-1 h5">5</p>
-                              <p class="small text-muted mb-0">Photos</p>
-                            </div>
-                            <div class="px-3">
-                              <p class="mb-1 h5">0</p>
-                              <p class="small text-muted mb-0">Followers</p>
-                            </div>
-                            <div>
-                              <p class="mb-1 h5">0</p>
-                              <p class="small text-muted mb-0">Following</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="card-body p-4 text-black">
-                          <div class="mb-5">
-                            <p class="lead fw-normal mb-1">About</p>
-                            <div class="p-4" style="background-color: #f8f9fa">
-                              <p class="font-italic mb-1">
-                                About the detail of the agent user if you need
-                              </p>
-                            </div>
-                          </div>
-                          <div
-                            class="d-flex justify-content-between align-items-center mb-4"
-                          >
-                            <p class="lead fw-normal mb-0">Recent photos</p>
-                            <p class="mb-0">
-                              <a href="#!" class="text-muted">Show all</a>
-                            </p>
-                          </div>
-                          <div class="row g-2">
-                            <div class="col mb-2">
-                              <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
-                                alt="image 1"
-                                class="w-100 rounded-3"
-                              />
-                            </div>
-                            <div class="col mb-2">
-                              <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
-                                alt="image 1"
-                                class="w-100 rounded-3"
-                              />
-                            </div>
-                          </div>
-                          <div class="row g-2">
-                            <div class="col">
-                              <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                                alt="image 1"
-                                class="w-100 rounded-3"
-                              />
-                            </div>
-                            <div class="col">
-                              <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                                alt="image 1"
-                                class="w-100 rounded-3"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <h2 class="section-title">Agent Profiles</h2>
+            <ol>
+              <li><a href="adminpage#portfolio">Home</a></li>
+              <li>Portfoio Details</li>
+            </ol>
           </div>
         </div>
       </section>
-  
-    <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+     <section id="portfolio-details" class="portfolio-details " >
+        <div class="container ">
+          <div class="row gy-4">
+            <div class="col-lg-4">
+              <div class="row">
+                <div >
+                <img src="/images/bagan.jpg" class="img-fluid rounded" alt="" />
+              </div>
+              
+            </div>
+            
+            
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+            <h3>Agent User Name here</h3>
+            <br><br>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li>
+                    <i class="bi bi-chevron-right"></i>
+                    <strong>Phone:</strong>
+                    <span>09650354400</span>
+                  </li>
+                  <br />
+                  <li>
+                    <i class="bi bi-chevron-right"></i>
+                    <strong>Email:</strong>
+                    <span>example@gmail.com</span>
+                  </li>
+                  <br />
+                  <li>
+                    <i class="bi bi-chevron-right"></i>
+                    <strong>City:</strong> <span>Pathein</span>
+                  </li>
+                  <br />
+                </ul>
+              </div>
+              <div class="p-4 text-black rounded" style="background-color: #7b8997">
+                <div class="mt-3 d-flex justify-content-end text-center py-1">
+                  <div>
+                    <p class="mb-1 h5">5</p>
+                    <p class="medium text-white mb-0">Posts</p>
+                  </div>
+                  <div class="px-3">
+                    <p class="mb-1 h5">0</p>
+                    <p class="medium text-white mb-0">Followers</p>
+                  </div>
+                  <div>
+                    <p class="mb-1 h5">0</p>
+                    <p class="medium text-white mb-0">Following</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>More about the agent detail if you need</p>
+          </div>
 
+        </div>
+        <section id="portfolio" class="portfolio section-bg">
+          <div class="container" data-aos="fade-up">
+            <div class="section-title">
+              <h2>Post List</h2>
+            </div>
+    
+            <div class="row">
+              <div
+                class="col-lg d-flex justify-content-center"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <ul id="portfolio-flters">
+                  <li data-filter="*" class="filter-active">All</li>
+                  <li data-filter=".filter-app">Beach</li>
+                  <li data-filter=".filter-card">Pagoda</li>
+                  <li data-filter=".filter-web">Restaurants</li>
+                </ul>
+              </div>
+            </div>
+    
+            <div
+              class="row portfolio-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                  <img
+                    src="/images/portfolio/portfolio-1.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="portfolio-info">
+                    <a href="/adminAdetail" class="portfolio-details-lightbox"
+                      ><h4>Some text if you need</h4></a
+                    >
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                <div class="portfolio-wrap">
+                  <img
+                    src="/images/portfolio/portfolio-2.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="portfolio-info">
+                    <h4>Web 3</h4>
+                    <p>Web</p>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                  <img
+                    src="/images/portfolio/portfolio-3.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="portfolio-info">
+                    <h4>App 2</h4>
+                    <p>App</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+    
   <!-- Vendor JS Files -->
   <script src="/vendor/aos/aos.js"></script>
   <script src="/javascripts/bootstrap.min.js"></script>
