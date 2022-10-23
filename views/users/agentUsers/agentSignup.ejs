@@ -71,25 +71,31 @@
                       <p>အေးဂျင့်အကောင့်ပြုလုပ်ပါ</p>
 
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="agentName">Name</label>
+                        <label class="form-label" for="agentName">အမည်</label>
                         <input
                           type="text"
                           id="agentName"
                           name="agentName"
                           class="form-control"
-                          placeholder="Name"
+                          placeholder="အမည်"
                           required
                         />
+                        <span id="nameError"></span>
                       </div>
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="agentEmail"
                           >အီးမေးလ်</label
                         >
-                        <input type="email" id="agentEmail" name="agentEmail"
-                        class="form-control" <<<<<<< HEAD placeholder="အီးမေးလ်"
-                        ======= placeholder="Email address" required >>>>>>>
-                        09a8a4153396492ecf1bc987cd1d37994b2c0fcf />
+                        <input
+                          type="email"
+                          id="agentEmail"
+                          name="agentEmail"
+                          class="form-control"
+                          placeholder="အီးမေးလ်"
+                          placeholder="Email address"
+                          required
+                        />
                       </div>
 
                       <div class="form-outline mb-4">
@@ -101,7 +107,7 @@
                           id="agentPassword"
                           name="agentPassword"
                           class="form-control"
-                          placeholder="Password"
+                          placeholder="စကားဝှက်"
                           required
                         />
                       </div>
@@ -200,9 +206,6 @@
           document.getElementById("agentName").value
         )
       ) {
-        // Changing content and color of content
-        // error.textContent = "Please enter your name";
-        // error.style.color = "red";
         error.innerHTML =
           "<img src='https://cdn4.iconfinder.com/data/icons/set-1/32/__23-512.png' style='width:20px; 'height:10px;'>" +
           "<span style='color: red;'>" +
