@@ -260,6 +260,11 @@ router.get("/aprofile", agentAuth, function (req, res) {
   res.render("users/agentUsers/agent-profile-detail");
 });
 
+// agent forget password
+router.get("/aforgetpassword", function (req, res) {
+  res.render("users/agentUsers/forget-password");
+});
+
 //logout
 
 router.get("/logout", function (req, res) {
