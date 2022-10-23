@@ -85,7 +85,8 @@ h6 {
 #header .profile img {
   margin: 15px auto;
   display: block;
-  width: 120px;
+  width: 150px;
+  height: 150px;
   border: 8px solid #d7d9e7;
 }
 
@@ -690,11 +691,12 @@ section {
 # Portfolio Details
 --------------------------------------------------------------*/
 .portfolio-details {
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
+  border-radius: 2%;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {
@@ -710,7 +712,7 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #149ddd;
+  border: 1px solid #1e5e7c;
 }
 
 .portfolio-details
@@ -723,6 +725,7 @@ section {
 .portfolio-details .portfolio-info {
   padding: 30px;
   box-shadow: 0px 0 30px rgba(5, 13, 24, 0.08);
+  background-color: white;
 }
 
 .portfolio-details .portfolio-info h3 {
@@ -825,10 +828,21 @@ section {
   text-align: center;
   min-height: 320px;
 }
+.testimonials .testimonial-item2 {
+  box-sizing: content-box;
+  text-align: center;
+  min-height: 320px;
+}
 
 .testimonials .testimonial-item .testimonial-img {
-  width: 120px;
+  width: 130px;
   border-radius: 50%;
+  margin: 0 auto;
+}
+
+.testimonials .testimonial-item2 .testimonial-img {
+  width: 160px;
+  border-radius: 20%;
   margin: 0 auto;
 }
 
@@ -840,6 +854,18 @@ section {
 }
 
 .testimonials .testimonial-item h4 {
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+}
+.testimonials .testimonial-item2 h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  color: #111;
+}
+
+.testimonials .testimonial-item2 h4 {
   font-size: 14px;
   color: #999;
   margin: 0;
@@ -876,6 +902,48 @@ section {
 }
 
 .testimonials .testimonial-item p::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 20px solid #fff;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 20px);
+}
+
+.testimonials .testimonial-item2 .quote-icon-left,
+.testimonials .testimonial-item2 .quote-icon-right {
+  color: #c3e8fa;
+  font-size: 26px;
+}
+
+.testimonials .testimonial-item2 .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
+}
+
+.testimonials .testimonial-item2 .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+}
+
+.testimonials .testimonial-item2 p {
+  font-style: italic;
+  margin: 0 15px 15px 15px;
+  padding: 20px;
+  background: #fff;
+  position: relative;
+  margin-bottom: 35px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials .testimonial-item2 p::after {
   content: "";
   width: 0;
   height: 0;
