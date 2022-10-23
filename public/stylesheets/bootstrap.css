@@ -515,7 +515,7 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: 80%;
 }
 
 .img-thumbnail {
@@ -1312,7 +1312,7 @@ pre code {
     flex: 0 0 50%;
     max-width: 50%;
   }
- 
+
   .col-lg-7 {
     -ms-flex: 0 0 58.333333%;
     flex: 0 0 58.333333%;
