@@ -89,13 +89,15 @@
                       </div> -->
 
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="agentEmail">Email</label>
+                        <label class="form-label" for="agentEmail"
+                          >အီးမေးလ်</label
+                        >
                         <input
                           type="email"
                           id="agentEmail"
                           name="agentEmail"
                           class="form-control"
-                          placeholder="Email address"
+                          placeholder="အီးမေးလ်"
                           required
                         />
                       </div>
@@ -118,10 +120,10 @@
                           class="form-check-input me-2"
                           type="checkbox"
                           value=""
-                          id="form2Example3"
+                          id="rememberMe"
                         />
-                        <label class="form-check-label" for="form2Example3">
-                          Remember me
+                        <label class="form-check-label" for="rememberMe">
+                          မှတ်ထားရန်
                         </label>
                       </div>
 
@@ -144,9 +146,9 @@
                         <a href="/users/agentSignup">
                           <button
                             type="button"
-                            class="btn btn-outline-success bta3344"
+                            class="btn btn-outline-success bta3344 mt-2"
                           >
-                            အကောင့်အသစ်ပြုလုပ်ရန်
+                            အကောင့်ပြုလုပ်ရန်
                           </button>
                         </a>
                       </div>
@@ -171,4 +173,23 @@
       </div>
     </section>
   </body>
+
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script>
+    $("#rememberMe").click(function () {
+      if ($("#rememberMe").prop("checked")) {
+        Cookies.set("agentEmail", $("#agentEmail").val());
+        Cookies.set("agentPassword", $("#agentPassword").val());
+      } else {
+        Cookies.remove("agentEmail");
+        Cookies.remove("agentPassword");
+      }
+    });
+    if (Cookies.get("agentEmail")) {
+      $("#agentEmail").val(Cookies.get("agentEmail"));
+      $("#agentPassword").val(Cookies.get("agentPassword"));
+      $("#rememberMe").prop("checked", "true");
+    }
+  </script>
 </html>

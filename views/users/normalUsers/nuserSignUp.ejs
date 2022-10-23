@@ -54,13 +54,13 @@
                       </h5>
 
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="name">Name</label>
+                        <label class="form-label" for="name">အမည်</label>
                         <input
                           type="text"
                           name="normalName"
                           id="normalName"
                           class="form-control form-control-lg"
-                          placeholder="name"
+                          placeholder="အမည်"
                           required
                         />
                         <span id="error"></span>
@@ -68,11 +68,15 @@
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="email">အီးမေးလ်</label>
-                        <input type="email" name="normalEmail" id="normalEmail"
-                        class="form-control form-control-lg" <<<<<<< HEAD
-                        placeholder="အီးမေးလ်" ======= placeholder="email
-                        address" required >>>>>>>
-                        09a8a4153396492ecf1bc987cd1d37994b2c0fcf />
+                        <input
+                          type="email"
+                          name="normalEmail"
+                          id="normalEmail"
+                          class="form-control form-control-lg"
+                          placeholder="အီးမေးလ်"
+                          placeholder="စကားဝှက် "
+                          required
+                        />
                       </div>
 
                       <div class="form-outline mb-4">
@@ -84,7 +88,7 @@
                           name="normalPassword"
                           id="normalPassword"
                           class="form-control form-control-lg"
-                          placeholder="password"
+                          placeholder="စကားဝှက်"
                           required
                         />
                       </div>
@@ -98,12 +102,6 @@
                           အကောင့်ပြုလုပ်မည်
                         </button>
                       </div>
-
-                      <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
-                      <!-- <p class="mb-5 pb-lg-2" style="color: #393f81">
-                        Don't have an account?
-                        <a href="#!" style="color: #393f81">Register here</a>
-                      </p> -->
                       <a href="#!" class="small text-muted">Terms of use.</a>
                       <a href="#!" class="small text-muted">Privacy policy</a>
                     </form>
@@ -128,7 +126,6 @@
             if (result.status == "error") {
               alert("Somethings Was Wrong!");
             } else if (result.status == "username have") {
-              // alert("Username is already in use, try another username");
               Swal.fire({
                 title: "ရှိပြီးသား အမည် ဖြစ်ပါသည်။တခြား အမည် အသုံးပြုပါ။",
                 showClass: {
@@ -154,7 +151,6 @@
             if (result.status == "error") {
               alert("Somethings Was Wrong!");
             } else if (result.status == "have") {
-              // alert("Email is already in use,try another email")
               Swal.fire({
                 title:
                   "ရှိပြီးသား အီးမေးလ် ဖြစ်ပါသည်။တခြား အီးမေးလ် အသုံးပြုပါ။",
@@ -180,9 +176,6 @@
           document.getElementById("normalName").value
         )
       ) {
-        // Changing content and color of content
-        // error.textContent = "Please enter your name";
-        // error.style.color = "red";
         error.innerHTML =
           "<img src='https://cdn4.iconfinder.com/data/icons/set-1/32/__23-512.png' style='width:20px; 'height:10px;'>" +
           "<span style='color: red;'>" +
