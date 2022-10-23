@@ -8,9 +8,8 @@
     <link href="../stylesheets/bootstrap.css" rel="stylesheet" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     />
-
     <title>Travel Bag</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
 
@@ -44,6 +43,15 @@
           border-top-right-radius: 0.3rem;
           border-bottom-right-radius: 0.3rem;
         }
+      }
+      .input-box {
+        position: relative;
+        padding: 0px 25px 0px 20px;
+      }
+      .show_hide {
+        position: absolute;
+        right: 19%;
+        top: 65%;
       }
     </style>
   </head>
@@ -104,15 +112,21 @@
                           type="password"
                           id="agentPassword"
                           name="agentPassword"
-                          class="form-control"
+                          class="form-control input-box"
                           placeholder="စကားဝှက်"
                           required
                         />
+                        <i class="fas fa-eye-slash show_hide"></i>
+
+                        <h6 class="mt-2">
+                          <i class="fas fa-exclamation-circle mr-2"></i>Password
+                          is weak
+                        </h6>
                       </div>
 
                       <div class="text-center pt-1 mb-5 pb-1">
                         <button
-                          class="btn btn-dark bta3435 btn-block fa-lg gradient-custom-2 mb-3"
+                          class="btn btn-dark bta3435 btn-block gradient-custom-2 mb-3"
                           type="submit"
                           onclick="singupErrorMessage()"
                         >

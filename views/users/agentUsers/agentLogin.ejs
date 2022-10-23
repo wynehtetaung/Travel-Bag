@@ -52,6 +52,15 @@
           border-bottom-right-radius: 0.3rem;
         }
       }
+      .input-box {
+        position: relative;
+        padding: 0px 25px 0px 20px;
+      }
+      .show_hide {
+        position: absolute;
+        right: 19%;
+        top: 65%;
+      }
     </style>
   </head>
   <body>
@@ -110,10 +119,16 @@
                           type="password"
                           id="agentPassword"
                           name="agentPassword"
-                          class="form-control"
+                          class="form-control input-box"
                           placeholder="စကားဝှက်"
                           required
                         />
+                        <i class="fas fa-eye-slash show_hide"></i>
+
+                        <h6 class="mt-2">
+                          <i class="fas fa-exclamation-circle mr-2"></i>Password
+                          is weak
+                        </h6>
                       </div>
                       <div class="form-check mb-2">
                         <input

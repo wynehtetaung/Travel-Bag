@@ -9,11 +9,24 @@
 
     <title>Travel Bag</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
 
     <style>
       .bta1212 {
         background-color: #14bf98;
         border: #14bf98;
+      }
+      .input-box {
+        position: relative;
+        padding: 0px 25px 0px 20px;
+      }
+      .show_hide {
+        position: absolute;
+        right: 12%;
+        top: 44.5%;
       }
     </style>
   </head>
@@ -67,10 +80,16 @@
                           type="password"
                           id="normalPassword"
                           name="normalPassword"
-                          class="form-control form-control-lg"
+                          class="form-control form-control-lg input-box"
                           placeholder="စကားဝှက်"
                           required
                         />
+                        <i class="fas fa-eye-slash show_hide"></i>
+
+                        <h6 class="mt-2">
+                          <i class="fas fa-exclamation-circle mr-2"></i>Password
+                          is weak
+                        </h6>
                       </div>
                       <div class="form-check mb-2">
                         <input
