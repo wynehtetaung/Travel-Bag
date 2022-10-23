@@ -180,6 +180,11 @@ router.post("/nlogin", function (req, res) {
   });
 });
 
+// normal user forget password
+router.get("/nfrogerpassword", function (req, res) {
+  res.render("users/normalUsers/nUserforgotPassword");
+});
+
 // agent sign up
 router.get("/agentSignup", function (req, res) {
   res.render("users/agentUsers/agentSignup");
