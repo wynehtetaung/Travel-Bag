@@ -25,7 +25,22 @@
       .show_hide {
         position: absolute;
         right: 12%;
-        top: 63.5%;
+        top: 65%;
+      }
+      .indicator.active {
+        display: block;
+      }
+      .indicator {
+        margin-top: 10px;
+        display: none;
+      }
+      .indicator .icon-text {
+        display: flex;
+        align-items: center;
+      }
+      .error_icon {
+        margin-right: 10px;
+        margin-bottom: 5px;
       }
     </style>
   </head>
@@ -100,11 +115,16 @@
                           required
                         />
                         <i class="fas fa-eye-slash show_hide"></i>
-
-                        <h6 class="mt-2">
-                          <i class="fas fa-exclamation-circle mr-2"></i>Password
-                          is weak
-                        </h6>
+                        <div>
+                          <div class="indicator">
+                            <div class="icon-text">
+                              <i
+                                class="fas fa-exclamation-circle error_icon"
+                              ></i>
+                              <h6 class="text"></h6>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <div class="pt-1 mb-4">
                         <button
@@ -127,6 +147,7 @@
       </div>
     </section>
   </body>
+  <script src="/javascripts/pShow_Hide.js"></script>
   <script src="/javascripts/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>

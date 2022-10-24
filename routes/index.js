@@ -126,6 +126,11 @@ router.get("/loginaccount", function (req, res) {
   res.render("choicelogin");
 });
 
+// google map
+router.get("/map", userAuth, function (req, res) {
+  res.render("map");
+});
+
 // 404 not found
 router.get("/page_not_found", function (req, res) {
   res.render("fof");
