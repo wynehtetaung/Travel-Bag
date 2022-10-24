@@ -527,7 +527,7 @@ section {
   margin: 0 auto 35px auto;
   list-style: none;
   text-align: center;
-  background: #fff;
+  background: rgb(236, 206, 206);
   border-radius: 50px;
   padding: 2px 15px;
 }
@@ -559,6 +559,7 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  background: rgba(69, 80, 91, 0.8);
 }
 
 .portfolio .portfolio-wrap::before {
@@ -658,7 +659,7 @@ section {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
-  color: #fff;
+  color: rgb(100, 96, 96);
   font-size: 28px;
   text-align: center;
   background: rgba(20, 157, 221, 0.75);
@@ -1172,12 +1173,14 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 20px 0;
-  background: #d19393;
+  /* background: #d19393; */
 }
 
 .breadcrumbs h2 {
   font-size: 26px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 300;
+  color: whitesmoke;
 }
 
 .breadcrumbs ol {

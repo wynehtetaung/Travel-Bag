@@ -397,7 +397,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: #096126;
+  color: #194496;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -529,7 +529,9 @@ section {
 }
 
 .portfolio-details .portfolio-details-slider img {
-  width: 80%;
+  margin-left: 10px;
+  width: 90%;
+  border-radius: 10px;
 }
 /* 
   .portfolio-details .portfolio-details-slider .swiper-pagination {
@@ -557,14 +559,16 @@ section {
 
 .portfolio-details .portfolio-info {
   padding: 30px;
-  box-shadow: 0px 0 30px rgba(69, 80, 91, 0.08);
+  box-shadow: 0px 0 30px rgba(185, 212, 236, 0.08);
+  background-color: rgb(218, 193, 193);
+  border-radius: 10px;
 }
 
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #eee;
   color: black;
 }
@@ -574,21 +578,26 @@ section {
   padding: 0;
   font-size: 15px;
   color: black;
+  margin-bottom: 5px;
 }
 
 .portfolio-details .portfolio-info ul li + li {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .portfolio-details .portfolio-description {
-  padding-top: 30px;
+  margin-top: 10px;
+  padding-top: 10px;
   color: black;
+  border: 1px solid rgb(238, 208, 208);
+  background-color: rgb(243, 209, 209);
+  border-radius: 10px;
 }
 
 .portfolio-details .portfolio-description h2 {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: black;
 }
 
