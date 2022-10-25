@@ -6,6 +6,17 @@
   <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
 </title>
 
+<style>
+  #profile-pic:hover{
+    
+  }
+</style>
+
+<link
+  rel="stylesheet"
+  href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+/>
+
 <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
   <!-- Text Logo - Use this if you don't have a graphic logo -->
   <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Aria</a> -->
@@ -16,6 +27,20 @@
   /></a>
 
   <!-- Mobile Menu Toggle Button -->
+  <!-- <i class="fi fi-rr-menu-burger" 
+  class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    
+    <span class="navbar-toggler-awesome fas fa-bars"></span>
+    <span class="navbar-toggler-awesome fas fa-times \"></span>
+   
+  </i> -->
+
   <button
     class="navbar-toggler"
     type="button"
@@ -23,11 +48,17 @@
     data-target="#navbarsExampleDefault"
     aria-controls="navbarsExampleDefault"
     aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-awesome fas fa-bars"></span>
-    <span class="navbar-toggler-awesome fas fa-times \"></span>
+    aria-label="Toggle navigation"  
+    <span class="navbar-toggler-awesome fas fa-bars">
+    <i class="fi fi-rr-menu-burger"></i>
+
+    </span>
+    <span class="navbar-toggler-awesome fas fa-times \">
+    <i class="fi fi-rr-cross-small"></i>
+
+    </span>
   </button>
+
   <!-- end of mobile menu toggle button -->
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -70,6 +101,22 @@
           >အကောင့်မှထွက်ရန်</a
         >
       </li>
+      <li class="nav-item" id="profile-pic">
+        <span >
+          <a class="nav-link page-scroll" href="users/nprofile">
+            <img
+              src="/images/images/undraw_pic_profile_re_1865.svg"
+              width="auto"
+              height="40px"
+              class="portfolio-details-lightbox"
+
+              
+              alt=""
+            />
+          </a>
+        </span>
+      </li>
+      <li class="nav-item">some</li>
       <%}else{%>
 
       <li class="nav-item">
