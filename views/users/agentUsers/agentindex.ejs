@@ -162,19 +162,20 @@
 
               <div class="col-lg-8 mt-5 mt-lg-0">
                 <form
-                  action=""
+                  action="/users/agentpage#portfolio"
                   method="post"
                   role="form"
                   class="php-email-form"
+                  enctype="multipart/form-data"
                 >
                   <div class="row">
                     <div class="col-md-6 form-group">
                       <input
                         type="text"
-                        name="name"
+                        name="title"
                         class="form-control"
-                        id="name"
-                        placeholder="Place Name"
+                        id="title"
+                        placeholder="Title"
                         required
                       />
                     </div>
@@ -183,9 +184,10 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="subject"
-                        id="subject"
-                        placeholder="Subject"
+                        name="place"
+                        id="place"
+                        placeholder="Place name"
+                        
                         required
                       />
                     </div>
@@ -204,7 +206,8 @@
                   <div class="form-group mt-3">
                     <textarea
                       class="form-control"
-                      name="message"
+                      name="content"
+                      id="content"
                       rows="5"
                       placeholder="Message"
                       required
@@ -258,48 +261,43 @@
               <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap">
                   <img
-                    src="/images/portfolio/portfolio-1.jpg"
+                    src=""
                     class="img-fluid"
                     alt=""
                   />
                   <div class="portfolio-info">
                     <a href="/users/adetail" class="portfolio-details-lightbox"
-                      ><h4>Some text if you need</h4></a
+                      ><h4>Post title</h4></a
                     >
                   </div>
                 </div>
               </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap">
-                  <img
-                    src="/images/portfolio/portfolio-2.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Web 3</h4>
-                    <p>Web</p>
-                  </div>
-                </div>
-              </div>
-
+            </div>
+            <!-- <% for(var i =0;i< posts.length: i++){%>
+              <div
+              class="row portfolio-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap">
                   <img
-                    src="/images/portfolio/portfolio-3.jpg"
+                    src=""
                     class="img-fluid"
                     alt=""
                   />
                   <div class="portfolio-info">
-                    <h4>App 2</h4>
-                    <p>App</p>
+                    <a href="/users/adetail" class="portfolio-details-lightbox"
+                      ><h4><%= posts[i].title%></h4></a
+                    >
                   </div>
                 </div>
               </div>
             </div>
+              <%}%> -->
           </div>
         </section>
+        
 
         <!-- End Services Section -->
 

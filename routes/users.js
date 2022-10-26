@@ -9,6 +9,10 @@ var jwt = require("jsonwebtoken");
 var nodemailer = require("nodemailer");
 // const { findById } = require("../models/nUsers");
 
+// var Post = require("../models/agent-postadd");
+// var multer = require("multer");
+// var upload = multer({ dest: "public/images/testimonials" });
+
 const agentAuth = function (req, res, next) {
   if (req.session.agent) {
     next();
@@ -343,5 +347,39 @@ router.post("/checkagentname", function (req, res) {
     }
   });
 });
+
+// postadd get method
+// router.get("/users/agentpage"),
+//   agentAuth,
+//   function (req, res) {
+//     res.render("/users/agentpage#contact");
+//   };
+
+// router.post("/users/agentpage"),
+//   agentAuth,
+//   upload.single("image"),
+//   function (req, res) {
+//     var post = new Post();
+//     post.title = req.body.title;
+//     post.place = req.body.place;
+//     post.image = req.body.image;
+//     post.author = req.session.user.id;
+//     post.content = req.body.content;
+//     post.created = Date.now();
+//     if (req.file) post.image = "/images/portfolio/" + req.file.filename;
+//     post.save(function (err, rtn) {
+//       if (err) throw err;
+//       console.log(rtn);
+//       res.redirect("/users/agentpage");
+//     });
+//   };
+
+//   router.get("/users/agentpage"),agentAuth,fuction(req,res){
+//     Post.find({author: req.session.user.id},function(err,rtn){
+//       if(err) throw err;
+//       console.log(rtn);
+//       res.render("users/agentpage#portfolio",{posts:rtn});
+//     })
+//   }
 
 module.exports = router;
