@@ -4,14 +4,12 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Post Details</title>
+    <title>Travel Bag</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
 
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
-
-    
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -26,23 +24,31 @@
     <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="/stylesheets/template.css" />
     <style>
-      .whole-body{
-        background: #5A3F37; 
-        background: -webkit-linear-gradient(to right, #2C7744, #5A3F37);
-        background: linear-gradient(to right, #2C7744, #5A3F37);
+      body {
+        background: #5a3f37;
+        background: -webkit-linear-gradient(to right, #2c7744, #5a3f37);
+        background: linear-gradient(to right, #2c7744, #5a3f37);
+      }
+      .upDate1 {
+        background-color: #14bf98;
+        border: none;
+      }
+      .dElete1 {
+        background-color: gray;
+        border: none;
       }
     </style>
   </head>
 
   <body>
     <main id="main" class="whole-body">
-      <section id="portfolio-details" class="portfolio-details >
+      <section id="portfolio-details" class="portfolio-details">
         <div class="container rounded">
-          <div class="row gy-4 ">
-            <div class="col-lg-6 ">
-              <div class="portfolio-details-slider swiper ">
+          <div class="row gy-4">
+            <div class="col-lg-6">
+              <div class="portfolio-details-slider swiper">
                 <div class="align-items-center rounded">
-                  <div class="img-fluid ">
+                  <div class="img-fluid">
                     <img src="/images/background.jpg" alt="" />
                   </div>
                 </div>
@@ -52,16 +58,16 @@
 
             <div class="col-lg-4">
               <div class="portfolio-info">
-                <h3>Post information</h3>
+                <h3>ပရိုဖိုင်လ် အချက်အလက်များ</h3>
                 <ul>
-                  <li><strong>Agent</strong>: Aung Aung</li>
-                  <li><strong>Place</strong>: Beaches,Pagodas,etc</li>
-                  <li><strong>Phone Number</strong>:0978965424</li>
-                  <li><strong>Post date</strong>: 01 March, 2020</li>
+                  <li><strong>အေးဂျင့်</strong> : Aung Aung</li>
+                  <li><strong>တည်နေရာ</strong> : Beaches,Pagodas,etc</li>
+                  <li><strong>ဖုန်းနံပါတ်</strong> : 0978965424</li>
+                  <li><strong>ပို့စ်တင်ချိန်</strong> : 01 March, 2020</li>
                 </ul>
               </div>
-              <div class="portfolio-description">
-                <h2>Post information</h2>
+              <div class="portfolio-description" style="padding-left: 10%">
+                <h2>ပို့စ်အချက်အလက်များ</h2>
                 <p>
                   About the post detail here. It means all the information of
                   the place where you go like beach,pagodas ,
@@ -70,22 +76,21 @@
               <div>
                 <button
                   type="button"
-                  class="btn btn-outline-dark btn-lg m-4"
+                  class="btn btn-success btn-lg m-4 upDate1"
                   data-mdb-ripple-color="dark"
                   style="z-index: 1"
                 >
-                  Update
+                  ပြင်ဆင်မည်
                 </button>
 
-                <button type="button" class="btn btn-danger btn-lg m">
-                  Delete
+                <button type="button" class="btn btn-danger btn-lg dElete1">
+                  ဖျက်မည်
                 </button>
               </div>
             </div>
           </div>
         </div>
       </section>
-
     </main>
 
     <!-- End #main -->

@@ -4,11 +4,14 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Agent Index Page</title>
+    <title>Travel Bag</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
 
     <meta content="" name="description" />
     <meta content="" name="keywords" />
+
+    <title>Travel Bag</title>
+    <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
 
     <link
       rel="stylesheet"
@@ -44,7 +47,7 @@
       "
     >
       <!-- ======= Mobile nav toggle button ======= -->
-    <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+      <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
 
       <i class="mobile-nav-toggle d-lg-none fi fi-rr-menu-burger"></i>
 
@@ -54,29 +57,29 @@
           <ul>
             <li>
               <a href="#about" class="nav-link scrollto"
-                ><i class="fi fi-rr-user"></i> <span>Profile</span></a
+                ><i class="fi fi-rr-user"></i> <span>ကိုယ်ရေးအကျဉ်း</span></a
               >
             </li>
             <li>
               <a href="#contact" class="nav-link scrollto"
                 ><i class="fi fi-rr-document-signed"></i>
-                <span>Post Add</span></a
+                <span>ပို့စ်တင်ရန်</span></a
               >
             </li>
 
             <li>
               <a href="#portfolio" class="nav-link scrollto">
-                <i class="fi fi-rr-list"></i> <span>Post List</span></a
+                <i class="fi fi-rr-list"></i> <span>ပို့စ်များ</span></a
               >
             </li>
             <li>
               <a href="#testimonial" class="nav-link scrollto">
-                <i class="fi fi-rr-users"></i> <span>Agent List</span></a
+                <i class="fi fi-rr-users"></i> <span>အေးဂျင့်စာရင်း</span></a
               >
             </li>
             <li>
               <a href="/dashboard" class="nav-link scrollto"
-                ><i class="fi fi-rr-exit"></i> <span>Logout</span></a
+                ><i class="fi fi-rr-exit"></i> <span>ထွက်မည်</span></a
               >
             </li>
           </ul>
@@ -89,11 +92,17 @@
         <section id="about" class="about">
           <div class="container" data-aos="fade-up">
             <div class="section-title">
-              <h2>Profile</h2>
+              <h2>ကိုယ်ရေးအကျဉ်း</h2>
             </div>
             <div class="row">
-              <div class="col-lg-6" ">
-                <img src="/images/bagan.jpg" class="img-fluid rounded" width="500px" height="auto" alt=""/>
+              <div class="col-lg-6">
+                <img
+                  src="/images/bagan.jpg"
+                  class="img-fluid rounded"
+                  width="500px"
+                  height="auto"
+                  alt=""
+                />
               </div>
               <div class="col-lg-6 pt-3 pt-lg-0 content mb-2">
                 <h3>Agent User Name here</h3>
@@ -117,20 +126,22 @@
                           <strong>City:</strong> <span>Pathein</span>
                         </li>
                         <br />
-  
+
                         <br />
                       </ul>
                     </div>
-                  
                   </div>
                   <div class="col-lg-6">
                     <ul>
-                      <img src="/images/images/undraw_adventure_re_ncqp.svg" width="230px" alt="">
-
+                      <img
+                        src="/images/undraw_adventure_re_ncqp.svg"
+                        width="230px"
+                        alt=""
+                      />
                     </ul>
                   </div>
                 </div>
-                <p>More about the agent detail if you need</p>
+                <p>အေးဂျင့်အချက်အလက်များကို ပိုမိုလုပ်ဆောင်နိုင်ရန် ...</p>
               </div>
             </div>
           </div>
@@ -142,7 +153,7 @@
         <section id="contact" class="contact">
           <div class="container" data-aos="fade-up">
             <div class="section-title">
-              <h2>Post Add</h2>
+              <h2>ပို့စ်တင်ရန်</h2>
             </div>
 
             <div class="row mt-1">
@@ -150,14 +161,16 @@
                 <div class="info">
                   <div class="address">
                     <i class="fi fi-rr-map-marker"></i>
-                    <h4>Location:</h4>
+                    <h4>တည်နေရာ</h4>
                     <p>6 Maha Bandoola Rd, Pathein 10011</p>
                   </div>
                 </div>
-                <img src="/images/images/undraw_world_re_768g.svg"
-                        width="300px" height="300px"
-                 alt="">
-                
+                <img
+                  src="/images/world1.svg"
+                  width="300px"
+                  height="300px"
+                  alt=""
+                />
               </div>
 
               <div class="col-lg-8 mt-5 mt-lg-0">
@@ -174,8 +187,8 @@
                         type="text"
                         name="title"
                         class="form-control"
-                        id="title"
-                        placeholder="Title"
+                        id="name"
+                        placeholder="Place Name"
                         required
                       />
                     </div>
@@ -187,7 +200,6 @@
                         name="place"
                         id="place"
                         placeholder="Place name"
-                        
                         required
                       />
                     </div>
@@ -209,17 +221,17 @@
                       name="content"
                       id="content"
                       rows="5"
-                      placeholder="Message"
+                      placeholder="စာရေးရန်"
                       required
                     ></textarea>
                   </div>
                   <div class="my-3">
                     <div class="loading">Loading</div>
                     <div class="error-message"></div>
-                    <div class="sent-message">Your post has been uploaded.</div>
+                    <div class="sent-message">ပို့စ်တင်ပြီးပါပြီ...</div>
                   </div>
                   <div class="text-center">
-                    <button type="submit">Add</button>
+                    <button type="submit">ပို့စ်တင်မည်</button>
                   </div>
                 </form>
               </div>
@@ -234,8 +246,8 @@
         <section id="portfolio" class="portfolio section-bg">
           <div class="container" data-aos="fade-up">
             <div class="section-title">
-              <h2>Post List</h2>
-              <p>some post detail if you need</p>
+              <h2>ပို့စ်များ</h2>
+              <p>အချက်အလက်များကိုအသေးစိတ် ကြည့်ရှုရန်</p>
             </div>
 
             <div class="row">
@@ -245,10 +257,10 @@
                 data-aos-delay="100"
               >
                 <ul id="portfolio-flters">
-                  <li data-filter="*" class="filter-active">All</li>
-                  <li data-filter=".filter-app">Beach</li>
-                  <li data-filter=".filter-card">Pagoda</li>
-                  <li data-filter=".filter-web">Restaurants</li>
+                  <li data-filter="*" class="filter-active">အားလုံး</li>
+                  <li data-filter=".filter-app">ကမ်းခြေခရီးစဉ်များ</li>
+                  <li data-filter=".filter-card">ဘုရားဖူးခရီးစဉ်များ</li>
+                  <li data-filter=".filter-web">ဟိုတယ်များ</li>
                 </ul>
               </div>
             </div>
@@ -260,11 +272,7 @@
             >
               <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap">
-                  <img
-                    src=""
-                    class="img-fluid"
-                    alt=""
-                  />
+                  <img src="" class="img-fluid" alt="" />
                   <div class="portfolio-info">
                     <a href="/users/adetail" class="portfolio-details-lightbox"
                       ><h4>Post title</h4></a
@@ -297,7 +305,6 @@
               <%}%> -->
           </div>
         </section>
-        
 
         <!-- End Services Section -->
 
@@ -307,8 +314,8 @@
           <section id="testimonials" class="testimonials section-bg">
             <div class="container">
               <div class="section-title">
-                <h2>Agent Users List</h2>
-                <p>Agent Users detail if we need.</p>
+                <h2>အသုံးပြုသူ အေးဂျင့်များ</h2>
+                <p>အေးဂျင့် အချက်လက်များအား ကြည့်ရှုရန်</p>
               </div>
 
               <div
@@ -321,10 +328,10 @@
                     <div class="testimonial-item" data-aos="fade-up">
                       <p>
                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec
-                        porttitora entum suscipit rhoncus. Accusantium quam,
-                        ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                        risus at semper.
+                        ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
+                        အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ ကမ်းခြေခရီးစဉ်တွေနဲ့
+                        ပတ်သတ်ပြီး ခရီးသွားလာလိုပါက မိတ်ဆွေတို့အနေနဲ့
+                        ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                       </p>
                       <a
@@ -332,14 +339,14 @@
                         class="portfolio-details-lightbox"
                       >
                         <img
-                          src="/images/testimonials/testimonials-1.jpg"
+                          src="/images/bta222.jpg"
                           class="testimonial-img"
                           alt=""
                         />
                       </a>
 
-                      <h3>Saul Goodman</h3>
-                      <h4>Ceo &amp; Founder</h4>
+                      <h3 style="color: #14bf98">Bhone Thit Aung</h3>
+                      <h4>အေးဂျင့်</h4>
                     </div>
                   </div>
                   <!-- End testimonial item -->
@@ -352,19 +359,19 @@
                     >
                       <p>
                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Export tempor illum tamen malis malis eram quae irure
-                        esse labore quem cillum quid cillum eram malis quorum
-                        velit fore eram velit sunt aliqua noster fugiat irure
-                        amet legam anim culpa.
+                        ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
+                        အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ ဘုရားဖူးခရီးစဉ်တွေနဲ့
+                        ပတ်သတ်ပြီး ခရီးသွားလာလိုပါက မိတ်ဆွေတို့အနေနဲ့
+                        ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                       </p>
                       <img
-                        src="/images/testimonials/testimonials-2.jpg"
+                        src="/images/Wynehtet.jpg"
                         class="testimonial-img"
                         alt=""
                       />
-                      <h3>Sara Wilsson</h3>
-                      <h4>Designer</h4>
+                      <h3 style="color: #14bf98">Wyne Htet Aung</h3>
+                      <h4>အေးဂျင့်</h4>
                     </div>
                   </div>
                   <!-- End testimonial item -->
@@ -377,19 +384,19 @@
                     >
                       <p>
                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Enim nisi quem export duis labore cillum quae magna enim
-                        sint quorum nulla quem veniam duis minim tempor labore
-                        quem eram duis noster aute amet eram fore quis sint
-                        minim.
+                        ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
+                        အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ လေ့လာရေးခရီးစဉ်တွေနဲ့
+                        ပတ်သတ်ပြီး ခရီးသွားလာလိုပါက မိတ်ဆွေတို့အနေနဲ့
+                        ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                       </p>
                       <img
-                        src="/images/testimonials/testimonials-3.jpg"
+                        src="/images/ShinnThant1.jpg"
                         class="testimonial-img"
                         alt=""
                       />
-                      <h3>Jena Karlis</h3>
-                      <h4>Store Owner</h4>
+                      <h3 style="color: #14bf98">Shin Thant Lwin</h3>
+                      <h4>အေးဂျင့်</h4>
                     </div>
                   </div>
                   <!-- End testimonial item -->
@@ -402,19 +409,19 @@
                     >
                       <p>
                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Fugiat enim eram quae cillum dolore dolor amet nulla
-                        culpa multos export minim fugiat minim velit minim dolor
-                        enim duis veniam ipsum anim magna sunt elit fore quem
-                        dolore labore illum veniam.
+                        ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
+                        အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ မိတ်ဆွေတို့ရဲ့ ခရီးစဉ်တွေနဲ့
+                        ပတ်သတ်ပြီး တည်းခိုအနားယူဖို့အတွက် ဟိုတယ်တွေနဲ့ပတ်သတ်ပြီး
+                        ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                       </p>
                       <img
-                        src="/images/testimonials/testimonials-4.jpg"
+                        src="/images/KoYethuaung.jpg"
                         class="testimonial-img"
                         alt=""
                       />
-                      <h3>Matt Brandon</h3>
-                      <h4>Freelancer</h4>
+                      <h3 style="color: #14bf98">Ye Thu Aung</h3>
+                      <h4>အေးဂျင့်</h4>
                     </div>
                   </div>
                   <!-- End testimonial item -->
@@ -427,19 +434,20 @@
                     >
                       <p>
                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Quis quorum aliqua sint quem legam fore sunt eram irure
-                        aliqua veniam tempor noster veniam enim culpa labore
-                        duis sunt culpa nulla illum cillum fugiat legam esse
-                        veniam culpa fore nisi cillum quid.
+                        ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
+                        အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ မိတ်ဆွေတို့ရဲ့ ခရီးစဉ်တွေနဲ့
+                        ပတ်သတ်ပြီး လွယ်ကူချောမွေ့စွာသွားလာနိုင်ဖို့အတွက် Express
+                        ကားတွေနဲ့ပတ်သတ်ပြီး ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း
+                        စုံစမ်းနိုင်ပါတယ်။
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                       </p>
                       <img
-                        src="/images/testimonials/testimonials-5.jpg"
+                        src="/images/HHA222.jpg"
                         class="testimonial-img"
                         alt=""
                       />
-                      <h3>John Larson</h3>
-                      <h4>Entrepreneur</h4>
+                      <h3 style="color: #14bf98">Han Htun Aung</h3>
+                      <h4>အေးဂျင့်</h4>
                     </div>
                   </div>
                   <!-- End testimonial item -->
@@ -475,9 +483,9 @@
               <div class="text-container about">
                 <h4>Few Words About TRAVEL BAG</h4>
                 <p class="white">
-                  We will always make the best website and make it happy for those
-                  who love to travel. For your trip, open an account on Travel Bag
-                  now and access it.
+                  We will always make the best website and make it happy for
+                  those who love to travel. For your trip, open an account on
+                  Travel Bag now and access it.
                 </p>
               </div>
               <!-- end of text-container -->
@@ -496,7 +504,9 @@
                     >
                   </li>
                   <li>
-                    <a class="white" href="privacy-policy.html">Privacy Policy</a>
+                    <a class="white" href="privacy-policy.html"
+                      >Privacy Policy</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -526,7 +536,9 @@
                 <h4>Partners</h4>
                 <ul class="list-unstyled li-space-lg">
                   <li>
-                    <a class="white" href="https://techhouse.tech">TECH HOUSE</a>
+                    <a class="white" href="https://techhouse.tech"
+                      >TECH HOUSE</a
+                    >
                   </li>
                   <li>
                     <a
