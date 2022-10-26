@@ -1778,7 +1778,7 @@ input[type="checkbox"] {
 /*************************/
 .copyright {
   padding-top: 1rem;
-  padding-bottom: 0.5rem;
+  /* padding-bottom: 0.5rem; */
   background-color: #113448;
   text-align: center;
 }
@@ -1889,7 +1889,7 @@ a:hover.back-to-top {
 
   /* Navigation */
   .navbar-custom {
-    padding: 2.125rem 1.5rem 2.125rem 2rem;
+    padding: 2.125rem 2.1rem 2.125rem 2rem;
     box-shadow: none;
     background: transparent;
   }
@@ -1905,6 +1905,9 @@ a:hover.back-to-top {
 
   .navbar-custom .nav-item .nav-link {
     padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+    /* padding-right: 10px; */
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .navbar-custom .nav-item .nav-link:hover,
