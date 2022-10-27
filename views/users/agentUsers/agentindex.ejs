@@ -67,11 +67,11 @@
               >
             </li>
 
-            <li>
+            <!-- <li>
               <a href="#portfolio" class="nav-link scrollto">
                 <i class="fi fi-rr-list"></i> <span>ပို့စ်များ</span></a
               >
-            </li>
+            </li> -->
             <li>
               <a href="#testimonial" class="nav-link scrollto">
                 <i class="fi fi-rr-users"></i> <span>အေးဂျင့်စာရင်း</span></a
@@ -175,19 +175,19 @@
 
               <div class="col-lg-8 mt-5 mt-lg-0">
                 <form
-                  action=""
+                  action="/users/adetail"
                   method="post"
                   role="form"
-                  class="php-email-form"
+                  enctype="multipart/form-data"
                 >
                   <div class="row">
                     <div class="col-md-6 form-group">
                       <input
                         type="text"
-                        name="name"
+                        name="title"
                         class="form-control"
-                        id="name"
-                        placeholder="အမည်"
+                        id="title"
+                        placeholder="Postခေါင်းစဉ်"
                         required
                       />
                     </div>
@@ -196,9 +196,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="subject"
-                        id="subject"
-                        placeholder="အကြောင်းအရာ"
+                        name="place"
+                        id="place"
+                        placeholder="နေရာနာမည်"
                         required
                       />
                     </div>
@@ -210,6 +210,7 @@
                       class="form-control"
                       name="image"
                       id="image"
+                      accept="image/*"
                       required
                     />
                   </div>
@@ -217,19 +218,24 @@
                   <div class="form-group mt-3">
                     <textarea
                       class="form-control"
-                      name="message"
+                      name="content"
+                      id="content"
                       rows="5"
-                      placeholder="စာရေးရန်"
+                      placeholder="အချက်အလက်ရေးရန်"
                       required
                     ></textarea>
                   </div>
-                  <div class="my-3">
+                  <!-- <div class="my-3">
                     <div class="loading">Loading</div>
                     <div class="error-message"></div>
                     <div class="sent-message">ပို့စ်တင်ပြီးပါပြီ...</div>
-                  </div>
-                  <div class="text-center">
-                    <button type="submit">ပို့စ်တင်မည်</button>
+                  </div> -->
+                  <div class="text-center btn btn-danger">
+                    <input
+                      type="submit"
+                      class="btn btn-danger"
+                      value="post tin mal"
+                    />
                   </div>
                 </form>
               </div>
@@ -240,79 +246,6 @@
         <!-- End Contact Section -->
 
         <!-- ======= Services Section ======= -->
-
-        <section id="portfolio" class="portfolio section-bg">
-          <div class="container" data-aos="fade-up">
-            <div class="section-title">
-              <h2>ပို့စ်များ</h2>
-              <p>အချက်အလက်များကိုအသေးစိတ် ကြည့်ရှုရန်</p>
-            </div>
-
-            <div class="row">
-              <div
-                class="col-lg-12 d-flex justify-content-center"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                <ul id="portfolio-flters">
-                  <li data-filter="*" class="filter-active">အားလုံး</li>
-                  <li data-filter=".filter-app">ကမ်းခြေခရီးစဉ်များ</li>
-                  <li data-filter=".filter-card">ဘုရားဖူးခရီးစဉ်များ</li>
-                  <li data-filter=".filter-web">ဟိုတယ်များ</li>
-                </ul>
-              </div>
-            </div>
-
-            <div
-              class="row portfolio-container"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img
-                    src="/images/portfolio/portfolio-1.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <a href="/users/adetail" class="portfolio-details-lightbox"
-                      ><h4>Some text if you need</h4></a
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap">
-                  <img
-                    src="/images/portfolio/portfolio-2.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Web 3</h4>
-                    <p>Web</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img
-                    src="/images/portfolio/portfolio-3.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>App 2</h4>
-                    <p>App</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <!-- End Services Section -->
 
