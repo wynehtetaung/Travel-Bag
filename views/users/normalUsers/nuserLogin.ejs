@@ -24,9 +24,9 @@
         padding: 0px 25px 0px 20px;
       }
       .show_hide {
-        position: absolute;
-        right: 12%;
-        top: 47%;
+        padding: 10px 10px;
+        background-color: #efefef;
+        border: 1px solid darkgray;
       }
     </style>
   </head>
@@ -76,15 +76,19 @@
                         <label class="form-label" for="password"
                           >စကားဝှက်</label
                         >
-                        <input
-                          type="password"
-                          id="normalPassword"
-                          name="normalPassword"
-                          class="form-control form-control-lg input-box"
-                          placeholder="စကားဝှက်"
-                          required
-                        />
-                        <i class="fas fa-eye-slash show_hide"></i>
+
+                        <div class="input-group" id="show_hide_password">
+                          <input
+                            class="form-control input-box"
+                            type="password"
+                            id="normalPassword"
+                            class="normalPassword"
+                            placeholder="စကားဝှက်"
+                          />
+                          <div class="input-group-addon">
+                            <i class="fa fa-eye-slash show_hide"></i>
+                          </div>
+                        </div>
                       </div>
                       <div class="form-check mb-2">
                         <input

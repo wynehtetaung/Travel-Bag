@@ -51,9 +51,9 @@
         padding-bottom: 5px;
       }
       .show_hide {
-        /* position: absolute; */
-        right: 29%;
-        /* top: 65%; */
+        padding: 10px 10px;
+        background-color: #efefef;
+        border: 1px solid darkgray;
       }
 
       .indicator.active {
@@ -123,34 +123,27 @@
                       </div>
 
                       <div class="form-outline mb-4">
-                        <!-- <label class="form-label" for="agentPassword"
+                        <label class="form-group" for="agentPassword"
                           >စကားဝှက်</label
                         >
-                        <input
-                          type="password"
-                          id="agentPassword"
-                          name="agentPassword"
-                          class="form-control input-box"
-                          placeholder="စကားဝှက်"
-                          required
-                        /> -->
-                        <!-- <div class="form-outline mb-4"> -->
-                        <label class="form-label" for="agentPassword"
-                          >စကားဝှက်</label
-                        >
-                        <div class="">
+
+                        <div class="input-group" id="show_hide_password">
                           <input
+                            class="form-control input-box"
                             type="password"
                             id="agentPassword"
                             name="agentPassword"
-                            class="font-control input-box"
                             placeholder="စကားဝှက်"
                             required
                           />
-                          <i class="fas fa-eye-slash show_hide"></i>
+                          <div class="input-group-addon">
+                            <i
+                              class="fa fa-eye-slash show_hide"
+                              aria-hidden="true"
+                            ></i>
+                          </div>
                         </div>
-                        <!-- </div> -->
-                        <!-- <i class="fas fa-eye-slash show_hide"></i> -->
+
                         <div>
                           <div class="indicator">
                             <div class="icon-text">
