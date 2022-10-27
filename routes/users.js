@@ -275,7 +275,9 @@ router.post("/agentLogin", function (req, res) {
 
       res.redirect("/users/agentpage");
     } else {
-      res.redirect("/users/agentLogin");
+      res.render("users/agentUsers/agentLogin", {
+        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည် ။ အကောင့်ပြန်ဝင်ပါ ။",
+      });
     }
   });
 });
