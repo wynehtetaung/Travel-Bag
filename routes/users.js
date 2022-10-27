@@ -316,6 +316,32 @@ router.get("/logout", function (req, res) {
   });
 });
 
+// postadd get method
+router.get("/agentpage#contact"),
+  agentAuth,
+  function (req, res) {
+    res.render("/users/agentUsers/agent-post-list");
+  };
+
+router.post("/agentpage#contact"),
+  agentAuth,
+  upload.single("image"),
+  function (req, res) {
+    var post = new Post();
+    post.title = req.body.title;
+    post.place = req.body.place;
+    post.image = req.body.image;
+    post.author = req.session.user.id;
+    post.content = req.body.content;
+    post.created = Date.now();
+    if (req.file) post.image = "/images/testinomials/" + req.file.filename;
+    post.save(function (err, rtn) {
+      if (err) throw err;
+      console.log(rtn);
+      res.redirect("/apostlist");
+    });
+  };
+
 // check users name duplicate
 router.post("/checkname", function (req, res) {
   User.findOne({ normalName: req.body.normalName }, function (err, rtn) {
@@ -380,32 +406,6 @@ router.post("/checkagentname", function (req, res) {
     }
   });
 });
-
-// postadd get method
-// router.get("/agentpage#contact"),
-//   agentAuth,
-//   function (req, res) {
-//     res.render("/users/agentUsers/agentLogin");
-//   };
-
-router.post("/users/agentpage"),
-  agentAuth,
-  upload.single("image"),
-  function (req, res) {
-    var post = new Post();
-    post.title = req.body.title;
-    post.place = req.body.place;
-    post.image = req.body.image;
-    post.author = req.session.user.id;
-    post.content = req.body.content;
-    post.created = Date.now();
-    if (req.file) post.image = "/images/portfolio/" + req.file.filename;
-    post.save(function (err, rtn) {
-      if (err) throw err;
-      console.log(rtn);
-      res.redirect("/");
-    });
-  };
 
 //   router.get("/users/agentpage"),agentAuth,fuction(req,res){
 //     Post.find({author: req.session.user.id},function(err,rtn){

@@ -39,6 +39,11 @@
         padding-top: 7px;
         padding-bottom: 9px;
       }
+      .show_hide {
+        padding: 10px 10px;
+        background-color: #efefef;
+        border: 1px solid darkgray;
+      }
     </style>
 
     <title>Admin Sign UP</title>
@@ -84,29 +89,20 @@
                 />
               </div>
 
-              <!-- Password input -->
-              <!-- <div class="form-outline mb-3">
-                <label class="form-label" for="adminPassword">Password</label>
-                <input
-                  type="password"
-                  id="adminPassword"
-                  name="adminPassword"
-                  class="form-control form-control-lg"
-                  placeholder="Enter password"
-                />
-              </div> -->
               <div class="form-outline mb-4">
                 <label class="form-label" for="agentPassword">စကားဝှက်</label>
-                <div class="">
+                <div class="input-group" id="show_hide_password">
                   <input
+                    class="form-control input-box"
                     type="password"
-                    id="agentPassword"
-                    name="agentPassword"
-                    class="input-box"
-                    placeholder="စကားဝှက်"
+                    id="adminPassword"
+                    name="adminPassword"
+                    placeholder="Enter Password"
                     required
                   />
-                  <i class="fas fa-eye-slash show_hide"></i>
+                  <div class="input-group-addon">
+                    <i class="fa fa-eye-slash show_hide" aria-hidden="true"></i>
+                  </div>
                 </div>
               </div>
 
