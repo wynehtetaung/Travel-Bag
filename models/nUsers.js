@@ -12,6 +12,10 @@ var UserSchema = new Schema({
     required: true,
     unique: true,
   },
+  normalImage: {
+    type: String,
+    required: true,
+  },
   normalPassword: {
     type: String,
     required: true,
@@ -25,6 +29,10 @@ var UserSchema = new Schema({
   normalDate: {
     type: Date,
     default: Date.now(),
+  },
+  token: {
+    type: String,
+    default: "",
   },
 });
 

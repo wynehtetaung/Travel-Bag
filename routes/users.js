@@ -2,12 +2,17 @@ var express = require("express");
 var router = express.Router();
 var User = require("../models/nUsers");
 var Agent = require("../models/aUsers");
+var Swal = require("sweetalert2");
 // var transporter = require("../models/emailVerification");
 var crypto = require("crypto");
 var cookie = require("cookie-parser");
 var jwt = require("jsonwebtoken");
-var nodemailer = require("nodemailer");
-// const { findById } = require("../models/nUsers");
+// var nodemailer = require("nodemailer");
+var randomString = require("randomstring");
+// const SMTPConnection = require("nodemailer/lib/smtp-connection");
+var config = require("../config/config");
+
+var sendResetPasswordMail = require("../models/emailVerification");
 
 var Post = require("../models/agent-postadd");
 var multer = require("multer");
@@ -28,6 +33,12 @@ const userAuth = function (req, res, next) {
   }
 };
 
+const userAuthOut = function (req, res) {
+  if (req.session.destroy) {
+    res.redirect("/");
+  }
+};
+
 //nodemailer
 // var transporter = nodemailer.createTransport({
 //   service: "gmail",
@@ -43,106 +54,72 @@ router.get("/", userAuth, function (req, res, next) {
 });
 
 //normal users sign up
-router.get("/nsignup", function (req, res) {
-  res.render("users/normalUsers/nuserSignUp");
-});
+router.get(
+  "/nsignup",
+  config.upload.single("normalImage"),
+  function (req, res) {
+    res.render("users/normalUsers/nuserSignUp");
+  }
+);
 
 //normal users sign up data
 router.post("/nsignup", function (req, res) {
-  // let mailTransporter = nodemailer.createTransport({
-  //   service: "gmail",
-  //   auth: {
-  //     user: "travelbagproject30@gmail.com",
-  //     pass: "travel#2022bag",
-  //   },
-  // });
-
   try {
-    // /helpers/email.js
-
-    // var sendEmailWithNodemailer = (req, res, emailData) => {
-    //   let transporter = nodemailer.createTransport({
-    //     host: "smtp.gmail.com",
-    //     port: 587,
-    //     secure: false,
-    //     requireTLS: true,
-    //     auth: {
-    //       user: "travelbagproject30@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
-    //       pass: "travel#2022bag", // MAKE SURE THIS PASSWORD IS YOUR GMAIL APP PASSWORD WHICH YOU GENERATED EARLIER
-    //     },
-    //     tls: {
-    //       ciphers: "SSLv3",
-    //     },
-    //   });
-    // };
-
-    // return transporter
-    // .sendMail(emailData)
-    // .then((info) => {
-    //   console.log(`Message sent: ${info.response}`);
-    //   return res.json({
-    //     success: true,
-    //   });
-    // })
-    // .catch((err) => console.log(`Problem sending email: ${err}`));
-
-    const { normalName, normalEmail, normalPassword } = req.body;
+    const { normalName, normalEmail, normalPassword, normalImage } = req.body;
     var user = new User({
       normalName,
       normalEmail,
+      normalImage,
       normalPassword,
       normalemailToken: crypto.randomBytes(64).toString("hex"),
       normalisVerified: false,
     });
 
     const newUser = user.save();
-
-    // send verification mail to user
-    // var mailOptions = {
-    //   from: '"Verification your email" <travelbagproject30@gmail.com>',
-    //   to: user.normalEmail,
-    //   Subject: "code withthis id - verify your email",
-    //   html: `<h2>${user.normalName}! Thanks for register on our website.</h2>
-    //           <h4> Please verify to continue....</h4>
-    //           <a href="localhost:4000/user/verify-email?token=${user.normalemailToken}">verify your email</a>`,
-    // };
-
-    // send mail
-    // mailTransporter.sendMail(mailOptions, function (err, info) {
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
-    //     console.log("verfication mail is sent");
-    //   }
-    // });
-
-    // controllers/form.js
-
     exports.contactForm = (req, res) => {
       const { normalName, normalEmail } = req.body;
-
-      //   const emailData = {
-      //     from: "travelbagproject30@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
-      //     to: user.normalEmail, // WHO SHOULD BE RECEIVING THIS EMAIL? IT SHOULD BE YOUR GMAIL
-      //     subject: "Website Contact Form",
-      //     text: `Email received from contact from \n Sender name: ${normalName} \n Sender email: ${normalEmail} \n`,
-      //     html: `
-      //     <h4>Email received from contact form:</h4>
-      //     <p>Sender name: ${normalName}</p>
-      //     <p>Sender email: ${normalEmail}</p>
-      //     <hr />
-      //     <p>This email may contain sensitive information</p>
-      //     <p>https://onemancode.com</p>
-      // `,
-      //   };
-
-      sendEmailWithNodemailer(req, res, emailData);
     };
     res.redirect("/users/nlogin");
   } catch (err) {
     console.log(err);
   }
 });
+
+// for resetPassword send mail
+
+// router.use(
+//   (sendResetPasswordMail = async (normalName, normalEmail, token) => {
+//     try {
+//       const transporter = nodemailer.createTransport({
+//         service: "Gmail",
+//         auth: {
+//           user: config.Useremail,
+//           pass: config.UserPassword,
+//         },
+//       });
+//       const mailOptions = {
+//         from: config.UserEmail,
+//         to: user.normalEmail,
+//         subject: "For reset password",
+//         html:
+//           "<p>Hi " +
+//           normalName +
+//           ', Please click here to <a href="https://127.0.0.1:4000/users/forget-password?token=' +
+//           token +
+//           '">Reset Your Password</a></p>',
+//       };
+//       transporter.sendMail(mailOptions, function (error, info) {
+//         if (error) {
+//           console.log(error);
+//         } else {
+//           console.log("Email has been sent:- ", info.response);
+//         }
+//       });
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+//   })
+// );
 
 // normal users login
 router.get("/nlogin", function (req, res) {
@@ -156,32 +133,37 @@ router.get("/nlogin", function (req, res) {
 
 // normal users login data
 router.post("/nlogin", function (req, res) {
-  User.findOne({ normalEmail: req.body.normalEmail }, function (err, rtn) {
-    if (err) throw err;
-    if (
-      rtn != null &&
-      User.compare(req.body.normalPassword, rtn.normalPassword)
-    ) {
-      //renember login
-      req.session.user = {
-        id: rtn._id,
-        normalName: rtn.normalName,
-        normalEmail: rtn.normalEmail,
-      };
+  const data = User.findOne(
+    { normalEmail: req.body.normalEmail },
+    function (err, rtn) {
+      if (err) throw err;
+      if (
+        rtn != null &&
+        User.compare(req.body.normalPassword, rtn.normalPassword)
+      ) {
+        //renember login
+        req.session.user = {
+          id: rtn._id,
+          normalName: rtn.normalName,
+          normalEmail: rtn.normalEmail,
+        };
 
-      //create token
-      // var token = createToken(findById);
-      // var token = createToken(findeUser.id);
-      // console.log(token);
+        //create token
+        // var token = createToken(findById);
+        // var token = createToken(findeUser.id);
+        // console.log(token);
 
-      // store token in cookie
-      // res.cookie("access-token", token);
+        // store token in cookie
+        // res.cookie("access-token", token);
 
-      res.redirect("/dashboard");
-    } else {
-      res.redirect("/users/nlogin");
+        res.redirect("/dashboard");
+      } else {
+        res.render("users/normalUsers/nuserLogin", {
+          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည် ။ အကောင့်ပြန်ဝင်ပါ ။",
+        });
+      }
     }
-  });
+  );
 });
 
 // normal user profile
@@ -189,9 +171,53 @@ router.get("/nprofile", userAuth, function (req, res) {
   res.render("users/normalUsers/nuser-profile.ejs");
 });
 
+// normal user reset password
+router.get("/forget-password", function (req, res) {
+  res.render("users/normalUsers/resetPassword");
+});
+
 // normal user forget password
 router.get("/nforgetpassword", function (req, res) {
   res.render("users/normalUsers/nUserforgotPassword");
+});
+
+// router.get("/nforgetpassword", forgetLoad);
+
+// todo normal user forget password data
+
+router.post("/nforgetpassword", async (req, res) => {
+  try {
+    const normalEmail = req.body.normalEmail;
+    console.log("User Input Data :", normalEmail);
+    User.findOne({ normalEmail: normalEmail }, (err, rtn) => {
+      if (err) throw err;
+      console.log("UserDate :", rtn);
+      if (rtn != null) {
+        if (rtn.normalisVerified === false) {
+          res.render("users/normalUsers/resetPassword", {
+            message: "သင့် အီးမေးလ် အတည်ပြုပါ ။",
+          });
+        } else {
+          const randomString = randomString.generate();
+          const updatedDate = User.updateOne(
+            { normalEmail: normalEmail },
+            { $set: { token: randomString } }
+          );
+          // /nUserforgotPassword
+          sendResetPasswordMail(rtn.normalName, rtn.normalEmail, randomString);
+          res.render("users/normalUsers/resetPassword", {
+            message: "သင့် အီးမေးလ် ကို ကျေးဇူးပြု၍စစ်ပေးပါ ။",
+          });
+        }
+      } else {
+        res.render("users/normalUsers/resetPassword", {
+          message: " သင့် အီးမေးလ် မှားနေပါသည် ။",
+        });
+      }
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 // agent sign up
@@ -249,7 +275,9 @@ router.post("/agentLogin", function (req, res) {
 
       res.redirect("/users/agentpage");
     } else {
-      res.redirect("/users/agentLogin");
+      res.render("users/agentUsers/agentLogin", {
+        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည် ။ အကောင့်ပြန်ဝင်ပါ ။",
+      });
     }
   });
 });
