@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var Schema = require("Schema");
+var Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
   title: {
@@ -15,12 +15,12 @@ var PostSchema = new Schema({
     require: true,
   },
   image: {
-    type: File,
+    type: String,
     require: true,
   },
   author: {
     type: Schema.Types.ObjectId,
-    ref: agentUsers,
+    ref: "aUsers",
   },
   created: {
     type: Date,
@@ -28,4 +28,4 @@ var PostSchema = new Schema({
   },
 });
 
-module.exports = mongoose.models("Post", PostSchema);
+module.exports = mongoose.model("Post", PostSchema);
