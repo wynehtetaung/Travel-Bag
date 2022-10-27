@@ -10,7 +10,7 @@ var jwt = require("jsonwebtoken");
 // var nodemailer = require("nodemailer");
 var randomString = require("randomstring");
 // const SMTPConnection = require("nodemailer/lib/smtp-connection");
-// var config = require("../config/config");
+var config = require("../config/config");
 
 var sendResetPasswordMail = require("../models/emailVerification");
 
@@ -50,17 +50,22 @@ router.get("/", userAuth, function (req, res, next) {
 });
 
 //normal users sign up
-router.get("/nsignup", function (req, res) {
-  res.render("users/normalUsers/nuserSignUp");
-});
+router.get(
+  "/nsignup",
+  config.upload.single("normalImage"),
+  function (req, res) {
+    res.render("users/normalUsers/nuserSignUp");
+  }
+);
 
 //normal users sign up data
 router.post("/nsignup", function (req, res) {
   try {
-    const { normalName, normalEmail, normalPassword } = req.body;
+    const { normalName, normalEmail, normalPassword, normalImage } = req.body;
     var user = new User({
       normalName,
       normalEmail,
+      normalImage,
       normalPassword,
       normalemailToken: crypto.randomBytes(64).toString("hex"),
       normalisVerified: false,
@@ -149,7 +154,9 @@ router.post("/nlogin", function (req, res) {
 
         res.redirect("/dashboard");
       } else {
-        res.redirect("/users/nlogin");
+        res.render("users/normalUsers/nuserLogin", {
+          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည် ။ အကောင့်ပြန်ဝင်ပါ ။",
+        });
       }
     }
   );
