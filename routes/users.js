@@ -137,6 +137,7 @@ router.post("/nlogin", function (req, res) {
     { normalEmail: req.body.normalEmail },
     function (err, rtn) {
       if (err) throw err;
+      console.log(req.body.normalPassword);
       if (
         rtn != null &&
         User.compare(req.body.normalPassword, rtn.normalPassword)
