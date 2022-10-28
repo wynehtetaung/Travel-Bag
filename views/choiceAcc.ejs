@@ -38,20 +38,25 @@
     <link href="/stylesheets/styles.css" rel="stylesheet" />
     <style>
       
-      .accbtn {
-        color: #fff;
-        background-color: #14bf98;
-        outline: none;
-        border: none;
-        border-radius: 10px;
-        font-size: small;
-        width: 150px;
-        height: 50px;
-      }
-      .accbtn:hover {
-        background-color: #256d85;
-        outline: none;
-      }
+     .accbtn{
+      cursor: pointer;
+      border: 0;
+      color: rgb(1, 103, 21);
+      background: #14bf98;
+      padding: 18px 32px;
+      border-radius: 6px;
+      box-shadow: 0 6px 0 rgb(1, 103, 21);
+      transition: .3s;
+    }
+
+    .accbtn:active{
+      transform: translateY(5px);
+      box-shadow: 0 3px 0 rgb(1, 103, 21);
+    }
+    .accbtn:hover{
+     color: black;
+     text-decoration: none;
+}
 
       /* .accbta1 {
         display: inline-block;
@@ -72,6 +77,7 @@
       }
 
       .btaei {
+        margin-top: 3%;
         background-color: lightblue;
         border: 3px solid #14bf98;
         border-radius: 10px;

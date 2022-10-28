@@ -176,8 +176,7 @@ strong {
 }
 
 .btn-solid-lg:hover {
-  background-color: transparent;
-  color: #14bf98;
+  color: rgb(1, 103, 21);
   text-decoration: none;
 }
 
