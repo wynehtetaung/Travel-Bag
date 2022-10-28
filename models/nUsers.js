@@ -12,10 +12,6 @@ var UserSchema = new Schema({
     required: true,
     unique: true,
   },
-  normalImage: {
-    type: String,
-    required: true,
-  },
   normalPassword: {
     type: String,
     required: true,

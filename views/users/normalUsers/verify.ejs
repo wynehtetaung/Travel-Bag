@@ -31,7 +31,7 @@
     </style>
   </head>
   <body>
-    <section class="vh-150" style="background-color: #113448">
+    <section style="background-color: #113448; height: 100vh">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-xl-10">
@@ -54,9 +54,8 @@
                         >
                       </div>
 
-                      <% if(typeof message !== 'undefined'){ %>
                       <div
-                        class="alert alert-danger alert-dismissible fade show"
+                        class="alert alert-success alert-dismissible fade show"
                       >
                         <button
                           type="button"
@@ -66,12 +65,10 @@
                           &times;
                         </button>
                         <h2 style="font-weight: lighter; font-size: small">
-                          <%= message %>
+                          သင့် အီးမေးလ် အတည်ပြုပြီးပါပြီ ။ အကောင့်ဝင်ပါ ။
                         </h2>
                       </div>
-                      <% } %>
 
-                      <!-- <div></div> -->
                       <h5
                         class="fw-normal mb-3 pb-3"
                         style="letter-spacing: 1px"
@@ -100,7 +97,6 @@
                             class="form-control input-box"
                             type="password"
                             id="normalPassword"
-                            name="normalPassword"
                             class="normalPassword"
                             placeholder="စကားဝှက်"
                           />
@@ -108,17 +104,6 @@
                             <i class="fa fa-eye-slash show_hide"></i>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-check mb-2">
-                        <input
-                          class="form-check-input me-2"
-                          type="checkbox"
-                          value=""
-                          id="rememberMe"
-                        />
-                        <label class="form-check-label" for="rememberMe">
-                          မှတ်ထားရန်
-                        </label>
                       </div>
 
                       <div class="pt-1 mb-4">
@@ -129,16 +114,6 @@
                           အကောင့်ဝင်မည်
                         </button>
                       </div>
-
-                      <a class="small text-muted" href="/users/nforgetpassword"
-                        >သင့်စကားဝှက်မေ့နေပါသလား?</a
-                      ><br /><br />
-                      <p class="mb-5 pb-lg-2" style="color: #393f81">
-                        အကောင့်မရှိသေးဘူးလား?
-                        <a href="/users/nsignup" style="color: #393f81"
-                          >အကောင့်အသစ်ပြုလုပ်ရန်</a
-                        >
-                      </p>
                       <a href="#!" class="small text-muted">Terms of use.</a>
                       <a href="#!" class="small text-muted">Privacy policy</a>
                     </form>
@@ -158,30 +133,4 @@
   <script src="/javascripts/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script> -->
-  <script>
-    $("#rememberMe").click(function () {
-      if ($("#rememberMe").prop("checked")) {
-        Cookies.set("normalEmail", $("#normalEmail").val());
-        Cookies.set("normalPassword", $("#normalPassword").val());
-      } else {
-        Cookies.remove("normalEmail");
-        Cookies.remove("normalPassword");
-      }
-    });
-    if (Cookies.get("normalEmail")) {
-      $("#normalEmail").val(Cookies.get("normalEmail"));
-      $("#normalPassword").val(Cookies.get("normalPassword"));
-      $("#rememberMe").prop("checked", "true");
-    }
-    // $("#subBtn").click(() => {
-    //   $("#myform").validate({
-    //     submitHandler: function (form) {
-    //       // some other code
-    //       // maybe disabling submit button
-    //       // then:
-    //       $(form).submit();
-    //     },
-    //   });
-    // });
-  </script>
 </html>
