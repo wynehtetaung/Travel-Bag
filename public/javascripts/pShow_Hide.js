@@ -3,6 +3,7 @@ showHide = document.querySelector(".show_hide");
 indicator = document.querySelector(".indicator");
 iconText = document.querySelector(".icon-text");
 text = document.querySelector(".text");
+div = document.querySelector(".input-group-addon");
 //  js code to show & hide  prassword
 
 showHide.addEventListener("click", () => {
@@ -31,6 +32,7 @@ input.addEventListener("keyup", () => {
     showHide.style.color = "#FF6333";
     iconText.style.color = "#FF6333";
     input.style.borderColor = "#FF6333";
+    div.style.borderColor = "#FF6333";
   }
 
   if (val.match(alphabet) && val.match(numbers) && val.length >= 6) {
@@ -38,6 +40,7 @@ input.addEventListener("keyup", () => {
     showHide.style.color = "#cc8500";
     iconText.style.color = "#cc8500";
     input.style.borderColor = "#cc8500";
+    div.style.borderColor = "#cc8500";
   }
 
   if (
@@ -50,6 +53,7 @@ input.addEventListener("keyup", () => {
     showHide.style.color = "#22C32A";
     iconText.style.color = "#22C32A";
     input.style.borderColor = "#22C32A";
+    div.style.borderColor = "#22C32A";
   }
 
   if (val == "") {

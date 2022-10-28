@@ -1,5 +1,5 @@
 const UserEmail = "travelbagproject30@gmail.com";
-const UserPassword = "";
+const UserPassword = "bvkzvgnzilekdlff";
 
 module.exports = {
   UserEmail,

@@ -18,6 +18,14 @@ var Post = require("../models/agent-postadd");
 var multer = require("multer");
 var upload = multer({ dest: "public/images/testimonials" });
 
+var dotenv = require("dotenv");
+dotenv.config();
+console.log(
+  process.env.USER_EMAIL,
+  process.env.PASSWORD,
+  typeof process.env.USER_EMAIL,
+  typeof process.env.PASSWORD
+);
 const agentAuth = function (req, res, next) {
   if (req.session.agent) {
     next();
@@ -57,8 +65,8 @@ const sendVerifyMail = async (normalName, normalEmail, User_id) => {
       secure: false,
       requireTLS: true,
       auth: {
-        user: config.Useremail,
-        pass: config.UserPassword,
+        user: process.env.USER_EMAIL,
+        pass: process.env.PASSWORD,
       },
       tls: {
         ciphers: "SSLv3",
@@ -109,7 +117,7 @@ router.post("/nsignup", function (req, res) {
     const newUser = user.save();
 
     if (newUser) {
-      // sendVerifyMail(req.body.normalName, req.body.normalEmail, user._id);
+      sendVerifyMail(req.body.normalName, req.body.normalEmail, user._id);
       res.render("users/normalUsers/nuserSignUp", {
         message:
           "အကောင့် ပြုလုပ်ခြင်းအောင်မြင်ပါသည် ။ သင့် အီးမေးလ် သို့အတည်ပြုမေးလ် ပို့ပေးထားပါသည် ။ အတည်ပြု၍  အကောင့်ဝင်ပါ ။",
@@ -124,7 +132,7 @@ router.post("/nsignup", function (req, res) {
     //   const { normalName, normalEmail } = req.body;
     // };
 
-    res.redirect("/users/nlogin");
+    // res.redirect("/users/nlogin");
   } catch (err) {
     console.log(err);
   }
