@@ -7,9 +7,9 @@ var Swal = require("sweetalert2");
 var crypto = require("crypto");
 var cookie = require("cookie-parser");
 var jwt = require("jsonwebtoken");
-// var nodemailer = require("nodemailer");
+var nodemailer = require("nodemailer");
 var randomString = require("randomstring");
-// const SMTPConnection = require("nodemailer/lib/smtp-connection");
+const SMTPConnection = require("nodemailer/lib/smtp-connection");
 var config = require("../config/config");
 
 var sendResetPasswordMail = require("../models/emailVerification");
@@ -18,6 +18,14 @@ var Post = require("../models/agent-postadd");
 var multer = require("multer");
 var upload = multer({ dest: "public/images/testimonials" });
 
+var dotenv = require("dotenv");
+dotenv.config();
+console.log(
+  process.env.USER_EMAIL,
+  process.env.PASSWORD,
+  typeof process.env.USER_EMAIL,
+  typeof process.env.PASSWORD
+);
 const agentAuth = function (req, res, next) {
   if (req.session.agent) {
     next();
@@ -30,12 +38,6 @@ const userAuth = function (req, res, next) {
     next();
   } else {
     res.redirect("/users/nlogin");
-  }
-};
-
-const userAuthOut = function (req, res) {
-  if (req.session.destroy) {
-    res.redirect("/");
   }
 };
 
@@ -53,35 +55,102 @@ router.get("/", userAuth, function (req, res, next) {
   res.redirect("/users/dashboard");
 });
 
-//normal users sign up
-router.get(
-  "/nsignup",
-  config.upload.single("normalImage"),
-  function (req, res) {
-    res.render("users/normalUsers/nuserSignUp");
+// for send verify mail
+const sendVerifyMail = async (normalName, normalEmail, User_id) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      // service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      requireTLS: true,
+      auth: {
+        user: process.env.USER_EMAIL,
+        pass: process.env.PASSWORD,
+      },
+      tls: {
+        ciphers: "SSLv3",
+      },
+    });
+
+    const mailOptions = {
+      from: config.UserEmail,
+      to: normalEmail,
+      subject: "For Email Verification",
+      html:
+        "<p>Hi " +
+        normalName +
+        ', Please click here to <a href="https://127.0.0.1:4000/users/verify?verify=' +
+        User_id +
+        '">verification your mail.</a></p>',
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email has been sent:- ", info.response);
+      }
+    });
+  } catch (error) {
+    console.log(error.message);
   }
-);
+};
+
+//normal users sign up
+router.get("/nsignup", function (req, res) {
+  res.render("users/normalUsers/nuserSignUp");
+});
 
 //normal users sign up data
 router.post("/nsignup", function (req, res) {
   try {
-    const { normalName, normalEmail, normalPassword, normalImage } = req.body;
+    const { normalName, normalEmail, normalPassword } = req.body;
     var user = new User({
       normalName,
       normalEmail,
-      normalImage,
       normalPassword,
       normalemailToken: crypto.randomBytes(64).toString("hex"),
       normalisVerified: false,
     });
 
     const newUser = user.save();
-    exports.contactForm = (req, res) => {
-      const { normalName, normalEmail } = req.body;
-    };
-    res.redirect("/users/nlogin");
+
+    if (newUser) {
+      sendVerifyMail(req.body.normalName, req.body.normalEmail, user._id);
+      res.render("users/normalUsers/nuserSignUp", {
+        message:
+          "အကောင့် ပြုလုပ်ခြင်းအောင်မြင်ပါသည် ။ သင့် အီးမေးလ် သို့အတည်ပြုမေးလ် ပို့ပေးထားပါသည် ။ အတည်ပြု၍  အကောင့်ဝင်ပါ ။",
+      });
+    } else {
+      res.render("users/normalUsers/nuserSignUp", {
+        message: "အကောင့်ဝင်ခြင်း မအောင်မြင်ပါ ။",
+      });
+    }
+
+    // exports.contactForm = (req, res) => {
+    //   const { normalName, normalEmail } = req.body;
+    // };
+
+    // res.redirect("/users/nlogin");
   } catch (err) {
     console.log(err);
+  }
+});
+
+router.get("/verify", function (req, res) {
+  res.render("users/normalUsers/verify");
+});
+
+router.post("/verify", async (req, res) => {
+  try {
+    const updateInfo = await User.updateOne(
+      { _id: req.query.id },
+      { $set: { normalisVerified: true } }
+    );
+    console.log(updateInfo);
+  } catch (error) {
+    console.log(error.message);
   }
 });
 
@@ -126,11 +195,6 @@ router.get("/nlogin", function (req, res) {
   res.render("users/normalUsers/nuserLogin");
 });
 
-// create token
-// var createToken = (id) => {
-//   return jwt.sign({ id }, process.env.JWT_SECRET);
-// };
-
 // normal users login data
 router.post("/nlogin", function (req, res) {
   const data = User.findOne(
@@ -147,15 +211,6 @@ router.post("/nlogin", function (req, res) {
           normalName: rtn.normalName,
           normalEmail: rtn.normalEmail,
         };
-
-        //create token
-        // var token = createToken(findById);
-        // var token = createToken(findeUser.id);
-        // console.log(token);
-
-        // store token in cookie
-        // res.cookie("access-token", token);
-
         res.redirect("/dashboard");
       } else {
         res.render("users/normalUsers/nuserLogin", {
@@ -264,15 +319,6 @@ router.post("/agentLogin", function (req, res) {
         agentName: rtn.agentName,
         agentEmail: rtn.agentEmail,
       };
-
-      //create token
-      // var token = createToken(findById);
-      // var token = createToken(findeUser.id);
-      // console.log(token);
-
-      // store token in cookie
-      // res.cookie("access-token", token);
-
       res.redirect("/users/agentpage");
     } else {
       res.render("users/agentUsers/agentLogin", {
