@@ -302,6 +302,11 @@ router.get("/apostlist", agentAuth, function (req, res) {
   res.render("users/agentUsers/agent-post-list");
 });
 
+//agent post add page
+router.get("/apostadd", agentAuth, function (req, res) {
+  res.render("users/agentUsers/agent-post-add");
+});
+
 // agent forget password
 router.get("/aforgetpassword", function (req, res) {
   res.render("users/agentUsers/forget-password");
@@ -317,13 +322,13 @@ router.get("/logout", function (req, res) {
 });
 
 // postadd get method
-router.get("/agentpage#contact"),
+router.get("/apostadd"),
   agentAuth,
   function (req, res) {
-    res.render("/users/agentUsers/agent-post-list");
+    res.render("/users/agentUsers/agent-post-add");
   };
 
-router.post("/agentpage#contact"),
+router.post("/apostadd"),
   agentAuth,
   upload.single("image"),
   function (req, res) {
