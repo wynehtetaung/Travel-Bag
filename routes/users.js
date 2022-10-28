@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var User = require("../models/nUsers");
 var Agent = require("../models/aUsers");
+var Post = require("../models/agent-postadd");
 var Swal = require("sweetalert2");
 // var transporter = require("../models/emailVerification");
 var crypto = require("crypto");
@@ -14,7 +15,6 @@ var config = require("../config/config");
 
 var sendResetPasswordMail = require("../models/emailVerification");
 
-var Post = require("../models/agent-postadd");
 var multer = require("multer");
 var upload = multer({ dest: "public/images/testimonials" });
 
@@ -374,24 +374,54 @@ router.get("/apostadd"),
     res.render("/users/agentUsers/agent-post-add");
   };
 
-router.post("/apostadd"),
+// router.post("/apostadd"),
+//   agentAuth,
+//   upload.single("image"),
+//   function (req, res) {
+//     var post = new Post();
+//     post.title = req.body.title;
+//     post.place = req.body.place;
+//     post.image = req.body.image;
+//     post.author = req.session.user.id;
+//     post.content = req.body.content;
+//     post.created = Date.now();
+//     if (req.file) post.image = "/images/testinomials/" + req.file.filename;
+//     post.save(function (err, rtn) {
+//       if (err) throw err;
+//       console.log(rtn);
+//       res.redirect("/apostlist");
+//     });
+//   };
+
+router.post(
+  "/apostadd",
   agentAuth,
   upload.single("image"),
   function (req, res) {
+    console.log(req.body);
     var post = new Post();
     post.title = req.body.title;
     post.place = req.body.place;
-    post.image = req.body.image;
-    post.author = req.session.user.id;
+    post.author = req.session.agent.id;
     post.content = req.body.content;
     post.created = Date.now();
-    if (req.file) post.image = "/images/testinomials/" + req.file.filename;
+    if (req.file) post.image = "/images/testimonials/" + req.file.filename;
     post.save(function (err, rtn) {
       if (err) throw err;
       console.log(rtn);
-      res.redirect("/apostlist");
+      res.redirect("/users/apostlist");
     });
-  };
+  }
+);
+
+// for post list
+router.get("/apostlist", agentAuth, function (req, res) {
+  Post.find({ author: req.session.agent.id }, function (err, rtn) {
+    if (err) throw err;
+    console.log(rtn);
+    res.render("/users/agentUsers/agent-post-list", { posts: rtn });
+  });
+});
 
 // check users name duplicate
 router.post("/checkname", function (req, res) {
@@ -457,13 +487,5 @@ router.post("/checkagentname", function (req, res) {
     }
   });
 });
-
-//   router.get("/users/agentpage"),agentAuth,fuction(req,res){
-//     Post.find({author: req.session.user.id},function(err,rtn){
-//       if(err) throw err;
-//       console.log(rtn);
-//       res.render("users/agentpage#portfolio",{posts:rtn});
-//     })
-//
 
 module.exports = router;

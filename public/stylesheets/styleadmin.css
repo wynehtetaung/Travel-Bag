@@ -10,7 +10,19 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #141618;
+  color: #33363a;
+  background: #0f2027; /* fallback for old browsers */
+  background: #00467f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #a5cc82,
+    #00467f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #a5cc82,
+    #00467f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 a {
@@ -228,12 +240,10 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
-  background: url("/images/background.jpg") top center;
   background-size: cover;
 }
 
-#hero:before {
+/* #hero:before {
   content: "";
   background: rgba(5, 13, 24, 0.3);
   position: absolute;
@@ -242,7 +252,7 @@ h6 {
   left: 0;
   right: 0;
   z-index: 1;
-}
+} */
 
 #hero .hero-container {
   position: relative;
@@ -297,10 +307,6 @@ h6 {
 section {
   padding: 60px 0;
   overflow: hidden;
-}
-
-.section-bg {
-  background: #f5f8fd;
 }
 
 .section-title {
