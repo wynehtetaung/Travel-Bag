@@ -11,7 +11,6 @@ var jwt = require("jsonwebtoken")
 var nodemailer = require("nodemailer")
 var randomString = require("randomstring")
 const SMTPConnection = require("nodemailer/lib/smtp-connection")
-// var config = require("../config/config")
 
 var sendResetPasswordMail = require("../models/emailVerification")
 
