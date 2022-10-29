@@ -70,7 +70,7 @@ const sendVerifyMail = async (normalName, normalEmail, User_id) => {
       html:
         "<p>Hi " +
         normalName +
-        ', Please click here to <a href="https://127.0.0.1:4000/users/verify?id=' +
+        ', Please click here to <a href="http://127.0.0.1:4000/users/verify?id=' +
         User_id +
         '">verification your mail.</a></p>',
     }
@@ -123,24 +123,22 @@ router.post("/nsignup", function (req, res) {
   }
 })
 
-// router.use(
-//   (verifyMail = async (req, res) => {
-//     try {
-//       const updateInfo = await User.updateOne(
-//         { _id: req.query.id },
-//         { $set: { normalisVerified: true } }
-//       )
-//       console.log("UpdateInfo :", updateInfo)
-//       res.render("users/normalUsers/verify")
-//     } catch (error) {
-//       console.log(error.message)
-//     }
-//   })
-// )
+const verifyMail = async (req, res) => {
+  try {
+    const updateInfo = await User.updateOne(
+      { _id: req.query.id },
+      { $set: { normalisVerified: true } }
+    )
+    console.log("UpdateInfo :", updateInfo)
+    res.render("users/normalUsers/verify")
+  } catch (error) {
+    console.log(error.message)
+  }
+}
 
-// router.get("/verify", verifyMail, function (req, res) {
-//   res.render("users/normalUsers/verify")
-// })
+router.get("/verify", verifyMail, function (req, res) {
+  res.render("users/normalUsers/verify")
+})
 
 // router.post("/verify", function(req, res){
 //   User.findOne({ normalEmail: req.body.normalEmail }, function (err, rtn) {
