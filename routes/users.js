@@ -20,12 +20,6 @@ var upload = multer({ dest: "public/images/testimonials" })
 
 var dotenv = require("dotenv")
 dotenv.config()
-// console.log(
-//   process.env.USER_EMAIL,
-//   process.env.PASSWORD,
-//   typeof process.env.USER_EMAIL,
-//   typeof process.env.PASSWORD
-// )
 const agentAuth = function (req, res, next) {
   if (req.session.agent) {
     next()
@@ -49,7 +43,6 @@ router.get("/", userAuth, function (req, res, next) {
 const sendVerifyMail = async (normalName, normalEmail, User_id) => {
   try {
     const transporter = nodemailer.createTransport({
-      // service: "gmail",
       host: "smtp.gmail.com",
       port: 587,
       secure: false,
@@ -70,9 +63,9 @@ const sendVerifyMail = async (normalName, normalEmail, User_id) => {
       html:
         "<p>Hi " +
         normalName +
-        ', Please click here to <a href="https://127.0.0.1:4000/users/verify?id=' +
+        ',Travel Bag ကိုအသုံးပြုသည့်အတွက် ကျေးဇူးအထူးတင်ပါသည်။,<br />သင့်အကောင့် အတည်ပြုရန် <a href="https://127.0.0.1:4000/users/verify?id=' +
         User_id +
-        '">verification your mail.</a></p>',
+        '">အတည်ပြုမည်.</a> ကိုနှိပ်ပါ။</p>',
     }
 
     transporter.sendMail(mailOptions, function (error, info) {
