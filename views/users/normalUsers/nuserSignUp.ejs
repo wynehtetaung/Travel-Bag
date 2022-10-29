@@ -20,10 +20,12 @@
       }
       .input-box {
         position: relative;
-        padding: 0px 30px 0px 20px;
+        padding-top: 23px;
+        padding-bottom: 23px;
       }
+
       .show_hide {
-        padding: 10px 10px;
+        padding: 15px 15px;
         background-color: #efefef;
         border: 1px solid darkgray;
       }
@@ -124,7 +126,7 @@
                         />
                       </div>
 
-                      <div class="form-outline mb-3">
+                      <div class="form-outline mb-4">
                         <label class="form-label" for="password"
                           >စကားဝှက်</label
                         >
@@ -180,73 +182,73 @@
   <script src="/javascripts/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    $("#normalName").blur(function () {
-      if ($("#normalName").val() != "") {
-        $.ajax("/users/checkname", {
-          type: "POST",
-          data: { normalName: $("#normalName").val() },
+    $('#normalName').blur(function () {
+      if ($('#normalName').val() != '') {
+        $.ajax('/users/checkname', {
+          type: 'POST',
+          data: { normalName: $('#normalName').val() },
           success: function (result) {
-            if (result.status == "error") {
-              alert("Somethings Was Wrong!");
-            } else if (result.status == "username have") {
+            if (result.status == 'error') {
+              alert('Somethings Was Wrong!')
+            } else if (result.status == 'username have') {
               Swal.fire({
-                title: "ရှိပြီးသား အမည် ဖြစ်ပါသည်။တခြား အမည် အသုံးပြုပါ။",
+                title: 'ရှိပြီးသား အမည် ဖြစ်ပါသည်။ တခြား အမည် အသုံးပြုပါ။',
                 showClass: {
-                  popup: "animate__animated  animate__fadeInDown",
+                  popup: 'animate__animated  animate__fadeInDown',
                 },
                 hideClass: {
-                  popup: "animate__animated animate__fadeOutUp",
+                  popup: 'animate__animated animate__fadeOutUp',
                 },
-              });
-              $("#normalName").val("");
-              $("#normalName").focus();
+              })
+              $('#normalName').val('')
+              $('#normalName').focus()
             }
           },
-        });
+        })
       }
-    });
-    $("#normalEmail").blur(function () {
-      if ($("#normalEmail").val() != "") {
-        $.ajax("/users/checknemail", {
-          type: "POST",
-          data: { normalEmail: $("#normalEmail").val() },
+    })
+    $('#normalEmail').blur(function () {
+      if ($('#normalEmail').val() != '') {
+        $.ajax('/users/checknemail', {
+          type: 'POST',
+          data: { normalEmail: $('#normalEmail').val() },
           success: function (result) {
-            if (result.status == "error") {
-              alert("Somethings Was Wrong!");
-            } else if (result.status == "have") {
+            if (result.status == 'error') {
+              alert('Somethings Was Wrong!')
+            } else if (result.status == 'have') {
               Swal.fire({
                 title:
-                  "ရှိပြီးသား အီးမေးလ် ဖြစ်ပါသည်။တခြား အီးမေးလ် အသုံးပြုပါ။",
+                  'ရှိပြီးသား အီးမေးလ် ဖြစ်ပါသည်။ တခြား အီးမေးလ် အသုံးပြုပါ။',
                 showClass: {
-                  popup: "animate__animated animate__fadeInDown",
+                  popup: 'animate__animated animate__fadeInDown',
                 },
                 hideClass: {
-                  popup: "animate__animated animate__fadeOutUp",
+                  popup: 'animate__animated animate__fadeOutUp',
                 },
-              });
-              $("#normalEmail").val("");
-              $("#normalEmail").focus();
+              })
+              $('#normalEmail').val('')
+              $('#normalEmail').focus()
             }
           },
-        });
+        })
       }
-    });
+    })
 
     function singupErrorMessage() {
-      var error = document.getElementById("error");
+      var error = document.getElementById('error')
       if (
         /[0-9,~!@#$%^&*()-+,၁-၉]/.test(
-          document.getElementById("normalName").value
+          document.getElementById('normalName').value
         )
       ) {
         error.innerHTML =
           "<img src='https://cdn4.iconfinder.com/data/icons/set-1/32/__23-512.png' style='width:20px; 'height:10px;'>" +
           "<span style='color: red;'>" +
-          " စာသားသီးသန့်သာ ထည့်ရန်</span>";
-        $("#normalName").val("");
-        $("#normalName").focus();
+          ' စာသားသီးသန့်သာ ထည့်ရန်</span>'
+        $('#normalName').val('')
+        $('#normalName').focus()
       } else {
-        error.textContent = "";
+        error.textContent = ''
       }
     }
   </script>
