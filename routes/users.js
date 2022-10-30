@@ -413,8 +413,6 @@ router.get("/aprofile", agentAuth, function (req, res) {
   res.render("users/agentUsers/agent-profile-detail")
 })
 
-router
-
 // check users name duplicate
 router.post("/checkname", function (req, res) {
   User.findOne({ normalName: req.body.normalName }, function (err, rtn) {
