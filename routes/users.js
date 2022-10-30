@@ -347,26 +347,6 @@ router.get("/agentpage", agentAuth, function (req, res) {
   res.render("users/agentUsers/agentindex")
 })
 
-// agent-post-detail
-router.get("/adetail", agentAuth, function (req, res) {
-  res.render("users/agentUsers/agent-post-details")
-})
-
-// agent-profile-detail
-router.get("/aprofile", agentAuth, function (req, res) {
-  res.render("users/agentUsers/agent-profile-detail")
-})
-
-//agent-post-list
-router.get("/apostlist", agentAuth, function (req, res) {
-  res.render("users/agentUsers/agent-post-list")
-})
-
-//agent post add page
-router.get("/apostadd", agentAuth, function (req, res) {
-  res.render("users/agentUsers/agent-post-add")
-})
-
 // agent forget password
 router.get("/aforgetpassword", function (req, res) {
   res.render("users/agentUsers/forget-password")
@@ -387,18 +367,16 @@ router.get("/logout", function (req, res) {
 })
 
 // postadd get method
-router.get("/apostadd"),
-  agentAuth,
-  function (req, res) {
-    res.render("/users/agentUsers/agent-post-add")
-  }
+
+router.get("/apostadd", agentAuth, function (req, res) {
+  res.render("users/agentUsers/agent-post-add")
+})
 
 router.post(
   "/apostadd",
   agentAuth,
   upload.single("image"),
   function (req, res) {
-    console.log(req.body)
     var post = new Post()
     post.title = req.body.title
     post.place = req.body.place
@@ -421,6 +399,21 @@ router.get("/apostlist", agentAuth, function (req, res) {
     res.render("users/agentUsers/agent-post-list", { posts: rtn })
   })
 })
+
+//for post detail
+router.get("/adetail/:id", agentAuth, function (req, res) {
+  Post.findById(req.params.id, function (err, rtn) {
+    if (err) throw err
+    res.render("users/agentUsers/agent-post-details", { posts: rtn })
+  })
+})
+
+// agent-profile-detail
+router.get("/aprofile", agentAuth, function (req, res) {
+  res.render("users/agentUsers/agent-profile-detail")
+})
+
+router
 
 // check users name duplicate
 router.post("/checkname", function (req, res) {
