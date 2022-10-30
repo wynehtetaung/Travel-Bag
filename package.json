@@ -1,6 +1,6 @@
 {
   "name": "travel-bag",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -20,9 +20,9 @@
     "mongoose": "^6.6.1",
     "morgan": "~1.9.1",
     "multer": "^1.4.5-lts.1",
+    "nanoid": "^4.0.0",
     "nodemailer": "^6.7.8",
     "nodemon": "^2.0.20",
-    "randomstring": "^1.2.3",
     "sweetalert2": "^11.6.0"
   },
   "prettier": {

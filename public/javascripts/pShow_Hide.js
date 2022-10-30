@@ -1,42 +1,13 @@
-const input = document.querySelector(".input-box")
-const inputNew = document.querySelector(".input-box-new")
-const inputConfirm = document.querySelector(".input-box-confirm")
-showHide = document.querySelector(".show_hide")
-showHideNew = document.querySelector(".new")
-showHideConfirm = document.querySelector(".confirm")
-indicator = document.querySelector(".indicator")
-iconText = document.querySelector(".icon-text")
-text = document.querySelector(".text")
-div = document.querySelector(".input-group-addon")
-//  js code to show & hide  prassword
-
-showHide.addEventListener("click", () => {
-  if (input.type === "password") {
-    input.type = "text"
-    showHide.classList.replace("fa-eye-slash", "fa-eye")
-  } else {
-    input.type = "password"
-    showHide.classList.replace("fa-eye", "fa-eye-slash")
-  }
-})
-showHideNew.addEventListener("click", () => {
-  if (inputNew.type === "password") {
-    inputNew.type = "text"
-    showHideNew.classList.replace("fa-eye-slash", "fa-eye")
-  } else {
-    inputNew.type = "password"
-    showHideNew.classList.replace("fa-eye", "fa-eye-slash")
-  }
-})
-showHideConfirm.addEventListener("click", () => {
-  if (inputConfirm.type === "password") {
-    inputConfirm.type = "text"
-    showHideConfirm.classList.replace("fa-eye-slash", "fa-eye")
-  } else {
-    inputConfirm.type = "password"
-    showHideConfirm.classList.replace("fa-eye", "fa-eye-slash")
-  }
-})
+const input = document.querySelector(".input-box"),
+  inputNew = document.querySelector(".input-box-new"),
+  inputConfirm = document.querySelector(".input-box-confirm"),
+  showHide = document.querySelector(".show_hide"),
+  showHideNew = document.querySelector(".new"),
+  showHideConfirm = document.querySelector(".confirm"),
+  indicator = document.querySelector(".indicator"),
+  iconText = document.querySelector(".icon-text"),
+  text = document.querySelector(".text"),
+  div = document.querySelector(".input-group-addon")
 
 // js code to show password strength (with regex)
 
@@ -82,5 +53,35 @@ input.addEventListener("keyup", () => {
     indicator.classList.remove("active")
     showHide.style.color = ""
     input.style.borderColor = ""
+  }
+})
+
+//  js code to show & hide  prassword
+
+showHide.addEventListener("click", () => {
+  if (input.type === "password") {
+    input.type = "text"
+    showHide.classList.replace("fa-eye-slash", "fa-eye")
+  } else {
+    input.type = "password"
+    showHide.classList.replace("fa-eye", "fa-eye-slash")
+  }
+})
+showHideNew.addEventListener("click", () => {
+  if (inputNew.type === "password") {
+    inputNew.type = "text"
+    showHideNew.classList.replace("fa-eye-slash", "fa-eye")
+  } else {
+    inputNew.type = "password"
+    showHideNew.classList.replace("fa-eye", "fa-eye-slash")
+  }
+})
+showHideConfirm.addEventListener("click", () => {
+  if (inputConfirm.type === "password") {
+    inputConfirm.type = "text"
+    showHideConfirm.classList.replace("fa-eye-slash", "fa-eye")
+  } else {
+    inputConfirm.type = "password"
+    showHideConfirm.classList.replace("fa-eye", "fa-eye-slash")
   }
 })
