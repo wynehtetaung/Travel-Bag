@@ -9,6 +9,8 @@ var crypto = require("crypto")
 var cookie = require("cookie-parser")
 var jwt = require("jsonwebtoken")
 var nodemailer = require("nodemailer")
+var nanoid = require("nanoid")
+var ID = nanoid
 // var randomString = require("randomstring")
 const SMTPConnection = require("nodemailer/lib/smtp-connection")
 
@@ -234,6 +236,7 @@ router.get("/normal-change-password", function (req, res) {
 router.post("/nforgetpassword", async (req, res) => {
   try {
     const normalEmail = req.body.normalEmail
+    console.log("nanoid:", ID.urlAlphabet)
     // console.log("User Input Data :", normalEmail)
     User.findOne({ normalEmail: normalEmail }, (err, rtn) => {
       if (err) throw err
@@ -244,14 +247,14 @@ router.post("/nforgetpassword", async (req, res) => {
             message: "သင့် အီးမေးလ် အတည်ပြုပါ။",
           })
         } else {
-          // const randomString = randomString.generate()
+          const randomString = ID.urlAlphabet
           const updatedDate = User.updateOne(
-            { normalEmail: normalEmail }
-            // { $set: { token: randomString } }
+            { normalEmail: normalEmail },
+            { $set: { token: randomString } }
           )
           console.log(updatedDate)
           // /nUserforgotPassword
-          sendResetPasswordMail(rtn.normalName, rtn.normalEmail)
+          sendResetPasswordMail(rtn.normalName, rtn.normalEmail, randomString)
           res.render("users/normalUsers/nUserforgotPassword", {
             message: "သင့် အီးမေးလ် ကို ကျေးဇူးပြု၍စစ်ပေးပါ။",
           })
