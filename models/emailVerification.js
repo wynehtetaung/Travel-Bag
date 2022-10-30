@@ -1,18 +1,6 @@
-var nodemailer = require("nodemailer");
-var config = require("../config/config");
-var user = require("../models/nUsers");
-
-// var verificationEmail = nodemailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: "travelbagproject30@gmail.com",
-//     pass: "travel#2022bag",
-//   },
-//   tls: {
-//     rejectUnauthorized: false,
-//   },
-// });
-
+var nodemailer = require("nodemailer")
+var config = require("../config/config")
+var user = require("../models/nUsers")
 const sendResetPasswordMail = async (normalName, normalEmail, token) => {
   try {
     const transporter = nodemailer.createTransport({
@@ -21,7 +9,7 @@ const sendResetPasswordMail = async (normalName, normalEmail, token) => {
         user: config.Useremail,
         pass: config.UserPassword,
       },
-    });
+    })
     const mailOptions = {
       from: config.UserEmail,
       to: user.normalEmail,
@@ -32,17 +20,17 @@ const sendResetPasswordMail = async (normalName, normalEmail, token) => {
         ', Please click here to <a href="https://127.0.0.1:4000/users/forget-password?token=' +
         token +
         '">Reset Your Password</a></p>',
-    };
+    }
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log(error);
+        console.log(error)
       } else {
-        console.log("Email has been sent:- ", info.response);
+        console.log("Email has been sent:- ", info.response)
       }
-    });
+    })
   } catch (error) {
-    console.log(error.message);
+    console.log(error.message)
   }
-};
+}
 
-module.exports = sendResetPasswordMail;
+module.exports = sendResetPasswordMail

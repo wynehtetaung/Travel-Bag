@@ -9,10 +9,10 @@ var crypto = require("crypto")
 var cookie = require("cookie-parser")
 var jwt = require("jsonwebtoken")
 var nodemailer = require("nodemailer")
-var randomString = require("randomstring")
+// var randomString = require("randomstring")
 const SMTPConnection = require("nodemailer/lib/smtp-connection")
 
-var sendResetPasswordMail = require("../models/emailVerification")
+// var sendResetPasswordMail = require("../models/emailVerification")
 
 var Post = require("../models/agent-postadd")
 var multer = require("multer")
@@ -20,12 +20,6 @@ var upload = multer({ dest: "public/images/testimonials" })
 
 var dotenv = require("dotenv")
 dotenv.config()
-// console.log(
-//   process.env.USER_EMAIL,
-//   process.env.PASSWORD,
-//   typeof process.env.USER_EMAIL,
-//   typeof process.env.PASSWORD
-// )
 const agentAuth = function (req, res, next) {
   if (req.session.agent) {
     next()
@@ -49,7 +43,6 @@ router.get("/", userAuth, function (req, res, next) {
 const sendVerifyMail = async (normalName, normalEmail, User_id) => {
   try {
     const transporter = nodemailer.createTransport({
-      // service: "gmail",
       host: "smtp.gmail.com",
       port: 587,
       secure: false,
@@ -70,9 +63,9 @@ const sendVerifyMail = async (normalName, normalEmail, User_id) => {
       html:
         "<p>Hi " +
         normalName +
-        ', Please click here to <a href="http://127.0.0.1:4000/users/verify?id=' +
+        ',Travel Bag ကိုအသုံးပြုသည့်အတွက် ကျေးဇူးအထူးတင်ပါသည်။,<br />သင့်အကောင့် အတည်ပြုရန် <a href="http://127.0.0.1:4000/users/verify?id=' +
         User_id +
-        '">verification your mail.</a></p>',
+        '">အတည်ပြုမည်.</a> ကိုနှိပ်ပါ။</p>',
     }
 
     transporter.sendMail(mailOptions, function (error, info) {
@@ -140,66 +133,45 @@ router.get("/verify", verifyMail, function (req, res) {
   res.render("users/normalUsers/verify")
 })
 
-// router.post("/verify", function(req, res){
-//   User.findOne({ normalEmail: req.body.normalEmail }, function (err, rtn) {
-//     if (err) throw err
-//     if (
-//       rtn.normalisVerified === true &&
-//       rtn != null &&
-//       User.compare(req.body.normalPassword, rtn.normalPassword)
-//       // User.compare(req.body.normalisVerified, rtn.normalisVerified)
-//     ) {
-//       //renember login
-//       req.session.user = {
-//         id: rtn._id,
-//         normalName: rtn.normalName,
-//         normalEmail: rtn.normalEmail,
-//       }
-//       res.redirect("/dashboard")
-//     }
-//      else {
-//       res.render("users/normalUsers/nuserLogin", {
-//         message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
-//       })
-//     }
-//   })
-// })
-
 // for resetPassword send mail
 
-// router.use(
-//   (sendResetPasswordMail = async (normalName, normalEmail, token) => {
-//     try {
-//       const transporter = nodemailer.createTransport({
-//         service: "Gmail",
-//         auth: {
-//           user: config.Useremail,
-//           pass: config.UserPassword,
-//         },
-//       });
-//       const mailOptions = {
-//         from: config.UserEmail,
-//         to: user.normalEmail,
-//         subject: "For reset password",
-//         html:
-//           "<p>Hi " +
-//           normalName +
-//           ', Please click here to <a href="https://127.0.0.1:4000/users/forget-password?token=' +
-//           token +
-//           '">Reset Your Password</a></p>',
-//       };
-//       transporter.sendMail(mailOptions, function (error, info) {
-//         if (error) {
-//           console.log(error);
-//         } else {
-//           console.log("Email has been sent:- ", info.response);
-//         }
-//       });
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   })
-// );
+const sendResetPasswordMail = async (normalName, normalEmail, token) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      requireTLS: true,
+      auth: {
+        user: process.env.USER_EMAIL,
+        pass: process.env.PASSWORD,
+      },
+      tls: {
+        ciphers: "SSLv3",
+      },
+    })
+    const mailOptions = {
+      from: "Travel Bag<process.env.USER_EMAIL>",
+      to: normalEmail,
+      subject: "For reset password",
+      html:
+        "<p>Hi " +
+        normalName +
+        ', သင့်စကားဝှက်အသစ် ပြန်လုပ်ရန် အတွက်<a href="http://127.0.0.1:4000/users/reset-password?token=' +
+        token +
+        '">စကားဝှက်ပြောင်းလဲမည်</a>ကိုနှိပ်ပါ။</p>',
+    }
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log("Email has been sent:- ", info.response)
+      }
+    })
+  } catch (error) {
+    console.log(error.message)
+  }
+}
 
 // normal users login
 router.get("/nlogin", function (req, res) {
@@ -241,7 +213,7 @@ router.get("/nprofile", userAuth, function (req, res) {
 })
 
 // normal user reset password
-router.get("/forget-password", function (req, res) {
+router.get("/reset-password", function (req, res) {
   res.render("users/normalUsers/resetPassword")
 })
 
@@ -262,29 +234,30 @@ router.get("/normal-change-password", function (req, res) {
 router.post("/nforgetpassword", async (req, res) => {
   try {
     const normalEmail = req.body.normalEmail
-    console.log("User Input Data :", normalEmail)
+    // console.log("User Input Data :", normalEmail)
     User.findOne({ normalEmail: normalEmail }, (err, rtn) => {
       if (err) throw err
-      console.log("UserDate :", rtn)
+      // console.log("UserDate :", rtn)
       if (rtn != null) {
         if (rtn.normalisVerified === false) {
-          res.render("users/normalUsers/resetPassword", {
+          res.render("users/normalUsers/nUserforgotPassword", {
             message: "သင့် အီးမေးလ် အတည်ပြုပါ။",
           })
         } else {
-          const randomString = randomString.generate()
+          // const randomString = randomString.generate()
           const updatedDate = User.updateOne(
-            { normalEmail: normalEmail },
-            { $set: { token: randomString } }
+            { normalEmail: normalEmail }
+            // { $set: { token: randomString } }
           )
+          console.log(updatedDate)
           // /nUserforgotPassword
-          sendResetPasswordMail(rtn.normalName, rtn.normalEmail, randomString)
-          res.render("users/normalUsers/resetPassword", {
+          sendResetPasswordMail(rtn.normalName, rtn.normalEmail)
+          res.render("users/normalUsers/nUserforgotPassword", {
             message: "သင့် အီးမေးလ် ကို ကျေးဇူးပြု၍စစ်ပေးပါ။",
           })
         }
       } else {
-        res.render("users/normalUsers/resetPassword", {
+        res.render("users/normalUsers/nUserforgotPassword", {
           message: " သင့် အီးမေးလ် မှားနေပါသည်။",
         })
       }
