@@ -191,10 +191,16 @@
   background-color: #0563bb;
 }
 
-.portfolio-details .portfolio-info {
+.portfolio-details {
   padding: 30px;
   box-shadow: 0px 0 30px rgba(185, 212, 236, 0.08);
   background-color: rgb(218, 193, 193);
+  border-radius: 10px;
+}
+.portfolio-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(185, 212, 236, 0.08);
+  background-color: rgba(218, 193, 193, 10);
   border-radius: 10px;
 }
 
