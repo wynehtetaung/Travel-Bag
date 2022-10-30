@@ -32,9 +32,7 @@
 
     <style>
       body {
-        background: #5a3f37;
-        background: -webkit-linear-gradient(to right, #2c7744, #5a3f37);
-        background: linear-gradient(to right, #2c7744, #5a3f37);
+        background-color: #aba9a8;
       }
       .upDate1 {
         background-color: #14bf98;
@@ -62,7 +60,11 @@
       <!-- .nav-menu -->
     </header>
 
-    <main id="main" class="whole-body">
+    <main
+      id="main"
+      class="whole-body"
+      style="margin-top: 50px; margin-right: 10px"
+    >
       <section id="portfolio-details" class="portfolio-details">
         <div class="container rounded">
           <div class="row gy-4">
@@ -70,30 +72,40 @@
               <div class="portfolio-details-slider swiper">
                 <div class="align-items-center rounded">
                   <div class="img-fluid">
-                    <img src="<%= posts.image%>" alt="" width="100%" />
+                    <img src="<%= posts.image%>" alt="" />
                   </div>
                 </div>
                 <div class="swiper-pagination"></div>
               </div>
             </div>
-
             <div class="col-lg-6">
               <div class="portfolio-info">
-                <h3>ပရိုဖိုင်လ် အချက်အလက်များ</h3>
-                <ul>
+                <h3 style="text-align: center">ပရိုဖိုင်လ် အချက်အလက်များ</h3>
+                <ul style="margin-top: 30px">
                   <li>
-                    <strong>အေးဂျင့်</strong> : <%= locals.agent.agentName %>
+                    <strong style="margin-left: 50px; margin-right: 20px"
+                      >အေးဂျင့်</strong
+                    >: <%= locals.agent.agentName %>
                   </li>
-                  <li><strong>တည်နေရာ</strong> : <%= posts.place %></li>
-                  <li><strong>ဖုန်းနံပါတ်</strong> : 0978965424</li>
                   <li>
-                    <strong>ပို့စ်တင်ချိန်</strong> : <%= posts.created %>
+                    <strong style="margin-left: 50px">တည်နေရာ </strong>: <%=
+                    posts.place %>
+                  </li>
+                  <li>
+                    <strong style="margin-left: 50px; margin-right: 5px"
+                      >ဖုန်းနံပါတ် </strong
+                    >: 0978965424
+                  </li>
+                  <li>
+                    <strong style="margin-left: 50px; margin-right: 1px"
+                      >ပို့စ်တင်ချိန် </strong
+                    >: <%= posts.created %>
                   </li>
                 </ul>
               </div>
               <div class="portfolio-description" style="padding-left: 10%">
                 <h2><%= posts.title%></h2>
-                <p><%= posts.content %></p>
+                <p style="margin-right: 70px"><%= posts.content %></p>
               </div>
               <div>
                 <!-- <button

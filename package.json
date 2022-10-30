@@ -26,6 +26,6 @@
     "sweetalert2": "^11.6.0"
   },
   "prettier": {
-    "semi": false
+    "semi": true
   }
 }
