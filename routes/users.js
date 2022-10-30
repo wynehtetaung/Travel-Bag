@@ -362,6 +362,11 @@ router.get("/agent-change-password", function (req, res) {
   res.render("users/agentUsers/changePassword")
 })
 
+//agent reset password
+router.get("/agent-reset-password", function (req, res) {
+  res.render("users/agentUsers/agentResetpassword")
+})
+
 //logout
 
 router.get("/logout", function (req, res) {
