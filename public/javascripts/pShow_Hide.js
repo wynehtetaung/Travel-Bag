@@ -9,6 +9,16 @@ const input = document.querySelector(".input-box"),
   text = document.querySelector(".text"),
   div = document.querySelector(".input-group-addon")
 
+// showMenu.addEventListener("click", () => {
+//   if (inputConfirm.type === "password") {
+//     inputConfirm.type = "text"
+//     showMenu.classList.replace("fa-eye-slash", "fa-eye")
+//   } else {
+//     inputConfirm.type = "password"
+//     showMenu.classList.replace("fa-eye", "fa-eye-slash")
+//   }
+// })
+
 // js code to show password strength (with regex)
 
 let alphabet = /[a-zA-Z]/,

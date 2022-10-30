@@ -3,6 +3,7 @@
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
+  display: inline;
 }
 
 .portfolio #portfolio-flters {
