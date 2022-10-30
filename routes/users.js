@@ -250,6 +250,11 @@ router.get("/nforgetpassword", function (req, res) {
   res.render("users/normalUsers/nUserforgotPassword")
 })
 
+// normal user change password
+router.get("/normal-change-password", function (req, res) {
+  res.render("users/normalUsers/changepassword")
+})
+
 // router.get("/nforgetpassword", forgetLoad);
 
 // todo normal user forget password data

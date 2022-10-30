@@ -3,6 +3,7 @@ const inputNew = document.querySelector(".input-box-new")
 const inputConfirm = document.querySelector(".input-box-confirm")
 showHide = document.querySelector(".show_hide")
 showHideNew = document.querySelector(".new")
+// showMenu = document.querySelector(".show_menu")
 showHideConfirm = document.querySelector(".confirm")
 indicator = document.querySelector(".indicator")
 iconText = document.querySelector(".icon-text")
@@ -37,6 +38,16 @@ showHideConfirm.addEventListener("click", () => {
     showHideConfirm.classList.replace("fa-eye", "fa-eye-slash")
   }
 })
+
+// showMenu.addEventListener("click", () => {
+//   if (inputConfirm.type === "password") {
+//     inputConfirm.type = "text"
+//     showMenu.classList.replace("fa-eye-slash", "fa-eye")
+//   } else {
+//     inputConfirm.type = "password"
+//     showMenu.classList.replace("fa-eye", "fa-eye-slash")
+//   }
+// })
 
 // js code to show password strength (with regex)
 
