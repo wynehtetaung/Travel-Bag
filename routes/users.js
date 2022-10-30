@@ -23,6 +23,7 @@ dotenv.config()
 const agentAuth = function (req, res, next) {
   if (req.session.agent) {
     next()
+    console.log(req.session.agent.agentName)
   } else {
     res.redirect("/users/agentLogin")
   }
@@ -395,6 +396,10 @@ router.get("/adetail/:id", agentAuth, function (req, res) {
 router.get("/aprofile", agentAuth, function (req, res) {
   res.render("users/agentUsers/agent-profile-detail")
 })
+
+// router.post("/aprofile",agentAuth,function(req,res){
+//   Post.findById()
+// })
 
 // check users name duplicate
 router.post("/checkname", function (req, res) {
