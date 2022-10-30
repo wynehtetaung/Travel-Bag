@@ -106,6 +106,18 @@
                         />
                         <span id="nameError"></span>
                       </div>
+                      <!--for bio box  -->
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="agentBio">Bio</label>
+                        <textarea
+                          type="text"
+                          id="agentBio"
+                          name="agentBio"
+                          class="form-control"
+                          placeholder="Bio"
+                          required
+                        ></textarea>
+                      </div>
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="agentEmail"
@@ -194,72 +206,72 @@
   <script src="/javascripts/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    $('#agentName').blur(function () {
-      $.ajax('/users/checkagentname', {
-        type: 'POST',
-        data: { agentName: $('#agentName').val() },
+    $("#agentName").blur(function () {
+      $.ajax("/users/checkagentname", {
+        type: "POST",
+        data: { agentName: $("#agentName").val() },
         success: function (result) {
-          if (result.status == 'error') {
-            alert('Somethings Was Wrong!')
-          } else if (result.status == 'already name') {
+          if (result.status == "error") {
+            alert("Somethings Was Wrong!")
+          } else if (result.status == "already name") {
             // alert("Username is already in use, try another username");
             Swal.fire({
-              title: 'ရှိပြီးသား အမည် ဖြစ်ပါသည်။ တခြား အမည် အသုံးပြုပါ။',
+              title: "ရှိပြီးသား အမည် ဖြစ်ပါသည်။ တခြား အမည် အသုံးပြုပါ။",
               showClass: {
-                popup: 'animate__animated  animate__fadeInDown',
+                popup: "animate__animated  animate__fadeInDown",
               },
               hideClass: {
-                popup: 'animate__animated animate__fadeOutUp',
+                popup: "animate__animated animate__fadeOutUp",
               },
             })
-            $('#agentName').val('')
-            $('#agentName').focus()
+            $("#agentName").val("")
+            $("#agentName").focus()
           }
         },
       })
     })
 
-    $('#agentEmail').blur(function () {
-      $.ajax('/users/checkagentemail', {
-        type: 'POST',
-        data: { agentEmail: $('#agentEmail').val() },
+    $("#agentEmail").blur(function () {
+      $.ajax("/users/checkagentemail", {
+        type: "POST",
+        data: { agentEmail: $("#agentEmail").val() },
         success: function (result) {
-          if (result.status == 'error') {
-            alert('Somethings Was Wrong!')
-          } else if (result.status == 'have') {
+          if (result.status == "error") {
+            alert("Somethings Was Wrong!")
+          } else if (result.status == "have") {
             // alert("Email is already in use,try another email")
             Swal.fire({
               title:
-                'ရှိပြီးသား အီးမေးလ် ဖြစ်ပါသည်။ တခြား အီးမေးလ် အသုံးပြုပါ။',
+                "ရှိပြီးသား အီးမေးလ် ဖြစ်ပါသည်။ တခြား အီးမေးလ် အသုံးပြုပါ။",
               showClass: {
-                popup: 'animate__animated animate__fadeInDown',
+                popup: "animate__animated animate__fadeInDown",
               },
               hideClass: {
-                popup: 'animate__animated animate__fadeOutUp',
+                popup: "animate__animated animate__fadeOutUp",
               },
             })
-            $('#agentEmail').val('')
-            $('#agentEmail').focus()
+            $("#agentEmail").val("")
+            $("#agentEmail").focus()
           }
         },
       })
     })
 
     function singupErrorMessage() {
-      var error = document.getElementById('nameError')
+      var error = document.getElementById("nameError")
       if (
         /[0-9,~!@#$%^&*()-+,၁-၉]/.test(
-          document.getElementById('agentName').value
+          document.getElementById("agentName").value
         )
       ) {
         error.innerHTML =
           "<img src='https://cdn4.iconfinder.com/data/icons/set-1/32/__23-512.png' style='width:20px; 'height:10px;'>" +
           "<span style='color: red;'>" +
-          ' စာသားသီးသန့်သာ ထည့်ရန်</span>'
-        $('#agentName').val('')
-        $('#agentName').focus()
+          " စာသားသီးသန့်သာ ထည့်ရန်</span>"
+        $("#agentName").val("")
+        $("#agentName").focus()
       } else {
-        error.textContent = ''
+        error.textContent = ""
       }
     }
   </script>
