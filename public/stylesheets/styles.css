@@ -1355,10 +1355,10 @@ input[type="checkbox"] {
   margin-bottom: 0.5rem;
 }
 
-.filter h2,
+/* .filter h2,
 .filter .section-title {
   text-align: center;
-}
+} */
 
 .filter h2 {
   margin-bottom: 3.25rem;

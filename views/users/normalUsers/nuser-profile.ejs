@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Travel Bag</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
 
     <link rel="stylesheet" href="/stylesheets/nuser-profile.css" />
@@ -19,47 +19,57 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+
+     <!-- Template Main CSS File -->
+     <link href="../stylesheets/bootstrap.css" rel="stylesheet" />
+     <link rel="stylesheet" href="/stylesheets/template.css" />
+   </head>
     <style>
-      .detail-box{
-        background-color:white;
-        border: 1px solid white;
+      /* .detail-box{
+        background-color:black;
+        border: 1px solid black;
         border-radius: 5px;
         margin-top: 20px;
-      }
+      } */
       body {
         background: #5a3f37;
-        background: -webkit-linear-gradient(to right, #2c7744, #5a3f37);
-        background: linear-gradient(to right, #2c7744, #5a3f37);
+        background: -webkit-linear-gradient(to left, #634033, #14bf98);
+        background: linear-gradient(to right,  #634033, #14bf98);
       }
-      .home-icon{
-        background-color: rgb(202, 129, 129);
-        border : 1px solid rgb(202, 126, 126);
-        padding: 25px;
-        size: 10px;
-        border-radius: 35px;
-      }
-    </style>
-    
+    </style>   
   </head>
-  <body>
+          <body>
+            <section class="vh-95" style="box-shadow: #113448;">
+              <i class="mobile-nav-toggle d-lg-none fi fi-rr-menu-burger"></i>
 
-
-            <section class="vh-95" >
-              <section
-                id="breadcrumbs"
-                class="breadcrumbs"
-                
-              >
-                <div class="container ">
-                  <div class="d-flex justify-content-between align-items-end mt-4">
-                    <h2 class="section-title">Profiles</h2>
-                    <a href="/dashboard">
-                    <img src="/images/images/home.svg" class="home-icon" alt="" width="70px"  >
-                    </a>             
-                  </div>
-                </div>
-              </section>
-            <div class="row d-flex justify-content-center align-items-center h-90">
+              <!-- ======= Header ======= -->
+              <header id="header" class="d-flex flex-column justify-content-center">
+                <nav id="navbar" class="navbar nav-menu">
+                  <ul>
+                    <li>
+                      <a href="#about" class="nav-link scrollto"
+                        ><i class="fi fi-rr-home"></i> <span>ပင်မ</span></a
+                      >
+                    </li>
+                    
+                    
+                    <li>
+                      <a href="#testimonial" class="nav-link scrollto">
+                        <i class="fi fi-rr-refresh"></i>
+                        <span>စကားဝှက် ပြောင်းရန်</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="/users/logout" class="nav-link scrollto"
+                        ><i class="fi fi-rr-exit"></i> <span>ထွက်မည်</span></a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+                <!-- .nav-menu -->
+              </header>
+             
+            <div class="row d-flex justify-content-center align-items-center h-90 width">
               <div class="col col-lg-4 mb-4 mb-lg-0">
                 <div class="card mb-3" style="border-radius: 0.5rem">
                   <div class="row g-0">
@@ -76,36 +86,45 @@
                         class="img-fluid my-5 rounded-circle"
                         style="width: 130px; height: 130px"
                       />
-                      <h5>Normal User Name</h5>
+                      <h5 style="color: #14bf98;">Normal User Name</h5>
                       <!-- <p>Web Designer</p> -->
                       <i class="far fa-edit mb-5"></i>
                     </div>
                     <div class="col-md-8">
                       <div class="card-body p-4">
-                        <h6>Information</h6>
+                        <h6 style="color: #14bf98;">ကိုယ်ရေးအချက်အလက်</h6>
                         <hr class="mt-0 mb-4" />
                         <div class="row pt-1">
                           <div class="col-6 mb-3">
-                            <h6>Email</h6>
+                            <h6 style="color: #14bf98;">အီးမေးလ်</h6>
                             <p class="text-muted">info@example.com</p>
                           </div>
                           <div class="col-6 mb-3">
-                            <h6>Phone</h6>
+                            <h6 style="color: #14bf98;">ဖုန်းနံပါတ်</h6>
                             <p class="text-muted">123 456 789</p>
                           </div>
                         </div>
-                        <h6>Projects</h6>
-                        <hr class="mt-0 mb-4" />
                         <div class="row pt-1">
+                        <div class="col-6 mb-3">
+                        <h6 style="color: #14bf98;">မြို့</h6>
+                        <p class="text-muted">ပုသိမ်</p>
+                       </div>
+                       <div class="col-6 mb-3">
+                        <h6 style="color: #14bf98;">လိပ်စာ</h6>
+                        <p class="text-muted">ဈေးရပ်တန်း</p>
+                       </div>
+                      </div>
+                        <hr class="mt-0 mb-4" />
+                        <!-- <div class="row pt-1">
                           <div class="col-6 mb-3">
-                            <h6>Recent</h6>
+                            <h6 style="color: #14bf98;">Recent</h6>
                             <p class="text-muted">Lorem ipsum</p>
                           </div>
                           <div class="col-6 mb-3">
-                            <h6>Most Viewed</h6>
+                            <h6 style="color: #14bf98;">Most Viewed</h6>
                             <p class="text-muted">Dolor sit amet</p>
                           </div>
-                        </div>
+                        </div> -->
                         <div class="d-flex justify-content-start">
                           <a href="#!"
                             ><i class="fab fa-facebook-f fa-lg me-3"></i
@@ -129,5 +148,6 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
+    <script src="/javascripts/main.js"></script>
   </body>
 </html>
