@@ -163,7 +163,8 @@
 }
 
 .portfolio-details .portfolio-details-slider img {
-  margin-left: 5px;
+  /* margin-left: 5px; */
+
   width: 100%;
   height: 40vh;
   border-radius: 15px;
