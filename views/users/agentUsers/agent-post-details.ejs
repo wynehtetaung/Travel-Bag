@@ -44,6 +44,7 @@
       }
     </style>
   </head>
+  <i class="mobile-nav-toggle d-lg-none fi fi-rr-menu-burger"></i>
 
   <body>
     <header id="header" class="d-flex flex-column justify-content-center">
@@ -52,6 +53,11 @@
           <li>
             <a href="/users/agentpage" class="nav-link scrollto"
               ><i class="fi fi-rr-home"></i> <span>Home</span></a
+            >
+          </li>
+          <li>
+            <a href="/users/apostlist" class="nav-link scrollto"
+              ><i class="fi fi-rr-list"></i> <span>Post List</span></a
             >
           </li>
         </ul>
@@ -74,52 +80,53 @@
                     <img src="<%= posts.image%>" alt="" />
                   </div>
                 </div>
-                <div class="swiper-pagination"></div>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="portfolio-info">
                 <h3 style="text-align: center">ပရိုဖိုင်လ် အချက်အလက်များ</h3>
-                <ul style="margin-top: 30px">
+                <ul style="margin-top: 30px; margin-left: 30px">
                   <li>
-                    <strong style="margin-left: 50px; margin-right: 20px"
-                      >အေးဂျင့်</strong
-                    >: <%= locals.agent.agentName %>
+                    <strong style="margin-right: 20px">အေးဂျင့်</strong>: <%=
+                    locals.agent.agentName %>
                   </li>
+                  <br />
+                  <li><strong>တည်နေရာ </strong>: <%= posts.place %></li>
+                  <br />
                   <li>
-                    <strong style="margin-left: 50px">တည်နေရာ </strong>: <%=
-                    posts.place %>
+                    <strong style="margin-right: 5px">ဖုန်းနံပါတ် </strong>:
+                    0978965424
                   </li>
+                  <br />
                   <li>
-                    <strong style="margin-left: 50px; margin-right: 5px"
-                      >ဖုန်းနံပါတ် </strong
-                    >: 0978965424
+                    <strong style="margin-right: 1px">ပို့စ်တင်ချိန် </strong>:
+                    <%= posts.created %>
                   </li>
-                  <li>
-                    <strong style="margin-left: 50px; margin-right: 1px"
-                      >ပို့စ်တင်ချိန် </strong
-                    >: <%= posts.created %>
-                  </li>
+                  <br />
                 </ul>
               </div>
               <div class="portfolio-description" style="padding-left: 10%">
                 <h2><%= posts.title%></h2>
                 <p style="margin-right: 70px"><%= posts.content %></p>
               </div>
-              <div>
-                <!-- <button
+            </div>
+            <div class="mt-4">
+              <a href="/users/apostupdate/<%= posts._id%>">
+                <button
                   type="button"
                   class="btn btn-success btn-lg m-4 upDate1"
-                  data-mdb-ripple-color="dark"
-                  style="z-index: 1"
                 >
                   ပြင်ဆင်မည်
-                </button>
+                </button></a
+              >
 
-                <button type="button" class="btn btn-danger btn-lg dElete1">
-                  ဖျက်မည်
-                </button> -->
-              </div>
+              <button
+                onclick="del('<%= posts._id%>')"
+                type="button"
+                class="btn btn-danger btn-lg m-4 dElete1"
+              >
+                ဖျက်မည်
+              </button>
             </div>
           </div>
         </div>
@@ -136,5 +143,11 @@
     ></a> -->
 
     <script src="/javascripts/main.js"></script>
+    <script>
+      function del(id) {
+        var opt = confirm("Are You sure to delete? ");
+        if (opt) location.href = "/users/apostdelete/" + id;
+      }
+    </script>
   </body>
 </html>

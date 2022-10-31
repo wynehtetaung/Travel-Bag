@@ -120,6 +120,32 @@
                       </div>
 
                       <div class="form-outline mb-4">
+                        <label class="form-label" for="agentCity">City</label>
+                        <input
+                          type="text"
+                          id="agentCity"
+                          name="agentCity"
+                          class="form-control"
+                          placeholder="City"
+                          required
+                        />
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="agentPhone"
+                          >Phone no</label
+                        >
+                        <input
+                          type="text"
+                          id="agentPhone"
+                          name="agentPhone"
+                          class="form-control"
+                          placeholder="Phone_-no"
+                          required
+                        />
+                      </div>
+
+                      <div class="form-outline mb-4">
                         <label class="form-label" for="agentEmail"
                           >အီးမေးလ်</label
                         >
@@ -212,7 +238,7 @@
         data: { agentName: $("#agentName").val() },
         success: function (result) {
           if (result.status == "error") {
-            alert("Somethings Was Wrong!")
+            alert("Somethings Was Wrong!");
           } else if (result.status == "already name") {
             // alert("Username is already in use, try another username");
             Swal.fire({
@@ -223,13 +249,13 @@
               hideClass: {
                 popup: "animate__animated animate__fadeOutUp",
               },
-            })
-            $("#agentName").val("")
-            $("#agentName").focus()
+            });
+            $("#agentName").val("");
+            $("#agentName").focus();
           }
         },
-      })
-    })
+      });
+    });
 
     $("#agentEmail").blur(function () {
       $.ajax("/users/checkagentemail", {
@@ -237,7 +263,7 @@
         data: { agentEmail: $("#agentEmail").val() },
         success: function (result) {
           if (result.status == "error") {
-            alert("Somethings Was Wrong!")
+            alert("Somethings Was Wrong!");
           } else if (result.status == "have") {
             // alert("Email is already in use,try another email")
             Swal.fire({
@@ -249,16 +275,16 @@
               hideClass: {
                 popup: "animate__animated animate__fadeOutUp",
               },
-            })
-            $("#agentEmail").val("")
-            $("#agentEmail").focus()
+            });
+            $("#agentEmail").val("");
+            $("#agentEmail").focus();
           }
         },
-      })
-    })
+      });
+    });
 
     function singupErrorMessage() {
-      var error = document.getElementById("nameError")
+      var error = document.getElementById("nameError");
       if (
         /[0-9,~!@#$%^&*()-+,၁-၉]/.test(
           document.getElementById("agentName").value
@@ -267,11 +293,11 @@
         error.innerHTML =
           "<img src='https://cdn4.iconfinder.com/data/icons/set-1/32/__23-512.png' style='width:20px; 'height:10px;'>" +
           "<span style='color: red;'>" +
-          " စာသားသီးသန့်သာ ထည့်ရန်</span>"
-        $("#agentName").val("")
-        $("#agentName").focus()
+          " စာသားသီးသန့်သာ ထည့်ရန်</span>";
+        $("#agentName").val("");
+        $("#agentName").focus();
       } else {
-        error.textContent = ""
+        error.textContent = "";
       }
     }
   </script>
