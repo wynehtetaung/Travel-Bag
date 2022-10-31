@@ -120,7 +120,7 @@ router.get("/dashboard", userAuth, function (req, res) {
     .exec(function (err, rtn) {
       if (err) throw err;
       console.log(rtn);
-      res.render("dashboard");
+      res.render("dashboard", { posts: rtn });
     });
 });
 
