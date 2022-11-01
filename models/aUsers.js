@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var bcrypt = require("bcryptjs");
+var nanoid = require("nanoid");
 
 var UserSchema = new Schema({
   agentName: {
@@ -16,8 +17,17 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
-  agentemailToken: {
+  agentBio: {
     type: String,
+    required: true,
+  },
+  agentPhone: {
+    type: String,
+    required: true,
+  },
+  agentCity: {
+    type: String,
+    required: true,
   },
   agentisVerified: {
     type: Boolean,
@@ -25,6 +35,10 @@ var UserSchema = new Schema({
   agentDate: {
     type: Date,
     default: Date.now(),
+  },
+  token: {
+    type: String,
+    default: nanoid.urlAlphabet,
   },
 });
 

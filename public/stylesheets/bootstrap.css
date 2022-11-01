@@ -514,8 +514,7 @@ mark,
 }
 
 .img-fluid {
-  max-width: auto;
-  height: 40vh;
+  max-width: 100%;
 }
 
 .img-thumbnail {
@@ -2779,7 +2778,7 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
 }
 
-.btn-danger {
+/* .btn-danger {
   color: #fff;
   background-color: #dc3545;
   border-color: #dc3545;
@@ -2789,7 +2788,7 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #c82333;
   border-color: #bd2130;
-}
+} */
 
 .btn-danger:focus,
 .btn-danger.focus {
