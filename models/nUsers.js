@@ -1,6 +1,7 @@
-var mongoose = require("mongoose")
-var Schema = mongoose.Schema
-var bcrypt = require("bcryptjs")
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+var bcrypt = require("bcryptjs");
+var nanoid = require("nanoid");
 
 var UserSchema = new Schema({
   normalName: {
@@ -16,9 +17,6 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
-  // normalemailToken: {
-  //   type: String,
-  // },
   normalisVerified: {
     type: Boolean,
   },
@@ -28,21 +26,21 @@ var UserSchema = new Schema({
   },
   token: {
     type: String,
-    default: "",
+    default: nanoid.urlAlphabet,
   },
-})
+});
 
 UserSchema.pre("save", function (next) {
   this.normalPassword = bcrypt.hashSync(
     this.normalPassword,
     bcrypt.genSaltSync(8),
     null
-  )
-  next()
-})
+  );
+  next();
+});
 
 UserSchema.statics.compare = function (cleartext, encrypted) {
-  return bcrypt.compareSync(cleartext, encrypted)
-}
+  return bcrypt.compareSync(cleartext, encrypted);
+};
 
-module.exports = mongoose.model("NUsers", UserSchema)
+module.exports = mongoose.model("NUsers", UserSchema);

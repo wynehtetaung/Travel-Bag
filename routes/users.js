@@ -4,21 +4,20 @@ var User = require("../models/nUsers");
 var Agent = require("../models/aUsers");
 var Post = require("../models/agent-postadd");
 var Swal = require("sweetalert2");
-// var transporter = require("../models/emailVerification");
+var bcrypt = require("bcryptjs");
 var crypto = require("crypto");
 var cookie = require("cookie-parser");
 var jwt = require("jsonwebtoken");
 var nodemailer = require("nodemailer");
-// var randomString = require("randomstring")
 const SMTPConnection = require("nodemailer/lib/smtp-connection");
-
-// var sendResetPasswordMail = require("../models/emailVerification")
-
 var Post = require("../models/agent-postadd");
 var multer = require("multer");
 var upload = multer({ dest: "public/images/testimonials" });
 
 var dotenv = require("dotenv");
+const { token } = require("morgan");
+const { url } = require("inspector");
+const { updateOne } = require("../models/nUsers");
 dotenv.config();
 const agentAuth = function (req, res, next) {
   if (req.session.agent) {
@@ -183,27 +182,33 @@ router.get("/nlogin", function (req, res) {
 router.post("/nlogin", function (req, res) {
   User.findOne({ normalEmail: req.body.normalEmail }, function (err, rtn) {
     if (err) throw err;
-    if (
-      rtn.normalisVerified === true &&
-      rtn != null &&
-      User.compare(req.body.normalPassword, rtn.normalPassword)
-      // User.compare(req.body.normalisVerified, rtn.normalisVerified)
-    ) {
-      //renember login
-      req.session.user = {
-        id: rtn._id,
-        normalName: rtn.normalName,
-        normalEmail: rtn.normalEmail,
-      };
-      res.redirect("/dashboard");
-    } else if (rtn.normalisVerified === false) {
-      res.render("users/normalUsers/nuserLogin", {
-        message: "ကျေးဇူးပြု၍ သင့် အီးမေးလ် အတည်ပြုပါ။",
-      });
-    } else {
+    if (rtn == null) {
       res.render("users/normalUsers/nuserLogin", {
         message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
       });
+    } else {
+      if (
+        rtn.normalisVerified === true &&
+        rtn != null &&
+        User.compare(req.body.normalPassword, rtn.normalPassword)
+        // User.compare(req.body.normalisVerified, rtn.normalisVerified)
+      ) {
+        //renember login
+        req.session.user = {
+          id: rtn._id,
+          normalName: rtn.normalName,
+          normalEmail: rtn.normalEmail,
+        };
+        res.redirect("/dashboard");
+      } else if (rtn.normalisVerified === false) {
+        res.render("users/normalUsers/nuserLogin", {
+          message: "ကျေးဇူးပြု၍ သင့် အီးမေးလ် အတည်ပြုပါ။",
+        });
+      } else {
+        res.render("users/normalUsers/nuserLogin", {
+          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
+        });
+      }
     }
   });
 });
@@ -218,6 +223,35 @@ router.get("/reset-password", function (req, res) {
   res.render("users/normalUsers/resetPassword");
 });
 
+router.post("/reset-password", function (req, res) {
+  // console.log("token:", req.query.token);
+  User.findOne({ normalEmail: req.body.normalEmail }, async (err, rtn) => {
+    console.log("rtnToke:", rtn);
+    if (err) throw err;
+    if (rtn == null) {
+      res.render("users/normalUsers/resetPassword", {
+        message: "သင်အကောင့်ဖွင့်ထားသော အီးမေးလ်ထည့်ပါ။",
+      });
+    } else {
+      if (rtn.normalEmail == req.body.normalEmail) {
+        console.log("pass:", rtn.normalPassword);
+        const resetpass = bcrypt.hashSync(
+          req.body.normalNewPass,
+          bcrypt.genSaltSync(8),
+          null
+        );
+        const fcp = await User.updateOne(
+          { normalEmail: req.body.normalEmail },
+          { $set: { normalPassword: resetpass } }
+        );
+        console.log(fcp);
+        console.log("new:", rtn.normalPassword);
+        res.redirect("/users/nlogin");
+      }
+    }
+  });
+});
+
 // normal user forget password
 router.get("/nforgetpassword", function (req, res) {
   res.render("users/normalUsers/nUserforgotPassword");
@@ -228,33 +262,58 @@ router.get("/normal-change-password", function (req, res) {
   res.render("users/normalUsers/changepassword");
 });
 
-// router.get("/nforgetpassword", forgetLoad);
+router.post("/normal-change-password", function (req, res) {
+  User.findOne({ normalEmail: req.body.normalEmail }, async (err, rtn) => {
+    if (err) throw err;
+    if (rtn == null) {
+      res.render("users/normalUsers/changepassword", {
+        message: "သင့်အီးမေးလ်မှားနေပါသည်။ အကောင့်ဖွင့်ထားသောအီးမေးလ်ထည့်ပါ။",
+      });
+    } else {
+      if (
+        req.body.normalEmail == rtn.normalEmail &&
+        User.compare(req.body.normalOldPassword, rtn.normalPassword)
+      ) {
+        const nPass = bcrypt.hashSync(
+          req.body.normalNewPassword,
+          bcrypt.genSaltSync(8),
+          null
+        );
+        const complete = await User.updateOne(
+          { normalEmail: req.body.normalEmail },
+          { $set: { normalPassword: nPass } }
+        );
+        console.log("complete :", complete);
+        res.redirect("/users/nlogin");
+      } else {
+        res.render("users/normalUsers/changepassword", {
+          message: "သင့်စကားဝှက်အဟောင်းမှားနေပါသည်။",
+        });
+      }
+    }
+  });
+});
 
-// todo normal user forget password data
+//  normal user forget password data
 
 router.post("/nforgetpassword", async (req, res) => {
   try {
     const normalEmail = req.body.normalEmail;
-    // console.log("User Input Data :", normalEmail)
     User.findOne({ normalEmail: normalEmail }, (err, rtn) => {
       if (err) throw err;
-      // console.log("UserDate :", rtn)
       if (rtn != null) {
         if (rtn.normalisVerified === false) {
+          console.log("kkkkk", rtn);
+          // console.log("find:", User.findById(normalEmail));
           res.render("users/normalUsers/nUserforgotPassword", {
             message: "သင့် အီးမေးလ် အတည်ပြုပါ။",
           });
         } else {
-          // const randomString = randomString.generate()
-          const updatedDate = User.updateOne(
-            { normalEmail: normalEmail }
-            // { $set: { token: randomString } }
-          );
-          console.log(updatedDate);
-          // /nUserforgotPassword
-          sendResetPasswordMail(rtn.normalName, rtn.normalEmail);
+          const nanoid = rtn.token;
+          console.log("ID:", rtn.token);
+          sendResetPasswordMail(rtn.normalName, rtn.normalEmail, nanoid);
           res.render("users/normalUsers/nUserforgotPassword", {
-            message: "သင့် အီးမေးလ် ကို ကျေးဇူးပြု၍စစ်ပေးပါ။",
+            message: "သင့်အီးမေးလ်ကို မေးလ်ပို့တားပါသည်။ကျေးဇူးပြု၍စစ်ပေးပါ။",
           });
         }
       } else {
@@ -276,29 +335,37 @@ router.get("/agentSignup", function (req, res) {
 // agent sign up data
 router.post("/agentSignup", function (req, res) {
   try {
-    const { agentName, agentEmail, agentPassword } = req.body;
+    const {
+      agentName,
+      agentEmail,
+      agentPassword,
+      agentBio,
+      agentPhone,
+      agentCity,
+    } = req.body;
     var user = new Agent({
       agentName,
       agentEmail,
       agentPassword,
-      agentemailToken: crypto.randomBytes(64).toString("hex"),
+      agentBio,
+      agentPhone,
+      agentCity,
       agentisVerified: false,
     });
+
     const newUser = user.save();
-    console.log("NewUser:", newUser);
+    console.log("NewUser :", newUser);
 
     res.redirect("/users/agentLogin");
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 });
 
-// agent Login
 router.get("/agentLogin", function (req, res) {
   res.render("users/agentUsers/agentLogin");
 });
-
-// agent login data
+// res.render("users/agentUsers/agentLogin");
 router.post("/agentLogin", function (req, res) {
   Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rtn) {
     if (err) throw err;
@@ -306,7 +373,6 @@ router.post("/agentLogin", function (req, res) {
       rtn != null &&
       Agent.compare(req.body.agentPassword, rtn.agentPassword)
     ) {
-      //renember login
       req.session.agent = {
         id: rtn._id,
         agentName: rtn.agentName,

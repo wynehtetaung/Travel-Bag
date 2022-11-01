@@ -124,6 +124,14 @@ router.get("/dashboard", userAuth, function (req, res) {
     });
 });
 
+router.get("/post-detail/:id", userAuth, function (req, res) {
+  Post.findById(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    console.log(err);
+    res.render("users/normalUsers/post-detail", { blog: rtn });
+  });
+});
+
 // signup choice account
 router.get("/account", function (req, res) {
   res.render("choiceAcc");
