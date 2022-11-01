@@ -55,4 +55,4 @@ UserSchema.statics.compare = function (cleartext, encrypted) {
   return bcrypt.compareSync(cleartext, encrypted);
 };
 
-module.exports = mongoose.model("ausers", UserSchema);
+module.exports = mongoose.model("aUsers", UserSchema);

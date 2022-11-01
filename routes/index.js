@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 var Admin = require("../models/Admin");
 var crypto = require("crypto");
+var Post = require("../models/agent-postadd");
+var agent = require("../models/aUsers");
 
 var userAuth = function (req, res, next) {
   if (req.session.user) {
@@ -113,7 +115,21 @@ router.get("/about", function (req, res) {
 
 // DeshBoard
 router.get("/dashboard", userAuth, function (req, res) {
-  res.render("dashboard");
+  Post.find({})
+    .populate("author", "agentName")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      console.log(rtn);
+      res.render("dashboard", { posts: rtn });
+    });
+});
+
+router.get("/post-detail/:id", userAuth, function (req, res) {
+  Post.findById(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    console.log(err);
+    res.render("users/normalUsers/post-detail", { blog: rtn });
+  });
 });
 
 // signup choice account

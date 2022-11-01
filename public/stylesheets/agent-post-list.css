@@ -163,10 +163,12 @@
 }
 
 .portfolio-details .portfolio-details-slider img {
-  margin-left: 5px;
+  /* margin-left: 5px; */
+
   width: 100%;
-  height: 40vh;
+  height: 38vh;
   border-radius: 15px;
+  text-align: center;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Post Add</title>
+    <link rel="stylesheet" href=" /stylesheets/template.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
+    <style>
+      body {
+        background: #5a3f37;
+        background: -webkit-linear-gradient(to right, #2c7744, #5a3f37);
+        background: linear-gradient(to right, #2c7744, #5a3f37);
+      }
+    </style>
+  </head>
+  <body>
+    <i class="mobile-nav-toggle d-lg-none fi fi-rr-menu-burger"></i>
+
+    <header id="header" class="d-flex flex-column justify-content-center">
+      <nav id="navbar" class="navbar nav-menu">
+        <ul>
+          <li>
+            <a href="agentpage" class="nav-link scrollto"
+              ><i class="fi fi-rr-home"></i> <span>Home</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+      <!-- .nav-menu -->
+    </header>
+
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Post Update Page</h2>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="fi fi-rr-map-marker"></i>
+                <h4>တည်နေရာ</h4>
+                <p>6 Maha Bandoola Rd, Pathein 10011</p>
+              </div>
+            </div>
+            <img src="/images/world1.svg" width="300px" height="300px" alt="" />
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+            <form
+              action="/users/apostupdate"
+              method="post"
+              role="form"
+              enctype="multipart/form-data"
+            >
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="hidden" name="id" value="<%= posts._id %> " />
+
+                  <input
+                    type="text"
+                    name="title"
+                    class="form-control"
+                    id="title"
+                    placeholder="Postခေါင်းစဉ်"
+                    value="<%= posts.title%>"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="place"
+                    id="place"
+                    placeholder="နေရာနာမည်"
+                    value="<%= posts.place %>"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-5 form-group mt-3 mt-md-0">
+                <input
+                  type="file"
+                  class="form-control"
+                  name="image"
+                  id="image"
+                  accept="image/*"
+                  value=""
+                  required
+                />
+              </div>
+
+              <div class="form-group mt-3">
+                <textarea
+                  class="form-control"
+                  name="content"
+                  id="content"
+                  rows="5"
+                  placeholder="အချက်အလက်ရေးရန်"
+                  value="<%= posts.content %>"
+                  required
+                ></textarea>
+              </div>
+              <!-- <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">ပို့စ်တင်ပြီးပါပြီ...</div>
+                </div> -->
+              <div class="text-center btn btn-danger">
+                <input
+                  type="submit"
+                  class="btn btn-danger"
+                  value="post tin mal"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/javascripts/main.js"></script>
+  </body>
+</html>

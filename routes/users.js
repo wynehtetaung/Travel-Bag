@@ -35,9 +35,9 @@ const userAuth = function (req, res, next) {
   }
 };
 /* GET users listing. */
-router.get("/", userAuth, function (req, res, next) {
-  res.redirect("/users/dashboard");
-});
+// router.get("/", userAuth, function (req, res, next) {
+//   res.redirect("/users/dashboard");
+// });
 
 // for send verify mail
 const sendVerifyMail = async (normalName, normalEmail, User_id) => {
@@ -350,31 +350,22 @@ router.post("/agentSignup", function (req, res) {
       agentBio,
       agentPhone,
       agentCity,
-      agentemailToken: crypto.randomBytes(64).toString("hex"),
       agentisVerified: false,
     });
-    const newUser = user.save();
-    console.log("newUser :", newUser);
+
     res.redirect("/users/agentLogin");
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 });
-
-// agent Login
-router.get("/agentLogin", function (req, res) {
-  res.render("users/agentUsers/agentLogin");
-});
-
-// agent login data
+// res.render("users/agentUsers/agentLogin");
 router.post("/agentLogin", function (req, res) {
-  Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rtn) {
+  Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rth) {
     if (err) throw err;
     if (
       rtn != null &&
       Agent.compare(req.body.agentPassword, rtn.agentPassword)
     ) {
-      //renember login
       req.session.agent = {
         id: rtn._id,
         agentName: rtn.agentName,
@@ -456,8 +447,31 @@ router.get("/apostlist", agentAuth, function (req, res) {
 router.get("/adetail/:id", agentAuth, function (req, res) {
   Post.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
+    console.log(rtn);
+
     res.render("users/agentUsers/agent-post-details", { posts: rtn });
   });
+});
+
+//for post update
+router.get("/apostupdate/:id", agentAuth, function (req, res) {
+  Post.findById(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    res.render("users/agentUsers/agent-post-update", { posts: rtn });
+  });
+});
+
+// agent post delete
+router.get("/apostdelete/:id", agentAuth, function (req, res) {
+  Post.findByIdAndDelete(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    res.redirect("/users/apostlist");
+  });
+});
+
+//agent list
+router.get("/agentlist", agentAuth, function (req, res) {
+  res.render("users/agentUsers/agent-list");
 });
 
 // agent-profile-detail
