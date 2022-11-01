@@ -49,6 +49,18 @@
       width: 25px;
       height: 25px;
     }
+    .section-title{
+      
+      text-align: center;
+      padding-top : 60px ;
+      padding-bottom: 30px; 
+    }
+    #portfolio{
+      background: #5a3f37;
+        background: -webkit-linear-gradient(to right, #2c7744, #5a3f37);
+        background: linear-gradient(to right, #2c7744, #5a3f37);
+        padding-bottom: 40px;
+    }
     /* .icon24{
       color: #113448;
     }
@@ -150,11 +162,11 @@
                 src="<%= posts[i].image %>"
                 class=""
                 alt=""
-                width="300px"
-                height="100%"
+                width="400px"
+                height="280px"
               />
               <div class="portfolio-info">
-                <a href="/users/adetail/<%= posts[i]._id %> ">
+                <a href="/post-detail/<%= posts[i]._id %> ">
                   <h4><%= posts[i].title %></h4>
                 </a>
               </div>

@@ -11,22 +11,20 @@
     <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
     <link href="/stylesheets/styles.css" rel="stylesheet" />
 
-
     <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
     />
 
     <style>
-        body {
-          background: #5a3f37;
-          background: -webkit-linear-gradient(to right, #2c7744, #5a3f37);
-          background: linear-gradient(to right, #2c7744, #5a3f37);
-        }
-      </style>
+      body {
+        background: #5a3f37;
+        background: -webkit-linear-gradient(to right, #2c7744, #5a3f37);
+        background: linear-gradient(to right, #2c7744, #5a3f37);
+      }
+    </style>
   </head>
   <body>
-
     <i class="mobile-nav-toggle d-lg-none fi fi-rr-menu-burger"></i>
 
     <header id="header" class="d-flex flex-column justify-content-center">
@@ -41,151 +39,52 @@
       </nav>
     </header>
     <section id="testimonial" class="portfolio section-bg">
-        <section id="testimonials" class="testimonials section-bg">
-          <div class="container">
-            <div class="section-title">
-              <h2>အသုံးပြုသူ အေးဂျင့်များ</h2>
-              <p>အေးဂျင့် အချက်လက်များအား ကြည့်ရှုရန်</p>
-            </div>
-            <div
-              class="testimonials-slider swiper"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="testimonial-item" data-aos="fade-up">
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
-                      အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ ကမ်းခြေခရီးစဉ်တွေနဲ့
-                      ပတ်သတ်ပြီး ခရီးသွားလာလိုပါက မိတ်ဆွေတို့အနေနဲ့
-                      ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                    <a
-                      href="/users/aprofile"
-                      class="portfolio-details-lightbox"
-                    >
-                      <img
-                        src="/images/bta222.jpg"
-                        class="testimonial-img"
-                        alt=""
-                      />
-                    </a>
-
-                    <h3 style="color: #14bf98">
-                    <h4>အေးဂျင့်</h4>
-                  </div>
-                </div>
-
-                <!-- <div class="swiper-slide">
-                  <div
-                    class="testimonial-item"
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                  >
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
-                      အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ ဘုရားဖူးခရီးစဉ်တွေနဲ့
-                      ပတ်သတ်ပြီး ခရီးသွားလာလိုပါက မိတ်ဆွေတို့အနေနဲ့
-                      ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
+      <section id="testimonials" class="testimonials section-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>အသုံးပြုသူ အေးဂျင့်များ</h2>
+            <p>အေးဂျင့် အချက်လက်များအား ကြည့်ရှုရန်</p>
+          </div>
+          <% for(var i = 0; i< ausers.length; i++){%>
+          <div
+            class="testimonials-slider swiper"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-item" data-aos="fade-up">
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
+                    အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ ကမ်းခြေခရီးစဉ်တွေနဲ့ ပတ်သတ်ပြီး
+                    ခရီးသွားလာလိုပါက မိတ်ဆွေတို့အနေနဲ့ ကျွန်တော့်ကို အသေးစိတ်
+                    မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                  <a href="/users/aprofile" class="portfolio-details-lightbox">
                     <img
-                      src="/images/Wynehtet.jpg"
+                      src="/images/bta222.jpg"
                       class="testimonial-img"
                       alt=""
                     />
-                    <h3 style="color: #14bf98">Wyne Htet Aung</h3>
-                    <h4>အေးဂျင့်</h4>
-                  </div>
-                </div>
+                  </a>
 
-                <div class="swiper-slide">
-                  <div
-                    class="testimonial-item"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
-                      အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ လေ့လာရေးခရီးစဉ်တွေနဲ့
-                      ပတ်သတ်ပြီး ခရီးသွားလာလိုပါက မိတ်ဆွေတို့အနေနဲ့
-                      ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                    <img
-                      src="/images/ShinnThant1.jpg"
-                      class="testimonial-img"
-                      alt=""
-                    />
-                    <h3 style="color: #14bf98">Shin Thant Lwin</h3>
-                    <h4>အေးဂျင့်</h4>
-                  </div>
+                  <h3 style="color: #14bf98"><%= locals.agent.agentName%></h3>
+                  <h4>အေးဂျင့်</h4>
                 </div>
-
-                <div class="swiper-slide">
-                  <div
-                    class="testimonial-item"
-                    data-aos="fade-up"
-                    data-aos-delay="300"
-                  >
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
-                      အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ မိတ်ဆွေတို့ရဲ့ ခရီးစဉ်တွေနဲ့
-                      ပတ်သတ်ပြီး တည်းခိုအနားယူဖို့အတွက် ဟိုတယ်တွေနဲ့ပတ်သတ်ပြီး
-                      ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                    <img
-                      src="/images/KoYethuaung.jpg"
-                      class="testimonial-img"
-                      alt=""
-                    />
-                    <h3 style="color: #14bf98">Ye Thu Aung</h3>
-                    <h4>အေးဂျင့်</h4>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div
-                    class="testimonial-item"
-                    data-aos="fade-up"
-                    data-aos-delay="400"
-                  >
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
-                      အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ မိတ်ဆွေတို့ရဲ့ ခရီးစဉ်တွေနဲ့
-                      ပတ်သတ်ပြီး လွယ်ကူချောမွေ့စွာသွားလာနိုင်ဖို့အတွက် Express
-                      ကားတွေနဲ့ပတ်သတ်ပြီး ကျွန်တော့်ကို အသေးစိတ် မေးမြန်း
-                      စုံစမ်းနိုင်ပါတယ်။
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                    <img
-                      src="/images/HHA222.jpg"
-                      class="testimonial-img"
-                      alt=""
-                    />
-                    <h3 style="color: #14bf98">Han Htun Aung</h3>
-                    <h4>အေးဂျင့်</h4>
-                  </div>
-                </div> -->
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </section>
-      <script src="/vendor/aos/aos.js"></script>
-      <script src="/vendor/glightbox/js/glightbox.min.js"></script>
-      <script src="/vendor/swiper/swiper-bundle.min.js"></script>
-      <script src="/javascripts/isotope.pkgd.min.js"></script>
-  
-      <!-- Template Main JS File -->
-      <script src="/javascripts/main.js"></script>
+    </section>
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/javascripts/isotope.pkgd.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/javascripts/main.js"></script>
   </body>
 </html>
