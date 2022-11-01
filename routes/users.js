@@ -353,14 +353,21 @@ router.post("/agentSignup", function (req, res) {
       agentisVerified: false,
     });
 
+    const newUser = user.save();
+    console.log("NewUser :", newUser);
+
     res.redirect("/users/agentLogin");
   } catch (error) {
     console.log(error);
   }
 });
+
+router.get("/agentLogin", function (req, res) {
+  res.render("users/agentUsers/agentLogin");
+});
 // res.render("users/agentUsers/agentLogin");
 router.post("/agentLogin", function (req, res) {
-  Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rth) {
+  Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rtn) {
     if (err) throw err;
     if (
       rtn != null &&
