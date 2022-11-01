@@ -93,7 +93,7 @@
             <a
               href="/users/apostupdate/<%= posts._id%>"
               class="nav-link scrollto"
-              ><i class="fi fi-rr-list"></i> <span>Post Update</span></a
+              ><i class="fi fi-rr-refresh"></i> <span>Post Update</span></a
             >
           </li>
           <li>
@@ -102,7 +102,7 @@
               style="border-radius: 80px"
             >
               <a class="nav-link scrollto"
-                ><i class="fi fi-rr-list"></i> <span>Post Delete</span></a
+                ><i class="fi fi-rr-delete"></i> <span>Post Delete</span></a
               >
             </button>
           </li>
@@ -155,24 +155,6 @@
                 <h2><%= posts.title%></h2>
                 <p style="margin-right: 70px"><%= posts.content %></p>
               </div>
-            </div>
-            <div class="mt-4">
-              <a href="/users/apostupdate/<%= posts._id%>">
-                <button
-                  type="button"
-                  class="btn btn-success btn-lg m-4 upDate1"
-                >
-                  ပြင်ဆင်မည်
-                </button></a
-              >
-
-              <button
-                onclick="del('<%= posts._id%>')"
-                type="button"
-                class="btn btn-danger btn-lg m-4 dElete1"
-              >
-                ဖျက်မည်
-              </button>
             </div>
           </div>
         </div>
