@@ -695,18 +695,22 @@ router.get("/apostdelete/:id", agentAuth, function (req, res) {
 });
 
 //agent list
+// router.get("/agentlist", agentAuth, function (req, res) {
+//   res.render("users/agentUsers/agent-list");
+// });
+
 router.get("/agentlist", agentAuth, function (req, res) {
-  res.render("users/agentUsers/agent-list");
+  Agent.find({}, function (err, rtn) {
+    if (err) throw err;
+    console.log(rtn);
+    res.render("users/agentUsers/agent-list", { ausers: rtn });
+  });
 });
 
-// agent-profile-detail
+//for agent detail
 router.get("/aprofile", agentAuth, function (req, res) {
   res.render("users/agentUsers/agent-profile-detail");
 });
-
-// router.post("/aprofile",agentAuth,function(req,res){
-//   Post.findById()
-// })
 
 // check users name duplicate
 router.post("/checkname", function (req, res) {

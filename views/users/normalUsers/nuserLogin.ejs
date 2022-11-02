@@ -43,7 +43,8 @@
                     src="/images/normalLogin.svg"
                     alt="login form"
                     class="img-fluid"
-                    style="border-radius: 1rem 0 0 1rem"
+                    style="margin-top: 150px"
+                    width="100%"
                   />
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
@@ -163,17 +164,17 @@
   <script>
     $("#rememberMe").click(function () {
       if ($("#rememberMe").prop("checked")) {
-        Cookies.set("normalEmail", $("#normalEmail").val())
-        Cookies.set("normalPassword", $("#normalPassword").val())
+        Cookies.set("normalEmail", $("#normalEmail").val());
+        Cookies.set("normalPassword", $("#normalPassword").val());
       } else {
-        Cookies.remove("normalEmail")
-        Cookies.remove("normalPassword")
+        Cookies.remove("normalEmail");
+        Cookies.remove("normalPassword");
       }
-    })
+    });
     if (Cookies.get("normalEmail")) {
-      $("#normalEmail").val(Cookies.get("normalEmail"))
-      $("#normalPassword").val(Cookies.get("normalPassword"))
-      $("#rememberMe").prop("checked", "true")
+      $("#normalEmail").val(Cookies.get("normalEmail"));
+      $("#normalPassword").val(Cookies.get("normalPassword"));
+      $("#rememberMe").prop("checked", "true");
     }
     // $("#subBtn").click(() => {
     //   $("#myform").validate({

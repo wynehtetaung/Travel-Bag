@@ -514,8 +514,7 @@ mark,
 }
 
 .img-fluid {
-  max-width: auto;
-  height: 40vh;
+  max-width: 100%;
 }
 
 .img-thumbnail {

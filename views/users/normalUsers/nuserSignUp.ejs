@@ -58,7 +58,7 @@
                     src="/images/normalSignup.svg"
                     alt="login form"
                     class="img-fluid"
-                    style="border-radius: 1rem 0 0 1rem"
+                    style="margin-top: 150px"
                   />
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
@@ -179,9 +179,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/javascripts/pShow_Hide.js"></script>
   <script src="/javascripts/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="/javascripts/pShow_Hide.js"></script>
   <script>
     $("#normalName").blur(function () {
       if ($("#normalName").val() != "") {
@@ -190,7 +191,7 @@
           data: { normalName: $("#normalName").val() },
           success: function (result) {
             if (result.status == "error") {
-              alert("Somethings Was Wrong!")
+              alert("Somethings Was Wrong!");
             } else if (result.status == "username have") {
               Swal.fire({
                 title: "ရှိပြီးသား အမည် ဖြစ်ပါသည်။ တခြား အမည် အသုံးပြုပါ။",
@@ -200,14 +201,14 @@
                 hideClass: {
                   popup: "animate__animated animate__fadeOutUp",
                 },
-              })
-              $("#normalName").val("")
-              $("#normalName").focus()
+              });
+              $("#normalName").val("");
+              $("#normalName").focus();
             }
           },
-        })
+        });
       }
-    })
+    });
     $("#normalEmail").blur(function () {
       if ($("#normalEmail").val() != "") {
         $.ajax("/users/checknemail", {
@@ -215,7 +216,7 @@
           data: { normalEmail: $("#normalEmail").val() },
           success: function (result) {
             if (result.status == "error") {
-              alert("Somethings Was Wrong!")
+              alert("Somethings Was Wrong!");
             } else if (result.status == "have") {
               Swal.fire({
                 title:
@@ -226,17 +227,17 @@
                 hideClass: {
                   popup: "animate__animated animate__fadeOutUp",
                 },
-              })
-              $("#normalEmail").val("")
-              $("#normalEmail").focus()
+              });
+              $("#normalEmail").val("");
+              $("#normalEmail").focus();
             }
           },
-        })
+        });
       }
-    })
+    });
 
     function singupErrorMessage() {
-      var error = document.getElementById("error")
+      var error = document.getElementById("error");
       if (
         /[0-9,~!@#$%^&*()-+,၁-၉]/.test(
           document.getElementById("normalName").value
@@ -245,11 +246,11 @@
         error.innerHTML =
           "<img src='https://cdn4.iconfinder.com/data/icons/set-1/32/__23-512.png' style='width:20px; 'height:10px;'>" +
           "<span style='color: red;'>" +
-          " စာသားသီးသန့်သာ ထည့်ရန်</span>"
-        $("#normalName").val("")
-        $("#normalName").focus()
+          " စာသားသီးသန့်သာ ထည့်ရန်</span>";
+        $("#normalName").val("");
+        $("#normalName").focus();
       } else {
-        error.textContent = ""
+        error.textContent = "";
       }
     }
   </script>
