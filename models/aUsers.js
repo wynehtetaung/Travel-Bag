@@ -36,7 +36,7 @@ var UserSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
-  token: {
+  agenttoken: {
     type: String,
     default: nanoid.urlAlphabet,
   },
