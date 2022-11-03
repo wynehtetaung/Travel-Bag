@@ -39,7 +39,7 @@ const userAuth = function (req, res, next) {
 //   res.redirect("/users/dashboard");
 // });
 
-// for send verify mail
+// for normal send verify mail
 const sendVerifyMail = async (normalName, normalEmail, User_id) => {
   try {
     const transporter = nodemailer.createTransport({
@@ -133,7 +133,7 @@ router.get("/verify", verifyMail, function (req, res) {
   res.render("users/normalUsers/verify");
 });
 
-// for resetPassword send mail
+// for normal_User resetPassword send mail
 
 const sendResetPasswordMail = async (normalName, normalEmail, token) => {
   try {
@@ -332,6 +332,48 @@ router.get("/agentSignup", function (req, res) {
   res.render("users/agentUsers/agentSignup");
 });
 
+// agent send verify mail
+
+const agentSendVerifyMail = async (agentName, agentEmail, User_id) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      requireTLS: true,
+      auth: {
+        user: process.env.USER_EMAIL,
+        pass: process.env.PASSWORD,
+      },
+      tls: {
+        ciphers: "SSLv3",
+      },
+    });
+
+    const mailOptions = {
+      from: "Travel Bag<process.env.USER_EMAIL>",
+      to: agentEmail,
+      subject: "For Email Verification",
+      html:
+        "<p>Hi " +
+        agentName +
+        ',Travel Bag ကိုအသုံးပြုသည့်အတွက် ကျေးဇူးအထူးတင်ပါသည်။,<br />သင့်အကောင့် အတည်ပြုရန် <a href="http://127.0.0.1:4000/users/agent-verify?id=' +
+        User_id +
+        '">အတည်ပြုမည်.</a> ကိုနှိပ်ပါ။</p>',
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email has been sent:- ", info.response);
+      }
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 // agent sign up data
 router.post("/agentSignup", function (req, res) {
   try {
@@ -353,10 +395,22 @@ router.post("/agentSignup", function (req, res) {
       agentisVerified: false,
     });
 
-    const newUser = user.save();
-    console.log("NewUser :", newUser);
+    const agentUser = user.save();
+    console.log("NewUser :", agentUser);
 
-    res.redirect("/users/agentLogin");
+    if (agentUser) {
+      agentSendVerifyMail(req.body.agentName, req.body.agentEmail, user._id);
+      res.render("users/agentUsers/agentSignup", {
+        message:
+          "သင့် အီးမေးလ် သို့အတည်ပြုမေးလ် ပို့ပေးထားပါသည်။ ကျေးဇူးပြု၍ အတည်ပြုပေးပါ။",
+      });
+    } else {
+      res.render("users/agentUsers/agentSignup", {
+        message: "အကောင့်ဝင်ခြင်း မအောင်မြင်ပါ။",
+      });
+    }
+
+    // res.redirect("/users/agentLogin");
   } catch (error) {
     console.log(error);
   }
@@ -369,22 +423,51 @@ router.get("/agentLogin", function (req, res) {
 router.post("/agentLogin", function (req, res) {
   Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rtn) {
     if (err) throw err;
-    if (
-      rtn != null &&
-      Agent.compare(req.body.agentPassword, rtn.agentPassword)
-    ) {
-      req.session.agent = {
-        id: rtn._id,
-        agentName: rtn.agentName,
-        agentEmail: rtn.agentEmail,
-      };
-      res.redirect("/users/agentpage");
-    } else {
+    if (rtn == null) {
       res.render("users/agentUsers/agentLogin", {
         message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
       });
+    } else {
+      if (
+        rtn.agentisVerified === true &&
+        rtn != null &&
+        Agent.compare(req.body.agentPassword, rtn.agentPassword)
+      ) {
+        req.session.agent = {
+          id: rtn._id,
+          agentName: rtn.agentName,
+          agentEmail: rtn.agentEmail,
+        };
+        res.redirect("/users/agentpage");
+      } else if (rtn.agentisVerified === false) {
+        res.render("users/agentUsers/agentLogin", {
+          message: "ကျေးဇူးပြု၍ သင့် အီးမေးလ် အတည်ပြုပါ။",
+        });
+      } else {
+        res.render("users/agentUsers/agentLogin", {
+          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
+        });
+      }
     }
   });
+});
+
+const agentVerifyMail = async (req, res) => {
+  try {
+    const agentupdateInfo = await Agent.updateOne(
+      { _id: req.query.id },
+      { $set: { agentisVerified: true } }
+    );
+    console.log("UpdateInfo :", agentupdateInfo);
+    res.render("users/agentUsers/verify");
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+// agent verify
+router.get("/agent-verify", agentVerifyMail, function (req, res) {
+  res.render("users/agentUsers/verify");
 });
 
 // agent index
@@ -392,9 +475,84 @@ router.get("/agentpage", agentAuth, function (req, res) {
   res.render("users/agentUsers/agentindex");
 });
 
+// agent forget password send email
+
+const agentSendResetPasswordMail = async (
+  agentName,
+  agentEmail,
+  agenttoken
+) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      // smtpTransport('smtps://contact%40example.com:mypassword@smtp.example.com'),
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      // requireTLS: true,
+      auth: {
+        user: process.env.USER_EMAIL,
+        pass: process.env.PASSWORD,
+      },
+      tls: {
+        // ciphers: "SSLv3",
+        rejectUnauthorized: false,
+      },
+    });
+    const mailOptions = {
+      from: "Travel Bag<process.env.USER_EMAIL>",
+      to: agentEmail,
+      subject: "For reset password",
+      html:
+        "<p>Hi " +
+        agentName +
+        ', သင့်စကားဝှက်အသစ် ပြန်လုပ်ရန် အတွက်<a href="http://127.0.0.1:4000/users/agent-reset-password?token=' +
+        agenttoken +
+        '">စကားဝှက်ပြောင်းလဲမည်</a>ကိုနှိပ်ပါ။</p>',
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email has been sent:- ", info.response);
+      }
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 // agent forget password
 router.get("/aforgetpassword", function (req, res) {
   res.render("users/agentUsers/forget-password");
+});
+
+router.post("/aforgetpassword", async (req, res) => {
+  try {
+    const agentEmail = req.body.agentEmail;
+    Agent.findOne({ agentEmail: agentEmail }, (err, rtn) => {
+      if (err) throw err;
+      if (rtn != null) {
+        if (rtn.agentisVerified === false) {
+          res.render("users/agentUsers/forget-password", {
+            message: "သင့် အီးမေးလ် အတည်ပြုပါ။",
+          });
+        } else {
+          const nanoid = rtn.agenttoken;
+          console.log("ID:", rtn.agenttoken);
+          agentSendResetPasswordMail(rtn.normalName, rtn.normalEmail, nanoid);
+          res.render("users/agentUsers/forget-password", {
+            message: "သင့်အီးမေးလ်ကို မေးလ်ပို့တားပါသည်။ကျေးဇူးပြု၍စစ်ပေးပါ။",
+          });
+        }
+      } else {
+        res.render("users/agentUsers/forget-password", {
+          message: " သင့် အီးမေးလ် မှားနေပါသည်။",
+        });
+      }
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 // agent change password
@@ -402,9 +560,69 @@ router.get("/agent-change-password", function (req, res) {
   res.render("users/agentUsers/changePassword");
 });
 
+router.post("/agent-change-password", function (req, res) {
+  Agent.findOne({ agentEmail: req.body.agentEmail }, async (err, rtn) => {
+    if (err) throw err;
+    if (rtn == null) {
+      res.render("users/agentUsers/changePassword", {
+        message: "သင့်အီးမေးလ်မှားနေပါသည်။ အကောင့်ဖွင့်ထားသောအီးမေးလ်ထည့်ပါ။",
+      });
+    } else {
+      if (
+        req.body.agentEmail == rtn.agentEmail &&
+        Agent.compare(req.body.agentOldPassword, rtn.agentPassword)
+      ) {
+        const anPass = bcrypt.hashSync(
+          req.body.agentNewPassword,
+          bcrypt.genSaltSync(8),
+          null
+        );
+        const acomplete = await Agent.updateOne(
+          { agentEmail: req.body.agentEmail },
+          { $set: { agentPassword: anPass } }
+        );
+        console.log("complete :", acomplete);
+        res.redirect("/users/agentLogin");
+      } else {
+        res.render("users/agentUsers/changePassword", {
+          message: "သင့်စကားဝှက်အဟောင်းမှားနေပါသည်။",
+        });
+      }
+    }
+  });
+});
+
 //agent reset password
 router.get("/agent-reset-password", function (req, res) {
   res.render("users/agentUsers/agentResetpassword");
+});
+
+router.post("/agent-reset-password", function (req, res) {
+  Agent.findOne({ agentEmail: req.body.agentEmail }, async (err, rtn) => {
+    console.log("rtnToke:", rtn);
+    if (err) throw err;
+    if (rtn == null) {
+      res.render("users/agentUsers/agentResetpassword", {
+        message: "သင်အကောင့်ဖွင့်ထားသော အီးမေးလ်ထည့်ပါ။",
+      });
+    } else {
+      if (rtn.agentEmail == req.body.agentEmail) {
+        console.log("pass:", rtn.agentPassword);
+        const agentresetpass = bcrypt.hashSync(
+          req.body.agentNewPass,
+          bcrypt.genSaltSync(8),
+          null
+        );
+        const afcp = await User.updateOne(
+          { agentEmail: req.body.agentEmail },
+          { $set: { agentPassword: agentresetpass } }
+        );
+        console.log(afcp);
+        console.log("new:", rtn.agentPassword);
+        res.redirect("/users/agentLogin");
+      }
+    }
+  });
 });
 
 //logout
@@ -477,18 +695,22 @@ router.get("/apostdelete/:id", agentAuth, function (req, res) {
 });
 
 //agent list
+// router.get("/agentlist", agentAuth, function (req, res) {
+//   res.render("users/agentUsers/agent-list");
+// });
+
 router.get("/agentlist", agentAuth, function (req, res) {
-  res.render("users/agentUsers/agent-list");
+  Agent.find({}, function (err, rtn) {
+    if (err) throw err;
+    console.log(rtn);
+    res.render("users/agentUsers/agent-list", { ausers: rtn });
+  });
 });
 
-// agent-profile-detail
+//for agent detail
 router.get("/aprofile", agentAuth, function (req, res) {
   res.render("users/agentUsers/agent-profile-detail");
 });
-
-// router.post("/aprofile",agentAuth,function(req,res){
-//   Post.findById()
-// })
 
 // check users name duplicate
 router.post("/checkname", function (req, res) {

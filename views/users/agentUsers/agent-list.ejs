@@ -60,14 +60,14 @@
             data-aos-delay="100"
           >
             <div class="swiper-wrapper">
+              <% for(var i = 0; i< ausers.length ; i++){%>
+
               <div class="swiper-slide">
+
                 <div class="testimonial-item" data-aos="fade-up">
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    ကျွန်တော်ကတော့ Travel Bag နဲ့ ချိတ်ဆက်ပြီးလုပ်ကိုင်နေတဲ့
-                    အေးဂျင့် တစ်ယောက်ဖြစ်ပါတယ်။ ကမ်းခြေခရီးစဉ်တွေနဲ့ ပတ်သတ်ပြီး
-                    ခရီးသွားလာလိုပါက မိတ်ဆွေတို့အနေနဲ့ ကျွန်တော့်ကို အသေးစိတ်
-                    မေးမြန်း စုံစမ်းနိုင်ပါတယ်။
+                    <!-- here is the bio detail of the agent  -->
                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                   </p>
                   <a href="/users/aprofile" class="portfolio-details-lightbox">
@@ -78,12 +78,16 @@
                     />
                   </a>
 
-                  <h3 style="color: #14bf98"><%= locals.agent.agentName%></h3>
+                  <h3 style="color: #14bf98"><%= ausers[i].agentName%></h3>
                   <h4>အေးဂျင့်</h4>
                 </div>
               </div>
+            <%}%>
+
             </div>
           </div>
+          <div class="swiper-pagination"></div>
+
         </div>
       </section>
     </section>
