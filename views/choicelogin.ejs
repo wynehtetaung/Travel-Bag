@@ -24,9 +24,9 @@
     />
 
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
 
     <link
       rel="stylesheet"
@@ -36,33 +36,31 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-
     <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
     <link href="/stylesheets/fontawesome-all.css" rel="stylesheet" />
     <link href="/stylesheets/swiper.css" rel="stylesheet" />
     <link href="/stylesheets/magnific-popup.css" rel="stylesheet" />
     <link href="/stylesheets/styles.css" rel="stylesheet" />
     <style>
-      
-      .accbtn{
-      cursor: pointer;
-      border: 0;
-      color: rgb(1, 103, 21);
-      background: #14bf98;
-      padding: 18px 32px;
-      border-radius: 6px;
-      box-shadow: 0 6px 0 rgb(1, 103, 21);
-      transition: .3s;
-    }
+      .accbtn {
+        cursor: pointer;
+        border: 0;
+        color: rgb(1, 103, 21);
+        background: #14bf98;
+        padding: 18px 32px;
+        border-radius: 6px;
+        box-shadow: 0 6px 0 rgb(1, 103, 21);
+        transition: 0.3s;
+      }
 
-    .accbtn:active{
-      transform: translateY(5px);
-      box-shadow: 0 3px 0 rgb(1, 103, 21);
-    }
-    .accbtn:hover{
-     color: black;
-     text-decoration: none;
-}
+      .accbtn:active {
+        transform: translateY(5px);
+        box-shadow: 0 3px 0 rgb(1, 103, 21);
+      }
+      .accbtn:hover {
+        color: black;
+        text-decoration: none;
+      }
 
       /* .accbta1 {
         display: inline-block;
@@ -92,7 +90,6 @@
         padding-right: 10px;
         margin-bottom: 30px;
         display: inline-block;
-        
       }
 
       .btabta {
@@ -109,7 +106,19 @@
   <body
     data-spy="scroll"
     data-target=".fixed-top"
-    style="background-color: lightgray"
+    style="
+      background: #076585; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to top,
+        #fff,
+        #076585
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to top,
+        #fff,
+        #076585
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    "
   >
     <a href="body" class="back-to-top page-scroll" style="display: inline"
       >Back to Top</a
@@ -125,41 +134,40 @@
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
       <!-- Text Logo - Use this if you don't have a graphic logo -->
       <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Aria</a> -->
-    
+
       <!-- Image Logo -->
       <a class="navbar-brand logo-image" href="/"
         ><img src="/images/TBLogo.png" alt="alternative"
       /></a>
-    
+
       <!-- Mobile Menu Toggle Button -->
       <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarsExampleDefault"
-      aria-controls="navbarsExampleDefault"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-awesome fas fa-bars"></span>
-      <span class="navbar-toggler-awesome fas fa-times "></span>
-    </button>
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-awesome fas fa-bars"></span>
+        <span class="navbar-toggler-awesome fas fa-times"></span>
+      </button>
       <!-- end of mobile menu toggle button -->
-    
+
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link page-scroll" href="/">ပင်မ </a>
           </li>
-    
+
           <li class="nav-item">
             <a class="nav-link page-scroll" href="/#contact">ဆက်သွယ်ရန်</a>
           </li>
-    
+
           <li class="nav-item">
             <a class="nav-link page-scroll" href="/about">အကြောင်းအရာ</a>
           </li>
-
         </ul>
       </div>
     </nav>
@@ -170,47 +178,48 @@
 
     <!-- bootstrap code start -->
 
-    <div class="container-fluid" >
+    <div class="container-fluid">
       <div class="container-fluid mt-5 pt-5">
         <div class="row">
-          <div class="tabs">
-            <!-- area-1 layout-1 -->
-                <!-- Tabs Links -->
-                <ul id="ariaTabs">
-                  <div class="btaei">
-                    <p>
-                      <img
-                        src="images/info-sign.png"
-                        alt="info"
-                        class="btabta"
-                      />အကောင့်ဝင်ရန် အောက်တွင် ရွေးချယ်ပါ။
-                    </p>
+          <div class="col-lg-19">
+            <div class="tabs">
+              <!-- area-1 layout-1 -->
+              <!-- Tabs Links -->
+              <ul id="ariaTabs">
+                <div class="btaei">
+                  <p>
+                    <img
+                      src="images/info-sign.png"
+                      alt="info"
+                      class="btabta"
+                    />အကောင့်ဝင်ရန် အောက်တွင် ရွေးချယ်ပါ။
+                  </p>
+                </div>
+                <div class="row">
+                  <div class="accbta1 m-3">
+                    <a href="/users/nlogin">
+                      <button class="accbtn">
+                        <img class="mm12" src="/images/uuu.png" alt="Agent" />
+                        သာမာန် အကောင့်
+                      </button>
+                    </a>
                   </div>
-                  <div class="row">
-                    <div class="accbta1 m-3">
-                      <a href="/users/nlogin">
-                        <button class="accbtn">
-                          <img class="mm12" src="/images/uuu.png" alt="Agent" />
-                          သာမာန် အကောင့်
-                        </button>
-                      </a>
-                    </div>
-                    <div class="accbta2 m-3">
-                      <a href="/users/agentLogin">
-                        <button class="accbtn">
-                          <img
-                            class="mm13"
-                            src="/images/people.png"
-                            alt="Agent"
-                          />အေးဂျင့် အကောင့်
-                        </button>
-                      </a>
-                    </div>
+                  <div class="accbta2 m-3">
+                    <a href="/users/agentLogin">
+                      <button class="accbtn">
+                        <img
+                          class="mm13"
+                          src="/images/people.png"
+                          alt="Agent"
+                        />အေးဂျင့် အကောင့်
+                      </button>
+                    </a>
                   </div>
-                </ul>
-                <!-- end of tabs links -->
-                
-                <div class="all1">
+                </div>
+              </ul>
+              <!-- end of tabs links -->
+              <div id="contact">
+                <div class="container">
                   <div>
                     <p>
                       &#9734;
@@ -241,15 +250,21 @@
                       ‌သာမာန်အကောင့်ဖြင့်အကောင့်ဝင်လိုပါက သာမာန်အကောင့်တစ်ခု
                       ထပ်မံပြုလုပ်ပြီး အကောင့်ဝင်နိုင်ပါသည်။
                     </p>
-                  </div>   
+                  </div>
                 </div>
-              </div>       
+              </div>
             </div>
           </div>
         </div>
+        <div class="col-lg-19">
+          <img
+            src="/images/images/undraw_explore_re_8l4v.svg "
+            alt=""
+            width="100%"
+          />
+        </div>
       </div>
     </div>
-    
 
     <!-- Footer -->
     <div class="footer">
