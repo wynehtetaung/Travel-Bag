@@ -482,6 +482,7 @@ const agentSendResetPasswordMail = async (
   agentEmail,
   agenttoken
 ) => {
+  console.log("email", agentEmail);
   try {
     const transporter = nodemailer.createTransport({
       // smtpTransport('smtps://contact%40example.com:mypassword@smtp.example.com'),
@@ -539,7 +540,7 @@ router.post("/aforgetpassword", async (req, res) => {
         } else {
           const nanoid = rtn.agenttoken;
           console.log("ID:", rtn.agenttoken);
-          agentSendResetPasswordMail(rtn.normalName, rtn.normalEmail, nanoid);
+          agentSendResetPasswordMail(rtn.agentName, rtn.agentEmail, nanoid);
           res.render("users/agentUsers/forget-password", {
             message: "သင့်အီးမေးလ်ကို မေးလ်ပို့တားပါသည်။ကျေးဇူးပြု၍စစ်ပေးပါ။",
           });
