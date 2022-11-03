@@ -600,7 +600,7 @@ router.get("/agent-reset-password", function (req, res) {
 
 router.post("/agent-reset-password", function (req, res) {
   Agent.findOne({ agentEmail: req.body.agentEmail }, async (err, rtn) => {
-    console.log("rtnToke:", rtn);
+    // console.log("query", req.query);
     if (err) throw err;
     if (rtn == null) {
       res.render("users/agentUsers/agentResetpassword", {
@@ -610,16 +610,15 @@ router.post("/agent-reset-password", function (req, res) {
       if (rtn.agentEmail == req.body.agentEmail) {
         console.log("pass:", rtn.agentPassword);
         const agentresetpass = bcrypt.hashSync(
-          req.body.agentNewPass,
+          req.body.agentNewPassword,
           bcrypt.genSaltSync(8),
           null
         );
-        const afcp = await User.updateOne(
+        const afcp = await Agent.updateOne(
           { agentEmail: req.body.agentEmail },
           { $set: { agentPassword: agentresetpass } }
         );
-        console.log(afcp);
-        console.log("new:", rtn.agentPassword);
+        console.log("updateDate : ", afcp);
         res.redirect("/users/agentLogin");
       }
     }
