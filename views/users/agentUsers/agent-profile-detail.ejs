@@ -42,7 +42,7 @@
             <img src="/images/bagan.jpg" class="img-fluid rounded" alt="" />
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content" style="color: white">
-            <h3>Agent User Name here</h3>
+            <h3><%= ausers.agentName %></h3>
 
             <div class="row">
               <div class="col-lg-6">
@@ -50,18 +50,18 @@
                   <li>
                     <i class="bi bi-chevron-right"></i>
                     <strong>Phone:</strong>
-                    <span>09650354400</span>
+                    <span><%= ausers.agentPhone %></span>
                   </li>
                   <br />
                   <li>
                     <i class="bi bi-chevron-right"></i>
                     <strong>Email:</strong>
-                    <span><%= locals.agent.agentEmail%></span>
+                    <span><%= ausers.agentEmail%></span>
                   </li>
                   <br />
                   <li>
                     <i class="bi bi-chevron-right"></i>
-                    <strong>City:</strong> <span>Pathein</span>
+                    <strong>City:</strong> <span><%= ausers.agentCity %></span>
                   </li>
                   <br />
 
@@ -95,26 +95,12 @@
           </div>
         </div>
       </div>
-      <section id="portfolio" class="portfolio section-bg">
+
+      <!-- <section id="portfolio" class="portfolio section-bg">
         <div class="container" data-aos="fade-up">
           <div class="section-title">
-            <h2>ပို့စ်များ</h2>
-            <!-- <p>some post detail if you need</p> -->
-          </div>
-
-          <div class="row">
-            <div
-              class="col-lg-12 d-flex justify-content-center"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <ul id="portfolio-flters">
-                <li data-filter="*" class="filter-active">အားလုံး</li>
-                <li data-filter=".filter-app">ကမ်းခြေခရီးစဉ်များ</li>
-                <li data-filter=".filter-card">ဘုရားဖူးခရီးစဉ်များ</li>
-                <li data-filter=".filter-web">ဟိုတယ်များ</li>
-              </ul>
-            </div>
+            <h2>ပို့စ်များ</h2><!
+             <p>some post detail if you need</p> 
           </div>
 
           <div
@@ -166,7 +152,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
     </div>
 
     <script

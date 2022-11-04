@@ -342,128 +342,31 @@
                 data-aos-delay="100"
               >
                 <div class="swiper-wrapper">
+                  <% for(var i = 0; i< ausers.length ; i++){%>
+
                   <div class="swiper-slide">
-                    <div class="testimonial-item2" data-aos="fade-up">
+                    <div class="testimonial-item" data-aos="fade-up">
                       <p>
                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec
-                        porttitora entum suscipit rhoncus. Accusantium quam,
-                        ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                        risus at semper.
+                        <!-- here is the bio detail of the agent  -->
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                       </p>
-                      <a href="/adminNprofile">
+                      <a
+                        href="/users/aprofile/<%= ausers[i]._id %>"
+                        class="portfolio-details-lightbox"
+                      >
                         <img
-                          src="/images/testimonials/testimonials-1.jpg"
+                          src="/images/bta222.jpg"
                           class="testimonial-img"
                           alt=""
                         />
                       </a>
-                      <h3>Saul Goodman</h3>
-                      <h4>Ceo &amp; Founder</h4>
-                    </div>
-                  </div>
-                  <!-- End testimonial item -->
 
-                  <div class="swiper-slide">
-                    <div
-                      class="testimonial-item2"
-                      data-aos="fade-up"
-                      data-aos-delay="100"
-                    >
-                      <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Export tempor illum tamen malis malis eram quae irure
-                        esse labore quem cillum quid cillum eram malis quorum
-                        velit fore eram velit sunt aliqua noster fugiat irure
-                        amet legam anim culpa.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                      </p>
-                      <img
-                        src="/images/testimonials/testimonials-2.jpg"
-                        class="testimonial-img"
-                        alt=""
-                      />
-                      <h3>Sara Wilsson</h3>
-                      <h4>Designer</h4>
+                      <h3 style="color: #14bf98"><%= ausers[i].agentName%></h3>
+                      <h4>အေးဂျင့်</h4>
                     </div>
                   </div>
-                  <!-- End testimonial item -->
-
-                  <div class="swiper-slide">
-                    <div
-                      class="testimonial-item2"
-                      data-aos="fade-up"
-                      data-aos-delay="200"
-                    >
-                      <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Enim nisi quem export duis labore cillum quae magna enim
-                        sint quorum nulla quem veniam duis minim tempor labore
-                        quem eram duis noster aute amet eram fore quis sint
-                        minim. some text l
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                      </p>
-                      <img
-                        src="/images/testimonials/testimonials-3.jpg"
-                        class="testimonial-img"
-                        alt=""
-                      />
-                      <h3>Jena Karlis</h3>
-                      <h4>Store Owner</h4>
-                    </div>
-                  </div>
-                  <!-- End testimonial item -->
-
-                  <div class="swiper-slide">
-                    <div
-                      class="testimonial-item2"
-                      data-aos="fade-up"
-                      data-aos-delay="300"
-                    >
-                      <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Fugiat enim eram quae cillum dolore dolor amet nulla
-                        culpa multos export minim fugiat minim velit minim dolor
-                        enim duis veniam ipsum anim magna sunt elit fore quem
-                        dolore labore illum veniam.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                      </p>
-                      <img
-                        src="/images/testimonials/testimonials-4.jpg"
-                        class="testimonial-img"
-                        alt=""
-                      />
-                      <h3>Matt Brandon</h3>
-                      <h4>Freelancer</h4>
-                    </div>
-                  </div>
-                  <!-- End testimonial item -->
-
-                  <div class="swiper-slide">
-                    <div
-                      class="testimonial-item2"
-                      data-aos="fade-up"
-                      data-aos-delay="400"
-                    >
-                      <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Quis quorum aliqua sint quem legam fore sunt eram irure
-                        aliqua veniam tempor noster veniam enim culpa labore
-                        duis sunt culpa nulla illum cillum fugiat legam esse
-                        veniam culpa fore nisi cillum quid.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                      </p>
-                      <img
-                        src="/images/testimonials/testimonials-5.jpg"
-                        class="testimonial-img"
-                        alt=""
-                      />
-                      <h3>John Larson</h3>
-                      <h4>Entrepreneur</h4>
-                    </div>
-                  </div>
-                  <!-- End testimonial item -->
+                  <%}%>
                 </div>
                 <div class="swiper-pagination"></div>
               </div>
@@ -480,7 +383,7 @@
             <p>some post detail if you need</p>
           </div>
 
-          <div class="row">
+          <!-- <div class="row">
             <div
               class="col-lg-12 d-flex justify-content-center"
               data-aos="fade-up"
@@ -493,55 +396,32 @@
                 <li data-filter=".filter-web">Restaurants</li>
               </ul>
             </div>
-          </div>
+          </div> -->
 
           <div
             class="row portfolio-container"
             data-aos="fade-up"
             data-aos-delay="200"
           >
+            <% for (var i = 0 ; i < posts.length ; i ++){%>
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
                 <img
-                  src="/images/portfolio/portfolio-1.jpg"
-                  class="img-fluid"
+                  src="<%= posts[i].image %>"
+                  class=""
                   alt=""
+                  width="400px"
+                  height="280px"
                 />
                 <div class="portfolio-info">
-                  <a href="/adminAdetail" class="portfolio-details-lightbox"
-                    ><h4>lol comediha</h4></a
-                  >
+                  <a href="/users/adetail/<%= posts[i]._id %> ">
+                    <h4><%= posts[i].title %></h4>
+                  </a>
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-              <div class="portfolio-wrap">
-                <img
-                  src="/images/portfolio/portfolio-2.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="portfolio-info">
-                  <h4>Web 3</h4>
-                  <p>Web</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <img
-                  src="/images/portfolio/portfolio-3.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="portfolio-info">
-                  <h4>App 2</h4>
-                  <p>App</p>
-                </div>
-              </div>
-            </div>
+            <%}%>
           </div>
         </div>
       </section>

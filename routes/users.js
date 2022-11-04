@@ -389,7 +389,10 @@ router.post("/agentLogin", function (req, res) {
 
 // agent index
 router.get("/agentpage", agentAuth, function (req, res) {
-  res.render("users/agentUsers/agentindex");
+  Agent.find({ author: req.session.agent.id }, function (err, rtn) {
+    if (err) throw err;
+    res.render("users/agentUsers/agentindex", { ausers: rtn });
+  });
 });
 
 // agent forget password
@@ -476,22 +479,20 @@ router.get("/apostdelete/:id", agentAuth, function (req, res) {
   });
 });
 
-//agent list
-// router.get("/agentlist", agentAuth, function (req, res) {
-//   res.render("users/agentUsers/agent-list");
-// });
-
+// for agent list
 router.get("/agentlist", agentAuth, function (req, res) {
-  Agent.find({}, function (err, rtn) {
+  Agent.find({ author: req.session.agent.id }, function (err, rtn) {
     if (err) throw err;
-    console.log(rtn);
     res.render("users/agentUsers/agent-list", { ausers: rtn });
   });
 });
 
-//for agent detail
-router.get("/aprofile", agentAuth, function (req, res) {
-  res.render("users/agentUsers/agent-profile-detail");
+//for agent profile detail
+router.get("/aprofile/:id", agentAuth, function (req, res) {
+  Agent.findById(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    res.render("users/agentUsers/agent-profile-detail", { ausers: rtn });
+  });
 });
 
 // check users name duplicate

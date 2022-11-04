@@ -93,6 +93,22 @@ router.get("/adminpage", adminAuth, function (req, res) {
   res.render("admin/adminindex");
 });
 
+// admin post list
+// router.get("/adminpage#portfolio", adminAuth, function (req, res) {
+//   Post.find({ author: req.session.agent.id }, function (err, rtn) {
+//     if (err) throw err;
+//     res.render("admin#portfolio", { posts: rtn });
+//   });
+// });
+
+//admin agent list
+router.get("/adminpage#contact", adminAuth, function (req, res) {
+  Agent.find({ author: req.session.agent.id }, function (err, rtn) {
+    if (err) throw err;
+    res.render("admin#contact", { ausers: rtn });
+  });
+});
+
 // agent detail see to from admin
 router.get("/adminAdetail", adminAuth, function (req, res) {
   res.render("admin/admin-agent-post-detail");
