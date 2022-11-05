@@ -70,7 +70,7 @@
         <nav id="navbar" class="nav-menu navbar">
           <ul>
             <li>
-              <a href="#hero" class="nav-link scrollto "
+              <a href="/adminpage" class="nav-link scrollto "
                 ><i class="fi fi-rr-home"></i> <span>Home</span></a
               >
             </li>
@@ -79,25 +79,21 @@
                 <i class="fi fi-rr-user"></i><span>Profile</span></a
               >
             </li>
-            <li>
-              <a href="#resume" class="nav-link scrollto"
-                ><i class="bx bx-file-blank"></i> <span>Resume</span></a
-              >
-            </li>
+            
 
             <li>
-              <a href="#services" class="nav-link scrollto"
+              <a href="/adminpage/normallist" class="nav-link scrollto"
                 ><i class="fi fi-rr-users-alt"></i>
                 <span>Normal Users List</span></a
               >
             </li>
             <li>
-              <a href="#testinomial" class="nav-link scrollto"
+              <a href="/adminpage/adminpostlist" class="nav-link scrollto"
                 ><i class="fi fi-rr-apps"></i> <span>Agent Posts List</span></a
               >
             </li>
             <li>
-              <a href="#contact" class="nav-link scrollto active"
+              <a href="/adminpage/agentlist" class="nav-link scrollto active"
                 ><i class="fi fi-rr-users"></i> <span>Agent Users List</span></a
               >
             </li>
@@ -114,8 +110,8 @@
           <div class="d-flex justify-content-between align-items-center">
             <h2 class="section-title">Agent Profiles</h2>
             <ol>
-              <li><a href="adminpage#portfolio">Home</a></li>
-              <li>Portfoio Details</li>
+              <li><a href="/adminpage">Home</a></li>
+              <li><a href="/adminpage/agentlist">Post List</a></li>
             </ol>
           </div>
         </div>
@@ -134,7 +130,7 @@
             
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content">
-          <h3>Agent User Name here</h3>
+          <h3><%= ausers.agentName%></h3>
 
             <br><br>
             <div class="row">
@@ -143,18 +139,18 @@
                   <li>
                     <i class="bi bi-chevron-right"></i>
                     <strong>Phone:</strong>
-                    <span>09650354400</span>
+                    <span><%= ausers.agentPhone%></span>
                   </li>
                   <br />
                   <li>
                     <i class="bi bi-chevron-right"></i>
                     <strong>Email:</strong>
-                    <span>example@gmail.com</span>
+                    <span><%= ausers.agentEmail%></span>
                   </li>
                   <br />
                   <li>
                     <i class="bi bi-chevron-right"></i>
-                    <strong>City:</strong> <span>Pathein</span>
+                    <strong>City:</strong> <span><%= ausers.agentCity%></span>
                   </li>
                   <br />
                 </ul>
@@ -176,7 +172,7 @@
                 </div>
               </div>
             </div>
-            <p>More about the agent detail if you need</p>
+            <p><%= ausers.agentBio%></p>
           </div>
 
         </div>
