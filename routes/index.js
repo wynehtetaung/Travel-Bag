@@ -3,7 +3,8 @@ var router = express.Router();
 var Admin = require("../models/Admin");
 var crypto = require("crypto");
 var Post = require("../models/agent-postadd");
-var agent = require("../models/aUsers");
+var Agent = require("../models/aUsers");
+var User = require("../models/nUsers");
 
 var userAuth = function (req, res, next) {
   if (req.session.user) {
@@ -93,19 +94,53 @@ router.get("/adminpage", adminAuth, function (req, res) {
   res.render("admin/adminindex");
 });
 
-// agent detail see to from admin
-router.get("/adminAdetail", adminAuth, function (req, res) {
-  res.render("admin/admin-agent-post-detail");
+//admin agent post list
+router.get("/adminpage/adminpostlist", adminAuth, function (req, res) {
+  Post.find({}, function (err, rtn) {
+    if (err) throw err;
+    console.log(err);
+    res.render("admin/admin-agent-post-list", { posts: rtn });
+  });
+});
+
+// agent post detail
+router.get("/adminAdetail/:id", adminAuth, function (req, res) {
+  Post.findById(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    res.render("admin/admin-agent-post-detail", { posts: rtn });
+  });
+});
+
+//admin agent list
+router.get("/adminpage/agentlist", adminAuth, function (req, res) {
+  Agent.find({}, function (err, rtn) {
+    if (err) throw err;
+    res.render("admin/admin-agent-list", { ausers: rtn });
+  });
 });
 
 // agent profile see to from admin
-router.get("/adminAprofile", adminAuth, function (req, res) {
-  res.render("admin/admin-agent-profile");
+router.get("/adminAprofile/:id", adminAuth, function (req, res) {
+  Agent.findById(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    res.render("admin/admin-agent-profile", { ausers: rtn });
+  });
 });
 
-// normal user profile see to from admin
-router.get("/adminNprofile", adminAuth, function (req, res) {
-  res.render("admin/admin-normal-users-profile");
+// normal list
+router.get("/adminpage/normallist", adminAuth, function (req, res) {
+  User.find({}, function (err, rtn) {
+    if (err) throw err;
+    res.render("admin/admin-normal-list", { user: rtn });
+  });
+});
+
+//normaal user detail
+router.get("/adminNprofile/:id", adminAuth, function (req, res) {
+  User.findById(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    res.render("admin/admin-normal-list", { user: rtn });
+  });
 });
 
 // about us

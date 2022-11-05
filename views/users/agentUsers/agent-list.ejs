@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Bag</title>
+    <title>Agent User List</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
     <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" href="/stylesheets/template.css" />
@@ -69,10 +69,13 @@
                 <div class="testimonial-item" data-aos="fade-up">
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    <!-- here is the bio detail of the agent  -->
+                    <%= ausers[i].agentBio %>
                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                   </p>
-                  <a href="/users/aprofile" class="portfolio-details-lightbox">
+                  <a
+                    href="/users/aprofile/<%= ausers[i]._id %>"
+                    class="portfolio-details-lightbox"
+                  >
                     <img
                       src="/images/bta222.jpg"
                       class="testimonial-img"
