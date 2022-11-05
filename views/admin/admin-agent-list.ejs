@@ -89,6 +89,11 @@
                 ><i class="fi fi-rr-users"></i> <span>Agent Users List</span></a
               >
             </li>
+            <li>
+              <a href="/users/logout" class="nav-link scrollto active"
+                ><i class="fi fi-rr-exit"></i> <span>Logout</span></a
+              >
+            </li>
           </ul>
         </nav>
         <!-- .nav-menu -->
@@ -103,7 +108,7 @@
           <div class="container">
             <div class="section-title">
               <h2>Agent Users List</h2>
-              <p>Agent Users detail if we need.</p>
+              <!-- <p>Agent Users detail if we need.</p> -->
             </div>
 
             <div
@@ -131,9 +136,23 @@
                         alt=""
                       />
                     </a>
-
-                    <h3 style="color: #14bf98"><%= ausers[i].agentName%></h3>
-                    <h4>အေးဂျင့်</h4>
+                     <br /><br />
+                      <h4
+                        style="
+                          color: rgb(18, 29, 18);
+                          font-size: 20px;
+                          font-weight: bold;
+                        "
+                      >
+                      <%= ausers[i].agentName %>
+                      </h4>
+                      <% if( ausers[i].agentisVerified == true){ %>
+                      <h3>User is Verified</h3>
+                      <% }else{ %>
+                      <h3>User is not Verified</h3>
+                      <% } %>
+                    </div>
+                  </div>
                   </div>
                 </div>
                 <%}%>

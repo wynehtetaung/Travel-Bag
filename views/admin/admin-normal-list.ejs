@@ -89,6 +89,11 @@
                 ><i class="fi fi-rr-users"></i> <span>Agent Users List</span></a
               >
             </li>
+            <li>
+              <a href="/users/logout" class="nav-link scrollto"
+                ><i class="fi fi-rr-exit"></i> <span>logout</span></a
+              >
+            </li>
           </ul>
         </nav>
         <!-- .nav-menu -->
@@ -112,8 +117,7 @@
                 data-aos-delay="100"
               >
                 <div class="swiper-wrapper">
-                  <% for(var i = 0; i< user.length ; i++){%>
-
+                  <% for(var i = 0; i < user.length ; i++){%>
                   <div class="swiper-slide">
                     <div class="testimonial-item" data-aos="fade-up">
                       <p>
@@ -122,7 +126,7 @@
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                       </p>
                       <a
-                        href="/adminpage/adminNprofile/:user[i]._id"
+                        href="/adminpage/adminNprofile/<%= user[i]._id %>"
                         class="portfolio-details-lightbox"
                       >
                         <img
@@ -131,12 +135,24 @@
                           alt=""
                         />
                       </a>
-
-                      <h3 style="color: #14bf98"><%= user[i].nomralName %></h3>
-                      <h4>အေးဂျင့်</h4>
+                      <br /><br />
+                      <h4
+                        style="
+                          color: rgb(18, 29, 18);
+                          font-size: 20px;
+                          font-weight: bold;
+                        "
+                      >
+                        <%= user[i].normalName %>
+                      </h4>
+                      <% if( user[i].normalisVerified == true){ %>
+                      <h3>User is Verified</h3>
+                      <% }else{ %>
+                      <h3>User is not Verified</h3>
+                      <% } %>
                     </div>
                   </div>
-                  <% } %>
+                  <%}%>
                 </div>
                 <div class="swiper-pagination"></div>
               </div>
