@@ -130,16 +130,33 @@ router.get("/adminAprofile/:id", adminAuth, function (req, res) {
 // normal list
 router.get("/adminpage/normallist", adminAuth, function (req, res) {
   User.find({}, function (err, rtn) {
+    console.log("rrrrrr", req.params._id);
+    console.log("gggg", rtn);
+    // const rtnData = rtn._id;
+    // const reqData = req.
+    console.log("show me", rtn);
+    const rtnDtat = rtn.normalEmail;
+    const datayyy = "635cc49a492527c2c8e8c34d";
+    const userdata = User.findOne({ _id: datayyy }, function (err, rtn) {
+      if (err) throw err;
+      console.log("hhhhh", rtn);
+    });
+    console.log("user data: ", rtn.normalName);
+    console.log("show", User.findOne({}));
     if (err) throw err;
     res.render("admin/admin-normal-list", { user: rtn });
   });
 });
 
+// router.post("/adminpage/normallist", function (req, res) {
+//   console.log("gggg", req.params.normalEmail);
+// });
+
 //normaal user detail
-router.get("/adminNprofile/:id", adminAuth, function (req, res) {
+router.get("/adminpage/adminNprofile/:id", adminAuth, function (req, res) {
   User.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.render("admin/admin-normal-list", { user: rtn });
+    res.render("admin/admin-normal-users-profile", { user: rtn });
   });
 });
 
