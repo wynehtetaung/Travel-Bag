@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Bag</title>
+    <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
 
     <link
       rel="stylesheet"
@@ -46,14 +47,14 @@
               <div class="profile">
                 <div class="avatar">
                   <img
-                    src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg"
+                    src="<%= user.normalImage %>"
                     alt="Circle Image"
                     class="img-raised rounded-circle img-fluid"
                   />
                 </div>
                 <div class="name">
-                  <h3 class="title"><%= locals.user.normalName %></h3>
-                  <h6><%= locals.user.normalEmail%></h6>
+                  <h3 class="title"><%= user.normalName%></h3>
+                  <h6><b>Your Email</b> <p style="color: #14bf98;"><%= user.normalEmail%></p></h6>
 
                 </div>
               </div>
@@ -75,8 +76,8 @@
                     <!-- for active(class="active") -->
                     <a
                       class="nav-link " 
-                      href="/dashboard"
-
+                      href="/dashboard" 
+                      style="color: #14bf98;"
                     >
                       <i class="fas fa-solid fa-house"></i>
                       ပင်မ
@@ -86,7 +87,7 @@
                     <a
                       class="nav-link"
                       href="/users/normal-change-password"
-
+                      style="color: #14bf98;"
                     >
                       <i class="fa-solid fa-key"></i>
                         စကားဝှက်ပြောင်းရန်
@@ -96,6 +97,7 @@
                     <a
                       class="nav-link"
                       href="/users/logout"
+                      style="color: #14bf98;"
                     >
                       <i class="fa-solid fa-right-to-bracket"></i>
                       အကောင့်ထွက်ရန်
@@ -113,7 +115,7 @@
     <footer class="footer text-center">
       <p>
         အသုံးပြုသူများ စိတ်ချမ်းသာစေရန်
-        <a href="/"><b><i>Travel Bag</i></b></a>
+        <a href="/" style="color: #14bf98;"><b><i>Travel Bag</i></b></a>
         မှ ဝန်ဆောင်မှုအပြည့်ပေးထားပါသည်။
       </p>
     </footer>

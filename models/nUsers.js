@@ -17,6 +17,10 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
+  normalImage: {
+    type: String,
+    require: true,
+  },
   normalisVerified: {
     type: Boolean,
   },
