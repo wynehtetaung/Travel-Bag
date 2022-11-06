@@ -30,13 +30,29 @@
 
     <!-- Template Main CSS File -->
     <link href="/stylesheets/styleadmin.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/nuser-profile.css">
     <link rel="stylesheet" href="/stylesheets/bootstrap.css">
 
     <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+      integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
+      crossorigin="anonymous"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  />
+    
+    <link
+      rel="stylesgeet"
+      href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/normalUsersProfile.css" />
     <style>
       .btn-admin{
         margin: 100px 0px 0px 50px;
@@ -101,7 +117,7 @@
         </div>
     </header>
 
-    <main id="main" class="whole-body">
+    <main id="main" >
 
      
 <div class="btn-admin">
@@ -109,7 +125,86 @@
   <button type="button" class="btn btn-secondary" >deactive</button>
   <button type="button" class="btn " style="background-color: red;" >delete</button>
 </div>
+
+<div
+class="page-header header-filter"
+data-parallax="true"
+
+></div>
+<div class="main main-raised">
+<div class="profile-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <div class="profile">
+          <div class="avatar">
+            <img
+              src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg"
+              alt="Circle Image"
+              class="img-raised rounded-circle img-fluid"
+            />
+          </div>
+          <div class="name">
+            <h3 class="title"><%= locals.user.normalName %></h3>
+            <h6><%= locals.user.normalEmail%></h6>
+
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="description text-center">
+      <p>
+        ချောင်းသာမြို့ သည် ဧရာဝတီတိုင်းဒေသကြီး၊ ပုသိမ်မြို့နယ်တွင် တည်ရှိသော ကမ်းခြေမြို့တစ်မြို့ ဖြစ်သည်။ ချောင်းသာကမ်းခြေတည်ရှိသော မြို့ ဖြစ်သည်။ ချောင်းသာရွာနှင့် အောင်မင်္ဂလာကျွန်းရွာတို့ကို စုစည်း၍ ချောင်းသာမြို့အဖြစ် အဆင့်တိုးမြှင့်ခဲ့သည်။
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <div class="profile-tabs">
+          <ul
+            class="nav nav-pills nav-pills-icons justify-content-center"
+            role="tablist"
+          >
+            <li class="nav-item">
+              <!-- for active(class="active") -->
+              <a
+                class="nav-link " 
+                href="/dashboard"
+
+              >
+                <i class="fas fa-solid fa-house"></i>
+                ပင်မ
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="/users/normal-change-password"
+
+              >
+                <i class="fa-solid fa-key"></i>
+                  စကားဝှက်ပြောင်းရန်
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="/users/logout"
+              >
+                <i class="fa-solid fa-right-to-bracket"></i>
+                အကောင့်ထွက်ရန်
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+
+    
+
     </main>
 
      

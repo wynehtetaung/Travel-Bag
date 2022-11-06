@@ -90,7 +90,7 @@
               >
             </li>
             <li>
-              <a href="/users/logout" class="nav-link scrollto active"
+              <a href="/users/logout" class="nav-link scrollto  "
                 ><i class="fi fi-rr-exit"></i> <span>Logout</span></a
               >
             </li>
@@ -117,45 +117,43 @@
               data-aos-delay="100"
             >
               <div class="swiper-wrapper">
+               
                 <% for(var i = 0; i< ausers.length ; i++){%>
 
                 <div class="swiper-slide">
-                  <div class="testimonial-item" data-aos="fade-up">
+                  <div
+                    class="testimonial-item"
+                    data-aos="fade-up"
+                    data-aos-delay="300"
+                  >
                     <p>
                       <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                       <%= ausers[i].agentBio %>
                       <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                     </p>
                     <a
-                      href="/adminAprofile/<%= ausers[i]._id %>"
-                      class="portfolio-details-lightbox"
-                    >
-                      <img
-                        src="/images/bta222.jpg"
-                        class="testimonial-img"
-                        alt=""
-                      />
-                    </a>
-                     <br /><br />
-                      <h4
-                        style="
-                          color: rgb(18, 29, 18);
-                          font-size: 20px;
-                          font-weight: bold;
-                        "
+                        href="/adminAprofile/<%= ausers[i]._id %>"
+                        class="portfolio-details-lightbox"
                       >
-                      <%= ausers[i].agentName %>
-                      </h4>
-                      <% if( ausers[i].agentisVerified == true){ %>
-                      <h3>User is Verified</h3>
-                      <% }else{ %>
-                      <h3>User is not Verified</h3>
-                      <% } %>
-                    </div>
-                  </div>
+                        <img
+                          src="/images/bta222.jpg"
+                          class="testimonial-img"
+                          alt=""
+                        />
+                      </a>
+                  
+                    <h3><%= ausers[i].agentName %></h3>
+                    <h4>Freelancer</h4>
                   </div>
                 </div>
+                <% if( ausers[i].agentisVerified == true){ %>
+                  <h3>User is Verified</h3>
+                  <% }else{ %>
+                  <h3>User is not Verified</h3>
+                  <% } %>
                 <%}%>
+
+                </div>
               </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -182,7 +180,6 @@
 
     <!-- Template Main JS File -->
     <script src="/javascripts/mainadmin.js"></script>
-    <!-- for boxes -->
-    <!-- <script src="/javascripts/sb-admin-2.js"></script> -->
+    W
   </body>
 </html>
