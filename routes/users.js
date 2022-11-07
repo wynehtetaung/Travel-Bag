@@ -13,6 +13,7 @@ const SMTPConnection = require("nodemailer/lib/smtp-connection");
 var Post = require("../models/agent-postadd");
 var multer = require("multer");
 var upload = multer({ dest: "public/images/testimonials" });
+var upload2 = multer({ dest: "public/images/portfolio" });
 
 var dotenv = require("dotenv");
 const { token } = require("morgan");
@@ -86,15 +87,17 @@ router.get("/nsignup", function (req, res) {
 });
 
 //normal users sign up data
-router.post("/nsignup", function (req, res) {
+router.post("/nsignup", upload2.single("normalImage"), function (req, res) {
   try {
-    const { normalName, normalEmail, normalPassword } = req.body;
+    const { normalName, normalEmail, normalPassword, normalImage } = req.body;
     var user = new User({
       normalName,
       normalEmail,
       normalPassword,
+      normalImage,
       normalisVerified: false,
     });
+    if (req.file) user.normalImage = "/images/portfolio/" + req.file.filename;
 
     const newUser = user.save();
 
