@@ -6,8 +6,8 @@ const input = document.querySelector(".input-box"),
   showHideConfirm = document.querySelector(".confirm"),
   indicator = document.querySelector(".indicator"),
   iconText = document.querySelector(".icon-text"),
-  text = document.querySelector(".text");
-// div = document.querySelector(".input-group-addon");
+  text = document.querySelector(".text"),
+  errorIcon = document.querySelector(".error-icon");
 
 // js code to show password strength (with regex)
 
@@ -15,27 +15,21 @@ let alphabet = /[a-zA-Z]/,
   numbers = /[0-9]/,
   schar = /[~,!,@,#,$,%,^,&,*,(,),_,+,-,=,{,},?,>,<]/;
 window.addEventListener("load", function () {
-  // console.log(input);
   input.addEventListener("keyup", () => {
-    // console.log("ggg", input);
     $(".indicator").addClass("active");
 
     let val = input.value;
 
     if (val.match(alphabet) || val.match(numbers) || val.match(schar)) {
-      $(".text").textContent = "စကားဝှက် အားနည်းနေပါသည်";
-      $(".show_hide").css("color", "#FF6333");
+      text.textContent = "စကားဝှက် အားနည်းနေပါသည်";
       $(".icon-text").css("color", "#FF6333");
-      $(".input-box").css("bodorColor", "#FF6333");
-      // div.style.borderColor = "#FF6333";
+      $(".error_icon").css("color", "#FF6333");
     }
 
     if (val.match(alphabet) && val.match(numbers) && val.length >= 6) {
-      $(".text").textContent = "စကားဝှက် အသင့်အတင့်ရှိပါသည်";
-      $(".show_hide").css("color", "#cc8500");
+      text.textContent = "စကားဝှက် အသင့်အတင့်ရှိပါသည်";
       $(".icon-text").css("color", "#cc8500");
-      $(".input-box").css("borderColor", "#cc8500");
-      // div.style.borderColor = "#cc8500";
+      $(".error_icon").css("color", "#cc8500");
     }
 
     if (
@@ -44,17 +38,17 @@ window.addEventListener("load", function () {
       val.match(schar) &&
       val.length >= 8
     ) {
-      $(".text").textContent = "စကားဝှက် အဆင်ပြေပါပြီ";
-      $(".show_hide").css("color", "#22C32A");
+      text.textContent = "စကားဝှက် အဆင်ပြေပါပြီ";
       $(".icon-text").css("color", "#22C32A");
-      $(".input-box").css("borderColor", "#22C32A");
-      // div.style.borderColor = "#22C32A";
+      $(".error_icon").css("color", "#22C32A");
     }
 
     if (val == "") {
       $(".indicator").remove("active");
       showHide.style.color = "";
       input.style.borderColor = "";
+      text.textContent = "";
+      $(".error_icon").css("color", "white");
     }
   });
   showHide.addEventListener("click", () => {
