@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Bag</title>
+    <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
+    <link rel="stylesheet" href="/stylesheets/search-style.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <link href="/stylesheets/fontawesome-all.css" rel="stylesheet" />
+    <link href="/stylesheets/swiper.css" rel="stylesheet" />
+    <link href="/stylesheets/magnific-popup.css" rel="stylesheet" />
+    <link href="/stylesheets/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/stylesheets/agent-post-list.css" />
+  </head>
+  <body style="background-color: #7f7fd5">
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+    <!-- this is nav bar -->
+    <% include ./partials/navbar %>
+    <!-- this is nav  -->
+    <div class="form-group pull-right center-box" style="margin-top: 15%">
+      <input
+        type="text"
+        class="search form-control"
+        placeholder="What you looking for?"
+      />
+    </div>
+    <span class="counter pull-right center-box"></span>
+    <div class="center-box">
+      <table class="table noborder">
+        <thead>
+          <tr>
+            <th class="col-md-7 col-xs-7">Name / Surname</th>
+            <th class="col-md-6 col-xs-6">Job</th>
+            <!-- <th class="col-md-3 col-xs-3">City</th> -->
+          </tr>
+          <tr class="warning no-result">
+            <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vatanay Özbeyli</td>
+            <td>UI & UX</td>
+          </tr>
+          <tr>
+            <td>Burak Özkan</td>
+            <td>Software Developer</td>
+          </tr>
+          <tr>
+            <td>Egemen Özbeyli</td>
+            <td>Purchasing</td>
+          </tr>
+          <tr>
+            <td>Engin Kızıl</td>
+            <td>Sales</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <% include ./partials/footer %>
+  </body>
+
+  <!-- Scripts -->
+  <script src="/javascripts/jquery.min.js"></script>
+  <!-- jQuery for Bootstrap's JavaScript plugins -->
+  <script src="/javascripts/popper.min.js"></script>
+  <!-- Popper tooltip library for Bootstrap -->
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <!-- Bootstrap framework -->
+  <script src="/javascripts/jquery.easing.min.js"></script>
+  <!-- jQuery Easing for smooth scrolling between anchors -->
+  <script src="/javascripts/swiper.min.js"></script>
+  <!-- Swiper for image and text sliders -->
+  <script src="/javascripts/jquery.magnific-popup.js"></script>
+  <!-- Magnific Popup for lightboxes -->
+  <script src="/javascripts/morphext.min.js"></script>
+  <!-- Morphtext rotating text in the header -->
+  <script src="/javascripts/isotope.pkgd.min.js"></script>
+  <!-- Isotope for filter -->
+  <script src="/javascripts/validator.min.js"></script>
+  <!-- Validator.js - Bootstrap plugin that validates forms -->
+  <script src="/javascripts/scripts.js"></script>
+  <!-- Custom scripts -->
+</html>

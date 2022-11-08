@@ -199,6 +199,11 @@ router.get("/map", userAuth, function (req, res) {
   res.render("map");
 });
 
+// searchbar
+router.get("/search", function (req, res) {
+  res.render("searchBox");
+});
+
 // 404 not found
 router.get("/page_not_found", function (req, res) {
   res.render("fof");
