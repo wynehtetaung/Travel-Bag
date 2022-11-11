@@ -671,7 +671,6 @@ router.post(
     if (req.file) post.image = "/images/testimonials/" + req.file.filename;
     post.save(function (err, rtn) {
       if (err) throw err;
-      
       res.redirect("/users/apostlist");
     });
   }
@@ -712,7 +711,7 @@ router.post("/apostupdate", agentAuth, upload.single("image"), function(req,res)
   
   }   
   if (req.file) update.image = "/images/testimonials" + req.file.filename;
-  Post.findByIdAndUpdate(req.body.mid,{$set:update}, function(err,rtn){
+  Post.findByIdAndUpdate(req.params.id,{$set:update}, function(err,rtn){
     if (err) throw err;
     console.log(rtn);
     res.redirect("/users/apostlist");   

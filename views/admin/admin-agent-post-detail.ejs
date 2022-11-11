@@ -130,7 +130,7 @@
               <div class="portfolio-details-slider swiper ">
                 <div class="align-items-center rounded">
                   <div class="swiper-slide">
-                    <img src="<%= posts.image %>" alt="" />
+                    <img src="<%= blog.image %>" alt="" />
                   </div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -140,16 +140,19 @@
               <div class="portfolio-info bg-white rounded">
                 <h3>Post information</h3>
                 <ul>
-                  <li><strong>Agent</strong>:<%= posts.author %></li>
-                  <li><strong>Place</strong>: <%= posts.place %></li>
-                  <li><strong>Post uploaded date</strong>: Date.now()</li>
+                  <li><strong>Agent</strong>:<%= blog.author.agentName %></li>
+                  <li><strong>Place</strong>: <%= blog.place %></li>
+                  <li><strong>Post uploaded date</strong>:  <%=blog.created %> </li>
+                 
+                  <li><strong>agent phone</strong>:  <%= blog.phone %> </li>
+
                 </ul>
               </div>
               <br>
               <div class="portfolio-description bg-white rounded p-4">
-                <h2><%= posts.title %></h2>
+                <h2><%= blog.title %></h2>
                 <p>
-                  <%= posts.content %>
+                  <%= blog.content %>
                 </p>
               </div>
               <div>
@@ -158,12 +161,14 @@
                   class="btn btn-outline-dark btn-lg m-4"
                   data-mdb-ripple-color="dark"
                   style="z-index: 1"
-                >
+                ><a href="/adminpostupdate/<%= blog._id %>">
                   Update
+                </a>
+                  
                 </button>
                 
                 <button
-                onclick="del('<%= posts._id%>')" type="button" class="btn btn-danger btn-lg m">
+                onclick="del('<%= blog._id%>')" type="button" class="btn btn-danger btn-lg m">
                   Delete
                 </button>
               </div>
@@ -186,7 +191,7 @@
   <script src="/javascripts/mainadmin.js"></script>
   <script>
     function del(id) {
-      var opt = confirm("Are You sure to delete? ");
+      var opt = confirm("ပို့စ်ကို ဖျက်မှာသေချာပါသလား? ");
       if (opt) location.href = "/adminpage/postdelete/" + id;
     }
   </script>

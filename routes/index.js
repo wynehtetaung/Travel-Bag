@@ -5,6 +5,8 @@ var crypto = require("crypto");
 var Post = require("../models/agent-postadd");
 var Agent = require("../models/aUsers");
 var User = require("../models/nUsers");
+var multer = require("multer");
+var upgrade = multer({ dest: "public/images/portfolio" });
 
 var userAuth = function (req, res, next) {
   if (req.session.user) {
@@ -143,17 +145,40 @@ router.get("/adminpage/adminpostlist", adminAuth, function (req, res) {
 
 // agent post detail
 router.get("/adminAdetail/:id", adminAuth, function (req, res) {
-  Post.findById(req.params.id, function (err, rtn) {
+  Post.findById(req.params.id).populate("author", "agentName").exec( function (err, rtn) {
     if (err) throw err;
-    res.render("admin/admin-agent-post-detail", { posts: rtn });
+    res.render("admin/admin-agent-post-detail", { blog: rtn });
   });
 });
 
+//agent post update from admin
+router.get("/adminpostupdate/:id", adminAuth,function(req,res){
+  Post.findById(req.params.id,function(err,rtn){
+    if (err) throw err;
+    res.render("admin/admin-post-update", {posts: rtn});
+  });
+});
+
+router.post("/adminpage/adminpostupdate", adminAuth, upgrade.single("image"), function(req,res){
+  var update = {
+    title : req.body.title,
+    content : req.body.content,
+    place : req.body.place,
+    phone : req.body.phone,
+    updated : Date.now()
+  }
+  if(req.file ) update.image = "/images/portfolio/" + req.file.filename;
+  Post.findByIdAndUpdate(req.body.mid, {$set: update}, function(err,rtn){
+    if(err) throw err;
+    res.redirect("/adminpage");
+  })
+})
+
 // agent post delete
-router.get("/postdelete/:id", adminAuth, function (req, res) {
+router.get("/adminpage/postdelete/:id", adminAuth, function (req, res) {
   Post.findByIdAndDelete(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.redirect("/admin/admin-agent-post-list");
+    res.redirect("/adminpage"); 
   });
 });
 
