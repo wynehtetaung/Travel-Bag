@@ -203,7 +203,6 @@ router.get("/adminpage/normallist", adminAuth, function (req, res) {
 router.get("/adminpage/adminNprofile/:id", adminAuth, function (req, res) {
   User.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    console.log(rtn);
     res.render("admin/admin-normal-users-profile", { user: rtn });
   });
 });
@@ -242,10 +241,9 @@ router.get("/dashboard", userAuth, function (req, res) {
 
 router.get("/post-detail/:id", userAuth, function (req, res) {
   Post.findById(req.params.id)
-    .populate("author", "agentName")
+    .populate("author", "agentName agentPhone")
     .exec(function (err, rtn) {
       if (err) throw err;
-      console.log(rtn);
       res.render("users/normalUsers/post-detail", { blog: rtn });
     });
 });
