@@ -18,6 +18,23 @@
         background: -webkit-linear-gradient(to right, #2c7744, #5a3f37);
         background: linear-gradient(to right, #2c7744, #5a3f37);
       }
+      .update3 {
+        cursor: pointer;
+        border: 0;
+        color: #fff;
+        background: #14bf98;
+        padding: 12px 18px;
+        border-radius: 6px;
+        box-shadow: 0 6px 0 rgb(1, 103, 21);
+        transition: 0.3s;
+      }
+      .update3:active {
+        transform: translateY(5px);
+        box-shadow: 0 3px 0 rgb(1, 103, 21);
+      }
+      .update3:hover {
+        background-color: #2c7744;
+      } 
     </style>
   </head>
   <body>
@@ -27,7 +44,7 @@
       <nav id="navbar" class="navbar nav-menu">
         <ul>
           <li>
-            <a href="agentpage" class="nav-link scrollto"
+            <a href="/users/agentpage" class="nav-link scrollto"
               ><i class="fi fi-rr-home"></i> <span>Home</span></a
             >
           </li>
@@ -56,7 +73,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
             <form
-              action="/users/apostupdate"
+              action="/users/apostupdate" 
               method="post"
               role="form"
               enctype="multipart/form-data"
@@ -89,40 +106,47 @@
                 </div>
               </div>
 
-              <div class="col-md-5 form-group mt-3 mt-md-0">
-                <input
-                  type="file"
-                  class="form-control"
-                  name="image"
-                  id="image"
-                  accept="image/*"
-                  value=""
-                  required
-                />
+              <div class="row"> 
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input
+                    type="file"
+                    class="form-control"
+                    name="image"
+                    id="image"
+                    accept="image/*"
+                    value=""
+                    />
+                </div>
+                <div class="col-md-6 form-group">
+                  <input
+                    type="text"
+                    name="phone"
+                    class="form-control"
+                    id="phone"
+                    placeholder="Phone no"
+                    value="<%= posts.phone %>"
+                    required
+                  />
+                </div>
               </div>
+              
 
-              <div class="form-group mt-3">
+              
+              <div class="form-group ">
                 <textarea
+                  type="text"
                   class="form-control"
                   name="content"
                   id="content"
                   rows="5"
                   placeholder="အချက်အလက်ရေးရန်"
-                  value="<%= posts.content %>"
+                  
                   required
-                ></textarea>
+                ><%= posts.content %></textarea>
               </div>
-              <!-- <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">ပို့စ်တင်ပြီးပါပြီ...</div>
-                </div> -->
-              <div class="text-center btn btn-danger">
-                <input
-                  type="submit"
-                  class="btn btn-danger"
-                  value="post tin mal"
-                />
+             
+              <div >
+                <input type="submit" value="ပို့စ်တင်မည်" class="update3" />
               </div>
             </form>
           </div>

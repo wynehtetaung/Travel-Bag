@@ -161,8 +161,9 @@
                 >
                   Update
                 </button>
-
-                <button type="button" class="btn btn-danger btn-lg m">
+                
+                <button
+                onclick="del('<%= posts._id%>')" type="button" class="btn btn-danger btn-lg m">
                   Delete
                 </button>
               </div>
@@ -183,6 +184,12 @@
 
   <!-- Template Main JS File -->
   <script src="/javascripts/mainadmin.js"></script>
+  <script>
+    function del(id) {
+      var opt = confirm("Are You sure to delete? ");
+      if (opt) location.href = "/adminpage/postdelete/" + id;
+    }
+  </script>
 
   </body>
 </html>

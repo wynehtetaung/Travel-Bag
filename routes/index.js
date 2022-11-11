@@ -98,7 +98,7 @@ router.get("/adminpage", adminAuth, function (req, res) {
 router.get("/adminpage/adminpostlist", adminAuth, function (req, res) {
   Post.find({}, function (err, rtn) {
     if (err) throw err;
-    console.log(err);
+    
     res.render("admin/admin-agent-post-list", { posts: rtn });
   });
 });
@@ -110,6 +110,15 @@ router.get("/adminAdetail/:id", adminAuth, function (req, res) {
     res.render("admin/admin-agent-post-detail", { posts: rtn });
   });
 });
+
+// agent post delete
+router.get("/postdelete/:id", adminAuth, function (req, res) {
+  Post.findByIdAndDelete(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    res.redirect("/admin/admin-agent-post-list");
+  });
+});
+
 
 //admin agent list
 router.get("/adminpage/agentlist", adminAuth, function (req, res) {
