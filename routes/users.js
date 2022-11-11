@@ -107,8 +107,6 @@ router.post("/nsignup", function (req, res) {
         message: "အကောင့်ဝင်ခြင်း မအောင်မြင်ပါ။",
       });
     }
-
-    // res.redirect("/users/nlogin");
   } catch (err) {
     console.log(err);
   }
@@ -301,7 +299,6 @@ router.post("/nforgetpassword", async (req, res) => {
       if (err) throw err;
       if (rtn != null) {
         if (rtn.normalisVerified === false) {
-          console.log("kkkkk", rtn);
           // console.log("find:", User.findById(normalEmail));
           res.render("users/normalUsers/nUserforgotPassword", {
             message: "သင့် အီးမေးလ် အတည်ပြုပါ။",

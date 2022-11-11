@@ -29,6 +29,10 @@ var UserSchema = new Schema({
     type: String,
     default: nanoid.urlAlphabet,
   },
+  normalisact_ban: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 UserSchema.pre("save", function (next) {
