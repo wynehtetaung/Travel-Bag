@@ -1347,8 +1347,8 @@ input[type="checkbox"] {
 /*     12. Projects     */
 /************************/
 .filter {
-  padding-top: 6.5rem;
-  /* padding-bottom: 7rem; */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .filter .section-title {
@@ -1365,6 +1365,7 @@ input[type="checkbox"] {
 }
 
 .filter .button-group {
+  text-decoration: none;
   text-align: center;
 }
 
@@ -1375,8 +1376,8 @@ input[type="checkbox"] {
   margin-left: 0.1875rem;
   padding: 0.3125rem 1.375rem 0.25rem 1.375rem;
   border-radius: 0.25rem;
-  background-color: #f1f4f7;
-  color: #7b7e85;
+  background-color: #7f7fd5;
+  color: #f1f4f7;
   font: 700 0.75rem/1.25rem "Montserrat", sans-serif;
   cursor: pointer;
   transition: all 0.2s ease;

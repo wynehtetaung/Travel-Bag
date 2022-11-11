@@ -105,6 +105,8 @@ a .material-icons {
 
 .header-filter:after,
 .header-filter:before {
+  background-image: url(/images/background.jpg);
+  background-size: cover;
   position: absolute;
   z-index: 1;
   width: 100%;

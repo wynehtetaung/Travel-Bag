@@ -211,11 +211,13 @@ router.get("/dashboard", userAuth, function (req, res) {
 });
 
 router.get("/post-detail/:id", userAuth, function (req, res) {
-  Post.findById(req.params.id, function (err, rtn) {
-    if (err) throw err;
-    console.log(err);
-    res.render("users/normalUsers/post-detail", { blog: rtn });
-  });
+  Post.findById(req.params.id)
+    .populate("author", "agentName")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      console.log(rtn);
+      res.render("users/normalUsers/post-detail", { blog: rtn });
+    });
 });
 
 // signup choice account
@@ -231,6 +233,11 @@ router.get("/loginaccount", function (req, res) {
 // google map
 router.get("/map", userAuth, function (req, res) {
   res.render("map");
+});
+
+// searchbar
+router.get("/search", function (req, res) {
+  res.render("searchBox");
 });
 
 // 404 not found
