@@ -94,6 +94,44 @@ router.get("/adminpage", adminAuth, function (req, res) {
   res.render("admin/adminindex");
 });
 
+// user active and ban
+
+router.post("/admin/changeStatus", adminAuth, function (req, res) {
+  var update;
+  if (req.body.status == "active") {
+    update = { normalisact_ban: true };
+  } else {
+    update = { normalisact_ban: false };
+  }
+  // console.log(req.body, update);
+  User.findByIdAndUpdate(req.body.id, { $set: update }, function (err, rtn) {
+    if (err) {
+      res.json({ status: "error" });
+    } else {
+      res.json({ status: true });
+    }
+  });
+});
+
+// agent active and ban
+
+router.post("/admin/agentchangeStatus", adminAuth, function (req, res) {
+  var updated;
+  if (req.body.status == "active") {
+    updated = { normalisact_ban: true };
+  } else {
+    updated = { normalisact_ban: false };
+  }
+  // console.log(req.body, update);
+  Agent.findByIdAndUpdate(req.body.id, { $set: updated }, function (err, rtn) {
+    if (err) {
+      res.json({ status: "error" });
+    } else {
+      res.json({ status: true });
+    }
+  });
+});
+
 //admin agent post list
 router.get("/adminpage/adminpostlist", adminAuth, function (req, res) {
   Post.find({}, function (err, rtn) {
@@ -130,19 +168,19 @@ router.get("/adminAprofile/:id", adminAuth, function (req, res) {
 // normal list
 router.get("/adminpage/normallist", adminAuth, function (req, res) {
   User.find({}, function (err, rtn) {
-    console.log("rrrrrr", req.params._id);
-    console.log("gggg", rtn);
+    // console.log("rrrrrr", req.params._id);
+    // console.log("gggg", rtn);
     // const rtnData = rtn._id;
     // const reqData = req.
-    console.log("show me", rtn);
+    // console.log("show me", rtn);
     const rtnDtat = rtn.normalEmail;
     const datayyy = "635cc49a492527c2c8e8c34d";
     const userdata = User.findOne({ _id: datayyy }, function (err, rtn) {
       if (err) throw err;
-      console.log("hhhhh", rtn);
+      // console.log("hhhhh", rtn);
     });
-    console.log("user data: ", rtn.normalName);
-    console.log("show", User.findOne({}));
+    // console.log("user data: ", rtn.normalName);
+    // console.log("show", User.findOne({}));
     if (err) throw err;
     res.render("admin/admin-normal-list", { user: rtn });
   });
@@ -156,7 +194,24 @@ router.get("/adminpage/normallist", adminAuth, function (req, res) {
 router.get("/adminpage/adminNprofile/:id", adminAuth, function (req, res) {
   User.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
+    console.log(rtn);
     res.render("admin/admin-normal-users-profile", { user: rtn });
+  });
+});
+
+// normal user delete
+router.get("/normaluserdelete/:id", function (req, res) {
+  User.findByIdAndDelete(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    res.redirect("/adminpage/normallist");
+  });
+});
+
+// agent user delete
+router.get("/agentuserdelete/:id", function (req, res) {
+  Agent.findByIdAndDelete(req.params.id, function (err, rtn) {
+    if (err) throw err;
+    res.redirect("/adminpage/agentlist");
   });
 });
 
