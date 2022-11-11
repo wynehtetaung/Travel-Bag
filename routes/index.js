@@ -94,6 +94,8 @@ router.get("/adminpage", adminAuth, function (req, res) {
   res.render("admin/adminindex");
 });
 
+// user active and ban
+
 router.post("/admin/changeStatus", adminAuth, function (req, res) {
   var update;
   if (req.body.status == "active") {
@@ -101,8 +103,27 @@ router.post("/admin/changeStatus", adminAuth, function (req, res) {
   } else {
     update = { normalisact_ban: false };
   }
-  console.log(req.body, update);
+  // console.log(req.body, update);
   User.findByIdAndUpdate(req.body.id, { $set: update }, function (err, rtn) {
+    if (err) {
+      res.json({ status: "error" });
+    } else {
+      res.json({ status: true });
+    }
+  });
+});
+
+// agent active and ban
+
+router.post("/admin/agentchangeStatus", adminAuth, function (req, res) {
+  var updated;
+  if (req.body.status == "active") {
+    updated = { normalisact_ban: true };
+  } else {
+    updated = { normalisact_ban: false };
+  }
+  // console.log(req.body, update);
+  Agent.findByIdAndUpdate(req.body.id, { $set: updated }, function (err, rtn) {
     if (err) {
       res.json({ status: "error" });
     } else {

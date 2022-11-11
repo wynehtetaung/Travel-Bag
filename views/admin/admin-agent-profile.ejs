@@ -161,9 +161,12 @@
             </div>
             <p><%= ausers.agentBio%></p>
           </div>
-          <div>
-            <button type="button" class="btn btn-success" >active</button>
-            <button type="button" class="btn btn-secondary" >deactive</button>
+          <div class="ml-4">
+            <% if(ausers.normalisact_ban == false){ %>
+            <button type="button" class="btn btn-success" onclick="changeStatus('active','<%= ausers._id %>')">active</button>
+            <%}else{%>
+            <button type="button" class="btn btn-secondary" onclick="changeStatus('inactive','<%= ausers._id %>')">ban</button>
+            <% } %>
             <button type="button" class="btn " style="background-color: red;" onclick="choose('<%= ausers._id %>')">delete</button>
           </div>
         </div>
@@ -251,17 +254,35 @@
   <script src="/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="/vendor/typed.js/typed.min.js"></script>
   <script src="/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
 
   <!-- Template Main JS File -->
   <script src="/javascripts/mainadmin.js"></script>
 
   <script>
     function choose(id){
-      var opt = confirm("Are you sure?");
+      var opt = confirm('are you sure for delete  this account?');
       if(opt){
         location.href = "/agentuserdelete/"+id;
       }
     }
+
+    function changeStatus(status,id){
+        // console.log(status,id);
+        $.ajax("/admin/agentchangeStatus", {
+          type: "POST",
+          data: { status: status,id:id },
+          success: function (result) {
+            if (result.status == "error") {
+              alert("Somethings Was Wrong!");
+            } else {
+              location.reload();
+            }
+          },
+        });
+      }
+
   </script>
 
   </body>
