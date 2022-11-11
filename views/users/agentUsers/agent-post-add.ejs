@@ -7,13 +7,18 @@
     <title>Travel Bag</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
     <link rel="stylesheet" href=" /stylesheets/template.css" />
-    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <!-- <link rel="stylesheet" href="/stylesheets/bootstrap.css" /> -->
     <link rel="stylesheet" href="/vendor/glightbox/css/glightbox.min.css" />
     <link rel="stylesheet" href="/vendor/swiper/swiper-bundle.min.css" />
     <!-- <link rel="stylesheet" href="/vendor/aos/aos.css" /> -->
     <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
 
     <style>
@@ -73,9 +78,7 @@
 
         <div class="row mt-1">
           <div class="col-lg-4">
-            <div class="info">
-              
-            </div>
+            <div class="info"></div>
             <img src="/images/world1.svg" width="300px" height="300px" alt="" />
           </div>
 
@@ -94,7 +97,6 @@
                     class="form-control"
                     id="title"
                     placeholder="ခေါင်းစဉ်"
-                    required
                   />
                 </div>
 
@@ -105,20 +107,35 @@
                     name="place"
                     id="place"
                     placeholder="နေရာနာမည်"
-                    required
                   />
                 </div>
-              </div>
 
-              <div class="col-md-5 form-group mt-3 mt-md-0">
-                <input
-                  type="file"
-                  class="form-control"
-                  name="image"
-                  id="image"
-                  accept="image/*"
-                  required
-                />
+                <div style="margin: 0px 0px 20px 15px">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-primary dropdown-toggle"
+                      type="button"
+                      data-toggle="dropdown"
+                    >
+                      Dropdown Example <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">HTML</a></li>
+                      <li><a href="#">CSS</a></li>
+                      <li><a href="#">JavaScript</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="col-md-5 form-group mt-3 mt-md-0">
+                  <input
+                    type="file"
+                    class="form-control"
+                    name="image"
+                    id="image"
+                    accept="image/*"
+                  />
+                </div>
               </div>
 
               <div class="form-group mt-3">
@@ -128,10 +145,9 @@
                   id="content"
                   rows="5"
                   placeholder="အချက်အလက်ရေးရန်"
-                  required
                 ></textarea>
               </div>
-              
+
               <div style="justify-content: center">
                 <input type="submit" value="ပို့စ်တင်မည်" class="update3" />
               </div>
@@ -140,9 +156,12 @@
         </div>
       </div>
     </section>
+
     <script src="/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="/vendor/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="/vendor/aos/aos.js" />
     <script src="/javascripts/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </body>
 </html>
