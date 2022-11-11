@@ -17,10 +17,7 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
-  normalImage: {
-    type: String,
-    require: true,
-  },
+
   normalisVerified: {
     type: Boolean,
   },
@@ -31,6 +28,10 @@ var UserSchema = new Schema({
   token: {
     type: String,
     default: nanoid.urlAlphabet,
+  },
+  normalisact_ban: {
+    type: Boolean,
+    default: true,
   },
 });
 

@@ -12,6 +12,7 @@ var nodemailer = require("nodemailer");
 const SMTPConnection = require("nodemailer/lib/smtp-connection");
 var multer = require("multer");
 var upload = multer({ dest: "public/images/testimonials" });
+// var upload2 = multer({ dest: "public/images/portfolio" });
 
 
 var dotenv = require("dotenv");
@@ -34,10 +35,6 @@ const userAuth = function (req, res, next) {
     res.redirect("/users/nlogin");
   }
 };
-/* GET users listing. */
-// router.get("/", userAuth, function (req, res, next) {
-//   res.redirect("/users/dashboard");
-// });
 
 // for normal send verify mail
 const sendVerifyMail = async (normalName, normalEmail, User_id) => {
@@ -86,17 +83,18 @@ router.get("/nsignup", function (req, res) {
 });
 
 //normal users sign up data
-router.post("/nsignup", function (req, res) {
+router.post("/nsignup", upload2.single("normalImage"), function (req, res) {
   try {
-    const { normalName, normalEmail, normalPassword, } = req.body;
+    const { normalName, normalEmail, normalPassword, normalImage } = req.body;
     var user = new User({
       normalName,
       normalEmail,
       normalPassword,
-    
+      normalImage,
       normalisVerified: false,
     });
-  
+    if (req.file) user.normalImage = "/images/portfolio/" + req.file.filename;
+
     const newUser = user.save();
 
     if (newUser) {
@@ -110,8 +108,6 @@ router.post("/nsignup", function (req, res) {
         message: "အကောင့်ဝင်ခြင်း မအောင်မြင်ပါ။",
       });
     }
-
-    // res.redirect("/users/nlogin");
   } catch (err) {
     console.log(err);
   }
@@ -183,33 +179,39 @@ router.get("/nlogin", function (req, res) {
 router.post("/nlogin", function (req, res) {
   User.findOne({ normalEmail: req.body.normalEmail }, function (err, rtn) {
     if (err) throw err;
-    if (rtn == null) {
-      res.render("users/normalUsers/nuserLogin", {
-        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
-      });
-    } else {
-      if (
-        rtn.normalisVerified === true &&
-        rtn != null &&
-        User.compare(req.body.normalPassword, rtn.normalPassword)
-        // User.compare(req.body.normalisVerified, rtn.normalisVerified)
-      ) {
-        //renember login
-        req.session.user = {
-          id: rtn._id,
-          normalName: rtn.normalName,
-          normalEmail: rtn.normalEmail,
-        };
-        res.redirect("/dashboard");
-      } else if (rtn.normalisVerified === false) {
-        res.render("users/normalUsers/nuserLogin", {
-          message: "ကျေးဇူးပြု၍ သင့် အီးမေးလ် အတည်ပြုပါ။",
-        });
-      } else {
+    if (rtn.normalisact_ban == true) {
+      if (rtn == null) {
         res.render("users/normalUsers/nuserLogin", {
           message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
         });
+      } else {
+        if (
+          rtn.normalisVerified === true &&
+          rtn != null &&
+          User.compare(req.body.normalPassword, rtn.normalPassword)
+          // User.compare(req.body.normalisVerified, rtn.normalisVerified)
+        ) {
+          //renember login
+          req.session.user = {
+            id: rtn._id,
+            normalName: rtn.normalName,
+            normalEmail: rtn.normalEmail,
+          };
+          res.redirect("/dashboard");
+        } else if (rtn.normalisVerified === false) {
+          res.render("users/normalUsers/nuserLogin", {
+            message: "ကျေးဇူးပြု၍ သင့် အီးမေးလ် အတည်ပြုပါ။",
+          });
+        } else {
+          res.render("users/normalUsers/nuserLogin", {
+            message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ။",
+          });
+        }
       }
+    } else {
+      res.render("users/normalUsers/nuserLogin", {
+        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည့်အတွက် ၇ ရက် ပိတ်ပင်ထားပါသည်။ ",
+      });
     }
   });
 });
@@ -304,7 +306,6 @@ router.post("/nforgetpassword", async (req, res) => {
       if (err) throw err;
       if (rtn != null) {
         if (rtn.normalisVerified === false) {
-          console.log("kkkkk", rtn);
           // console.log("find:", User.findById(normalEmail));
           res.render("users/normalUsers/nUserforgotPassword", {
             message: "သင့် အီးမေးလ် အတည်ပြုပါ။",
@@ -420,35 +421,41 @@ router.post("/agentSignup", function (req, res) {
 router.get("/agentLogin", function (req, res) {
   res.render("users/agentUsers/agentLogin");
 });
-// res.render("users/agentUsers/agentLogin");
 router.post("/agentLogin", function (req, res) {
   Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rtn) {
     if (err) throw err;
-    if (rtn == null) {
-      res.render("users/agentUsers/agentLogin", {
-        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
-      });
-    } else {
-      if (
-        rtn.agentisVerified === true &&
-        rtn != null &&
-        Agent.compare(req.body.agentPassword, rtn.agentPassword)
-      ) {
-        req.session.agent = {
-          id: rtn._id,
-          agentName: rtn.agentName,
-          agentEmail: rtn.agentEmail,
-        };
-        res.redirect("/users/agentpage");
-      } else if (rtn.agentisVerified === false) {
-        res.render("users/agentUsers/agentLogin", {
-          message: "ကျေးဇူးပြု၍ သင့် အီးမေးလ် အတည်ပြုပါ။",
-        });
-      } else {
+    if (rtn.normalisact_ban == true) {
+      if (rtn == null) {
         res.render("users/agentUsers/agentLogin", {
           message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
         });
+      } else {
+        if (
+          rtn.agentisVerified === true &&
+          rtn != null &&
+          Agent.compare(req.body.agentPassword, rtn.agentPassword)
+        ) {
+          req.session.agent = {
+            id: rtn._id,
+            agentName: rtn.agentName,
+            agentEmail: rtn.agentEmail,
+          };
+          res.redirect("/users/agentpage");
+        } else if (rtn.agentisVerified === false) {
+          res.render("users/agentUsers/agentLogin", {
+            message: "ကျေးဇူးပြု၍ သင့် အီးမေးလ် အတည်ပြုပါ။",
+          });
+        } else {
+          res.render("users/agentUsers/agentLogin", {
+            message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ။",
+          });
+        }
       }
+    } else {
+      res.render("users/agentUsers/agentLogin", {
+        message:
+          "website နှင့်မသက်ဆိုင်သော post  များတင်သောကြောင့် ၇ ရက်ပိတ်ပင်ထားပါသည်။",
+      });
     }
   });
 });
