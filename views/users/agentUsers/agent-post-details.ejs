@@ -92,18 +92,16 @@
             <a
               href="/users/apostupdate/<%= posts._id%>"
               class="nav-link scrollto"
-              ><i class="fi fi-rr-refresh"></i> <span>Post Update</span></a
+              ><i class="fi fi-rr-refresh"></i> <span>ပို့စ်ပြင်ဆင်ရန်</span></a
             >
           </li>
           <li>
-            <button
-              onclick="del('<%= posts._id%>')"
-              style="border-radius: 80px"
-            >
+            <div onclick="del('<%= posts._id%>')" style="border-radius: 50px">
               <a class="nav-link scrollto"
-                ><i class="fi fi-rr-delete"></i> <span>Post Delete</span></a
+                ><i class="fi fi-rr-delete" style="color: black"></i>
+                <span>ပို့စ်ဖျက်ရန်</span></a
               >
-            </button>
+            </div>
           </li>
         </ul>
       </nav>
