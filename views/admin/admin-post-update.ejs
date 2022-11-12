@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>  
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Travel Bag</title>
+    <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
+
+    <!-- Vendor CSS Files  -->
+    <link href="/vendor/aos/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="/stylesheets/all.min.css" rel="stylesheet" type="text/css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/stylesheets/fontawesome-all.css" />
+    <link href="/stylesheets/sb-admin-2.css" rel="stylesheet" />
+    <!-- Template Main CSS File -->
+
+    <link rel="stylesheet" href="/stylesheets/styleadmin.css" />
+    <style>
+        .update3 {
+        cursor: pointer;
+        border: 0;
+        color: #fff;
+        background: #14bf98;
+        padding: 12px 18px;
+        border-radius: 6px;
+        box-shadow: 0 6px 0 rgb(1, 103, 21);
+        transition: 0.3s;
+      }
+      .update3:active {
+        transform: translateY(5px);
+        box-shadow: 0 3px 0 rgb(1, 103, 21);
+      }
+      .update3:hover {
+        background-color: #2c7744;
+      } 
+    </style>
+  </head>
+
+  <body>
+    <!-- ======= Mobile nav toggle button ======= -->
+    <i class="fi fi-rr-menu-burger mobile-nav-toggle d-xl-none"></i>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="d-flex flex-column">
+        <div class="profile">
+          <img
+            src="/images/bagan.jpg"
+            alt=""
+            class="img-fluid rounded-circle"
+          />
+          <h1 class="text-light"><a href="index.html">Admin name here</a></h1>
+          <div class="social-links mt-3 text-center">
+            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+
+        <nav id="navbar" class="nav-menu navbar">
+          <ul>
+            <li>
+              <a href="/adminpage" class="nav-link scrollto"
+                ><i class="fi fi-rr-home"></i> <span>Home</span></a
+              >
+            </li>
+            <li>
+              <a href="#about" class="nav-link scrollto">
+                <i class="fi fi-rr-user"></i><span>Profile</span></a
+              >
+            </li>
+
+            <li>
+              <a href="/adminpage/normallist" class="nav-link scrollto"
+                ><i class="fi fi-rr-users-alt"></i>
+                <span>Normal Users List</span></a
+              >
+            </li>
+            <li>
+              <a href="/adminpage/adminpostlist" class="nav-link scrollto"
+                ><i class="fi fi-rr-apps"></i> <span>Agent Posts List</span></a
+              >
+            </li>
+            <li>
+              <a href="/adminpage/agentlist" class="nav-link scrollto active"
+                ><i class="fi fi-rr-users"></i> <span>Agent Users List</span></a
+              >
+            </li>
+            <li>
+              <a href="/users/logout" class="nav-link scrollto  "
+                ><i class="fi fi-rr-exit"></i> <span>Logout</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+        <!-- .nav-menu -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+              <div class="section-title">
+                <h2>Post Update Page</h2>
+              </div>
+      
+              <div class="row mt-1">
+                <div class="col-lg-4">
+                  
+                  <img src="/images/images/undraw_upgrade_re_gano.svg" width="300px" height="300px" alt="" />
+                </div>
+      
+                <div class="col-lg-8 mt-5 mt-lg-0">
+                  <form
+                    action="/adminpage/adminpostlist" 
+                    method="post"
+                    role="form"
+                    enctype="multipart/form-data"
+                  >
+                    <div class="row">
+                      <div class="col-md-6 form-group">
+                        <input type="hidden" name="mid" value="<%= posts._id %> " />
+      
+                        <input
+                          type="text"
+                          name="title"
+                          class="form-control"
+                          id="title"
+                          placeholder="ခေါင်းစဉ်"
+                          value="<%= posts.title%>"
+                          required
+                        />
+                      </div>
+      
+                      <div class="col-md-6 form-group mt-3 mt-md-0">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="place"
+                          id="place"
+                          placeholder="နေရာအမည်"
+                          value="<%= posts.place %>"
+                          required
+                        />
+                      </div>
+                    </div>
+      
+                    <div class="row"> 
+                      <div class="col-md-6 form-group mt-3 mt-md-0">
+                        <input
+                          type="file"
+                          class="form-control"
+                          name="image"
+                          id="image"
+                          accept="image/*"
+                          value=""
+                          />
+                      </div>
+                      <div class="col-md-6 form-group">
+                        <input
+                          type="text"
+                          name="phone"
+                          class="form-control"
+                          id="phone"
+                          placeholder="Phone no"
+                          value="<%= posts.phone %>"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <textarea
+                        type="text"
+                        class="form-control"
+                        name="content"
+                        id="content"
+                        rows="5"
+                        placeholder="အချက်အလက်ရေးရန်"
+                        
+                        required
+                      ><%= posts.content %></textarea>
+                    </div>
+                   
+                    <div >
+                      <input type="submit" value="ပို့စ်တင်မည်" class="update3" />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+    </main>
+
+    <!-- no footer here -->
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+    >
+      <i class="fi fi-rr-angle-double-small-up"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/javascripts/isotope.pkgd.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/javascripts/mainadmin.js"></script>
+    
+  </body>
+</html>
