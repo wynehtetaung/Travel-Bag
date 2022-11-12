@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Agent Profile by Admin</title>
+    <title>Travel Bag</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
 
     <meta content="" name="description" />
@@ -39,9 +39,10 @@
     />
     <style>
       .whole-body {
-        background: #5a3f37;
-        background: -webkit-linear-gradient(to right, #2c7744, #5a3f37);
-        background: linear-gradient(to right, #2c7744, #5a3f37);
+        background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
       }
     </style>
 
@@ -55,7 +56,7 @@
       <div class="d-flex flex-column">
         <div class="profile">
           <img src="images/bagan.jpg" alt="" class="img-fluid rounded-circle" />
-          <h1 class="text-light"><a href="index.html">Admin name here</a></h1>
+          <h1 class="text-light"><a href="index.html">Admin name</a></h1>
           <div class="social-links mt-3 text-center">
             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -106,7 +107,7 @@
       <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center">
-            <h2 class="section-title">Agent Profiles</h2>
+            <h2 class="section-title" style="color: #14bf98;">Agent Profiles</h2>
             <!-- <ol>
               <li><a href="/adminpage">Home</a></li>
               <li><a href="/adminpage/agentlist">Post List</a></li>
@@ -128,37 +129,42 @@
             
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content">
-          <h3><%= ausers.agentName%></h3>
-
-            <br><br>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
                   <li>
-                    <i class="bi bi-chevron-right"></i>
-                    <strong>Phone:</strong>
-                    <span><%= ausers.agentPhone%></span>
+                    <i class="bi bi-chevron-right" style="color: #14bf98;"></i>
+                    <strong style="color: #14bf98;">Name  :</strong>
+                    <span style="color: #14bf98;"><%= ausers.agentName%></span>
+                  </li>
+                  <br>
+                  <li>
+                    <i class="bi bi-chevron-right" style="color: white;"></i>
+                    <strong style="color: white;">Phone  :</strong>
+                    <span style="color: white;"><%= ausers.agentPhone%></span>
                   </li>
                   <br />
                   <li>
                     <i class="bi bi-chevron-right"></i>
-                    <strong>Email:</strong>
-                    <span><%= ausers.agentEmail%></span>
+                    <strong style="color: white;">Email  :</strong>
+                    <span style="color: white;"><%= ausers.agentEmail%></span>
                   </li>
                   <br />
                   <li>
                     <i class="bi bi-chevron-right"></i>
-                    <strong>City:</strong> <span><%= ausers.agentCity%></span>
+                    <strong style="color: white;">City  :</strong> <span style="color: white;"><%= ausers.agentCity%></span>
                   </li>
+                  <br>
                   <li>
                     <i class="bi bi-chevron-right"></i>
-                    <strong>Total Posts:</strong> <span><%=ausers.length%></span>
+                    <strong style="color: white;">Total Posts  :</strong> <span style="color: white;"><%= ausers.length%></span>
                   </li>
+                  
                   <br />
 
               
             </div>
-            <p><%= ausers.agentBio%></p>
+            <p style="color: #14bf98;"><%= ausers.agentBio%></p>
           </div>
           <div class="ml-4">
             <% if(ausers.normalisact_ban == false){ %>
@@ -173,8 +179,10 @@
         <section id="portfolio" class="portfolio section-bg"  style="background-color: transparent;"  >
           <div class="container" data-aos="fade-up">
             <div class="section-title">
-              <h2>Post List</h2>
+              <h2 style="color: #14bf98;">Post List</h2>
             </div>
+    
+           
             <div
             class="row portfolio-container"
             data-aos="fade-up"

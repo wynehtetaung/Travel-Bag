@@ -14,7 +14,6 @@ var multer = require("multer");
 var upload = multer({ dest: "public/images/testimonials" });
 // var upload2 = multer({ dest: "public/images/portfolio" });
 
-
 var dotenv = require("dotenv");
 const { token } = require("morgan");
 const { url } = require("inspector");
@@ -83,17 +82,17 @@ router.get("/nsignup", function (req, res) {
 });
 
 //normal users sign up data
-router.post("/nsignup" , function (req, res) {
+router.post("/nsignup", function (req, res) {
   try {
-    const { normalName, normalEmail, normalPassword,  } = req.body;
+    const { normalName, normalEmail, normalPassword } = req.body;
     var user = new User({
       normalName,
       normalEmail,
       normalPassword,
-      
+
       normalisVerified: false,
     });
-   
+
     const newUser = user.save();
 
     if (newUser) {
@@ -662,12 +661,30 @@ router.post(
   upload.single("image"),
   function (req, res) {
     var post = new Post();
+    var updated;
+    var Isequal = req.body.status;
+    var type = post.type;
+    if ((Isequal = 1)) {
+      updated = 1;
+    } else if ((Isequal = 2)) {
+      updated = 2;
+    } else if ((Isequal = 3)) {
+      updated = 3;
+    } else if ((Isequal = 4)) {
+      updated = 4;
+    } else if ((Isequals = 5)) {
+      updated = 5;
+    } else {
+      updated = 0;
+    }
+
     post.title = req.body.title;
     post.place = req.body.place;
-    post.phone = req.body.phone;  
+    post.phone = req.body.phone;
     post.author = req.session.agent.id;
     post.content = req.body.content;
     post.created = Date.now();
+    post.type = updated;
     if (req.file) post.image = "/images/testimonials/" + req.file.filename;
     post.save(function (err, rtn) {
       if (err) throw err;
@@ -680,17 +697,20 @@ router.post(
 router.get("/apostlist", agentAuth, function (req, res) {
   Post.find({ author: req.session.agent.id }, function (err, rtn) {
     if (err) throw err;
-     
+
     res.render("users/agentUsers/agent-post-list", { posts: rtn });
   });
 });
 
 //for post detail
 router.get("/adetail/:id", agentAuth, function (req, res) {
-  Post.findById(req.params.id, function (err, rtn) {
-    if (err) throw err;
-    res.render("users/agentUsers/agent-post-details", { posts: rtn });
-  });
+  Post.findById(req.params.id)
+    .populate("author", "agentPhone")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      res.render("users/agentUsers/agent-post-details", { posts: rtn });
+      console.log("showme:", rtn);
+    });
 });
 
 //for post update
@@ -717,6 +737,31 @@ router.post("/apostupdate", agentAuth, upload.single("image"), function(req,res)
     res.redirect("/users/apostlist");
   }); 
 });
+
+router.post(
+  "/apostupdate",
+  agentAuth,
+  upload.single("image"),
+  function (req, res) {
+    var update = {
+      title: req.body.title,
+      content: req.body.content,
+      place: req.body.place,
+      phone: req.body.phone,
+      updated: Date.now(),
+    };
+    if (req.file) update.image = "/images/testimonials" + req.file.filename;
+    Post.findByIdAndUpdate(
+      req.params.id,
+      { $set: update },
+      function (err, rtn) {
+        if (err) throw err;
+        console.log(rtn);
+        res.redirect("/users/apostlist");
+      }
+    );
+  }
+);
 
 // agent post delete
 router.get("/apostdelete/:id", agentAuth, function (req, res) {
