@@ -6,6 +6,7 @@ var Post = require("../models/agent-postadd");
 var Agent = require("../models/aUsers");
 var User = require("../models/nUsers");
 var multer = require("multer");
+const { findSourceMap } = require("module");
 var upgrade = multer({ dest: "public/images/portfolio" });
 
 var userAuth = function (req, res, next) {
@@ -159,7 +160,7 @@ router.get("/adminpostupdate/:id", adminAuth,function(req,res){
   });
 });
 
-router.post("/adminpage/adminpostupdate", adminAuth, upgrade.single("image"), function(req,res){
+router.post("/adminpostupdate", adminAuth, upgrade.single("image"), function(req,res){
   var update = {
     title : req.body.title,
     content : req.body.content,
@@ -168,11 +169,11 @@ router.post("/adminpage/adminpostupdate", adminAuth, upgrade.single("image"), fu
     updated : Date.now()
   }
   if(req.file ) update.image = "/images/portfolio/" + req.file.filename;
-  Post.findByIdAndUpdate(req.body.mid, {$set: update}, function(err,rtn){
+  Post.findByIdAndUpdate(req.body.id, {$set: update}, function(err,rtn){
     if(err) throw err;
-    res.redirect("/adminpage");
-  })
-})
+    res.redirect("/adminpage/adminpostlist");
+  });
+});
 
 // agent post delete
 router.get("/adminpage/postdelete/:id", adminAuth, function (req, res) {
@@ -195,7 +196,11 @@ router.get("/adminpage/agentlist", adminAuth, function (req, res) {
 router.get("/adminAprofile/:id", adminAuth, function (req, res) {
   Agent.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.render("admin/admin-agent-profile", { ausers: rtn });
+  Post.find({author:rtn.id}, function(err2, rtn2){
+    if(err2) throw err;
+    res.render("admin/admin-agent-profile", {agentposts: rtn2,ausers: rtn})
+    console.log("under",rtn2);
+  })
   });
 });
 

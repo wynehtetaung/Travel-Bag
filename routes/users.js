@@ -699,7 +699,7 @@ router.get("/apostupdate/:id", agentAuth, function (req, res) {
     if (err) throw err;
     res.render("users/agentUsers/agent-post-update", { posts: rtn });
   });
-}); 
+});  
 
 router.post("/apostupdate", agentAuth, upload.single("image"), function(req,res){
   var update = {
@@ -710,11 +710,11 @@ router.post("/apostupdate", agentAuth, upload.single("image"), function(req,res)
     updated : Date.now() 
   
   }   
-  if (req.file) update.image = "/images/testimonials" + req.file.filename;
-  Post.findByIdAndUpdate(req.params.id,{$set:update}, function(err,rtn){
+  if (req.file) update.image = "/images/testimonials/" + req.file.filename;
+  Post.findByIdAndUpdate(req.body.id,{$set:update}, function(err,rtn){
     if (err) throw err;
     console.log(rtn);
-    res.redirect("/users/apostlist");   
+    res.redirect("/users/apostlist");
   }); 
 });
 
