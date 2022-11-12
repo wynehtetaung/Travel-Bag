@@ -138,50 +138,56 @@ router.post("/admin/agentchangeStatus", adminAuth, function (req, res) {
 router.get("/adminpage/adminpostlist", adminAuth, function (req, res) {
   Post.find({}, function (err, rtn) {
     if (err) throw err;
-    
+
     res.render("admin/admin-agent-post-list", { posts: rtn });
   });
 });
 
 // agent post detail
 router.get("/adminAdetail/:id", adminAuth, function (req, res) {
-  Post.findById(req.params.id).populate("author", "agentName").exec( function (err, rtn) {
-    if (err) throw err;
-    res.render("admin/admin-agent-post-detail", { blog: rtn });
-  });
+  Post.findById(req.params.id)
+    .populate("author", "agentName")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      res.render("admin/admin-agent-post-detail", { blog: rtn });
+    });
 });
 
 //agent post update from admin
-router.get("/adminpostupdate/:id", adminAuth,function(req,res){
-  Post.findById(req.params.id,function(err,rtn){
+router.get("/adminpostupdate/:id", adminAuth, function (req, res) {
+  Post.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.render("admin/admin-post-update", {posts: rtn});
+    res.render("admin/admin-post-update", { posts: rtn });
   });
 });
 
-router.post("/adminpage/adminpostupdate", adminAuth, upgrade.single("image"), function(req,res){
-  var update = {
-    title : req.body.title,
-    content : req.body.content,
-    place : req.body.place,
-    phone : req.body.phone,
-    updated : Date.now()
+router.post(
+  "/adminpage/adminpostupdate",
+  adminAuth,
+  upgrade.single("image"),
+  function (req, res) {
+    var update = {
+      title: req.body.title,
+      content: req.body.content,
+      place: req.body.place,
+      phone: req.body.phone,
+      updated: Date.now(),
+    };
+    if (req.file) update.image = "/images/portfolio/" + req.file.filename;
+    Post.findByIdAndUpdate(req.body.mid, { $set: update }, function (err, rtn) {
+      if (err) throw err;
+      res.redirect("/adminpage");
+    });
   }
-  if(req.file ) update.image = "/images/portfolio/" + req.file.filename;
-  Post.findByIdAndUpdate(req.body.mid, {$set: update}, function(err,rtn){
-    if(err) throw err;
-    res.redirect("/adminpage");
-  })
-})
+);
 
 // agent post delete
 router.get("/adminpage/postdelete/:id", adminAuth, function (req, res) {
   Post.findByIdAndDelete(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.redirect("/adminpage"); 
+    res.redirect("/adminpage");
   });
 });
-
 
 //admin agent list
 router.get("/adminpage/agentlist", adminAuth, function (req, res) {

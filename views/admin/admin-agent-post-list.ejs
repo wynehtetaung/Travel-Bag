@@ -105,8 +105,10 @@
       <section id="portfolio" class="portfolio section-bg">
         <div class="container" data-aos="fade-up">
           <div class="section-title">
-            <h2>Post List</h2>
-            <p>some post detail if you need</p>
+            <h2 style="color: #fff">Post List</h2>
+            <p style="color: #fff">
+              <b> Some post detail if you need....</b>
+            </p>
           </div>
 
           <!-- <div class="row">
@@ -130,22 +132,22 @@
             data-aos-delay="200"
           >
             <% for (var i = 0 ; i < posts.length ; i ++){%>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <img
-                  src="<%= posts[i].image %>"
-                  class=""
-                  alt=""
-                  width="400px"
-                  height="280px"
-                />
-                <div class="portfolio-info">
-                  <a href="/adminAdetail/<%= posts[i]._id %> ">
+            <a href="/adminAdetail/<%= posts[i]._id %> ">
+              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                  <img
+                    src="<%= posts[i].image %>"
+                    class=""
+                    alt=""
+                    width="400px"
+                    height="280px"
+                  />
+                  <div class="portfolio-info">
                     <h4><%= posts[i].title %></h4>
-                  </a>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
 
             <%}%>
           </div>
