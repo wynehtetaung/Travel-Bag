@@ -101,6 +101,7 @@ router.get("/adminpage", adminAuth, function (req, res) {
       Agent.find({},function(err3,rtn3){
         if (err3) throw err;
         res.render("admin/adminindex", {posts : rtn, user: rtn2 , ausers: rtn3});
+        
       })
     })
   })
