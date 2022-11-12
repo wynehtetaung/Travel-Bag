@@ -709,7 +709,7 @@ router.get("/adetail/:id", agentAuth, function (req, res) {
     .exec(function (err, rtn) {
       if (err) throw err;
       res.render("users/agentUsers/agent-post-details", { posts: rtn });
-      console.log("showme:", rtn);
+     
     });
 });
 
@@ -783,9 +783,26 @@ router.get("/agentlist", agentAuth, function (req, res) {
 router.get("/aprofile/:id", agentAuth, function (req, res) {
   Agent.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.render("users/agentUsers/agent-profile-detail", { ausers: rtn });
+    Post.find({author:rtn.id}, function(err2,rtn2){
+      if(err2) throw err;
+      res.render("users/agentUsers/agent-profile-detail", { posts: rtn2, ausers: rtn });
+    })
+    
   });
 });
+
+//for post detail from agent
+router.get("/atoadetail/:id", agentAuth, function (req, res) {
+  Post.findById(req.params.id)
+    .populate("author", "agentPhone")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      res.render("users/agentUsers/agent-post-detail-fromagent", { posts: rtn });
+     
+    });
+});
+
+
 
 // check users name duplicate
 router.post("/checkname", function (req, res) {

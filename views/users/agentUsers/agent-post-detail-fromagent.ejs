@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Travel Bag</title>
+    <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
+
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Google Fonts -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    /> -->
+
+    <!-- Vendor CSS Files -->
+
+    <link href="/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/stylesheets/template.css" />
+    <link rel="stylesheet" href="/stylesheets/agent-post-list.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
+    <style>
+      body {
+        background-color: #aba9a8;
+      }
+      .upDate1 {
+        background-color: #14bf98;
+        border: none;
+      }
+      .dElete1 {
+        background-color: gray;
+        border: none;
+      }
+      .update1 {
+        cursor: pointer;
+        border: 0;
+        color: #fff;
+        background: #14bf98;
+        padding: 12px 18px;
+        border-radius: 6px;
+        box-shadow: 0 6px 0 rgb(1, 103, 21);
+        transition: 0.3s;
+      }
+      .update1:active {
+        transform: translateY(5px);
+        box-shadow: 0 3px 0 rgb(1, 103, 21);
+      }
+      .update2 {
+        cursor: pointer;
+        border: 0;
+        color: #fff;
+        background: rgb(243, 2, 2);
+        padding: 12px 18px;
+        border-radius: 6px;
+        box-shadow: 0 6px 0 rgba(127, 0, 0, 0.84);
+        transition: 0.3s;
+      }
+      .update2:active {
+        transform: translateY(5px);
+        box-shadow: 0 3px 0 rgba(210, 0, 0, 0.84);
+      }
+    </style>
+  </head>
+  <i class="mobile-nav-toggle d-lg-none fi fi-rr-menu-burger"></i>
+
+  <body>
+    <header id="header" class="d-flex flex-column justify-content-center">
+      <nav id="navbar" class="navbar nav-menu">
+        <ul>
+          <li>
+            <a href="/users/agentlist" class="nav-link scrollto"
+              ><i class="fi fi-rr-exit"></i> <span>နောက်သို့</span></a
+            >
+          </li>
+          
+         
+        </ul>
+      </nav>
+      <!-- .nav-menu -->
+    </header>
+
+    <main
+      id="main"
+      class="whole-body"
+      style="margin-top: 50px; margin-right: 10px"
+    >
+      <section id="portfolio-details" class="portfolio-details">
+        <div class="container rounded">
+          <div class="row gy-4">
+            <div class="col-lg-6">
+              <div class="portfolio-details-slider swiper">
+                <div class="align-items-center rounded">
+                  <div class="img-fluid">
+                    <img src="<%= posts.image%>" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="portfolio-info">
+                <h3 style="text-align: center">ပရိုဖိုင်လ် အချက်အလက်များ</h3>
+                <ul style="margin-top: 30px; margin-left: 30px">
+                  <li>
+                    <strong style="margin-right: 20px">အေးဂျင့်</strong>: <%=
+                    locals.agent.agentName %>
+                  </li>
+                  <br />
+                  <li><strong>တည်နေရာ </strong>: <%= posts.place %></li>
+                  <br />
+                  <li>
+                    <strong style="margin-right: 5px">ဖုန်းနံပါတ် </strong>: <%=
+                    posts.author.agentPhone %>
+                  </li>
+                  <br />
+                  <li>
+                    <strong style="margin-right: 1px">ပို့စ်တင်ချိန် </strong>:
+                    <%= posts.created %>
+                  </li>
+                  <br />
+                </ul>
+              </div>
+              <div class="portfolio-description" style="padding-left: 10%">
+                <h2><%= posts.title%></h2>
+                <p style="margin-right: 70px"><%= posts.content %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- End #main -->
+
+    <div id="preloader"></div>
+
+    <script src="/javascripts/main.js"></script>
+
+    
+  </body>
+</html>
