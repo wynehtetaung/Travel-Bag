@@ -85,7 +85,7 @@
           <nav id="navbar" class="nav-menu navbar">
             <ul>
               <li>
-                <a href="#hero" class="nav-link scrollto  "
+                <a href="/adminpage" class="nav-link scrollto  "
                   ><i class="fi fi-rr-home"></i> <span>Home</span></a
                 >
               </li>
@@ -127,6 +127,11 @@
     <% } %>
     <button type="button" class="btn " style="background-color: red;" onclick="choose('<%= locals.user._id %>')">delete</button>
   </div>
+
+
+
+     
+     
   
     <section id="portfolio-details" class="portfolio-details " >
       <div class="container ">
@@ -142,7 +147,6 @@
           
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content">
-        <h3><%= locals.user.normalName %></h3>
 
           <br><br>
 
@@ -161,10 +165,7 @@
                   <span><%= locals.user.normalEmail%></span>
                 </li>
                 <br />
-                <li>
-                  <i class="bi bi-chevron-right"></i>
-                  <strong>Total Posts:</strong> <span></span>
-                </li>
+
                 <br />
               </ul>
             </div>

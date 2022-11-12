@@ -154,13 +154,26 @@
                   <!-- </form> -->
                 </div>
 
-                <div class="col-md-5 form-group mt-3 mt-md-0">
+                <div class="row">
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input
+                      type="file"
+                      class="form-control"
+                      name="image"
+                      id="image"
+                      accept="image/*"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6 form-group">
                   <input
-                    type="file"
+                    type="text"
+                    name="phone"
                     class="form-control"
-                    name="image"
-                    id="image"
-                    accept="image/*"
+                    id="phone"
+                    placeholder="Phone no"
+                    required
                   />
                 </div>
               </div>
@@ -172,9 +185,10 @@
                   id="content"
                   rows="5"
                   placeholder="အချက်အလက်ရေးရန်"
-                ></textarea>
+                  required
+                >
+                </textarea>
               </div>
-
               <div style="justify-content: center">
                 <input type="submit" value="ပို့စ်တင်မည်" class="update3" />
               </div>

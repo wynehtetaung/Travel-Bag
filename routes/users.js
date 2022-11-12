@@ -10,7 +10,6 @@ var cookie = require("cookie-parser");
 var jwt = require("jsonwebtoken");
 var nodemailer = require("nodemailer");
 const SMTPConnection = require("nodemailer/lib/smtp-connection");
-var Post = require("../models/agent-postadd");
 var multer = require("multer");
 var upload = multer({ dest: "public/images/testimonials" });
 // var upload2 = multer({ dest: "public/images/portfolio" });
@@ -681,6 +680,7 @@ router.post(
 
     post.title = req.body.title;
     post.place = req.body.place;
+    post.phone = req.body.phone;
     post.author = req.session.agent.id;
     post.content = req.body.content;
     post.created = Date.now();
@@ -688,7 +688,6 @@ router.post(
     if (req.file) post.image = "/images/testimonials/" + req.file.filename;
     post.save(function (err, rtn) {
       if (err) throw err;
-      console.log(rtn);
       res.redirect("/users/apostlist");
     });
   }
@@ -698,18 +697,20 @@ router.post(
 router.get("/apostlist", agentAuth, function (req, res) {
   Post.find({ author: req.session.agent.id }, function (err, rtn) {
     if (err) throw err;
+
     res.render("users/agentUsers/agent-post-list", { posts: rtn });
   });
 });
 
 //for post detail
 router.get("/adetail/:id", agentAuth, function (req, res) {
-  Post.findById(req.params.id, function (err, rtn) {
-    if (err) throw err;
-    console.log(rtn);
-
-    res.render("users/agentUsers/agent-post-details", { posts: rtn });
-  });
+  Post.findById(req.params.id)
+    .populate("author", "agentPhone")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      res.render("users/agentUsers/agent-post-details", { posts: rtn });
+      console.log("showme:", rtn);
+    });
 });
 
 //for post update
@@ -719,6 +720,31 @@ router.get("/apostupdate/:id", agentAuth, function (req, res) {
     res.render("users/agentUsers/agent-post-update", { posts: rtn });
   });
 });
+
+router.post(
+  "/apostupdate",
+  agentAuth,
+  upload.single("image"),
+  function (req, res) {
+    var update = {
+      title: req.body.title,
+      content: req.body.content,
+      place: req.body.place,
+      phone: req.body.phone,
+      updated: Date.now(),
+    };
+    if (req.file) update.image = "/images/testimonials" + req.file.filename;
+    Post.findByIdAndUpdate(
+      req.params.id,
+      { $set: update },
+      function (err, rtn) {
+        if (err) throw err;
+        console.log(rtn);
+        res.redirect("/users/apostlist");
+      }
+    );
+  }
+);
 
 // agent post delete
 router.get("/apostdelete/:id", agentAuth, function (req, res) {

@@ -14,6 +14,10 @@ var PostSchema = new Schema({
     type: String,
     require: true,
   },
+  phone: {
+    type: String,
+    require: true,
+  },
   image: {
     type: String,
     require: true,
