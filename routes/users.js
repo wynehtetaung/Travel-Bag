@@ -662,11 +662,29 @@ router.post(
   upload.single("image"),
   function (req, res) {
     var post = new Post();
+    var updated;
+    var Isequal = req.body.status;
+    var type = post.type;
+    if ((Isequal = 1)) {
+      updated = 1;
+    } else if ((Isequal = 2)) {
+      updated = 2;
+    } else if ((Isequal = 3)) {
+      updated = 3;
+    } else if ((Isequal = 4)) {
+      updated = 4;
+    } else if ((Isequals = 5)) {
+      updated = 5;
+    } else {
+      updated = 0;
+    }
+
     post.title = req.body.title;
     post.place = req.body.place;
     post.author = req.session.agent.id;
     post.content = req.body.content;
     post.created = Date.now();
+    post.type = updated;
     if (req.file) post.image = "/images/testimonials/" + req.file.filename;
     post.save(function (err, rtn) {
       if (err) throw err;
