@@ -757,7 +757,7 @@ router.get("/apostdelete/:id", agentAuth, function (req, res) {
     if (err) throw err;
     console.log("post delete:", rtn);
     fs.unlink("public" + rtn.image, function (err2, rtn2) {
-      if (err2) throw err2;
+      if (err2) throw err;
       res.redirect("/users/apostlist");
     });
   });
