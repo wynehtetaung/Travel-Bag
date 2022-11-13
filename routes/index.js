@@ -6,6 +6,7 @@ var Post = require("../models/agent-postadd");
 var Agent = require("../models/aUsers");
 var User = require("../models/nUsers");
 var multer = require("multer");
+const { findSourceMap } = require("module");
 var upgrade = multer({ dest: "public/images/portfolio" });
 
 var userAuth = function (req, res, next) {
@@ -93,7 +94,18 @@ router.post("/adminLogin", function (req, res) {
 
 // Admin Index Page
 router.get("/adminpage", adminAuth, function (req, res) {
-  res.render("admin/adminindex");
+  Post.find({}, function(err,rtn){
+    if (err) throw err;
+    User.find({},function(err2,rtn2){
+      if (err2) throw err;
+      Agent.find({},function(err3,rtn3){
+        if (err3) throw err;
+        res.render("admin/adminindex", {posts : rtn, user: rtn2 , ausers: rtn3});
+        
+      })
+    })
+  })
+ 
 });
 
 // user active and ban
@@ -161,25 +173,20 @@ router.get("/adminpostupdate/:id", adminAuth, function (req, res) {
   });
 });
 
-router.post(
-  "/adminpage/adminpostupdate",
-  adminAuth,
-  upgrade.single("image"),
-  function (req, res) {
-    var update = {
-      title: req.body.title,
-      content: req.body.content,
-      place: req.body.place,
-      phone: req.body.phone,
-      updated: Date.now(),
-    };
-    if (req.file) update.image = "/images/portfolio/" + req.file.filename;
-    Post.findByIdAndUpdate(req.body.mid, { $set: update }, function (err, rtn) {
-      if (err) throw err;
-      res.redirect("/adminpage");
-    });
+router.post("/adminpostupdate", adminAuth, upgrade.single("image"), function(req,res){
+  var update = {
+    title : req.body.title,
+    content : req.body.content,
+    place : req.body.place,
+    phone : req.body.phone,
+    updated : Date.now()
   }
-);
+  if(req.file ) update.image = "/images/portfolio/" + req.file.filename;
+  Post.findByIdAndUpdate(req.body.id, {$set: update}, function(err,rtn){
+    if(err) throw err;
+    res.redirect("/adminpage/adminpostlist");
+  });
+});
 
 // agent post delete
 router.get("/adminpage/postdelete/:id", adminAuth, function (req, res) {
@@ -189,30 +196,40 @@ router.get("/adminpage/postdelete/:id", adminAuth, function (req, res) {
   });
 });
 
-//admin agent list
+// admin agent list
 router.get("/adminpage/agentlist", adminAuth, function (req, res) {
   Agent.find({}, function (err, rtn) {
     if (err) throw err;
     res.render("admin/admin-agent-list", { ausers: rtn });
+    console.log("agentlist:", rtn);
   });
 });
+
+// router.get("/adminpage/agentlist", adminAuth, function (req, res) {
+//   Post.find({})
+//     .populate("author", "agentName agentBio")
+//     .exec(function (err, rtn) {
+//       if (err) throw err;
+//       res.render("admin/admin-agent-list", { ausers: rtn });
+//       console.log("agentlist:", rtn);
+//     });
+// });
 
 // agent profile see to from admin
 router.get("/adminAprofile/:id", adminAuth, function (req, res) {
   Agent.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.render("admin/admin-agent-profile", { ausers: rtn });
+  Post.find({author:rtn.id}, function(err2, rtn2){
+    if(err2) throw err;
+    res.render("admin/admin-agent-profile", {posts: rtn2,ausers: rtn})
+    console.log("under",rtn2);
+  })
   });
 });
 
 // normal list
 router.get("/adminpage/normallist", adminAuth, function (req, res) {
   User.find({}, function (err, rtn) {
-    // console.log("rrrrrr", req.params._id);
-    // console.log("gggg", rtn);
-    // const rtnData = rtn._id;
-    // const reqData = req.
-    // console.log("show me", rtn);
     const rtnDtat = rtn.normalEmail;
     const datayyy = "635cc49a492527c2c8e8c34d";
     const userdata = User.findOne({ _id: datayyy }, function (err, rtn) {

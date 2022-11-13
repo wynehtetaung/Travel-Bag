@@ -128,7 +128,7 @@
                         </div>
                         <div
                           class="h5 mb-0 font-weight-bold text-gray-800"
-                        ></div>
+                        ><%= posts.length  %> posts</div>
                       </div>
                     </a>
                   </div>
@@ -146,10 +146,10 @@
                         <div
                           class="text-xs font-weight-bold text-success text-uppercase mb-1"
                         >
-                          Active users
+                          Normal users
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                          8 users
+                          <%= user.length%> users
                         </div>
                       </div>
                     </a>
@@ -170,7 +170,7 @@
                           Agent users
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                          4 users
+                          <%= ausers.length%> users
                         </div>
                       </div>
                     </a>
@@ -297,7 +297,7 @@
               <img src="/images/bagan.jpg" class="img-fluid" alt="" />
             </div>
             <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-              <h3>Admin name</h3>
+              <h3><%=  %></h3>
               <p class="fst-italic">admin contact detail here if you need</p>
               <div class="row">
                 <div class="col-lg-6">

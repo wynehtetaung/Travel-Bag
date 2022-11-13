@@ -98,10 +98,25 @@
                     id="title"
                     placeholder="ခေါင်းစဉ်"
                   />
-                </div>
-
-                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <br>
                   <input
+                      type="file"
+                      class="form-control"
+                      name="image"
+                      id="image"
+                      accept="image/*"
+                    />
+                    <br>
+                    <input
+                      type="text"
+                      name="phone"
+                      class="form-control"
+                      id="phone"
+                      placeholder="Phone no"
+                      required
+                    />
+                    <br>
+                    <input
                     type="text"
                     class="form-control"
                     name="place"
@@ -110,57 +125,58 @@
                   />
                 </div>
 
-                
-                <!-- <div style="margin: 0px 0px 20px 15px">
-                  <form action="">
-                    <input type="checkbox" name="checkbox" id="" /><span
-                      style="color: white"
-                      >ဘုရားဖူးခရီးစဉ်</span
-                    >
-                    <input type="checkbox" name="checkbox" id="" /><span
-                      style="color: white"
-                      >ကမ်းခြေခရီးစဉ်</span
-                    >
-                    <input type="checkbox" name="checkbox" id="" /><span
-                      style="color: white"
-                      >လေ့လာရေးခရီးစဉ်</span
-                    >
-                    <input type="checkbox" name="checkbox" id="" /><span
-                      style="color: white"
-                      >Express</span
-                    >
-                    <input type="checkbox" name="checkbox" id="" /><span
-                      style="color: white"
-                      >ဟိုတယ်</span
-                    >
-                  </form>
-                </div> -->
-
-                <div class="row">
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input
-                      type="file"
-                      class="form-control"
-                      name="image"
-                      id="image"
-                      accept="image/*"
-                      />
+               
+                <div class-="col-md-6 form-group">
+                  <div style="margin: 0px 0px 20px 15px">
+                    <!-- <form action="/apostadd" method="post"> -->
+                    <div class="form-check">
+                      <input type="checkbox" name="checkbox1" id="mark1" /><label
+                        for="mark1"
+                        style="color: white"
+                        onclick="changeStatus(1)"
+                        >ဘုရားဖူးခရီးစဉ်</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" name="checkbox2" id="mark2" /><label
+                        for="mark2"
+                        style="color: white"
+                        onclick="changeStatus(2)"
+                        >ကမ်းခြေခရီးစဉ်</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" name="checkbox3" id="mark3" /><label
+                        for="mark3"
+                        style="color: white"
+                        onclick="changeStatus(3)"
+                        >လေ့လာရေးခရီးစဉ်</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" name="checkbox4" id="mark4" /><label
+                        for="mark4"
+                        style="color: white"
+                        onclick="changeStatus(4)"
+                        >Express</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" name="checkbox5" id="mark5" /><label
+                        for="mark5"
+                        style="color: white"
+                        onclick="changeStatus(5)"
+                        >ဟိုတယ်</label
+                      >
+                    </div>
+                    <!-- </form> -->
                   </div>
-              </div>
-
-                <div class="col-md-6 form-group">
-                  <input
-                    type="text"
-                    name="phone"
-                    class="form-control"
-                    id="phone"
-                    placeholder="Phone no"
-                    required
-                  />
                 </div>
-            </div>
-           
 
+               
+              </div>
+            
+            
               <div class="form-group mt-3">
                 <textarea
                   class="form-control"
@@ -168,13 +184,13 @@
                   id="content"
                   rows="5"
                   placeholder="အချက်အလက်ရေးရန်"
-                 required
-                > </textarea>
+                  required
+                >
+                </textarea>
               </div>
               <div style="justify-content: center">
                 <input type="submit" value="ပို့စ်တင်မည်" class="update3" />
               </div>
-              
             </form>
           </div>
         </div>
@@ -185,7 +201,21 @@
     <script src="/vendor/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="/vendor/aos/aos.js" />
     <script src="/javascripts/main.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <script>
+      function changeStatus(status) {
+        console.log(status);
+        $.ajax("/admin/agentchangeStatus", {
+          type: "POST",
+          data: { status: status },
+          success: function (result) {
+            if (result.status == "error") {
+              alert("Somethings Was Wrong!");
+            }
+          },
+        });
+      }
+    </script>
   </body>
 </html>
