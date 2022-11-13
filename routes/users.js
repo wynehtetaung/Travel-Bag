@@ -693,7 +693,6 @@ router.get("/adetail/:id", agentAuth, function (req, res) {
     .exec(function (err, rtn) {
       if (err) throw err;
       res.render("users/agentUsers/agent-post-details", { posts: rtn });
-      console.log("showme:", rtn);
     });
 });
 
@@ -704,6 +703,27 @@ router.get("/apostupdate/:id", agentAuth, function (req, res) {
     res.render("users/agentUsers/agent-post-update", { posts: rtn });
   });
 });
+
+router.post(
+  "/apostupdate",
+  agentAuth,
+  upload.single("image"),
+  function (req, res) {
+    var update = {
+      title: req.body.title,
+      content: req.body.content,
+      place: req.body.place,
+      phone: req.body.phone,
+      updated: Date.now(),
+    };
+    if (req.file) update.image = "/images/testimonials/" + req.file.filename;
+    Post.findByIdAndUpdate(req.body.id, { $set: update }, function (err, rtn) {
+      if (err) throw err;
+      console.log(rtn);
+      res.redirect("/users/apostlist");
+    });
+  }
+);
 
 router.post(
   "/apostupdate",
@@ -750,8 +770,26 @@ router.get("/agentlist", agentAuth, function (req, res) {
 router.get("/aprofile/:id", agentAuth, function (req, res) {
   Agent.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.render("users/agentUsers/agent-profile-detail", { ausers: rtn });
+    Post.find({ author: rtn.id }, function (err2, rtn2) {
+      if (err2) throw err;
+      res.render("users/agentUsers/agent-profile-detail", {
+        posts: rtn2,
+        ausers: rtn,
+      });
+    });
   });
+});
+
+//for post detail from agent
+router.get("/atoadetail/:id", agentAuth, function (req, res) {
+  Post.findById(req.params.id)
+    .populate("author", "agentPhone")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      res.render("users/agentUsers/agent-post-detail-fromagent", {
+        posts: rtn,
+      });
+    });
 });
 
 // check users name duplicate

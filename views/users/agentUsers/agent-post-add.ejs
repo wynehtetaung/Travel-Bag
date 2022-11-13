@@ -98,123 +98,15 @@
                     id="title"
                     placeholder="ခေါင်းစဉ်"
                   />
-                </div>
-
-                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <br />
                   <input
-                    type="text"
+                    type="file"
                     class="form-control"
-                    name="place"
-                    id="place"
-                    placeholder="နေရာအမည်"
+                    name="image"
+                    id="image"
+                    accept="image/*"
                   />
-                </div>
-                <!-- <div style="margin: 0px 0px 20px 15px">
-                  <div class="form-check">
-                    <input type="checkbox" name="checkbox1" id="mark1" /><label
-                      for="mark1"
-                      style="color: white"
-                      onclick="changeStatus(1)"
-                      >ဘုရားဖူးခရီးစဉ်</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" name="checkbox2" id="mark2" /><label
-                      for="mark2"
-                      style="color: white"
-                      onclick="changeStatus(2)"
-                      >ကမ်းခြေခရီးစဉ်</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" name="checkbox3" id="mark3" /><label
-                      for="mark3"
-                      style="color: white"
-                      onclick="changeStatus(3)"
-                      >လေ့လာရေးခရီးစဉ်</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" name="checkbox4" id="mark4" /><label
-                      for="mark4"
-                      style="color: white"
-                      onclick="changeStatus(4)"
-                      >Express</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" name="checkbox5" id="mark5" /><label
-                      for="mark5"
-                      style="color: white"
-                      onclick="changeStatus(5)"
-                      >ဟိုတယ်</label
-                    >
-                  </div>
-                </div> -->
-
-                <div style="margin: 0px 0px 20px 15px">
-                  <div class="form-check">
-                    <input
-                      type="checkbox"
-                      name="type"
-                      id="mark1"
-                      value="1"
-                    /><label for="mark1" style="color: white"
-                      >ဘုရားဖူးခရီးစဉ်</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="checkbox"
-                      name="type"
-                      id="mark2"
-                      value="2"
-                    /><label for="mark2" style="color: white"
-                      >ကမ်းခြေခရီးစဉ်</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="checkbox"
-                      name="type"
-                      id="mark3"
-                      value="3"
-                    /><label for="mark3" style="color: white"
-                      >လေ့လာရေးခရီးစဉ်</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="checkbox"
-                      name="type"
-                      id="mark4"
-                      value="4"
-                    /><label for="mark4" style="color: white">Express</label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="checkbox"
-                      name="type"
-                      id="mark5"
-                      value="5"
-                    /><label for="mark5" style="color: white">ဟိုတယ်</label>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input
-                      type="file"
-                      class="form-control"
-                      name="image"
-                      id="image"
-                      accept="image/*"
-                      alt="no image available"
-                    />
-                  </div>
-                </div>
-
-                <div class="col-md-6 form-group">
+                  <br />
                   <input
                     type="text"
                     name="phone"
@@ -223,6 +115,66 @@
                     placeholder="Phone no"
                     required
                   />
+                  <br />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="place"
+                    id="place"
+                    placeholder="နေရာအမည်"
+                  />
+                </div>
+
+                <div class-="col-md-6 form-group">
+                  <div style="margin: 0px 0px 20px 15px">
+                    <div class="form-check">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        id="mark1"
+                        value="1"
+                      /><label for="mark1" style="color: white"
+                        >ဘုရားဖူးခရီးစဉ်</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        id="mark2"
+                        value="2"
+                      /><label for="mark2" style="color: white"
+                        >ကမ်းခြေခရီးစဉ်</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        id="mark3"
+                        value="3"
+                      /><label for="mark3" style="color: white"
+                        >လေ့လာရေးခရီးစဉ်</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        id="mark4"
+                        value="4"
+                      /><label for="mark4" style="color: white">Express</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        id="mark5"
+                        value="5"
+                        checked
+                      /><label for="mark5" style="color: white">ဟိုတယ်</label>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -234,8 +186,7 @@
                   rows="5"
                   placeholder="အချက်အလက်ရေးရန်"
                   required
-                >
-                </textarea>
+                ></textarea>
               </div>
               <div style="justify-content: center">
                 <input type="submit" value="ပို့စ်တင်မည်" class="update3" />

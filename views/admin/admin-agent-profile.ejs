@@ -161,8 +161,7 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
                   </li>
                   
                   <br />
-                </ul>
-              </div>
+
               
             </div>
             <p style="color: #14bf98;"><%= ausers.agentBio%></p>
@@ -176,66 +175,47 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
             <button type="button" class="btn " style="background-color: red;" onclick="choose('<%= ausers._id %>')">delete</button>
           </div>
         </div>
-        <section id="portfolio" class="portfolio section-bg"  style="background-color: transparent;"  >
-          <div class="container" data-aos="fade-up">
-            <div class="section-title">
-              <h2 style="color: #14bf98;">Post List</h2>
-            </div>
-    
-           
-            <div
-              class="row portfolio-container"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
+
+      
+     
+     </section>
+     <section id="portfolio" class="portfolio section-bg"  style="background-color: transparent;"  >
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2 style="color: #14bf98;">Post List</h2>
+        </div>
+
+       
+          <div
+            class="row portfolio-container"
+            data-aos="fade-up"
+            data-aos-delay="200"
+              >
+              <% for (var i = 0 ; i < posts.length ; i ++){%>
+               
               <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap">
                   <img
-                    src="/images/portfolio/portfolio-1.jpg"
-                    class="img-fluid"
+                    src="<%= posts[i].image %>"
+                    class=""
                     alt=""
+                    width="400px"
+                    height="280px"
                   />
                   <div class="portfolio-info">
-                    <a href="/adminAdetail" class="portfolio-details-lightbox"
-                      ><h4>Some text if you need</h4></a
-                    >
+                    <a href="/adminAdetail/<%= posts[i]._id %> ">
+                      <h4><%= posts[i].title %></h4>
+                    </a>
                   </div>
                 </div>
               </div>
-    
-              <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap">
-                  <img
-                    src="/images/portfolio/portfolio-2.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>Web 3</h4>
-                    <p>Web</p>
-                  </div>
-                </div>
-              </div>
-    
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img
-                    src="/images/portfolio/portfolio-3.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    <h4>App 2</h4>
-                    <p>App</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+              <%}%>
           </div>
-        </section>
+
       </div>
     </section>
-  </main>
+    </main>
 
     
   <!-- Vendor JS Files -->
