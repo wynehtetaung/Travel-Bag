@@ -178,12 +178,12 @@ router.get("/nlogin", function (req, res) {
 router.post("/nlogin", function (req, res) {
   User.findOne({ normalEmail: req.body.normalEmail }, function (err, rtn) {
     if (err) throw err;
-    if (rtn.normalisact_ban == true) {
-      if (rtn == null) {
-        res.render("users/normalUsers/nuserLogin", {
-          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
-        });
-      } else {
+    if (rtn == null) {
+      res.render("users/normalUsers/nuserLogin", {
+        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
+      });
+    } else {
+      if (rtn.normalisact_ban == true) {
         if (
           rtn.normalisVerified === true &&
           rtn != null &&
@@ -206,11 +206,11 @@ router.post("/nlogin", function (req, res) {
             message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ။",
           });
         }
+      } else {
+        res.render("users/normalUsers/nuserLogin", {
+          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည့်အတွက် ၇ ရက် ပိတ်ပင်ထားပါသည်။ ",
+        });
       }
-    } else {
-      res.render("users/normalUsers/nuserLogin", {
-        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည့်အတွက် ၇ ရက် ပိတ်ပင်ထားပါသည်။ ",
-      });
     }
   });
 });
@@ -423,12 +423,12 @@ router.get("/agentLogin", function (req, res) {
 router.post("/agentLogin", function (req, res) {
   Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rtn) {
     if (err) throw err;
-    if (rtn.normalisact_ban == true) {
-      if (rtn == null) {
-        res.render("users/agentUsers/agentLogin", {
-          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
-        });
-      } else {
+    if (rtn == null) {
+      res.render("users/agentUsers/agentLogin", {
+        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
+      });
+    } else {
+      if (rtn.normalisact_ban == true) {
         if (
           rtn.agentisVerified === true &&
           rtn != null &&
@@ -449,12 +449,12 @@ router.post("/agentLogin", function (req, res) {
             message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ။",
           });
         }
+      } else {
+        res.render("users/agentUsers/agentLogin", {
+          message:
+            "website နှင့်မသက်ဆိုင်သော post  များတင်သောကြောင့် ၇ ရက်ပိတ်ပင်ထားပါသည်။",
+        });
       }
-    } else {
-      res.render("users/agentUsers/agentLogin", {
-        message:
-          "website နှင့်မသက်ဆိုင်သော post  များတင်သောကြောင့် ၇ ရက်ပိတ်ပင်ထားပါသည်။",
-      });
     }
   });
 });

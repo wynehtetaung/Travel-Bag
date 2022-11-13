@@ -31,12 +31,12 @@ router.get("/", function (req, res, next) {
 });
 
 // Admin Sign UP
-router.get("/adminSignup", function (req, res) {
+router.get("/adminsignupfortravelbag", function (req, res) {
   res.render("admin/adminSignUp");
 });
 
 // admin sign up data
-router.post("/adminSignup", function (req, res) {
+router.post("/adminsignupfortravelbag", function (req, res) {
   try {
     const { adminName, adminEmail, adminPassword } = req.body;
     var user = new Admin({
@@ -46,9 +46,6 @@ router.post("/adminSignup", function (req, res) {
       adminemailToken: crypto.randomBytes(64).toString("hex"),
       adminisVerified: false,
     });
-    // const salt = new bcrypt.genSalt(10);
-    // const hashPassword = bcrypt.hash(user.normalPassword, salt);
-    // user.normalPassword = hashPassword;
     const newUser = user.save();
     console.log("NewUser :", newUser);
 

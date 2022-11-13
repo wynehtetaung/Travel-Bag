@@ -29,9 +29,6 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
-  agentisVerified: {
-    type: Boolean,
-  },
   agentDate: {
     type: Date,
     default: Date.now(),
