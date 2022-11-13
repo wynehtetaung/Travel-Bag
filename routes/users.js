@@ -8,6 +8,7 @@ var bcrypt = require("bcryptjs");
 var crypto = require("crypto");
 var cookie = require("cookie-parser");
 var jwt = require("jsonwebtoken");
+var fs = require("fs");
 var nodemailer = require("nodemailer");
 const SMTPConnection = require("nodemailer/lib/smtp-connection");
 var multer = require("multer");
@@ -754,7 +755,11 @@ router.post(
 router.get("/apostdelete/:id", agentAuth, function (req, res) {
   Post.findByIdAndDelete(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.redirect("/users/apostlist");
+    console.log("post delete:", rtn);
+    fs.unlink("public" + rtn.image, function (err2, rtn2) {
+      if (err2) throw err2;
+      res.redirect("/users/apostlist");
+    });
   });
 });
 
