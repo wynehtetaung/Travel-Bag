@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Search bar 
-    </title>
+    <title>Search bar</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
     <link rel="stylesheet" href="/stylesheets/search-style.css" />
     <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
@@ -22,8 +20,6 @@
     <link href="/stylesheets/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="/stylesheets/agent-post-list.css" />
     <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-
-    
   </head>
   <style>
     .blog123 {
@@ -65,19 +61,17 @@
     </div>
     <span class="counter pull-right center-box"></span>
     <div class="center-box">
-      
       <div class="container">
         <div class="row">
           <div class="col-lg-2">
             <div id="projects" class="filter">
               <div class="container">
-                <div class="row">
-                 
-                </div>
+                <div class="row"></div>
                 <!-- end of row -->
                 <div class="row">
                   <div class="col-lg-12">
                     <!-- Filter -->
+
                     <div style="margin-right: 5px">
                       <form action="#">
                         <input type="checkbox" name="checkbox" id="" /><span
@@ -107,16 +101,15 @@
                         <hr />
                       </form>
                     </div>
-                 
                   </div>
                 </div>
               </div>
             </div>
-          </div> 
-          
+          </div>
+
           <div class="col-lg-10" style="justify-content: center">
             <div class="grid">
-          <!-- <% for (var i = 0 ; i < posts.length ; i ++){%>
+              <!-- <% for (var i = 0 ; i < posts.length ; i ++){%>
 
               <div class="element-item design marketing" style="justify-content: center">
                 <a class="popup-with-move-anim" href="#project-1"
@@ -130,36 +123,32 @@
               </div>
               <%}%> -->
               <div
-              class="row portfolio-container"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <% for (var i = 0 ; i < posts.length ; i ++){%>
-              <a href="/postdetail/<%= posts[i]._id %> ">
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                  <div class="portfolio-wrap">
-                    <img
-                      src="<%= posts[i].image %>"
-                      class=""
-                      alt=""
-                      width="420px"
-                      
-                    />
-                    <div class="portfolio-info">
-                      <h4><%= posts[i].title %></h4>
+                class="row portfolio-container"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <% for (var i = 0 ; i < posts.length ; i ++){%>
+                <a href="/postdetail/<%= posts[i]._id %> ">
+                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                      <img
+                        src="<%= posts[i].image %>"
+                        class=""
+                        alt=""
+                        width="420px"
+                      />
+                      <div class="portfolio-info">
+                        <h4><%= posts[i].title %></h4>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-              <%}%>
-            </div>
+                </a>
+                <%}%>
+              </div>
             </div>
           </div>
         </div>
       </div>
-     
-     
-      
     </div>
     <% include ./partials/footer %>
   </body>
@@ -184,7 +173,7 @@
   <script src="/javascripts/validator.min.js"></script>
   <!-- Validator.js - Bootstrap plugin that validates forms -->
   <script src="/javascripts/scripts.js"></script>
-  
+
   <script src="/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Custom scripts -->
