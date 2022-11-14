@@ -15,10 +15,7 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-//mongoose connect
-// mongoose.connect(
-//   "mongodb+srv://travelbag:<Md7W5aHgcozeiTMd>@travelbag.0x71uaf.mongodb.net/?retryWrites=true&w=majority"
-// );
+// mongoose connect
 
 mongoose.connect("mongodb://127.0.0.1/travelbag");
 var db = mongoose.connection;

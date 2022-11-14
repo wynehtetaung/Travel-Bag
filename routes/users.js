@@ -8,6 +8,7 @@ var bcrypt = require("bcryptjs");
 var crypto = require("crypto");
 var cookie = require("cookie-parser");
 var jwt = require("jsonwebtoken");
+var fs = require("fs");
 var nodemailer = require("nodemailer");
 const SMTPConnection = require("nodemailer/lib/smtp-connection");
 var multer = require("multer");
@@ -177,12 +178,12 @@ router.get("/nlogin", function (req, res) {
 router.post("/nlogin", function (req, res) {
   User.findOne({ normalEmail: req.body.normalEmail }, function (err, rtn) {
     if (err) throw err;
-    if (rtn.normalisact_ban == true) {
-      if (rtn == null) {
-        res.render("users/normalUsers/nuserLogin", {
-          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
-        });
-      } else {
+    if (rtn == null) {
+      res.render("users/normalUsers/nuserLogin", {
+        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
+      });
+    } else {
+      if (rtn.normalisact_ban == true) {
         if (
           rtn.normalisVerified === true &&
           rtn != null &&
@@ -205,11 +206,11 @@ router.post("/nlogin", function (req, res) {
             message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ။",
           });
         }
+      } else {
+        res.render("users/normalUsers/nuserLogin", {
+          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည့်အတွက် ၇ ရက် ပိတ်ပင်ထားပါသည်။ ",
+        });
       }
-    } else {
-      res.render("users/normalUsers/nuserLogin", {
-        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည့်အတွက် ၇ ရက် ပိတ်ပင်ထားပါသည်။ ",
-      });
     }
   });
 });
@@ -422,12 +423,12 @@ router.get("/agentLogin", function (req, res) {
 router.post("/agentLogin", function (req, res) {
   Agent.findOne({ agentEmail: req.body.agentEmail }, function (err, rtn) {
     if (err) throw err;
-    if (rtn.normalisact_ban == true) {
-      if (rtn == null) {
-        res.render("users/agentUsers/agentLogin", {
-          message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
-        });
-      } else {
+    if (rtn == null) {
+      res.render("users/agentUsers/agentLogin", {
+        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
+      });
+    } else {
+      if (rtn.normalisact_ban == true) {
         if (
           rtn.agentisVerified === true &&
           rtn != null &&
@@ -448,12 +449,12 @@ router.post("/agentLogin", function (req, res) {
             message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ။",
           });
         }
+      } else {
+        res.render("users/agentUsers/agentLogin", {
+          message:
+            "website နှင့်မသက်ဆိုင်သော post  များတင်သောကြောင့် ၇ ရက်ပိတ်ပင်ထားပါသည်။",
+        });
       }
-    } else {
-      res.render("users/agentUsers/agentLogin", {
-        message:
-          "website နှင့်မသက်ဆိုင်သော post  များတင်သောကြောင့် ၇ ရက်ပိတ်ပင်ထားပါသည်။",
-      });
     }
   });
 });
@@ -661,30 +662,14 @@ router.post(
   upload.single("image"),
   function (req, res) {
     var post = new Post();
-    var updated;
-    var Isequal = req.body.status;
-    var type = post.type;
-    if ((Isequal = 1)) {
-      updated = 1;
-    } else if ((Isequal = 2)) {
-      updated = 2;
-    } else if ((Isequal = 3)) {
-      updated = 3;
-    } else if ((Isequal = 4)) {
-      updated = 4;
-    } else if ((Isequals = 5)) {
-      updated = 5;
-    } else {
-      updated = 0;
-    }
-
+    console.log("status:", req.body);
     post.title = req.body.title;
     post.place = req.body.place;
     post.phone = req.body.phone;
     post.author = req.session.agent.id;
     post.content = req.body.content;
     post.created = Date.now();
-    post.type = updated;
+    post.type = req.body.type;
     if (req.file) post.image = "/images/testimonials/" + req.file.filename;
     post.save(function (err, rtn) {
       if (err) throw err;
@@ -709,7 +694,6 @@ router.get("/adetail/:id", agentAuth, function (req, res) {
     .exec(function (err, rtn) {
       if (err) throw err;
       res.render("users/agentUsers/agent-post-details", { posts: rtn });
-     
     });
 });
 
@@ -719,24 +703,28 @@ router.get("/apostupdate/:id", agentAuth, function (req, res) {
     if (err) throw err;
     res.render("users/agentUsers/agent-post-update", { posts: rtn });
   });
-});  
-
-router.post("/apostupdate", agentAuth, upload.single("image"), function(req,res){
-  var update = {
-    title : req.body.title,
-    content : req.body.content,
-    place : req.body.place,
-    phone : req.body.phone,
-    updated : Date.now() 
-  
-  }   
-  if (req.file) update.image = "/images/testimonials/" + req.file.filename;
-  Post.findByIdAndUpdate(req.body.id,{$set:update}, function(err,rtn){
-    if (err) throw err;
-    console.log(rtn);
-    res.redirect("/users/apostlist");
-  }); 
 });
+
+router.post(
+  "/apostupdate",
+  agentAuth,
+  upload.single("image"),
+  function (req, res) {
+    var update = {
+      title: req.body.title,
+      content: req.body.content,
+      place: req.body.place,
+      phone: req.body.phone,
+      updated: Date.now(),
+    };
+    if (req.file) update.image = "/images/testimonials/" + req.file.filename;
+    Post.findByIdAndUpdate(req.body.id, { $set: update }, function (err, rtn) {
+      if (err) throw err;
+      console.log(rtn);
+      res.redirect("/users/apostlist");
+    });
+  }
+);
 
 router.post(
   "/apostupdate",
@@ -767,7 +755,11 @@ router.post(
 router.get("/apostdelete/:id", agentAuth, function (req, res) {
   Post.findByIdAndDelete(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.redirect("/users/apostlist");
+    console.log("post delete:", rtn);
+    fs.unlink("public" + rtn.image, function (err2, rtn2) {
+      if (err2) throw err;
+      res.redirect("/users/apostlist");
+    });
   });
 });
 
@@ -783,11 +775,13 @@ router.get("/agentlist", agentAuth, function (req, res) {
 router.get("/aprofile/:id", agentAuth, function (req, res) {
   Agent.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    Post.find({author:rtn.id}, function(err2,rtn2){
-      if(err2) throw err;
-      res.render("users/agentUsers/agent-profile-detail", { posts: rtn2, ausers: rtn });
-    })
-    
+    Post.find({ author: rtn.id }, function (err2, rtn2) {
+      if (err2) throw err;
+      res.render("users/agentUsers/agent-profile-detail", {
+        posts: rtn2,
+        ausers: rtn,
+      });
+    });
   });
 });
 
@@ -797,12 +791,11 @@ router.get("/atoadetail/:id", agentAuth, function (req, res) {
     .populate("author", "agentPhone")
     .exec(function (err, rtn) {
       if (err) throw err;
-      res.render("users/agentUsers/agent-post-detail-fromagent", { posts: rtn });
-     
+      res.render("users/agentUsers/agent-post-detail-fromagent", {
+        posts: rtn,
+      });
     });
 });
-
-
 
 // check users name duplicate
 router.post("/checkname", function (req, res) {

@@ -95,7 +95,7 @@
       class="whole-body"
       style="margin-top: 50px; margin-right: 10px"
     >
-      <section id="portfolio-details" class="portfolio-details">
+      <!-- <section id="portfolio-details" class="portfolio-details">
         <div class="container rounded">
           <div class="row gy-4">
             <div class="col-lg-6">
@@ -136,6 +136,49 @@
               </div>
             </div>
           </div>
+        </div>
+      </section> -->
+
+      <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+  
+          <div class="row gy-4">
+  
+            <div class="col-lg-8">
+              <div class="portfolio-details-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+  
+                  <div class="swiper-slide">
+                    <img src="<%= posts.image%>" alt="">
+                  </div>
+  
+                  
+  
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4">
+              <div class="portfolio-info">
+                <h3>Post information</h3>
+                <ul>
+                  <li><strong>အေးဂျင့်</strong>:<%= locals.agent.agentName %></li>
+                  <li><strong>တည်နေရာ</strong>: <%=posts.place %></li>
+                  <li><strong>ဖုန်းနံပါတ်</strong>: <%= posts.author.agentPhone %></li>
+                  <li><strong>ပို့စ်တင်ချိန်</strong>: <a href="#"><%= posts.created %></a></li>
+                </ul>
+              </div>
+              <div class="portfolio-description">
+                <h2><strong><%= posts.title%></strong></h2>
+                <p>
+                  <%= posts.content %>
+                </p>
+              </div>
+            </div>
+  
+          </div>
+  
         </div>
       </section>
     </main>
