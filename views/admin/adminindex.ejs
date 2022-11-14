@@ -149,7 +149,7 @@
                           Normal users
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                          <%= user.length%> users
+                          <%= users.length%> users
                         </div>
                       </div>
                     </a>
@@ -170,7 +170,7 @@
                           Agent users
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                          <%= ausers.length%> users
+                          <%= ausers.length %> users
                         </div>
                       </div>
                     </a>
@@ -191,26 +191,22 @@
                 <th style="color: rgb(0, 232, 85)">City</th>
               </tr>
             </thead>
+            <% for(var i = 0; i < ausers.length ; i++){%>
             <tbody>
               <tr>
-                <td style="color: greenyellow">John</td>
-                <td style="color: rgb(0, 45, 71)">Doe@gmail.com</td>
-                <td style="color: rgb(238, 115, 0)">09757359906</td>
-                <td style="color: rgb(0, 184, 68)">Yangon</td>
-              </tr>
-              <tr>
-                <td style="color: greenyellow">Mary</td>
-                <td style="color: rgb(0, 45, 71)">Moe@gmail.com</td>
-                <td style="color: rgb(238, 115, 0)">09757359906</td>
-                <td style="color: rgb(0, 184, 68)">Yangon</td>
-              </tr>
-              <tr>
-                <td style="color: greenyellow">July</td>
-                <td style="color: rgb(0, 45, 71)">Dooley@gmail.com</td>
-                <td style="color: rgb(238, 115, 0)">09757359906</td>
-                <td style="color: rgb(0, 184, 68)">Yangon</td>
+                <td style="color: greenyellow"><%= ausers[i].agentName %></td>
+                <td style="color: rgb(0, 45, 71)">
+                  <%= ausers[i].agentEmail %>
+                </td>
+                <td style="color: rgb(238, 115, 0)">
+                  <%= ausers[i].agentPhone %>
+                </td>
+                <td style="color: rgb(0, 184, 68)">
+                  <%= ausers[i].agentCity %>
+                </td>
               </tr>
             </tbody>
+            <%}%>
           </table>
 
           <!-- Normal users -->
@@ -222,20 +218,16 @@
                 <th style="color: rgb(0, 0, 95)">Email</th>
               </tr>
             </thead>
+            <% for(var k = 0; k < users.length ; k++){%>
             <tbody>
               <tr>
-                <td style="color: greenyellow">John</td>
-                <td style="color: rgb(0, 45, 71)">Doe@gmail.com</td>
-              </tr>
-              <tr>
-                <td style="color: greenyellow">Mary</td>
-                <td style="color: rgb(0, 45, 71)">Moe@gmail.com</td>
-              </tr>
-              <tr>
-                <td style="color: greenyellow">July</td>
-                <td style="color: rgb(0, 45, 71)">Dooley@gmail.com</td>
+                <td style="color: greenyellow"><%= users[k].normalName %></td>
+                <td style="color: rgb(0, 45, 71)">
+                  <%= users[k].normalEmail %>
+                </td>
               </tr>
             </tbody>
+            <%}%>
           </table>
         </div>
       </section>
