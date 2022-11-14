@@ -185,10 +185,11 @@
           <table class="table">
             <thead>
               <tr>
-                <th style="color: greenyellow">Name</th>
+                <th style="color: rgb(147, 255, 47)">Name</th>
                 <th style="color: rgb(0, 0, 95)">Email</th>
                 <th style="color: rgb(218, 149, 0)">Phone</th>
-                <th style="color: rgb(0, 232, 85)">City</th>
+                <th style="color: rgb(238, 255, 0)">City</th>
+                <th style="color: rgb(0, 235, 141)">Created Date</th>
               </tr>
             </thead>
             <% for(var i = 0; i < ausers.length ; i++){%>
@@ -201,8 +202,11 @@
                 <td style="color: rgb(238, 115, 0)">
                   <%= ausers[i].agentPhone %>
                 </td>
-                <td style="color: rgb(0, 184, 68)">
+                <td style="color: rgb(235, 227, 0)">
                   <%= ausers[i].agentCity %>
+                </td>
+                <td style="color: rgb(0, 251, 151)">
+                  <%= ausers[i].agentDate %>
                 </td>
               </tr>
             </tbody>
@@ -216,6 +220,7 @@
               <tr>
                 <th style="color: greenyellow">Name</th>
                 <th style="color: rgb(0, 0, 95)">Email</th>
+                <th style="color: rgb(0, 235, 141)">Created Date</th>
               </tr>
             </thead>
             <% for(var k = 0; k < users.length ; k++){%>
@@ -224,6 +229,9 @@
                 <td style="color: greenyellow"><%= users[k].normalName %></td>
                 <td style="color: rgb(0, 45, 71)">
                   <%= users[k].normalEmail %>
+                </td>
+                <td style="color: rgb(0, 251, 151)">
+                  <%= users[k].normalDate %>
                 </td>
               </tr>
             </tbody>
