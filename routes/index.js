@@ -98,11 +98,17 @@ router.get("/adminpage", adminAuth, function (req, res) {
       if (err2) throw err;
       Agent.find({}, function (err3, rtn3) {
         if (err3) throw err;
-        res.render("admin/adminindex", {
-          posts: rtn,
-          users: rtn2,
-          ausers: rtn3,
-        });
+        Admin.find(),
+          function (err4, rtn4) {
+            if (err4) throw err;
+            res.render("admin/adminindex", {
+              posts: rtn,
+              users: rtn2,
+              ausers: rtn3,
+              admin: rtn4,
+            });
+            console.log("amdin:", rtn4);
+          };
       });
     });
   });
