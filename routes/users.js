@@ -180,7 +180,7 @@ router.post("/nlogin", function (req, res) {
     if (err) throw err;
     if (rtn == null) {
       res.render("users/normalUsers/nuserLogin", {
-        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
+        message: "သင်အကောင့်ဖွင့်ထားသော အီးမေးလ်ဖြင့် အကောင့်ပြန်ဝင်ပါ။",
       });
     } else {
       if (rtn.normalisact_ban == true) {
@@ -188,7 +188,6 @@ router.post("/nlogin", function (req, res) {
           rtn.normalisVerified === true &&
           rtn != null &&
           User.compare(req.body.normalPassword, rtn.normalPassword)
-          // User.compare(req.body.normalisVerified, rtn.normalisVerified)
         ) {
           //renember login
           req.session.user = {
@@ -203,7 +202,7 @@ router.post("/nlogin", function (req, res) {
           });
         } else {
           res.render("users/normalUsers/nuserLogin", {
-            message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ။",
+            message: "သင့် စကားဝှက် မှားနေပါသည်။",
           });
         }
       } else {
@@ -425,7 +424,7 @@ router.post("/agentLogin", function (req, res) {
     if (err) throw err;
     if (rtn == null) {
       res.render("users/agentUsers/agentLogin", {
-        message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ ။",
+        message: "သင်အကောင့်ဖွင့်ထားသော အီးမေးလ်ဖြင့် အကောင့်ပြန်ဝင်ပါ။",
       });
     } else {
       if (rtn.normalisact_ban == true) {
@@ -446,7 +445,7 @@ router.post("/agentLogin", function (req, res) {
           });
         } else {
           res.render("users/agentUsers/agentLogin", {
-            message: "တစ်စုံတစ်ရာ မှားယွင်းနေပါသည်။ အကောင့်ပြန်ဝင်ပါ။",
+            message: "သင့် စကားဝှက် မှားနေပါသည်။",
           });
         }
       } else {

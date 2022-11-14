@@ -29,6 +29,10 @@ var UserSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  normalisVerified: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 UserSchema.pre("save", function (next) {

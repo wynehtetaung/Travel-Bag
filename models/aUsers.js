@@ -41,6 +41,10 @@ var UserSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  agentisVerified: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 UserSchema.pre("save", function (next) {
