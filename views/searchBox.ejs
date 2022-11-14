@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Bag</title>
+    <title>
+      Search bar 
+    </title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
     <link rel="stylesheet" href="/stylesheets/search-style.css" />
     <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
@@ -19,12 +21,9 @@
     <link href="/stylesheets/magnific-popup.css" rel="stylesheet" />
     <link href="/stylesheets/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="/stylesheets/agent-post-list.css" />
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
 
-    <!-- <link href="/stylesheets/fontawesome-all.css" rel="stylesheet" />
-    <link href="/stylesheets/swiper.css" rel="stylesheet" />
-    <link href="/stylesheets/magnific-popup.css" rel="stylesheet" />
-    <link href="/stylesheets/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/agent-post-list.css" /> -->
+    
   </head>
   <style>
     .blog123 {
@@ -66,28 +65,14 @@
     </div>
     <span class="counter pull-right center-box"></span>
     <div class="center-box">
-      <!-- <table class="table noborder">
-        <thead>
-          <tr>
-            <th class="col-md-7 col-xs-7">Name / Surname</th>
-            <th class="col-md-6 col-xs-6">Job</th>
-          </tr>
-          <tr class="warning no-result">
-            <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-          </tr>
-        </thead> -->
+      
       <div class="container">
         <div class="row">
           <div class="col-lg-2">
             <div id="projects" class="filter">
               <div class="container">
                 <div class="row">
-                  <!-- <div class="col-lg-12">
-                    <div class="section-title" style="text-align: center">
-                      ခရီးစဥ်များ
-                    </div>
-                  </div> -->
-                  <!-- end of col -->
+                 
                 </div>
                 <!-- end of row -->
                 <div class="row">
@@ -122,676 +107,59 @@
                         <hr />
                       </form>
                     </div>
-                    <!-- end of button group -->
-                    <!-- end of grid -->
-                    <!-- end of filter -->
+                 
                   </div>
-                  <!-- end of col -->
                 </div>
-                <!-- end of row -->
               </div>
-              <!-- end of container -->
             </div>
-          </div>
-          <div class="col-lg-5" style="justify-content: center">
+          </div> 
+          
+          <div class="col-lg-10" style="justify-content: center">
             <div class="grid">
-              <div class="element-item design marketing">
+          <!-- <% for (var i = 0 ; i < posts.length ; i ++){%>
+
+              <div class="element-item design marketing" style="justify-content: center">
                 <a class="popup-with-move-anim" href="#project-1"
                   ><div class="element-item-overlay">
-                    <span>ပုဂံဘုရားဖူးခရီးစဉ်</span>
+                    <span><%= posts[i].title %></span>
                   </div>
-                  <img class="blog123" src="/images/bagan2.jpg" alt="Bagan"
+                  <img class="blog123"
+                  style="width: 420px; margin: 0 15px"
+                   src="<%= posts[i].image %>" alt="Bagan"
                 /></a>
               </div>
-
-              <div class="element-item development">
-                <a class="popup-with-move-anim" href="#project-4"
-                  ><div class="element-item-overlay">
-                    <span>ငပလီကမ်းခြေခရီးစဉ်</span>
+              <%}%> -->
+              <div
+              class="row portfolio-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <% for (var i = 0 ; i < posts.length ; i ++){%>
+              <a href="/postdetail/<%= posts[i]._id %> ">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                  <div class="portfolio-wrap">
+                    <img
+                      src="<%= posts[i].image %>"
+                      class=""
+                      alt=""
+                      width="420px"
+                      
+                    />
+                    <div class="portfolio-info">
+                      <h4><%= posts[i].title %></h4>
+                    </div>
                   </div>
-                  <img class="blog123" src="/images/beach1.jpg" alt="Ngapali"
-                /></a>
-              </div>
-
-              <div class="element-item development">
-                <a class="popup-with-move-anim" href="#project-5"
-                  ><div class="element-item-overlay">
-                    <span>ငွေဆောင်ကမ်းခြေခရီးစဉ်</span>
-                  </div>
-                  <img class="blog123" src="/images/Ns4.jpg" alt="NgweSung"
-                /></a>
-              </div>
-
-              <div class="element-item seo">
-                <a class="popup-with-move-anim" href="#project-24"
-                  ><div class="element-item-overlay">
-                    <span>KMA Inle Hotel</span>
-                  </div>
-                  <img class="blog123" src="/images/innlay11.jpg" alt="hote21"
-                /></a>
-              </div>
-
-              <div class="element-item bus">
-                <a class="popup-with-move-anim" href="#project-26"
-                  ><div class="element-item-overlay">
-                    <span>မန္တလာမင်း Express</span>
-                  </div>
-                  <img class="blog123" src="/images/bus2.jpg" alt="bus1"
-                /></a>
-              </div>
+                </div>
+              </a>
+              <%}%>
             </div>
-          </div>
-
-          <div class="col-lg-5" style="justify-content: center">
-            <div class="grid">
-              <div class="element-item marketing">
-                <a class="popup-with-move-anim" href="#project-10"
-                  ><div class="element-item-overlay">
-                    <span>မန္တလေးမြို့ခရီးစဉ်</span>
-                  </div>
-                  <img
-                    class="blog123"
-                    src="/images/mandalay2.jpg"
-                    alt="Mandalay"
-                /></a>
-              </div>
-
-              <div class="element-item design">
-                <a class="popup-with-move-anim" href="#project-25"
-                  ><div class="element-item-overlay">
-                    <span>ကျိုက်ထီးရိုးဘုရားဖူးခရီးစဉ်</span>
-                  </div>
-                  <img class="blog123" src="/images/kkh.jpg" alt="KyikeHto"
-                /></a>
-              </div>
-
-              <div class="element-item seo">
-                <a class="popup-with-move-anim" href="#project-16"
-                  ><div class="element-item-overlay">
-                    <span>ACE Hotel</span>
-                  </div>
-                  <img class="blog123" src="/images/nshotel5.jpg" alt="hotel3"
-                /></a>
-              </div>
-              <div class="element-item marketing">
-                <a class="popup-with-move-anim" href="#project-23"
-                  ><div class="element-item-overlay">
-                    <span>ပုသိမ်မြို့ခရီးစဉ်</span>
-                  </div>
-                  <img class="blog123" src="/images/ptn2.jpg" alt="Pathein"
-                /></a>
-              </div>
-              <div class="element-item seo">
-                <a class="popup-with-move-anim" href="#project-19"
-                  ><div class="element-item-overlay">
-                    <span>Kalaw Heritage Hotel</span>
-                  </div>
-                  <img
-                    class="blog123"
-                    src="/images/kalawhotel6.jpg"
-                    alt="hotel7"
-                /></a>
-              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Project Lightboxes -->
-      <!-- Lightbox -->
-      <div id="project-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img class="img-fluid im11" src="images/bagan2.jpg" alt="Bagan" />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>ပုဂံ</h3>
-            <hr class="line-heading" />
-            <h6>ဘုရားဖူး နှင့် လေ့လာရေးခရီးစဉ်</h6>
-            <p>
-              ဘုရားဖူးထွက်ရင်း စိတ်အပန်းလဲပြေပြီး ဗဟုသုတတွေအများကြီး ရနိုင်မယ့်
-              ခရီးစဉ်လေးတစ်ခုဆိုရင်လဲ မမှားပါဘူး။ လေ့လာရေးခရီးထွက်လိုသော
-              ကျောင်းသားလူငယ်လေးတွေအနေနဲ့လဲ မြန်မာ့သမိုင်းဝင်
-              အမွေအနှစ်များစွာကို စိတ်ဝင်စားဖွယ်ရာ လေ့လာနိုင်မှာဖြစ်ပြီး... Vlog
-              ရိုက်ရတာကိုကြိုက်နှစ်သက်တဲ့ မိတ်ဆွေတို့အတွက်လဲ အရမ်းကိုသင့်တော်တဲ့
-              ခရီးစဉ်လေးတစ်ခုဖြစ်ပါတယ်။ ။
-            </p>
-            <p>
-              ပုဂံဘုရားဖူးခရီးစဉ်လေးကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့်
-              အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်
-              လေ့လာစုံစမ်းနိုင်ပါတယ်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="#">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-      <!-- Lightbox -->
-      <div id="project-4" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img
-              class="img-fluid im11"
-              src="/images/beach1.jpg"
-              alt="Ngapali"
-            />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>ငပလီ</h3>
-            <hr class="line-heading" />
-            <h6>ကမ်းခြေခရီးစဉ်</h6>
-            <p>
-              အလုပ်ရဲ့ပင်ပန်းမှုတွေကနေ ခဏတာ အပန်းဖြေအနားယူလိုသူတွေ နဲ့
-              ပင်လယ်ပြင်ရဲ့အလှကို တစ်ဝကြီးကြည့်ရှုခံစားလိုတဲ့
-              ပင်လယ်ချစ်သူလေးများအတွက် အရမ်းကိုသင့်တော်တယ် ခရီးစဉ်လေး ဖြစ်ပါတယ်။
-            </p>
-            <p>
-              ငပလီကမ်းခြေခရီးစဉ်လေးကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့်
-              အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်
-              လေ့လာစုံစမ်းနိုင်ပါတယ်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="#">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-
-      <!-- Lightbox -->
-      <div id="project-5" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img class="img-fluid im11" src="/images/Ns4.jpg" alt="NgweSung" />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>ငွေဆောင်</h3>
-            <hr class="line-heading" />
-            <h6>ကမ်းခြေခရီးစဉ်</h6>
-            <p>
-              မိသားစု အပန်းဖြေခရီးစဉ်လေးတစ်ခုအနေနဲ့ အရမ်းကိုအဆင်ပြေပြီး
-              ချစ်သူစုံတွဲလေးများအနေနဲ့လဲ အမှတ်တရလေးတွေများစွာကိုဖန်တီးနိုင်မယ့်
-              ခရီးစဉ်လေး တစ်ခုဖြစ်ပါတယ်နော်။
-            </p>
-            <p>
-              ငွေဆောင်ကမ်းခြေခရီးစဉ်လေးကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့်
-              အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်
-              လေ့လာစုံစမ်းနိုင်ပါတယ်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="#">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-      <!-- Lightbox -->
-      <div id="project-24" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img
-              class="img-fluid im11"
-              src="/images/innlay11.jpg"
-              alt="KMA Inle Hotel"
-            />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>KMA Inle</h3>
-            <hr class="line-heading" />
-            <h6>Hotel</h6>
-            <p>
-              KMA Inle Hotel သည် အင်းလေးခရီးစဉ် ရွေးချယ်ထားသောမိတ်ဆွေများအတွက်
-              စိတ်ချယုံကြည်စွာတည်းခိုနိုင်မယ့် ဟိုတယ်ကောင်းတစ်ခုဖြစ်ပါတယ်။
-            </p>
-            <p>
-              KMA Inle Hotel ကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့်
-              အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်
-              လေ့လာစုံစမ်းနိုင်ပါတယ်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="https://www.w3schools.com/">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-      <!-- Lightbox -->
-      <div id="project-26" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img class="img-fluid im11" src="/images/bus2.jpg" alt="Bus1" />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>မန္တလာမင်း Express</h3>
-            <hr class="line-heading" />
-            <h6>Bus</h6>
-            <p>
-              မန္တလာမင်း Express သည် ခရီးစဉ် ရွေးချယ်ထားသောမိတ်ဆွေများအတွက်
-              စိတ်ချယုံကြည်စွာသွားလာနိုင်မယ့် Busကောင်းတစ်ခုဖြစ်ပါတယ်။
-            </p>
-            <p>
-              မန္တလာမင်း Express နှင့်ခရီးသွားလိုပါက လူကြီးမင်းတို့အနေဖြင့်
-              အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်စုံစမ်းနိုင်ပါသည်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="https://www.w3schools.com/">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-
-      <!-- Lightbox -->
-      <div id="project-10" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img
-              class="img-fluid im11"
-              src="/images/mandalay2.jpg"
-              alt="Mandalay"
-            />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>မန္တလေးမြို့</h3>
-            <hr class="line-heading" />
-            <h6>လေ့လာရေးခရီးစဉ်</h6>
-            <p>
-              မြန်မာ့ယဉ်ကျေးမှုအမွေအနှစ်များနှင့် မြန်မာမင်းအဆက်ဆက်
-              မင်းပြုစိုးစံခဲ့ကြတဲ့ မြနန်းစံကျော်ရွှေနန်းတော်ကြီးကို
-              သွားရောက်လေ့လာနိုင်ပါတယ်။ ဒါ့အပြင် ဦးပိန်တံတန်းမှာ
-              နေဝင်ဆည်းဆာလေးကိုကြည့်ရင်း အပန်းဖြေနိုင်မယ့်
-              ခရီးစဉ်လေးလဲဖြစ်ပါတယ်။
-            </p>
-            <p>
-              မန္တလေးမြို့ခရီးစဉ်လေးကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့်
-              အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်
-              လေ့လာစုံစမ်းနိုင်ပါတယ်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="#">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-      <!-- Lightbox -->
-      <div id="project-25" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img class="img-fluid im11" src="/images/kkh.jpg" alt="KyikeHto" />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>ကျိုက်ထီးရိုး</h3>
-            <hr class="line-heading" />
-            <h6>ဘုရားဖူးခရီးစဉ်</h6>
-            <p>
-              ဆံတော်ရှင် ကျိုက်ထီးရိုး စေတီတော်ကြီးကိုဖူးမြော်ရင်း
-              တောင်တန်းများရဲ့ အလှအပကို ခံစားပြီး အေးချမ်းကြည်နူးဖွယ်ကောင်းတဲ့
-              ခံစားချက်လေးကိုရရှိမယ့် ခရီးစဉ်လေးပဲဖြစ်ပါတယ်။
-            </p>
-            <p>
-              ကျိုက်ထီးရိုးဘုရားဖူးခရီးစဉ်လေးကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့်
-              အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်
-              လေ့လာစုံစမ်းနိုင်ပါတယ်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="#">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-      <!-- Lightbox -->
-      <div id="project-16" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img
-              class="img-fluid im11"
-              src="/images/nshotel5.jpg"
-              alt="CENTRAL Hotel"
-            />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>ACE</h3>
-            <hr class="line-heading" />
-            <h6>Hotel</h6>
-            <p>
-              ACE Hotel သည် ငွေဆောင်ကမ်းခြေခရီးစဉ်
-              ရွေးချယ်ထားသောမိတ်ဆွေများအတွက် စိတ်ချယုံကြည်စွာတည်းခိုနိုင်မယ့်
-              ဟိုတယ်ကောင်းတစ်ခုဖြစ်ပါတယ်။
-            </p>
-            <p>
-              ACE Hotelကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့် အောက်တွင်ဖော်ပြထားသော
-              အေးဂျင့်ထံတွင် အသေးစိတ် လေ့လာစုံစမ်းနိုင်ပါတယ်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="https://www.w3schools.com/">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-      <!-- Lightbox -->
-      <div id="project-23" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img class="img-fluid im11" src="/images/ptn2.jpg" alt="mmmu" />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>ပုသိမ်မြို့</h3>
-            <hr class="line-heading" />
-            <h6>လေ့လာရေးခရီးစဉ်</h6>
-            <p>
-              ပုသိမ်မြို့ရဲ့ ညအလှရော နေ့အလှရောကိုပါ ခံစားရမယ့်အပြင်..
-              ရေပေါ်‌ဈေးမှာလဲမုန့်တွေ ပတ်စားလို့ရပါသေးတယ်ဗျ။ ပုသိမ်မြို့ ရဲ့
-              အထင်ကရဖြစ်တဲ့ မြို့နာရီစဉ်ကိုလဲ တွေ့မြင်ရမှာ ဖြစ်ပြီး၊ မြန်မာ့
-              ပုသိမ်ထီးရဲ့ အလှအပတွေနဲ့အတူ ပုသိမ်ဟာလဝါ လဲ လက်ဆောင်အနေနဲ့ အမှတ်တရ
-              ဝယ်ယူနိုင်မယ့် ခရီးစဉ်လေး ဖြစ်ပါတယ်။
-            </p>
-            <p>
-              ပုသိမ်မြို့ခရီးစဉ်လေးကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့်
-              အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်
-              လေ့လာစုံစမ်းနိုင်ပါတယ်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="tel:+95973238057">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-      <!-- Lightbox -->
-      <div id="project-19" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button">
-            ×
-          </button>
-          <div class="col-lg-8">
-            <img
-              class="img-fluid im11"
-              src="/images/kalawhotel6.jpg"
-              alt="Kalaw Hotel"
-            />
-          </div>
-          <!-- end of col -->
-          <div class="col-lg-4">
-            <h3>Kalaw Heritage</h3>
-            <hr class="line-heading" />
-            <h6>Hotel</h6>
-            <p>
-              Kalaw Heritage Hotel သည် ကလောခရီးစဉ်
-              ရွေးချယ်ထားသောမိတ်ဆွေများအတွက် စိတ်ချယုံကြည်စွာတည်းခိုနိုင်မယ့်
-              ဟိုတယ်ကောင်းတစ်ခုဖြစ်ပါတယ်။
-            </p>
-            <p>
-              Kalaw Heritage Hotel ကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့်
-              အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်
-              လေ့လာစုံစမ်းနိုင်ပါတယ်။
-            </p>
-            <div class="testimonial-container">
-              <p class="testimonial-text">
-                <img
-                  class="phone123"
-                  src="/images/phone-call.png"
-                  alt="phone"
-                />
-                <a href="https://www.w3schools.com/">0973238057</a>
-              </p>
-              <p class="testimonial-author">
-                <img class="phone123" src="/images/ag1.png" alt="agent" />
-                အေးဂျင့်
-              </p>
-            </div>
-            <a
-              class="btn-solid-reg"
-              href="https://technext.github.io/vacation/index.html"
-              >အချက်အလက်များ</a
-            >
-            <a class="btn-outline-reg mfp-close as-button" href="#projects"
-              >နောက်သို့</a
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
+     
+     
+      
     </div>
     <% include ./partials/footer %>
   </body>
@@ -816,5 +184,8 @@
   <script src="/javascripts/validator.min.js"></script>
   <!-- Validator.js - Bootstrap plugin that validates forms -->
   <script src="/javascripts/scripts.js"></script>
+  
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+
   <!-- Custom scripts -->
 </html>

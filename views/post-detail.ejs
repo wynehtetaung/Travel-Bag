@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/stylesheets/agent-post-list.css" />
+    <link rel="stylesheet" href="/stylesheets/search-style.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link href="/stylesheets/fontawesome-all.css" rel="stylesheet" />
+    <link href="/stylesheets/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <section id="portfolio-details" class="portfolio-details">
+        <div class="container rounded">
+            <div id="project-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
+                <div class="row">
+                  <button title="Close (Esc)" type="button" class="mfp-close x-button" href="/search">
+                    ×
+                  </button>
+                  <div class="col-lg-8">
+                    <img class="img-fluid im11" src="<%= posts.image %>" alt="Bagan" />
+                  </div>
+                  <div class="col-lg-4">
+                    <h3>ပုဂံ</h3>
+                    <hr class="line-heading" />
+                    <h6><%= posts.author.agentName %></h6>
+                    <!-- <h6><%= posts.email%></h6> -->
+                    <p>
+                      <%= posts.content %>
+                    </p>
+                    <!-- <p>
+                      ပုဂံဘုရားဖူးခရီးစဉ်လေးကို စိတ်ဝင်စားပါက မိတ်ဆွေအနေဖြင့်
+                      အောက်တွင်ဖော်ပြထားသော အေးဂျင့်ထံတွင် အသေးစိတ်
+                      လေ့လာစုံစမ်းနိုင်ပါတယ်။
+                    </p> -->
+                    <div class="testimonial-container">
+                      <p class="testimonial-text">
+                        <img
+                          class="phone123"
+                          src="/images/phone-call.png"
+                          alt="phone"
+                        />
+                        <a href="#"><%= posts.phone%></a>
+                      </p>
+                      <p class="testimonial-author">
+                        <img class="phone123" src="/images/ag1.png" alt="agent" />
+                        အေးဂျင့်
+                      </p>
+                    </div>
+                    <a
+                      class="btn-solid-reg"
+                      href="https://technext.github.io/vacation/index.html"
+                      >အချက်အလက်များ</a
+                    >
+                    <a class="btn-outline-reg mfp-close as-button" href="#projects"
+                      >နောက်သို့</a
+                    >
+                  </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      
+</body>
+</html>
