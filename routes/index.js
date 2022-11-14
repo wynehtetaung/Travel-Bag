@@ -100,7 +100,7 @@ router.get("/adminpage", adminAuth, function (req, res) {
         if (err3) throw err;
         res.render("admin/adminindex", {
           posts: rtn,
-          user: rtn2,
+          users: rtn2,
           ausers: rtn3,
         });
       });
@@ -209,19 +209,8 @@ router.get("/adminpage/agentlist", adminAuth, function (req, res) {
   Agent.find({}, function (err, rtn) {
     if (err) throw err;
     res.render("admin/admin-agent-list", { ausers: rtn });
-    console.log("agentlist:", rtn);
   });
 });
-
-// router.get("/adminpage/agentlist", adminAuth, function (req, res) {
-//   Post.find({})
-//     .populate("author", "agentName agentBio")
-//     .exec(function (err, rtn) {
-//       if (err) throw err;
-//       res.render("admin/admin-agent-list", { ausers: rtn });
-//       console.log("agentlist:", rtn);
-//     });
-// });
 
 // agent profile see to from admin
 router.get("/adminAprofile/:id", adminAuth, function (req, res) {
@@ -242,18 +231,12 @@ router.get("/adminpage/normallist", adminAuth, function (req, res) {
     const datayyy = "635cc49a492527c2c8e8c34d";
     const userdata = User.findOne({ _id: datayyy }, function (err, rtn) {
       if (err) throw err;
-      // console.log("hhhhh", rtn);
     });
-    // console.log("user data: ", rtn.normalName);
-    // console.log("show", User.findOne({}));
+
     if (err) throw err;
     res.render("admin/admin-normal-list", { user: rtn });
   });
 });
-
-// router.post("/adminpage/normallist", function (req, res) {
-//   console.log("gggg", req.params.normalEmail);
-// });
 
 //normaal user detail
 router.get("/adminpage/adminNprofile/:id", adminAuth, function (req, res) {
@@ -290,7 +273,6 @@ router.get("/dashboard", userAuth, function (req, res) {
     .populate("author", "agentName")
     .exec(function (err, rtn) {
       if (err) throw err;
-      console.log(rtn);
       res.render("dashboard", { posts: rtn });
     });
 });
@@ -320,22 +302,24 @@ router.get("/map", userAuth, function (req, res) {
 });
 
 // searchbar
-router.get("/search",userAuth, function (req, res) {
+router.get("/search", userAuth, function (req, res) {
   Post.find({})
-  .populate("author", "agentName")
-  .exec(function (err, rtn) {
-    if (err) throw err;
-    console.log(rtn);
-    res.render("searchBox", { posts: rtn });
-  });
+    .populate("author", "agentName")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      console.log(rtn);
+      res.render("searchBox", { posts: rtn });
+    });
 });
- 
-router.get("/postdetail/:id", userAuth,function(req,res){
-  Post.findById(req.params.id).populate("author", "agentName" ).exec(function(err,rtn){
-    if (err) throw err;
-    res.render("post-detail", {posts:rtn})
-  })
-})
+
+router.get("/postdetail/:id", userAuth, function (req, res) {
+  Post.findById(req.params.id)
+    .populate("author", "agentName")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      res.render("post-detail", { posts: rtn });
+    });
+});
 
 // 404 not found
 router.get("/page_not_found", function (req, res) {
