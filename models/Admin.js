@@ -16,12 +16,6 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
-  adminemailToken: {
-    type: String,
-  },
-  adminisVerified: {
-    type: Boolean,
-  },
   adminDate: {
     type: Date,
     default: Date.now(),

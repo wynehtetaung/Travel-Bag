@@ -6,6 +6,7 @@ var Post = require("../models/agent-postadd");
 var Agent = require("../models/aUsers");
 var User = require("../models/nUsers");
 var multer = require("multer");
+var fs = require("fs");
 const { findSourceMap } = require("module");
 var upgrade = multer({ dest: "public/images/portfolio" });
 
@@ -30,12 +31,12 @@ router.get("/", function (req, res, next) {
 });
 
 // Admin Sign UP
-router.get("/adminSignup", function (req, res) {
+router.get("/adminsignupfortravelbag", function (req, res) {
   res.render("admin/adminSignUp");
 });
 
 // admin sign up data
-router.post("/adminSignup", function (req, res) {
+router.post("/adminsignupfortravelbag", function (req, res) {
   try {
     const { adminName, adminEmail, adminPassword } = req.body;
     var user = new Admin({
@@ -45,9 +46,6 @@ router.post("/adminSignup", function (req, res) {
       adminemailToken: crypto.randomBytes(64).toString("hex"),
       adminisVerified: false,
     });
-    // const salt = new bcrypt.genSalt(10);
-    // const hashPassword = bcrypt.hash(user.normalPassword, salt);
-    // user.normalPassword = hashPassword;
     const newUser = user.save();
     console.log("NewUser :", newUser);
 
@@ -94,18 +92,20 @@ router.post("/adminLogin", function (req, res) {
 
 // Admin Index Page
 router.get("/adminpage", adminAuth, function (req, res) {
-  Post.find({}, function(err,rtn){
+  Post.find({}, function (err, rtn) {
     if (err) throw err;
-    User.find({},function(err2,rtn2){
+    User.find({}, function (err2, rtn2) {
       if (err2) throw err;
-      Agent.find({},function(err3,rtn3){
+      Agent.find({}, function (err3, rtn3) {
         if (err3) throw err;
-        res.render("admin/adminindex", {posts : rtn, user: rtn2 , ausers: rtn3});
-        
-      })
-    })
-  })
- 
+        res.render("admin/adminindex", {
+          posts: rtn,
+          user: rtn2,
+          ausers: rtn3,
+        });
+      });
+    });
+  });
 });
 
 // user active and ban
@@ -173,26 +173,34 @@ router.get("/adminpostupdate/:id", adminAuth, function (req, res) {
   });
 });
 
-router.post("/adminpostupdate", adminAuth, upgrade.single("image"), function(req,res){
-  var update = {
-    title : req.body.title,
-    content : req.body.content,
-    place : req.body.place,
-    phone : req.body.phone,
-    updated : Date.now()
+router.post(
+  "/adminpostupdate",
+  adminAuth,
+  upgrade.single("image"),
+  function (req, res) {
+    var update = {
+      title: req.body.title,
+      content: req.body.content,
+      place: req.body.place,
+      phone: req.body.phone,
+      updated: Date.now(),
+    };
+    if (req.file) update.image = "/images/portfolio/" + req.file.filename;
+    Post.findByIdAndUpdate(req.body.id, { $set: update }, function (err, rtn) {
+      if (err) throw err;
+      res.redirect("/adminpage/adminpostlist");
+    });
   }
-  if(req.file ) update.image = "/images/portfolio/" + req.file.filename;
-  Post.findByIdAndUpdate(req.body.id, {$set: update}, function(err,rtn){
-    if(err) throw err;
-    res.redirect("/adminpage/adminpostlist");
-  });
-});
+);
 
 // agent post delete
 router.get("/adminpage/postdelete/:id", adminAuth, function (req, res) {
   Post.findByIdAndDelete(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.redirect("/adminpage");
+    fs.unlink("public" + rtn.image, function (err2, rtn2) {
+      if (err2) throw err;
+      res.redirect("/adminpage");
+    });
   });
 });
 
@@ -219,11 +227,11 @@ router.get("/adminpage/agentlist", adminAuth, function (req, res) {
 router.get("/adminAprofile/:id", adminAuth, function (req, res) {
   Agent.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-  Post.find({author:rtn.id}, function(err2, rtn2){
-    if(err2) throw err;
-    res.render("admin/admin-agent-profile", {posts: rtn2,ausers: rtn})
-    console.log("under",rtn2);
-  })
+    Post.find({ author: rtn.id }, function (err2, rtn2) {
+      if (err2) throw err;
+      res.render("admin/admin-agent-profile", { posts: rtn2, ausers: rtn });
+      console.log("under", rtn2);
+    });
   });
 });
 

@@ -27,8 +27,7 @@ var PostSchema = new Schema({
     ref: "aUsers",
   },
   type: {
-    type: Number,
-    default: 0,
+    type: Array,
     require: true,
   },
   created: {

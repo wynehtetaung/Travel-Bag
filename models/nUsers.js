@@ -17,10 +17,6 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
-
-  normalisVerified: {
-    type: Boolean,
-  },
   normalDate: {
     type: Date,
     default: Date.now(),
