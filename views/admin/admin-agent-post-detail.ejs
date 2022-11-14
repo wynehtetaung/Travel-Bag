@@ -138,13 +138,13 @@
             </div>
             <div class="col-lg-4 ">
               <div class="portfolio-info bg-white rounded">
-                <h3>Post information</h3>
+                <h3>ပို့စ်အချက်အလက်များ</h3>
                 <ul>
-                  <li><strong>Agent</strong>:<%= blog.author.agentName %></li>
-                  <li><strong>Place</strong>: <%= blog.place %></li>
-                  <li><strong>Post uploaded date</strong>:  <%=blog.created %> </li>
+                  <li><strong>အေးဂျင့်</strong>  :<%= blog.author.agentName %></li>
+                  <li><strong>နေရာ</strong>  : <%= blog.place %></li>
+                  <li><strong>ပို့စ်တင်ချိန်</strong>  :  <%=blog.created %> </li>
                  
-                  <li><strong>agent phone</strong>:  <%= blog.phone %> </li>
+                  <li><strong>အေးဂျင့်ဖုန်းနံပါတ်</strong>:  <%= blog.phone %> </li>
 
                 </ul>
               </div>
@@ -162,14 +162,14 @@
                   data-mdb-ripple-color="dark"
                   style="z-index: 1"
                 ><a href="/adminpostupdate/<%= blog._id %>">
-                  Update
+                  ပြင်ဆင်မည်
                 </a>
                   
                 </button>
                 
                 <button
                 onclick="del('<%= blog._id%>')" type="button" class="btn btn-danger btn-lg m">
-                  Delete
+                  ဖျက်မည်
                 </button>
               </div>
             </div>
