@@ -312,9 +312,22 @@ router.get("/map", userAuth, function (req, res) {
 });
 
 // searchbar
-router.get("/search", function (req, res) {
-  res.render("searchBox");
+router.get("/search",userAuth, function (req, res) {
+  Post.find({})
+  .populate("author", "agentName")
+  .exec(function (err, rtn) {
+    if (err) throw err;
+    console.log(rtn);
+    res.render("searchBox", { posts: rtn });
+  });
 });
+ 
+router.get("/postdetail/:id", userAuth,function(req,res){
+  Post.findById(req.params.id).populate("author", "agentName" ).exec(function(err,rtn){
+    if (err) throw err;
+    res.render("post-detail", {posts:rtn})
+  })
+})
 
 // 404 not found
 router.get("/page_not_found", function (req, res) {
