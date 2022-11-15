@@ -333,7 +333,7 @@ router.get("/search",userAuth, function (req, res) {
 router.get("/postdetail/:id", userAuth,function(req,res){
   Post.findById(req.params.id).populate("author", "agentName" ).exec(function(err,rtn){
     if (err) throw err;
-    res.render("post-detail", {posts:rtn})
+    res.render("post-detail-search", {posts:rtn})
   })
 })
 

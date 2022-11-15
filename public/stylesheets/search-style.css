@@ -19,6 +19,7 @@ table {
   display: table-row;
 }
 
+
 .counter {
   padding: 8px;
   color: #ccc;
@@ -43,3 +44,19 @@ a.back-to-top {
 a:hover.back-to-top {
   background-color: #13aa87;
 }
+
+#post-box {
+  background-color: rgb(234, 236, 233);
+  /* border: 2px solid white; */
+  border-radius: 10px;
+  margin:  10px ;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+#post-text {
+  margin-left: 15px;
+  padding-top: 10px;
+  color: rgb(34, 74, 26);
+}
+
