@@ -664,7 +664,6 @@ router.post(
     console.log("status:", req.body);
     post.title = req.body.title;
     post.place = req.body.place;
-    post.phone = req.body.phone;
     post.author = req.session.agent.id;
     post.content = req.body.content;
     post.created = Date.now();
