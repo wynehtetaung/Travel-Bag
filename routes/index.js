@@ -314,7 +314,6 @@ router.get("/postdetail/:id", userAuth, function (req, res) {
       res.render("post-detail", { posts: rtn });
     });
 });
-<<<<<<< HEAD
  
 router.get("/postdetail/:id", userAuth,function(req,res){
   Post.findById(req.params.id).populate("author", "agentName" ).exec(function(err,rtn){
@@ -322,8 +321,6 @@ router.get("/postdetail/:id", userAuth,function(req,res){
     res.render("post-detail-search", {posts:rtn})
   })
 })
-=======
->>>>>>> 2e4e81c0b1dddaf0b84051c4c1809afc287e91f8
 
 // 404 not found
 router.get("/page_not_found", function (req, res) {
