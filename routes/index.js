@@ -301,8 +301,8 @@ router.get("/search", userAuth, function (req, res) {
     .populate("author", "agentName")
     .exec(function (err, rtn) {
       if (err) throw err;
-      console.log(rtn);
       res.render("searchBox", { posts: rtn });
+      // console.log("show me", rtn[0].type);
     });
 });
 
