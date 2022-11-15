@@ -43,8 +43,6 @@ router.post("/adminsignupfortravelbag", function (req, res) {
       adminName,
       adminEmail,
       adminPassword,
-      adminemailToken: crypto.randomBytes(64).toString("hex"),
-      adminisVerified: false,
     });
     const newUser = user.save();
     console.log("NewUser :", newUser);
@@ -74,15 +72,6 @@ router.post("/adminLogin", function (req, res) {
         adminName: rtn.adminName,
         adminEmail: rtn.adminEmail,
       };
-
-      //create token
-      // var token = createToken(findById);
-      // var token = createToken(findeUser.id);
-      // console.log(token);
-
-      // store token in cookie
-      // res.cookie("access-token", token);
-
       res.redirect("/adminpage");
     } else {
       res.redirect("/adminLogin");
@@ -91,6 +80,7 @@ router.post("/adminLogin", function (req, res) {
 });
 
 // Admin Index Page
+
 router.get("/adminpage", adminAuth, function (req, res) {
   Post.find({}, function (err, rtn) {
     if (err) throw err;
@@ -98,10 +88,14 @@ router.get("/adminpage", adminAuth, function (req, res) {
       if (err2) throw err;
       Agent.find({}, function (err3, rtn3) {
         if (err3) throw err;
-        res.render("admin/adminindex", {
-          posts: rtn,
-          user: rtn2,
-          ausers: rtn3,
+        Admin.find({}, function (err4, rtn4) {
+          if (err4) throw err;
+          res.render("admin/adminindex", {
+            posts: rtn,
+            users: rtn2,
+            ausers: rtn3,
+            admin: rtn4,
+          });
         });
       });
     });
@@ -209,19 +203,8 @@ router.get("/adminpage/agentlist", adminAuth, function (req, res) {
   Agent.find({}, function (err, rtn) {
     if (err) throw err;
     res.render("admin/admin-agent-list", { ausers: rtn });
-    console.log("agentlist:", rtn);
   });
 });
-
-// router.get("/adminpage/agentlist", adminAuth, function (req, res) {
-//   Post.find({})
-//     .populate("author", "agentName agentBio")
-//     .exec(function (err, rtn) {
-//       if (err) throw err;
-//       res.render("admin/admin-agent-list", { ausers: rtn });
-//       console.log("agentlist:", rtn);
-//     });
-// });
 
 // agent profile see to from admin
 router.get("/adminAprofile/:id", adminAuth, function (req, res) {
@@ -242,18 +225,12 @@ router.get("/adminpage/normallist", adminAuth, function (req, res) {
     const datayyy = "635cc49a492527c2c8e8c34d";
     const userdata = User.findOne({ _id: datayyy }, function (err, rtn) {
       if (err) throw err;
-      // console.log("hhhhh", rtn);
     });
-    // console.log("user data: ", rtn.normalName);
-    // console.log("show", User.findOne({}));
+
     if (err) throw err;
     res.render("admin/admin-normal-list", { user: rtn });
   });
 });
-
-// router.post("/adminpage/normallist", function (req, res) {
-//   console.log("gggg", req.params.normalEmail);
-// });
 
 //normaal user detail
 router.get("/adminpage/adminNprofile/:id", adminAuth, function (req, res) {
@@ -290,7 +267,6 @@ router.get("/dashboard", userAuth, function (req, res) {
     .populate("author", "agentName")
     .exec(function (err, rtn) {
       if (err) throw err;
-      console.log(rtn);
       res.render("dashboard", { posts: rtn });
     });
 });
@@ -320,15 +296,25 @@ router.get("/map", userAuth, function (req, res) {
 });
 
 // searchbar
-router.get("/search",userAuth, function (req, res) {
+router.get("/search", userAuth, function (req, res) {
   Post.find({})
-  .populate("author", "agentName")
-  .exec(function (err, rtn) {
-    if (err) throw err;
-    console.log(rtn);
-    res.render("searchBox", { posts: rtn });
-  });
+    .populate("author", "agentName")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      res.render("searchBox", { posts: rtn });
+      // console.log("show me", rtn[0].type);
+    });
 });
+
+router.get("/postdetail/:id", userAuth, function (req, res) {
+  Post.findById(req.params.id)
+    .populate("author", "agentName")
+    .exec(function (err, rtn) {
+      if (err) throw err;
+      res.render("post-detail", { posts: rtn });
+    });
+});
+<<<<<<< HEAD
  
 router.get("/postdetail/:id", userAuth,function(req,res){
   Post.findById(req.params.id).populate("author", "agentName" ).exec(function(err,rtn){
@@ -336,6 +322,8 @@ router.get("/postdetail/:id", userAuth,function(req,res){
     res.render("post-detail-search", {posts:rtn})
   })
 })
+=======
+>>>>>>> 2e4e81c0b1dddaf0b84051c4c1809afc287e91f8
 
 // 404 not found
 router.get("/page_not_found", function (req, res) {

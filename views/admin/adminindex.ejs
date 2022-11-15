@@ -53,13 +53,6 @@
           <h1 class="text-light">
             <a href="index.html"> </a>
           </h1>
-          <div class="social-links mt-3 text-center">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          </div>
         </div>
 
         <nav id="navbar" class="nav-menu navbar">
@@ -149,7 +142,7 @@
                           Normal users
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                          <%= user.length%> users
+                          <%= users.length%> users
                         </div>
                       </div>
                     </a>
@@ -170,7 +163,7 @@
                           Agent users
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                          <%= ausers.length%> users
+                          <%= ausers.length %> users
                         </div>
                       </div>
                     </a>
@@ -185,32 +178,32 @@
           <table class="table">
             <thead>
               <tr>
-                <th style="color: greenyellow">Name</th>
+                <th style="color: rgb(147, 255, 47)">Name</th>
                 <th style="color: rgb(0, 0, 95)">Email</th>
                 <th style="color: rgb(218, 149, 0)">Phone</th>
-                <th style="color: rgb(0, 232, 85)">City</th>
+                <th style="color: rgb(238, 255, 0)">City</th>
+                <th style="color: rgb(0, 235, 141)">Created Date</th>
               </tr>
             </thead>
+            <% for(var i = 0; i < ausers.length ; i++){%>
             <tbody>
               <tr>
-                <td style="color: greenyellow">John</td>
-                <td style="color: rgb(0, 45, 71)">Doe@gmail.com</td>
-                <td style="color: rgb(238, 115, 0)">09757359906</td>
-                <td style="color: rgb(0, 184, 68)">Yangon</td>
-              </tr>
-              <tr>
-                <td style="color: greenyellow">Mary</td>
-                <td style="color: rgb(0, 45, 71)">Moe@gmail.com</td>
-                <td style="color: rgb(238, 115, 0)">09757359906</td>
-                <td style="color: rgb(0, 184, 68)">Yangon</td>
-              </tr>
-              <tr>
-                <td style="color: greenyellow">July</td>
-                <td style="color: rgb(0, 45, 71)">Dooley@gmail.com</td>
-                <td style="color: rgb(238, 115, 0)">09757359906</td>
-                <td style="color: rgb(0, 184, 68)">Yangon</td>
+                <td style="color: greenyellow"><%= ausers[i].agentName %></td>
+                <td style="color: rgb(0, 45, 71)">
+                  <%= ausers[i].agentEmail %>
+                </td>
+                <td style="color: rgb(238, 115, 0)">
+                  <%= ausers[i].agentPhone %>
+                </td>
+                <td style="color: rgb(235, 227, 0)">
+                  <%= ausers[i].agentCity %>
+                </td>
+                <td style="color: rgb(0, 251, 151)">
+                  <%= ausers[i].agentDate %>
+                </td>
               </tr>
             </tbody>
+            <%}%>
           </table>
 
           <!-- Normal users -->
@@ -220,22 +213,22 @@
               <tr>
                 <th style="color: greenyellow">Name</th>
                 <th style="color: rgb(0, 0, 95)">Email</th>
+                <th style="color: rgb(0, 235, 141)">Created Date</th>
               </tr>
             </thead>
+            <% for(var k = 0; k < users.length ; k++){%>
             <tbody>
               <tr>
-                <td style="color: greenyellow">John</td>
-                <td style="color: rgb(0, 45, 71)">Doe@gmail.com</td>
-              </tr>
-              <tr>
-                <td style="color: greenyellow">Mary</td>
-                <td style="color: rgb(0, 45, 71)">Moe@gmail.com</td>
-              </tr>
-              <tr>
-                <td style="color: greenyellow">July</td>
-                <td style="color: rgb(0, 45, 71)">Dooley@gmail.com</td>
+                <td style="color: greenyellow"><%= users[k].normalName %></td>
+                <td style="color: rgb(0, 45, 71)">
+                  <%= users[k].normalEmail %>
+                </td>
+                <td style="color: rgb(0, 251, 151)">
+                  <%= users[k].normalDate %>
+                </td>
               </tr>
             </tbody>
+            <%}%>
           </table>
         </div>
       </section>
@@ -244,40 +237,39 @@
       <section id="about" class="about">
         <div class="container">
           <div class="section-title">
-            <h2>Admin</h2>
-            <p>About the admin detail here ,</p>
+            <h2>Admin Profile</h2>
           </div>
 
           <div class="row">
             <div class="col-lg-4" data-aos="fade-right">
               <img src="/images/bagan.jpg" class="img-fluid" alt="" />
             </div>
-            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-              <h3><%= %></h3>
-              <p class="fst-italic">admin contact detail here if you need</p>
+            <div
+              class="col-lg-8 pt-4 pt-lg-0 content"
+              style="margin-top: 40px"
+              data-aos="fade-left"
+            >
               <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                   <ul>
                     <li>
                       <i class="bi bi-chevron-right"></i>
+                      <strong>Name:</strong>
+                      <span><%= admin[0].adminName %></span>
+                    </li>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
                       <strong>Email:</strong>
-                      <span>sample@gmail.com</span>
+                      <span><%= admin[0].adminEmail %></span>
                     </li>
                     <li>
                       <i class="bi bi-chevron-right"></i>
-                      <strong>Phone:</strong> <span>+123 456 7890</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Password:</strong> <span>New York, USA</span>
+                      <strong>Created Date:</strong>
+                      <span><%= admin[0].adminDate %></span>
                     </li>
                   </ul>
                 </div>
-                <div class="col-lg-6">
-                  <ul></ul>
-                </div>
               </div>
-              <p>Detail if you need here about profile</p>
             </div>
           </div>
         </div>
