@@ -43,8 +43,6 @@ router.post("/adminsignupfortravelbag", function (req, res) {
       adminName,
       adminEmail,
       adminPassword,
-      adminemailToken: crypto.randomBytes(64).toString("hex"),
-      adminisVerified: false,
     });
     const newUser = user.save();
     console.log("NewUser :", newUser);
@@ -74,15 +72,6 @@ router.post("/adminLogin", function (req, res) {
         adminName: rtn.adminName,
         adminEmail: rtn.adminEmail,
       };
-
-      //create token
-      // var token = createToken(findById);
-      // var token = createToken(findeUser.id);
-      // console.log(token);
-
-      // store token in cookie
-      // res.cookie("access-token", token);
-
       res.redirect("/adminpage");
     } else {
       res.redirect("/adminLogin");
@@ -91,6 +80,7 @@ router.post("/adminLogin", function (req, res) {
 });
 
 // Admin Index Page
+
 router.get("/adminpage", adminAuth, function (req, res) {
   Post.find({}, function (err, rtn) {
     if (err) throw err;
@@ -98,10 +88,14 @@ router.get("/adminpage", adminAuth, function (req, res) {
       if (err2) throw err;
       Agent.find({}, function (err3, rtn3) {
         if (err3) throw err;
-        res.render("admin/adminindex", {
-          posts: rtn,
-          users: rtn2,
-          ausers: rtn3,
+        Admin.find({}, function (err4, rtn4) {
+          if (err4) throw err;
+          res.render("admin/adminindex", {
+            posts: rtn,
+            users: rtn2,
+            ausers: rtn3,
+            admin: rtn4,
+          });
         });
       });
     });
