@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+      <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
+    </title>
+
 
     <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="/stylesheets/agent-post-list.css" />
@@ -21,7 +24,7 @@
       .phone123 {
       width: 25px;
       height: 25px;
-      margin-top: 30px;
+      margin-top: 0px;
     }
     </style>
 </head>
@@ -31,18 +34,19 @@
         <div class="container rounded">
             <div id="project-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
                 <div class="row">
-                  <button title="Close (Esc)" type="button" class="mfp-close x-button" href="/search">
+                  <!-- <button title="Close (Esc)" type="button" class="mfp-close x-button" href="/search">
                     ×
-                  </button>
+                  </button> -->
                   <div class="col-lg-8">
                     <img class="img-fluid im11" src="<%= posts.image %>" alt="Bagan" />
                   </div>
                   <div class="col-lg-4">
-                    <h3>ပုဂံ</h3>
+                    <h3><%= posts.title %></h3>
                     <hr class="line-heading" />
                     <p>
                       <%= posts.content %>
                     </p>
+                    <hr class="line-heading" />
                     
                     <div class="testimonial-container">
                       <p class="testimonial-text">
@@ -51,11 +55,11 @@
                           src="/images/phone-call.png"
                           alt="phone"
                         />
-                        <a href="#"><%= posts.phone%></a>
+                        <a href="#"><%= posts.author.agentPhone%></a>
                       </p>
                       <p class="testimonial-author">
                         <img class="phone123" src="/images/ag1.png" alt="agent" />
-                        အေးဂျင့်
+                        <%= posts.author.agentName %>
                       </p>
                     </div>
                     <a
@@ -71,10 +75,5 @@
             </div>
         </div>
       </section>
-
-      
 </body>
-
-
-
 </html>
