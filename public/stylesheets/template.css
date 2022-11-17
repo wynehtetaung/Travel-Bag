@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #fbfdfb;
+  color: #788478;
 }
 
 a {
@@ -340,7 +340,7 @@ section {
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #d4dae0;
+  color: #050b12;
 }
 
 .about .content ul {
@@ -396,7 +396,7 @@ section {
   font-size: 20px;
   font-weight: bold;
   margin: 10px 0 5px 0;
-  color: #111;
+  color: rgb(250, 246, 246);
 }
 
 .testimonials .testimonial-item h4 {
