@@ -7,7 +7,6 @@
     <title>Search bar</title>
     <link rel="shortcut icon" href="/images/bbb.png" type="image/png" />
     <link rel="stylesheet" href="/stylesheets/search-style.css" />
-    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
 
     <link
       rel="stylesheet"
@@ -22,7 +21,6 @@
     <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
   </head>
   <style>
-    
     .im11 {
       max-width: 100%;
       height: 400px;
@@ -38,9 +36,8 @@
       padding-bottom: 30px;
     }
     #post_box {
-  background-color: rgb(145, 208, 239);
-}
-    
+      background-color: rgb(145, 208, 239);
+    }
   </style>
   <body style="background-color: #adadf5">
     <!-- Preloader -->
@@ -54,155 +51,155 @@
     <!-- this is nav bar -->
     <% include ./partials/navbar %>
     <!-- this is nav  -->
-    <div class="form-group pull-right center-box" style="margin-top: 15%">
+    <div
+      class="center-box"
+      style="
+        margin-top: 15%;
+        width: 400px;
+        text-align: center;
+        margin-left: 35%;
+        margin-bottom: 20px;
+      "
+    >
       <input
+        id="input"
         type="text"
         class="search form-control"
         placeholder="What you looking for?"
       />
     </div>
-    <span class="counter pull-right center-box"></span>
     <div class="center-box">
       <div class="container">
         <div class="row">
-          <div class="col-lg-2">
-            <div id="projects" class="filter">
-              <div class="container">
-                <div class="row"></div>
-                <!-- end of row -->
-                <div class="row">
-                  <div class="col-lg-12">
-                    <!-- Filter -->
-
-                    <div style="margin-right: 5px">
-                      <input type="checkbox" name="checkbox" id="" /><span
-                        style="color: white"
-                        >ဘုရားဖူးခရီးစဉ်</span
-                      >
-                      <hr />
-                      <input type="checkbox" name="checkbox" id="" /><span
-                        style="color: white"
-                        >ကမ်းခြေခရီးစဉ်</span
-                      >
-                      <hr />
-                      <input type="checkbox" name="checkbox" id="" /><span
-                        style="color: white"
-                        >လေ့လာရေးခရီးစဉ်</span
-                      >
-                      <hr />
-                      <input type="checkbox" name="checkbox" id="" /><span
-                        style="color: white"
-                        >Express</span
-                      >
-                      <hr />
-                      <input type="checkbox" name="checkbox" id="" /><span
-                        style="color: white"
-                        >ဟိုတယ်</span
-                      >
-                      <hr />
-                    </div>
-                  </div>
-                </div>
+          <div class="col-lg-12">
+            <div class="button-group filters-button-group row">
+              <div class="col-lg-2">
+                <input
+                  type="checkbox"
+                  class="button is-checked btn-filter"
+                  id="tall"
+                  data-filter="*"
+                  checked
+                  value=""
+                /><label for="tall">အားလုံး</label>
+              </div>
+              <div class="col-lg-2">
+                <input
+                  type="checkbox"
+                  id="t1"
+                  class="button btn-filter"
+                  data-filter=".typeone"
+                  value="typeone"
+                /><label for="t1">ဘုရားဖူးခရီးစဥ်</label>
+              </div>
+              <div class="col-lg-2">
+                <input
+                  type="checkbox"
+                  class="button btn-filter"
+                  id="t2"
+                  data-filter=".typetwo"
+                  value="typetwo"
+                /><label for="t2">ကမ်းခြေခရီးစဉ်</label>
+              </div>
+              <div class="col-lg-2">
+                <input
+                  type="checkbox"
+                  id="t3"
+                  class="button btn-filter"
+                  data-filter=".typethree"
+                  value="typethree"
+                /><label for="t3">လေ့လာရေးခရီးစဥ်</label>
+              </div>
+              <div class="col-lg-2">
+                <input
+                  type="checkbox"
+                  id="t4"
+                  class="button btn-filter"
+                  data-filter=".typefour"
+                  value="typefour"
+                /><label for="t4">Express</label>
+              </div>
+              <div class="col-lg-2">
+                <input
+                  type="checkbox"
+                  id="t5"
+                  class="button btn-filter"
+                  data-filter=".typefive"
+                  value="typefive"
+                /><label for="t5">ဟိုတယ်</label>
               </div>
             </div>
-          </div>
-
-      
-          <div class="col-lg-10" style="justify-content: center">
             <div class="grid">
-              <% for (var i = 0 ; i < posts.length ; i ++){%>
-
-              <div class="element-item design marketing" id="post-box" >
-                <a class="popup-with-move-anim" 
+              <% for (var k = 0 ; k < posts.length; k ++) {%>
+              <div
+                class="search-data element-item <%= (posts[k].type.includes('1'))? 'typeone':'' %> <%= (posts[k].type.includes('2'))? 'typetwo':'' %> <%= (posts[k].type.includes('3'))? 'typethree':'' %> <%= (posts[k].type.includes('4'))? 'typefour':'' %> <%= (posts[k].type.includes('5'))? 'typefive':'' %>"
+                id="post-box"
+              >
+                <a class="popup-with-move-anim"
                   ><div class="element-item-overlay" id="post-text">
-                    <span><%= posts[i].title%></span>
+                    <span class="title"><%= posts[k].title%></span>
                   </div>
-                  <a href="/postdetail/<%= posts[i]._id %> " 
+                  <a
+                    href="/postdetail/<%= posts[k]._id %> "
                     class="portfolio-details-lightbox"
                     data-glightbox="type: external"
-
-                    
-                    >
-                    <img class="blog123"
-                  style="width: 210px; " 
-                   src="<%= posts[i].image %>" alt="Bagan"
-                />
+                  >
+                    <img
+                      class="blog123"
+                      style="width: 210px"
+                      src="<%= posts[k].image %>"
+                      alt="Bagan"
+                    />
                   </a>
-                  </a>
+                </a>
               </div>
               <%}%>
-              <!-- <div
-                class="row portfolio-container"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-               <% for (var i = 0 ; i < posts.length ; i ++){%>
-
-                <a href="/postdetail/<%= posts[i]._id %> ">
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                      <img
-                        src="<%= posts[i].image %>"
-                        class=""
-                        alt=""
-                        width="200px"
-                      />
-                      <div class="portfolio-info">
-                        <h4><%= posts[i].title %></h4>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <%}%>
-              </div> -->
-             
             </div>
           </div>
-         
         </div>
       </div>
     </div>
-     <div id="project-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-                <div class="row">
-                  <button title="Close (Esc)" type="button" class="mfp-close x-button" href="/search">
-                    ×
-                  </button>
-                  <div class="col-lg-8">
-                    <img class="img-fluid im11" src="<%= posts.image %>" alt="Bagan" />
-                  </div>
-                  <div class="col-lg-4">
-                    <h3>ပုဂံ</h3>
-                    <hr class="line-heading" />
-                    <p>
-                      <%= posts.content %>
-                    </p>
-                    
-                    <div class="testimonial-container">
-                      <p class="testimonial-text">
-                        <img
-                          class="phone123"
-                          src="/images/phone-call.png"
-                          alt="phone"
-                        />
-                        <a href="#"><%= posts.phone%></a>
-                      </p>
-                      <p class="testimonial-author">
-                        <img class="phone123" src="/images/ag1.png" alt="agent" />
-                        အေးဂျင့်
-                      </p>
-                    </div>
-                    <a
-                      class="btn-solid-reg"
-                      href="https://technext.github.io/vacation/index.html"
-                      >အချက်အလက်များ</a
-                    >
-                    <a class="btn-outline-reg mfp-close as-button" href="/search"
-                      >နောက်သို့</a
-                    >
-                  </div>
-                </div>
-            </div>
-            
+
+    <div id="project-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
+      <div class="row">
+        <button
+          title="Close (Esc)"
+          type="button"
+          class="mfp-close x-button"
+          href="/search"
+        >
+          ×
+        </button>
+        <div class="col-lg-8">
+          <img class="img-fluid im11" src="<%= posts.image %>" alt="Bagan" />
+        </div>
+        <div class="col-lg-4">
+          <h3>ပုဂံ</h3>
+          <hr class="line-heading" />
+          <p><%= posts.content %></p>
+
+          <div class="testimonial-container">
+            <p class="testimonial-text">
+              <img class="phone123" src="/images/phone-call.png" alt="phone" />
+              <a href="#"><%= posts.phone%></a>
+            </p>
+            <p class="testimonial-author">
+              <img class="phone123" src="/images/ag1.png" alt="agent" />
+              အေးဂျင့်
+            </p>
+          </div>
+          <a
+            class="btn-solid-reg"
+            href="https://technext.github.io/vacation/index.html"
+            >အချက်အလက်များ</a
+          >
+          <a class="btn-outline-reg mfp-close as-button" href="/search"
+            >နောက်သို့</a
+          >
+        </div>
+      </div>
+    </div>
+
     <% include ./partials/footer %>
   </body>
 
@@ -231,5 +228,36 @@
 
   <!-- Custom scripts -->
 
-  <script></script>
+  <script>
+    $(function () {
+      /* Filter - Isotope */
+      var $grid = $(".grid").isotope({
+        // options
+        itemSelector: ".element-item",
+        layoutMode: "fitRows",
+      });
+
+      // filter items on button click
+      $(".filters-button-group").on("click", "input", function () {
+        var filterValue = $(this).attr("data-filter");
+        $grid.isotope({ filter: filterValue });
+      });
+      var filterVal = "";
+      $(".btn-filter").click(function (e) {
+        console.log($(this).val());
+        filterVal = $(this).val() == "" ? "" : "." + $(this).val();
+        $(".btn-filter").prop("checked", false);
+        $(e.target).prop("checked", true);
+      });
+      $(".search").keyup(function () {
+        var value = $(this).val().toLowerCase();
+        console.log(value);
+        var data = Array.from(
+          $(filterVal + " .title").get(),
+          (e) => e.innerHTML
+        );
+        console.log(data);
+      });
+    });
+  </script>
 </html>

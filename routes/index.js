@@ -125,6 +125,7 @@ router.post("/admin/changeStatus", adminAuth, function (req, res) {
 
 router.post("/admin/agentchangeStatus", adminAuth, function (req, res) {
   var updated;
+  console.log("swo id:", req.body.id);
   if (req.body.status == "active") {
     updated = { normalisact_ban: true };
   } else {
@@ -213,7 +214,6 @@ router.get("/adminAprofile/:id", adminAuth, function (req, res) {
     Post.find({ author: rtn.id }, function (err2, rtn2) {
       if (err2) throw err;
       res.render("admin/admin-agent-profile", { posts: rtn2, ausers: rtn });
-      console.log("under", rtn2);
     });
   });
 });
@@ -314,7 +314,6 @@ router.get("/postdetail/:id", userAuth, function (req, res) {
       res.render("post-detail-search", { posts: rtn });
     });
 });
- 
 
 // 404 not found
 router.get("/page_not_found", function (req, res) {
