@@ -54,16 +54,17 @@
     <!-- this is nav bar -->
     <% include ./partials/navbar %>
     <!-- this is nav  -->
-    <div class="form-group pull-right center-box" style="margin-top: 15%">
+    <div class="form-outline pull-right center-box" style="margin-top: 15%">
       <input
         type="text"
         class="search form-control"
         placeholder="What you looking for?"
       />
     </div>
+    
     <span class="counter pull-right center-box"></span>
     <div class="center-box">
-      <div class="container">
+      <div class="container" >
         <div class="row">
           <div class="col-lg-2">
             <div id="projects" class="filter">
@@ -124,7 +125,7 @@
                     
                     >
                     <img class="blog123"
-                  style="width: 210px; " 
+                  style="width: 215px; height: 130px;" 
                    src="<%= posts[i].image %>" alt="Bagan"
                 />
                   </a>
@@ -162,47 +163,7 @@
         </div>
       </div>
     </div>
-     <div id="project-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-                <div class="row">
-                  <button title="Close (Esc)" type="button" class="mfp-close x-button" href="/search">
-                    ×
-                  </button>
-                  <div class="col-lg-8">
-                    <img class="img-fluid im11" src="<%= posts.image %>" alt="Bagan" />
-                  </div>
-                  <div class="col-lg-4">
-                    <h3>ပုဂံ</h3>
-                    <hr class="line-heading" />
-                    <p>
-                      <%= posts.content %>
-                    </p>
-                    
-                    <div class="testimonial-container">
-                      <p class="testimonial-text">
-                        <img
-                          class="phone123"
-                          src="/images/phone-call.png"
-                          alt="phone"
-                        />
-                        <a href="#"><%= posts.phone%></a>
-                      </p>
-                      <p class="testimonial-author">
-                        <img class="phone123" src="/images/ag1.png" alt="agent" />
-                        အေးဂျင့်
-                      </p>
-                    </div>
-                    <a
-                      class="btn-solid-reg"
-                      href="https://technext.github.io/vacation/index.html"
-                      >အချက်အလက်များ</a
-                    >
-                    <a class="btn-outline-reg mfp-close as-button" href="/search"
-                      >နောက်သို့</a
-                    >
-                  </div>
-                </div>
-            </div>
-            
+         
     <% include ./partials/footer %>
   </body>
 
