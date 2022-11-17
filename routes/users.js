@@ -13,7 +13,6 @@ var nodemailer = require("nodemailer");
 const SMTPConnection = require("nodemailer/lib/smtp-connection");
 var multer = require("multer");
 var upload = multer({ dest: "public/images/testimonials" });
-// var upload2 = multer({ dest: "public/images/portfolio" });
 
 var dotenv = require("dotenv");
 const { token } = require("morgan");
@@ -23,7 +22,6 @@ dotenv.config();
 const agentAuth = function (req, res, next) {
   if (req.session.agent) {
     next();
-    console.log(req.session.agent.agentName);
   } else {
     res.redirect("/users/agentLogin");
   }
@@ -245,7 +243,7 @@ router.post("/reset-password", function (req, res) {
           { normalEmail: req.body.normalEmail },
           { $set: { normalPassword: resetpass } }
         );
-        console.log(fcp);
+        // console.log(fcp);
         console.log("new:", rtn.normalPassword);
         res.redirect("/users/nlogin");
       }
@@ -284,7 +282,7 @@ router.post("/normal-change-password", function (req, res) {
           { normalEmail: req.body.normalEmail },
           { $set: { normalPassword: nPass } }
         );
-        console.log("complete :", complete);
+        // console.log("complete :", complete);
         res.redirect("/users/nlogin");
       } else {
         res.render("users/normalUsers/changepassword", {
@@ -310,7 +308,7 @@ router.post("/nforgetpassword", async (req, res) => {
           });
         } else {
           const nanoid = rtn.token;
-          console.log("ID:", rtn.token);
+          // console.log("ID:", rtn.token);
           sendResetPasswordMail(rtn.normalName, rtn.normalEmail, nanoid);
           res.render("users/normalUsers/nUserforgotPassword", {
             message: "သင့်အီးမေးလ်ကို မေးလ်ပို့တားပါသည်။ကျေးဇူးပြု၍စစ်ပေးပါ။",
@@ -396,7 +394,7 @@ router.post("/agentSignup", function (req, res) {
     });
 
     const agentUser = user.save();
-    console.log("NewUser :", agentUser);
+    // console.log("NewUser :", agentUser);
 
     if (agentUser) {
       agentSendVerifyMail(req.body.agentName, req.body.agentEmail, user._id);
@@ -478,12 +476,6 @@ router.get("/agent-verify", agentVerifyMail, function (req, res) {
 
 // agent index
 router.get("/agentpage", agentAuth, function (req, res) {
-  // Agent.findById(req.params.id)
-  //   .populate("author", "agentName agentPhone")
-  //   .exec(function (err, rtn) {
-  //     if (err) throw err;
-  //     res.render("users/normalUsers/post-detail", { blog: rtn });
-  //   });
   Agent.findOne({ id: req.session.agent.id }, function (err, rtn) {
     if (err) throw err;
     res.render("users/agentUsers/agentindex", { ausers: rtn });
@@ -497,7 +489,7 @@ const agentSendResetPasswordMail = async (
   agentEmail,
   agenttoken
 ) => {
-  console.log("email", agentEmail);
+  // console.log("email", agentEmail);
   try {
     const transporter = nodemailer.createTransport({
       // smtpTransport('smtps://contact%40example.com:mypassword@smtp.example.com'),
@@ -554,7 +546,7 @@ router.post("/aforgetpassword", async (req, res) => {
           });
         } else {
           const nanoid = rtn.agenttoken;
-          console.log("ID:", rtn.agenttoken);
+          // console.log("ID:", rtn.agenttoken);
           agentSendResetPasswordMail(rtn.agentName, rtn.agentEmail, nanoid);
           res.render("users/agentUsers/forget-password", {
             message: "သင့်အီးမေးလ်ကို မေးလ်ပို့တားပါသည်။ကျေးဇူးပြု၍စစ်ပေးပါ။",
@@ -597,7 +589,7 @@ router.post("/agent-change-password", function (req, res) {
           { agentEmail: req.body.agentEmail },
           { $set: { agentPassword: anPass } }
         );
-        console.log("complete :", acomplete);
+        // console.log("complete :", acomplete);
         res.redirect("/users/agentLogin");
       } else {
         res.render("users/agentUsers/changePassword", {
@@ -678,10 +670,13 @@ router.post(
 
 // for post list
 router.get("/apostlist", agentAuth, function (req, res) {
+  console.log("show me delete:", req.body.id);
   Post.find({ author: req.session.agent.id }, function (err, rtn) {
     if (err) throw err;
 
-    res.render("users/agentUsers/agent-post-list", { posts: rtn });
+    res.render("users/agentUsers/agent-post-list", {
+      posts: rtn,
+    });
   });
 });
 
@@ -718,7 +713,7 @@ router.post(
     if (req.file) update.image = "/images/testimonials/" + req.file.filename;
     Post.findByIdAndUpdate(req.body.id, { $set: update }, function (err, rtn) {
       if (err) throw err;
-      console.log(rtn);
+      // console.log(rtn);
       res.redirect("/users/apostlist");
     });
   }
@@ -742,7 +737,7 @@ router.post(
       { $set: update },
       function (err, rtn) {
         if (err) throw err;
-        console.log(rtn);
+        // console.log(rtn);
         res.redirect("/users/apostlist");
       }
     );
@@ -753,7 +748,6 @@ router.post(
 router.get("/apostdelete/:id", agentAuth, function (req, res) {
   Post.findByIdAndDelete(req.params.id, function (err, rtn) {
     if (err) throw err;
-    console.log("post delete:", rtn);
     fs.unlink("public" + rtn.image, function (err2, rtn2) {
       if (err2) throw err;
       res.redirect("/users/apostlist");
