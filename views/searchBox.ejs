@@ -22,7 +22,6 @@
     <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
   </head>
   <style>
-    
     .im11 {
       max-width: 100%;
       height: 400px;
@@ -38,9 +37,8 @@
       padding-bottom: 30px;
     }
     #post_box {
-  background-color: rgb(145, 208, 239);
-}
-    
+      background-color: rgb(145, 208, 239);
+    }
   </style>
   <body style="background-color: #adadf5">
     <!-- Preloader -->
@@ -61,10 +59,10 @@
         placeholder="What you looking for?"
       />
     </div>
-    
+
     <span class="counter pull-right center-box"></span>
     <div class="center-box">
-      <div class="container" >
+      <div class="container">
         <div class="row">
           <div class="col-lg-2">
             <div id="projects" class="filter">
@@ -108,28 +106,28 @@
             </div>
           </div>
 
-      
           <div class="col-lg-10" style="justify-content: center">
             <div class="grid">
               <% for (var i = 0 ; i < posts.length ; i ++){%>
 
-              <div class="element-item design marketing" id="post-box" >
-                <a class="popup-with-move-anim" 
+              <div class="element-item design marketing" id="post-box">
+                <a class="popup-with-move-anim"
                   ><div class="element-item-overlay" id="post-text">
                     <span><%= posts[i].title%></span>
                   </div>
-                  <a href="/postdetail/<%= posts[i]._id %> " 
+                  <a
+                    href="/postdetail/<%= posts[i]._id %> "
                     class="portfolio-details-lightbox"
                     data-glightbox="type: external"
-
-                    
-                    >
-                    <img class="blog123"
-                  style="width: 215px; height: 130px;" 
-                   src="<%= posts[i].image %>" alt="Bagan"
-                />
+                  >
+                    <img
+                      class="blog123"
+                      style="width: 215px; height: 130px"
+                      src="<%= posts[i].image %>"
+                      alt="Bagan"
+                    />
                   </a>
-                  </a>
+                </a>
               </div>
               <%}%>
               <!-- <div
@@ -156,14 +154,12 @@
                 </a>
                 <%}%>
               </div> -->
-             
             </div>
           </div>
-         
         </div>
       </div>
     </div>
-         
+
     <% include ./partials/footer %>
   </body>
 
@@ -174,7 +170,7 @@
   <!-- Popper tooltip library for Bootstrap -->
   <script src="/javascripts/bootstrap.min.js"></script>
   <!-- Bootstrap framework -->
-  <script src="/javascripts/jquery.easing.min.js"></script>
+  <!-- <script src="/javascripts/jquery.easing.min.js"></script> -->
   <!-- jQuery Easing for smooth scrolling between anchors -->
   <script src="/javascripts/swiper.min.js"></script>
   <!-- Swiper for image and text sliders -->
