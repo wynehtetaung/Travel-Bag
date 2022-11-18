@@ -133,7 +133,8 @@
               <% for (var k = 0 ; k < posts.length; k ++) {%>
               <div
                 class="search-data element-item <%= (posts[k].type.includes('1'))? 'typeone':'' %> <%= (posts[k].type.includes('2'))? 'typetwo':'' %> <%= (posts[k].type.includes('3'))? 'typethree':'' %> <%= (posts[k].type.includes('4'))? 'typefour':'' %> <%= (posts[k].type.includes('5'))? 'typefive':'' %>"
-                id="post-box"
+                id="<%= posts[k]._id %>"
+                data-value="<%= posts[k]._id %>"
               >
                 <a class="popup-with-move-anim"
                   ><div class="element-item-overlay" id="post-text">
@@ -199,7 +200,6 @@
         </div>
       </div>
     </div>
-
     <% include ./partials/footer %>
   </body>
 
@@ -244,19 +244,33 @@
       });
       var filterVal = "";
       $(".btn-filter").click(function (e) {
-        console.log($(this).val());
         filterVal = $(this).val() == "" ? "" : "." + $(this).val();
         $(".btn-filter").prop("checked", false);
         $(e.target).prop("checked", true);
       });
       $(".search").keyup(function () {
         var value = $(this).val().toLowerCase();
-        console.log(value);
+        var searchSplit = value.replace(/ /g, "'):containsi('");
+        let hiddenClass = filterVal == "" ? ".element-item" : filterVal;
+        // console.log($(hiddenClass));
+        $(hiddenClass).each((e) => {
+          if (
+            $(hiddenClass)[
+              e
+            ].children[0].children[0].children[0].innerHTML.includes(
+              searchSplit
+            )
+          ) {
+            $(hiddenClass)[e].style.display = "";
+          } else {
+            // $(hiddenClass)[e];
+            $(hiddenClass)[e].style.display = "none";
+          }
+        });
         var data = Array.from(
           $(filterVal + " .title").get(),
           (e) => e.innerHTML
         );
-        console.log(data);
       });
     });
   </script>
