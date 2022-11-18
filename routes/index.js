@@ -164,7 +164,10 @@ router.get("/adminAdetail/:id", adminAuth, function (req, res) {
 router.get("/adminpostupdate/:id", adminAuth, function (req, res) {
   Post.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.render("admin/admin-post-update", { posts: rtn });
+    Agent.find({ author: rtn.id }, function (err2, rtn2) {
+      if (err2) throw err;
+      res.render("admin/admin-post-update", { posts: rtn, agent: rtn2 });
+    });
   });
 });
 

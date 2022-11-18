@@ -694,7 +694,14 @@ router.get("/adetail/:id", agentAuth, function (req, res) {
 router.get("/apostupdate/:id", agentAuth, function (req, res) {
   Post.findById(req.params.id, function (err, rtn) {
     if (err) throw err;
-    res.render("users/agentUsers/agent-post-update", { posts: rtn });
+    Agent.find({ author: rtn.id }, function (err2, rtn2) {
+      res.render("users/agentUsers/agent-post-update", {
+        posts: rtn,
+        agent: rtn2,
+      });
+      console.log(rtn);
+      console.log(rtn2);
+    });
   });
 });
 
