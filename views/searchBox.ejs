@@ -132,7 +132,7 @@
             <div class="grid">
               <% for (var k = 0 ; k < posts.length; k ++) {%>
               <div
-                class="search-data element-item <%= (posts[k].type.includes('1'))? 'typeone':'' %> <%= (posts[k].type.includes('2'))? 'typetwo':'' %> <%= (posts[k].type.includes('3'))? 'typethree':'' %> <%= (posts[k].type.includes('4'))? 'typefour':'' %> <%= (posts[k].type.includes('5'))? 'typefive':'' %>"
+                class="search-data m-2 element-item <%= (posts[k].type.includes('1'))? 'typeone':'' %> <%= (posts[k].type.includes('2'))? 'typetwo':'' %> <%= (posts[k].type.includes('3'))? 'typethree':'' %> <%= (posts[k].type.includes('4'))? 'typefour':'' %> <%= (posts[k].type.includes('5'))? 'typefive':'' %>"
                 id="<%= posts[k]._id %>"
                 data-value="<%= posts[k]._id %>"
               >
