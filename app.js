@@ -17,9 +17,15 @@ app.set("view engine", "ejs");
 
 // mongoose connect
 
-mongoose.connect("mongodb://127.0.0.1/travelbag");
+mongoose.connect(
+  "mongodb+srv://travelbag:travel123bag@travelbag.0x71uaf.mongodb.net/?retryWrites=true&w=majority"
+);
 var db = mongoose.connection;
 db.on("error", console.error.bind("MongoDB connection error at travelbag"));
+
+// mongoose.connect("mongodb://127.0.0.1/travelbag");
+// var db = mongoose.connection;
+// db.on("error", console.error.bind("MongoDB connection error at travelbag"));
 
 app.use(logger("dev"));
 app.use(express.json());
