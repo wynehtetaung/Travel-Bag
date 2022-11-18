@@ -255,11 +255,11 @@
         // console.log($(hiddenClass));
         $(hiddenClass).each((e) => {
           if (
-            $(hiddenClass)[
-              e
-            ].children[0].children[0].children[0].innerHTML.includes(
-              searchSplit
-            )
+            $(hiddenClass)
+              [
+                e
+              ].children[0].children[0].children[0].innerHTML.toLocaleLowerCase()
+              .includes(searchSplit.toLocaleLowerCase())
           ) {
             $(hiddenClass)[e].style.display = "";
           } else {
