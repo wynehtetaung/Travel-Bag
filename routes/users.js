@@ -670,7 +670,6 @@ router.post(
 
 // for post list
 router.get("/apostlist", agentAuth, function (req, res) {
-  console.log("show me delete:", req.body.id);
   Post.find({ author: req.session.agent.id }, function (err, rtn) {
     if (err) throw err;
 
