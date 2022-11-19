@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>  
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +36,7 @@
 
     <link rel="stylesheet" href="/stylesheets/styleadmin.css" />
     <style>
-        .update3 {
+      .update3 {
         cursor: pointer;
         border: 0;
         color: #fff;
@@ -52,7 +52,7 @@
       }
       .update3:hover {
         background-color: #2c7744;
-      } 
+      }
     </style>
   </head>
 
@@ -109,7 +109,7 @@
               >
             </li>
             <li>
-              <a href="/users/logout" class="nav-link scrollto  "
+              <a href="/users/logout" class="nav-link scrollto"
                 ><i class="fi fi-rr-exit"></i> <span>Logout</span></a
               >
             </li>
@@ -121,97 +121,102 @@
     <!-- End Header -->
 
     <main id="main">
-        <section id="contact" class="contact">
-            <div class="container" data-aos="fade-up">
-              <div class="section-title">
-                <h2>Post Update Page</h2>
-              </div>
-      
-              <div class="row mt-1">
-                <div class="col-lg-4">
-                  
-                  <img src="/images/images/undraw_upgrade_re_gano.svg" width="300px" height="300px" alt="" />
-                </div>
-      
-                <div class="col-lg-8 mt-5 mt-lg-0">
-                  <form
-                    action="/adminpostupdate" 
-                    method="post"
-                    role="form"
-                    enctype="multipart/form-data"
-                  >
-                    <div class="row">
-                      <div class="col-md-6 form-group">
-                        <input type="hidden" name="id" value="<%= posts._id %>" />
-      
-                        <input
-                          type="text"
-                          name="title"
-                          class="form-control"
-                          id="title"
-                          placeholder="ခေါင်းစဉ်"
-                          value="<%= posts.title%>"
-                          required
-                        />
-                      </div>
-      
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="place"
-                          id="place"
-                          placeholder="နေရာအမည်"
-                          value="<%= posts.place %>"
-                          required
-                        />
-                      </div>
-                    </div>
-      
-                    <div class="row"> 
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <input
-                          type="file"
-                          class="form-control"
-                          name="image"
-                          id="image"
-                          accept="image/*"
-                          value=""
-                          />
-                      </div>
-                      <div class="col-md-6 form-group">
-                        <input
-                          type="text"
-                          name="phone"
-                          class="form-control"
-                          id="phone"
-                          placeholder="Phone no"
-                          value="<%= posts.phone %>"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group ">
-                      <textarea
-                        type="text"
-                        class="form-control"
-                        name="content"
-                        id="content"
-                        rows="5"
-                        placeholder="အချက်အလက်ရေးရန်"
-                        
-                        required
-                      ><%= posts.content %></textarea>
-                    </div>
-                   
-                    <div >
-                      <input type="submit" value="ပို့စ်တင်မည်" class="update3" />
-                    </div>
-                  </form>
-                </div>
-              </div>
+      <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Post Update Page</h2>
+          </div>
+
+          <div class="row mt-1">
+            <div class="col-lg-4">
+              <img
+                src="/images/images/undraw_upgrade_re_gano.svg"
+                width="300px"
+                height="300px"
+                alt=""
+              />
             </div>
-          </section>
+
+            <div class="col-lg-8 mt-5 mt-lg-0">
+              <form
+                action="/adminpostupdate"
+                method="post"
+                role="form"
+                enctype="multipart/form-data"
+              >
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="hidden" name="id" value="<%= posts._id %>" />
+
+                    <input
+                      type="text"
+                      name="title"
+                      class="form-control"
+                      id="title"
+                      placeholder="ခေါင်းစဉ်"
+                      value="<%= posts.title%>"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="place"
+                      id="place"
+                      placeholder="နေရာအမည်"
+                      value="<%= posts.place %>"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input
+                      type="file"
+                      class="form-control"
+                      name="image"
+                      id="image"
+                      accept="image/*"
+                      value=""
+                    />
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input
+                      type="text"
+                      name="phone"
+                      class="form-control"
+                      id="phone"
+                      placeholder="Phone no"
+                      value="<%= agent[0].agentPhone %>"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    name="content"
+                    id="content"
+                    rows="5"
+                    placeholder="အချက်အလက်ရေးရန်"
+                    required
+                  >
+<%= posts.content %></textarea
+                  >
+                </div>
+
+                <div>
+                  <input type="submit" value="ပို့စ်တင်မည်" class="update3" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- no footer here -->
@@ -231,6 +236,5 @@
 
     <!-- Template Main JS File -->
     <script src="/javascripts/mainadmin.js"></script>
-    
   </body>
 </html>
