@@ -314,7 +314,13 @@ router.get("/postdetail/:id", userAuth, function (req, res) {
     .populate("author", "agentName")
     .exec(function (err, rtn) {
       if (err) throw err;
-      res.render("post-detail-search", { posts: rtn });
+      Agent.findById(rtn.author.id , function(err2 , rtn2){
+        if(err2) throw err;
+        console.log(rtn2);
+      res.render("post-detail-search", { posts: rtn, agent:rtn2 });
+
+      })
+      console.log(rtn);
     });
 });
 
