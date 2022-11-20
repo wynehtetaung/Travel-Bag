@@ -476,7 +476,7 @@ router.get("/agent-verify", agentVerifyMail, function (req, res) {
 
 // agent index
 router.get("/agentpage", agentAuth, function (req, res) {
-  Agent.findOne({ id: req.session.agent.id }, function (err, rtn) {
+  Agent.findOne({ agentEmail: req.session.agent.agentEmail }, function (err, rtn) {
     if (err) throw err;
     res.render("users/agentUsers/agentindex", { ausers: rtn });
   });
@@ -670,7 +670,6 @@ router.post(
 
 // for post list
 router.get("/apostlist", agentAuth, function (req, res) {
-  console.log("show me delete:", req.body.id);
   Post.find({ author: req.session.agent.id }, function (err, rtn) {
     if (err) throw err;
 
