@@ -156,7 +156,10 @@ router.get("/adminAdetail/:id", adminAuth, function (req, res) {
     .populate("author", "agentName")
     .exec(function (err, rtn) {
       if (err) throw err;
-      res.render("admin/admin-agent-post-detail", { blog: rtn });
+      Agent.findById(rtn.author.id, function (err2, rtn2) {
+        if (err2) throw err;
+        res.render("admin/admin-agent-post-detail", { blog: rtn, agent: rtn2 });
+      });
     });
 });
 
